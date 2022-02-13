@@ -472,6 +472,7 @@
             saveInput();
         }
 
+        //Replaces text input field values with an empty string
         function clearTextInput(array) {
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
@@ -480,6 +481,7 @@
             }
         }
 
+        //Replaces number input field values with 0
         function clearNumInput(array) {
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
@@ -488,6 +490,7 @@
             }
         }
 
+        //Turns checkboxes to unchecked
         function clearCheckInput(array) {
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
@@ -496,6 +499,7 @@
             }
         }
 
+        //Turns the attribute number input values to 1
         function clearAttriInput(array) {
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
@@ -504,6 +508,7 @@
             }
         }
 
+        //Sets the item attribute select fields to 'All'
         function clearItemSelect() {
             for (let i = 0; i < itemSelectArray.length; i++) {
                 let selectId = itemSelectArray[i];
@@ -512,6 +517,7 @@
             }
         }
 
+        //Sets the skill select fields to 'None'
         function clearSkillSelect() {
             for (let i = 0; i < skillSelectArray.length; i++) {
                 let selectId = skillSelectArray[i];
@@ -520,6 +526,7 @@
             }
         }
 
+        //Sets the Ultimate select fields to 'None'
         function clearUltSelect() {
             for (let i = 0; i < ultSelectArray.length; i++) {
                 let selectId = ultSelectArray[i];
@@ -528,6 +535,7 @@
             }
         }
 
+        //Sets the workout select fields to 'Cardio'
         function clearWorkoutSelect() {
             for (let i = 0; i < workoutSelectArray.length; i++) {
                 let selectId = workoutSelectArray[i];
@@ -536,6 +544,8 @@
             }
         }
 
+        //Checks if the Custom Skill text inputs are blank
+        //If not, inserts options for the Item attribute and flip select fields
         function addCustomOptions() {
             let customBox1 = document.getElementById("custom1_input");
             let customBox2 = document.getElementById("custom2_input");
@@ -625,6 +635,7 @@
             }
         }
 
+        //Updates and displays new calculated values for stats
         function calculateStats() {
             renderHero();
             calculateHealth();
@@ -646,6 +657,7 @@
             driveButton();
         }
 
+        //Renders sections of the Hero Points Bar
         function renderHero() {
             let heroSpace = document.getElementById("hero_space");
             heroSpace.innerHTML = ``;
@@ -662,6 +674,8 @@
 
         }
 
+        //Calculates the Max Health, Injured Health and Unconscious Health based on the Brawn input field
+        //If the 'I FEEL FINE' Ultimate is selected, Unconscious Health is set to 0
         function calculateHealth() {
             let brawnValue = document.getElementById("brawn_input").value;
             healthMax = Number(brawnValue) * 3;
@@ -677,11 +691,13 @@
             document.getElementById("health_max").innerText = healthMax;
         }
 
+        //Function to update Health Values when Brawn input is changed
         function updateHealth() {
             document.getElementById("health_input").value = healthMax;
             saveInput();
         }
 
+        //Renders sections of the health bar and displayes current health status
         function renderHealth() {
             let healthSpace = document.getElementById("health_space");
             healthSpace.innerHTML = ``;
@@ -718,6 +734,9 @@
             }
         }
 
+        //Calculates and displays Initiative based on Agility and Presence input
+        //Adds +1 if Pack Hunter Ultimate is selected
+        //Adds +2 if Cardio option of Workout Ultimate is selected
         function calculateInitiative() {
             let agilityValue = document.getElementById("agility_input").value;
             let presenceValue = document.getElementById("presence_input").value;
@@ -735,6 +754,8 @@
             document.getElementById("initiative_value").innerText = initiativeValue;
         }
 
+        //Calculates max Dodge value based on Agility and Wit input
+        //Adds +2 if Hot Yoga option of Workout Ultimate is selected
         function calculateDodge() {
             let agilityValue = document.getElementById("agility_input").value;
             let witValue = document.getElementById("wit_input").value;
@@ -753,11 +774,13 @@
             document.getElementById("dodge_max").innerText = dodgeMax;
         }
 
+        //Function to update Dodge when Agility or Wit input is changed
         function updateDodge() {
             document.getElementById("dodge_input").value = dodgeMax;
             saveInput();
         }
 
+        //Renders sections of the Dodge bar
         function renderDodge() {
             let dodgeSpace = document.getElementById("dodge_space");
             dodgeSpace.innerHTML = ``;
@@ -778,6 +801,8 @@
 
         }
 
+        //Calculates max Drive value based on Wit and Presence input
+        //Adds +2 if Sympatico Ultimate is selected
         function calculateDrive() {
             let witValue = document.getElementById("wit_input").value;
             let presenceValue = document.getElementById("presence_input").value;
@@ -792,11 +817,13 @@
             document.getElementById("drive_max").innerText = driveMax;
         }
 
+        //Function to update Drive when Wit or Presence input is changed
         function updateDrive() {
             document.getElementById("drive_input").value = driveMax;
             saveInput();
         }
 
+        //Renders sections of the Dodge bar
         function renderDrive() {
             let driveSpace = document.getElementById("drive_space");
             driveSpace.innerHTML = ``;
@@ -812,6 +839,8 @@
             }
         }
 
+        //Calculates and displays Crit based on Charm input
+        //Adds +2 if Otherworldly Ultimate is selected
         function calculateCrit() {
             let charmValue = document.getElementById("charm_input").value;
 
@@ -824,6 +853,8 @@
             document.getElementById("crit_value").innerText = critValue;
         }
 
+        //Calculates and displays how many points have been spent on attributes
+        //Gives an error when too many points have been spent
         function calculateAttri() {
             let attriSpace = document.getElementById("attri_count_space");
             attriSpace.innerHTML = ``;
@@ -845,6 +876,8 @@
             }
         }
 
+        //Calculates and displays how many practices can be selected based on Intelligence input
+        //Gives an error when too many practices have been selected
         function calculatePractice() {
             let practiceSpace = document.getElementById("practice_space");
             practiceSpace.innerHTML = ``;
@@ -879,6 +912,9 @@
             }
         }
 
+        //Calculates and displays how many Masteries can be selected
+        //Accounts for +1 Mastery when Knack Ultimate is selected
+        //Gives an error when too many Masteries have been selected
         function calculateMastery() {
             let masterySpace = document.getElementById("mastery_space");
             masterySpace.innerHTML = ``;
@@ -909,6 +945,7 @@
             }
         }
 
+        //Displays the Workout select field when the Workout Ultimate is selected
         function showWorkout() {
             if (document.getElementById("ult1_select").value === "workout") {
                 document.getElementById("ult1_workout_space").style.display = "block";
@@ -925,6 +962,7 @@
             }
         }
 
+        //Displays the Prerequisite for each Ultimate when it's selected
         function renderPrereq() {
             let ult1Value = document.getElementById("ult1_select");
             let prereqSpace1 = document.getElementById("ult1_prereq_space");
@@ -1471,6 +1509,7 @@
             }
         }
 
+        //Displays the Description for each Ultimate when it's selected
         function renderDesc() {
             let ult1Value = document.getElementById("ult1_select");
             let descSpace1 = document.getElementById("ult1_desc_space");
@@ -1688,6 +1727,7 @@
             }
         }
 
+        //Adds the associated button to the Card Controls section when an Ultimate is selected
         function updateUltButton() {
             let buttonPre = document.getElementById("ult_button_space_pre");
             let buttonPost = document.getElementById("ult_button_space_post");
@@ -1745,6 +1785,7 @@
             }
         }
 
+        //Sets an item's checkbox to enabled when text is entered into the name input
         function itemEnable(item) {
             itemName = item + "_name_input"
             itemBox = item + "_enabled_input";
@@ -1758,6 +1799,7 @@
             saveInput();
         }
 
+        //Changes the label text and class between Enabled and Disabled depending on the status of the checkbox
         function updateItemLabels() {
             if (document.getElementById("item1_enabled_input").checked === true) {
                 document.getElementById("item1_enabled_label").className = "label_enabled";
@@ -1801,6 +1843,7 @@
             }
         }
 
+        //Edits the text for the Spend Drive button when a piloting flip is made and the Floor It ultimate is enabled
         function driveButton() {
             let button = document.getElementById("drive_button");
             if ((document.getElementById("flip1_select").value === "piloting" || document.getElementById("flip2_select").value === "piloting") && (document.getElementById("ult1_select").value === "floorit" || document.getElementById("floorit").value === "piloting")) {
@@ -1813,14 +1856,17 @@
 
         //Cards
 
+        //Defined constants for suits and card values
         const suits = ["spades", "diamonds", "clubs", "hearts"];
         const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",];
         const emptyHand = [];
 
+        //Defined variables for the 3 diffrent card groups
         let mainDeck = getDeck();
         let handDeck = [];
         let discardDeck = [];
 
+        //Defined variables for card score calculation
         let totalCards = 0;
         let lastHand = 0;
 
@@ -1828,6 +1874,7 @@
         let jokeCount = 0;
         let critCount = 0;
 
+        //Defined variables for actions that can only be taken once per flip
         let heroCheck = false;
         let explosionsCheck = false;
 
@@ -1838,7 +1885,8 @@
         let speeddemonCheck = false;
         let sweetreleaseCheck = false;
 
-
+        //Generates deck by cycling through values and suits, attributing every combination to a new object in an array
+        //Adds two Joker cards
         function getDeck() {
             let deck = new Array();
 
@@ -1855,6 +1903,7 @@
             return deck;
         }
 
+        //Generates and shuffles main deck, empties hand and discard pile
         function freshDeck() {
 
             endFlip();
@@ -1871,6 +1920,7 @@
             console.log(mainDeck);
         }
 
+        //Generates new deck but doesn't render just yet, so card data can be saved to Local Storage
         function onLoadDeck() {
             mainDeck = getDeck();
             handDeck = []
@@ -1881,6 +1931,7 @@
             console.log(mainDeck);
         }
 
+        //Swaps two randomly picked cards in the deck 1000 times
         function shuffle(deck) {
             for (let i = 0; i < 1000; i++) {
                 let location1 = Math.floor((Math.random() * deck.length));
@@ -1893,6 +1944,8 @@
             //renderDecks();
         }
 
+        //Displays the cards as text in the deck area, table area and discard area
+        //For hand and discard cards, attributes an onclick function for withdrawing and discarding individual cards
         function renderDecks(){
             deckSpace.innerHTML = ""
 
@@ -1961,23 +2014,36 @@
             saveDecks();
         }
 
+        //Extracts the value and suit from variable name and identifies card
+        //Cycles through hand until card matches ID
+        //Moves card to discard pile
         function discardCard(card) {
-           let value = card.slice(0,1)
-           let suit = card.slice(1,card.length);
-           for (i = 0; i < handDeck.length; i++) {
-               let currentCard = handDeck[i];
-               console.log(currentCard.Value);
-               console.log(currentCard.Suit);
-               if(currentCard.Value === value && currentCard.Suit === suit) {
-                    discardDeck.push(currentCard);
-                    handDeck.splice(i,1);
-               }
-           }
-           let valueName
-           let suitName
-           if (value === "Joker" && suit === "black") {
-                    report.innerHTML += `<span class="report_general">Discarded the </span><span class="black_card">Black Joker</span><br>`;
+            let value;
+            let suit;
+            if (card.slice(0,5) === "Joker") {
+                value = "Joker";
+                suit = card.slice(5,card.length);
+            }
+            else {
+                value = card.slice(0,1)
+                suit = card.slice(1,card.length);
+            }
+            
+            
+            for (i = 0; i < handDeck.length; i++) {
+                let currentCard = handDeck[i];
+                console.log(currentCard.Value);
+                console.log(currentCard.Suit);
+                if(currentCard.Value === value && currentCard.Suit === suit) {
+                        discardDeck.push(currentCard);
+                        handDeck.splice(i,1);
                 }
+            }
+            let valueName
+            let suitName
+            if (value === "Joker" && suit === "black") {
+                        report.innerHTML += `<span class="report_general">Discarded the </span><span class="black_card">Black Joker</span><br>`;
+                    }
             else if (value === "Joker" && suit === "red") {
                 report.innerHTML += `<span class="report_general">Discarded the </span><span class="red_card">Red Joker</span><br>`;
             }
@@ -2023,28 +2089,35 @@
 
         }
 
+        //Extracts the value and suit from variable name and identifies card
+        //Cycles through discard pile until card matches ID
+        //Moves card to hand
         function retriveCard(card) {
-           console.log(card);
-           console.log(typeof card);
-           let value = card.slice(0,1)
-           console.log(value);
-           let suit = card.slice(1,card.length);
-           console.log(suit);
-           console.log(discardDeck.length);
-           for (i = 0; i < discardDeck.length; i++) {
-               let currentCard = discardDeck[i];
-               console.log(currentCard.Value);
-               console.log(currentCard.Suit);
-               if(currentCard.Value === value && currentCard.Suit === suit) {
-                    handDeck.push(currentCard);
-                    discardDeck.splice(i,1);
-               }
-           }
-           let valueName
-           let suitName
-           if (value === "Joker" && suit === "black") {
-                    report.innerHTML += `<span class="report_general">Withdrew the </span><span class="black_card">Black Joker</span><span class="report_general"> from the discard pile</span><br>`;
+            let value;
+            let suit;
+            if (card.slice(0,5) === "Joker") {
+                value = "Joker";
+                suit = card.slice(5,card.length);
+            }
+            else {
+                value = card.slice(0,1)
+                suit = card.slice(1,card.length);
+            }
+
+            for (i = 0; i < discardDeck.length; i++) {
+                let currentCard = discardDeck[i];
+                console.log(currentCard.Value);
+                console.log(currentCard.Suit);
+                if(currentCard.Value === value && currentCard.Suit === suit) {
+                        handDeck.push(currentCard);
+                        discardDeck.splice(i,1);
                 }
+            }
+            let valueName
+            let suitName
+            if (value === "Joker" && suit === "black") {
+                        report.innerHTML += `<span class="report_general">Withdrew the </span><span class="black_card">Black Joker</span><span class="report_general"> from the discard pile</span><br>`;
+                    }
             else if (value === "Joker" && suit === "red") {
                 report.innerHTML += `<span class="report_general">Withdrew the </span><span class="red_card">Red Joker</span><span class="report_general"> from the discard pile</span><br>`;
             }
@@ -2090,6 +2163,7 @@
 
         }
 
+        //Stringifies arrays of decks and saves them to Local Storage
         function saveDecks() {
             localStorage.setItem("mainDeck", JSON.stringify(mainDeck));
             localStorage.setItem("handDeck", JSON.stringify(handDeck));
@@ -2103,6 +2177,7 @@
             console.log(JSON.parse(localStorage.getItem("discardDeck")));
         }
 
+        //Loads saved decks from Local Storage and un-stringifies them
         function loadDecks() {
             let deck = JSON.parse(localStorage.getItem("mainDeck"));
             let hand = JSON.parse(localStorage.getItem("handDeck"));
@@ -2133,6 +2208,7 @@
             }
         }
 
+        //Toggles between deck area being hidden and visible
         function toggleDeckView() {
             if (deckSpace.style.display == "block") {
                 deckSpace.style.display = "none";
@@ -2144,6 +2220,7 @@
             }
         }
 
+        //Toggles between discard area being hidden and visible
         function toggleDiscardView() {
             if (discardSpace.style.display == "block") {
                 discardSpace.style.display = "none";
@@ -2155,6 +2232,7 @@
             }
         }
 
+        //Shows Manual value input when Manual selection is active
         function showManual() {
             if (document.getElementById("flip1_select").value === "manual") {
                 document.getElementById("flip1_value_input").hidden = false;
@@ -2171,6 +2249,10 @@
             }
         }
 
+        //Resets card counting values and ability checkers to 0
+        //Checks which flip selections are active and finds the neccessary input value to add to card counter
+        //For each one, checks if any of the items match the flip attribute and are active, adding to the card count if so
+        //Worst bit of code in this whole thing, should probably shorten it at some point
         function flipCards() {
 
             
@@ -9007,6 +9089,8 @@
             }
         }
 
+        //Takes a number and draws that many cards from the main deck into the hand
+        //If there is an insufficient number of cards in the deck, the cards are drawn, the discard pile is shuffled into a new deck and the remaining cards are drawn
         function drawCards(x) {
             if (x > 54) {
                 report.innerHTML += `<span class="report_error">There aren't that many cards in the entire deck! That must be some flip...</span><br>`;
@@ -9048,6 +9132,7 @@
             renderDecks();
         }
 
+        //Draws a single card and reports its value
         function flipSingleCard() {
             let discardCards = discardDeck.length;
             if ((mainDeck.length + discardDeck.length) < 1) {
@@ -9121,6 +9206,7 @@
             displayScore();
         }
 
+        //Moves all cards in the hand array into the discard pile
         function discardHand() {
             let hand
             if (explosionsCheck === true) {
@@ -9167,6 +9253,7 @@
             }
         }
 
+        //Goes through current hand and reports if any cards are a crit, or Desperado card if that Ulitmate is selected
         function reportHand() {
 
             let currentHand = handDeck.length;
@@ -9185,6 +9272,7 @@
             }
         }
 
+        //Counts the number of successes and Jokers currently on the table
         function calculateScore() {
 
             succCount = 0;
@@ -9222,6 +9310,7 @@
             }
         }
 
+        //Displays the current number of Successes and Jokers in the hand
         function displayScore() {
             scoreSpace.innerHTML = ``;
             if (handDeck.length < 1) {
@@ -9247,6 +9336,8 @@
             }
         }
 
+        //Draws a single card from the main deck and reports the new score
+        //Takes 1 away from the Drive input
         function spendDrive() {
             
             if ((mainDeck.length + discardDeck.length) < 1) {
@@ -9281,6 +9372,9 @@
             }
         }
 
+        //Draws 2 cards from the main deck and reports the new score
+        //Takes 1 away from the Hero Point input
+        //Will only do this once per flip
         function spendHero() {
 
             if ((mainDeck.length + discardDeck.length) < 2) {
@@ -9313,6 +9407,8 @@
             }
         }
 
+        //Sets all score counters to 0 and ability checks to false
+        //Clears report area
         function endFlip() {
             document.getElementById("post_flip_controls").style.display = "none";
 
@@ -9333,6 +9429,7 @@
             lastHand = 0;
         }
 
+        //Moves all cards in the hand array into the main deck and shuffles it
         function reshuffleHand() {
             let hand = handDeck.length;
             for (i = 0; i < hand; i++) {
@@ -9965,10 +10062,15 @@
         h4 {
             text-align: right;
         }
+        .ult_desc_container {
+            display: flex;
+        }
         .ult_desc {
             text-align: left;
             word-wrap: break-word;
-            float: right;
+            height: auto;
+            min-height: 80px;
+            flex:auto;
         }
         .row{
             display: block;
@@ -9981,6 +10083,12 @@
         }
         .column_stats {
             padding: 0 0;
+        }
+        .item_label {
+            display: none;
+        }
+        .item_name {
+            width: 100px;
         }
         }
     </style>
@@ -10132,6 +10240,7 @@
                     <option id="flip2_custom2" value="custom2" hidden></option>
                 </select>
                 <input class="num_input" type="number" id="flip2_value_input" name="flip2_value_input" style="width: 50px;" value="0">
+                <span style="margin: 0 10px;"></span>
                 <button type="button" onclick="flipSingleCard();">Flip Single Card</button>
                 <br>
                 <span id="ult_button_space_pre"></span>
@@ -10160,7 +10269,7 @@
             <div class="row">
                 <div class="character_sheet_float useful_items column_useful" id="useful_items">
                     <div id="item1_input" class="input">
-                        <input class="text_input" type="text" id="item1_name_input" name="item1_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item1);"> (+
+                        <input class="text_input item_name" type="text" id="item1_name_input" name="item1_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item1);"> (+
                         <input class="num_input" type="number" id="item1_value_input" name="item1_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item1_attri_select" id="item1_attri_select" onchange="saveInput();">
                             <option id="item1_all" value="all">All</option>
@@ -10192,10 +10301,10 @@
                             <option id="item1_custom2" value="custom2" hidden></option>
                         </select>)
                         <input class="check_input" type="checkbox" id="item1_enabled_input" name="item1_enabled_input" onchange="saveInput();">
-                        <label id ="item1_enabled_label" for="item1_enabled_input"> Disabled</label>
+                        <label id ="item1_enabled_label" for="item1_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item2_input" class="input">
-                        <input class="text_input" type="text" id="item2_name_input" name="item2_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item2);"> (+
+                        <input class="text_input item_name" type="text" id="item2_name_input" name="item2_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item2);"> (+
                         <input class="num_input" type="number" id="item2_value_input" name="item2_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item2_attri_select" id="item2_attri_select" onchange="saveInput();">
                             <option id="item2_all" value="all">All</option>
@@ -10227,10 +10336,10 @@
                             <option id="item2_custom2" value="custom2" hidden></option>
                         </select>)
                         <input class="check_input" type="checkbox" id="item2_enabled_input" name="item2_enabled_input" onchange="saveInput();">
-                        <label id ="item2_enabled_label" for="item2_enabled_input"> Disabled</label>
+                        <label id ="item2_enabled_label" for="item2_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item3_input" class="input">
-                        <input class="text_input" type="text" id="item3_name_input" name="item3_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item3);"> (+
+                        <input class="text_input item_name" type="text" id="item3_name_input" name="item3_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item3);"> (+
                         <input class="num_input" type="number" id="item3_value_input" name="item3_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item3_attri_select" id="item3_attri_select" onchange="saveInput();">
                             <option id="item3_all" value="all">All</option>
@@ -10262,10 +10371,10 @@
                             <option id="item3_custom2" value="custom2" hidden></option>
                         </select>)
                         <input class="check_input" type="checkbox" id="item3_enabled_input" name="item3_enabled_input" onchange="saveInput();">
-                        <label id ="item3_enabled_label" for="item3_enabled_input"> Disabled</label>
+                        <label id ="item3_enabled_label" for="item3_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item4_input" class="input">
-                        <input class="text_input" type="text" id="item4_name_input" name="item4_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item4);"> (+
+                        <input class="text_input item_name" type="text" id="item4_name_input" name="item4_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item4);"> (+
                         <input class="num_input" type="number" id="item4_value_input" name="item4_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item4_attri_select" id="item4_attri_select" onchange="saveInput();">
                             <option id="item4_all" value="all">All</option>
@@ -10297,10 +10406,10 @@
                             <option id="item4_custom2" value="custom2" hidden></option>
                         </select>)
                         <input class="check_input" type="checkbox" id="item4_enabled_input" name="item4_enabled_input" onchange="saveInput();">
-                        <label id ="item4_enabled_label" for="item4_enabled_input"> Disabled</label>
+                        <label id ="item4_enabled_label" for="item4_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item5_input" class="input">
-                        <input class="text_input" type="text" id="item5_name_input" name="item5_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item5);"> (+
+                        <input class="text_input item_name" type="text" id="item5_name_input" name="item5_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item5);"> (+
                         <input class="num_input" type="number" id="item5_value_input" name="item5_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item5_attri_select" id="item5_attri_select" onchange="saveInput();">
                             <option id="item5_all" value="all">All</option>
@@ -10332,7 +10441,7 @@
                             <option id="item5_custom2" value="custom2" hidden></option>
                         </select>)
                         <input class="check_input" type="checkbox" id="item5_enabled_input" name="item5_enabled_input" onchange="saveInput();">
-                        <label id ="item5_enabled_label" for="item5_enabled_input"> Disabled</label>
+                        <label id ="item5_enabled_label" for="item5_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <br>
                 </div>
@@ -10689,6 +10798,10 @@
         const scoreSpace = document.getElementById("score_space");
 
         showManual();
+
+        updateHealth();
+        updateDodge();
+        updateDrive();
 
         populateInput(textInputArray);
         populateInput(numInputArray);
