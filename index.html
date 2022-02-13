@@ -9859,7 +9859,7 @@
             color: darkorange;
         }
         .uncon_health {
-            color: crimson;
+            color:crimson;
         }
         .dead_health {
             color: #618994;
@@ -10136,7 +10136,7 @@
                     <br>
                     <div class="input">
                         <label for="health_input">Health: </label>
-                        <input class="num_input" type="number" id="health_input" name="health_input" min="0" max="3" onchange="saveInput();" style="width: 50px;" value="0"> /<span id="health_max">3</span>
+                        <input class="num_input" type="number" id="health_input" name="health_input" min="0" max="3" onchange="saveInput();" style="width: 50px;" value="3"> /<span id="health_max">3</span>
                         <div id="health_space" class="health_bar"></div>
                         <div id="health_status_space" class="health_status"></div>
                     </div>
@@ -10161,7 +10161,7 @@
                     <br>
                     <div class="input">
                         <label for="drive_input">Drive: </label>
-                        <input class="num_input" type="number" id="drive_input" name="drive_input" min="0" max="8" onchange="saveInput();" style="width: 50px;" value="0"> /<span id="drive_max">2</span>
+                        <input class="num_input" type="number" id="drive_input" name="drive_input" min="0" max="8" onchange="saveInput();" style="width: 50px;" value="2"> /<span id="drive_max">2</span>
                         <div id="drive_space" class="drive_bar"></div>
                     </div>
                 </div>
@@ -10798,10 +10798,6 @@
         const scoreSpace = document.getElementById("score_space");
 
         showManual();
-
-        updateHealth();
-        updateDodge();
-        updateDrive();
 
         populateInput(textInputArray);
         populateInput(numInputArray);
