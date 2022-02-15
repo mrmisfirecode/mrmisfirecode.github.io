@@ -212,7 +212,7 @@
 
         //Populates the input fields with data saved to Local Storage
         function populateInput(array) {
-            console.log("Populating inputs");
+            console.log("Populating inputs...");
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
                 let inputBox = document.getElementById(inputId);
@@ -225,7 +225,7 @@
 
         //Enables checkboxes that have been saved in Local Storage
         function populateCheckInput(array) {
-            console.log("Populating inputs");
+            console.log("Populating check inputs...");
             for (let i = 0; i < array.length; i++) {
                 let inputId = array[i];
                 let inputBox = document.getElementById(inputId);
@@ -238,7 +238,7 @@
 
         //Populates the select input fields with data saved to Local Storage
         function populateSelect(array) {
-            console.log("Populating selects");
+            console.log("Populating select inputs...");
             for (let i = 0; i < array.length; i++) {
                 let selectId = array[i];
                 let storedOption = localStorage.getItem(selectId);
@@ -418,6 +418,15 @@
             else if (charmInput.value > 4) {
                 charmInput.value = 4;
             }
+
+            for (i = 0; i < textInputArray.length; i++) {
+                let inputId = textInputArray[i];
+                let input = document.getElementById(inputId).value;
+                if (input.length > 40) {
+                    let trim = input.slice(0,40);
+                    document.getElementById(inputId).value = trim;
+                }
+            }
         }
 
         //Saves the inputs associated with an array to Local Storage
@@ -456,6 +465,7 @@
         //Clears all input fields and clears Local Storage data
         //Calculates and updates stats accordingly
         function clearAllInput() {
+            console.log("Clearing Inputs...");
             localStorage.clear();
             clearTextInput(textInputArray);
             clearNumInput(numInputArray);
@@ -637,6 +647,7 @@
 
         //Updates and displays new calculated values for stats
         function calculateStats() {
+            console.log("Calculating stats...");
             renderHero();
             calculateHealth();
             renderHealth();
@@ -902,7 +913,6 @@
                     practiceCounter ++;
                 }
             }
-            console.log("Counted Practices: " + practiceCounter);
 
             if (practiceCounter < (practiceMax + 1)) {
                 practiceSpace.innerHTML = `<span class="valid_practice">Practices left: ${(practiceMax - practiceCounter)}</span>`;
@@ -1516,7 +1526,6 @@
             descSpace1.innerHTML = "";
 
             if (ult1Value.value === "bearstance") {
-                console.log("Test");
                 descSpace1.innerHTML = bearstanceDesc;
             }
             else if (ult1Value.value === "beloved") {
@@ -1773,7 +1782,6 @@
                 buttonPost.innerHTML += `<button type="button" onclick="speeddemonButton();">Speed Demon: First Combat Flip Bonus</button>`;
             }
             if ((ult1 === "stitch" || ult2 === "stitch") && (document.getElementById("flip1_select").value === "biology" || document.getElementById("flip2_select").value === "biology")) {
-                console.log("Bio")
                 buttonPost.innerHTML += `<button type="button" onclick="stitchButton();">Stitch: Spend Drive (Non-Combat)</button>`;
             }
             if (ult1 === "sweetrelease" || ult2 === "sweetrelease") {
@@ -1917,7 +1925,7 @@
             document.getElementById("showdeck_button").innerText = "Show Deck";
             discardSpace.style.display = "none";
             document.getElementById("showdiscard_button").innerText = "Show Discard Pile";
-            console.log(mainDeck);
+            console.log("Generated Fresh Deck");
         }
 
         //Generates new deck but doesn't render just yet, so card data can be saved to Local Storage
@@ -1928,7 +1936,7 @@
             shuffle(mainDeck);
             deckSpace.style.display = "none";
             discardSpace.style.display = "none";
-            console.log(mainDeck);
+            console.log("Generated Fresh Deck");
         }
 
         //Swaps two randomly picked cards in the deck 1000 times
@@ -1941,6 +1949,7 @@
                 deck[location1] = deck[location2];
                 deck[location2] = tmpShuffle;
             }
+            console.log("Deck Shuffled");
             //renderDecks();
         }
 
@@ -2032,8 +2041,6 @@
             
             for (i = 0; i < handDeck.length; i++) {
                 let currentCard = handDeck[i];
-                console.log(currentCard.Value);
-                console.log(currentCard.Suit);
                 if(currentCard.Value === value && currentCard.Suit === suit) {
                         discardDeck.push(currentCard);
                         handDeck.splice(i,1);
@@ -2106,8 +2113,6 @@
 
             for (i = 0; i < discardDeck.length; i++) {
                 let currentCard = discardDeck[i];
-                console.log(currentCard.Value);
-                console.log(currentCard.Suit);
                 if(currentCard.Value === value && currentCard.Suit === suit) {
                         handDeck.push(currentCard);
                         discardDeck.splice(i,1);
@@ -2165,30 +2170,18 @@
 
         //Stringifies arrays of decks and saves them to Local Storage
         function saveDecks() {
+            console.log("Saving Decks...");
             localStorage.setItem("mainDeck", JSON.stringify(mainDeck));
             localStorage.setItem("handDeck", JSON.stringify(handDeck));
             localStorage.setItem("discardDeck", JSON.stringify(discardDeck));
-
-            console.log("Saved Deck");
-            console.log(JSON.parse(localStorage.getItem("mainDeck")));
-            console.log("Saved Hand");
-            console.log(JSON.parse(localStorage.getItem("handDeck")));
-            console.log("Saved Discard");
-            console.log(JSON.parse(localStorage.getItem("discardDeck")));
         }
 
         //Loads saved decks from Local Storage and un-stringifies them
         function loadDecks() {
+            console.log("Loading Decks...");
             let deck = JSON.parse(localStorage.getItem("mainDeck"));
             let hand = JSON.parse(localStorage.getItem("handDeck"));
             let discard = JSON.parse(localStorage.getItem("discardDeck"));
-
-            console.log("Load Deck");
-            console.log(deck);
-            console.log("Load Hand");
-            console.log(hand);
-            console.log("Load Discard");
-            console.log(discard);
             
             if (deck !== null) {
                 mainDeck = deck;
@@ -2255,7 +2248,6 @@
         //Worst bit of code in this whole thing, should probably shorten it at some point
         function flipCards() {
 
-            
             calculateStats();
 
             report.innerHTML = ``;
@@ -3436,9 +3428,6 @@
                 totalCards ++;
                 report.innerHTML += `<span class="report_ult">Evermind: +1 for being healthy on Telepathy flips</span><br>`;
             }
-            else {
-                console.log("Help");
-            }
             //Total
             if (totalCards < 1) {
                 report.innerHTML += `<span class="report_error">You don't flip any cards</span><br>`;
@@ -3474,13 +3463,11 @@
                     let card = handDeck.shift();
                     discardDeck.push(card);
                 }
-                console.log(remainingCards);
                 for (i = 0; i < remainingCards; i++) {
                     let card = mainDeck.shift();
                     handDeck.push(card);
                 }
                 let discardCards = discardDeck.length;
-                console.log(discardCards);
                 for (i = 0; i < discardCards; i++) {
                     let card = discardDeck.shift();
                     mainDeck.push(card);
@@ -3509,7 +3496,6 @@
             else {
                 if (mainDeck.length < 1) {
                     report.innerHTML += `<span class="report_error">Not enough cards left in deck! Reshuffling Discard Pile...</span><br>`;
-                    console.log(discardCards);
                     for (i = 0; i < discardCards; i++) {
                         let card = discardDeck.shift();
                         mainDeck.push(card);
@@ -3520,7 +3506,6 @@
 
                 report.innerHTML += `<span class="report_general">Flipping single card...</span><br>`;
 
-                console.log("Card is " + card.Value + " of " + card.Suit);
                 let value = card.Value;
                 let suit = card.Suit;
                 if (value === "Joker" && suit === "black") {
@@ -3582,12 +3567,8 @@
                 hand = handDeck.length;
                 let counter = 0;
                 for (i = 0; i < hand; i++) {
-                    console.log(handDeck);
-                    console.log(i);
                     let card = handDeck[i];
-                    console.log(card);
                     if (card.Value === "A" || card.Value === "J" || card.Value === "Q" || card.Value === "K" || card.Value === "Joker") {
-                        console.log("Removing");
                         counter ++;
                         mainDeck.push(card);
                         handDeck.splice(i,1);
@@ -3948,7 +3929,6 @@
             else {
                 if (mainDeck.length < 1) {
                     report.innerHTML += `<span class="report_error">Not enough cards left in deck! Reshuffling Discard Pile...</span><br>`;
-                    console.log(discardCards);
                     for (i = 0; i < discardCards; i++) {
                         let card = discardDeck.shift();
                         mainDeck.push(card);
@@ -3959,7 +3939,6 @@
 
                 report.innerHTML += `<span class="report_ult">Schadenfreude: Flipping single card...</span><br>`;
 
-                console.log("Card is " + card.Value + " of " + card.Suit);
                 let value = card.Value;
                 let suit = card.Suit;
                 if (value === "Joker" && suit === "black") {
@@ -4106,6 +4085,159 @@
             else {
                 report.innerHTML += `<span class="report_error">You've already used this ability for this flip!</span><br>`;
             }
+        }
+
+        function exportSheet() {
+            console.log("Exporting Character Sheet");
+            let sheetObj = {
+                Character: document.getElementById("character_input").value,
+                Player: document.getElementById("player_input").value,
+                Concept: document.getElementById("concept_input").value,
+                Home: document.getElementById("home_input").value,
+                Species: document.getElementById("species_input").value,
+                Joker: document.getElementById("antijoker_input").checked,
+                Hero: document.getElementById("hero_input").value,
+                Health: document.getElementById("health_input").value,
+                Dodge: document.getElementById("dodge_input").value,
+                Drive: document.getElementById("drive_input").value,
+                Item1Name: document.getElementById("item1_name_input").value,
+                Item1Value: document.getElementById("item1_value_input").value,
+                Item1Attri: document.getElementById("item1_attri_select").value,
+                Item1Enabled: document.getElementById("item1_enabled_input").checked,
+                Item2Name: document.getElementById("item2_name_input").value,
+                Item2Value: document.getElementById("item2_value_input").value,
+                Item2Attri: document.getElementById("item2_attri_select").value,
+                Item2Enabled: document.getElementById("item2_enabled_input").checked,
+                Item3Name: document.getElementById("item3_name_input").value,
+                Item3Value: document.getElementById("item3_value_input").value,
+                Item3Attri: document.getElementById("item3_attri_select").value,
+                Item3Enabled: document.getElementById("item3_enabled_input").checked,
+                Item4Name: document.getElementById("item4_name_input").value,
+                Item4Value: document.getElementById("item4_value_input").value,
+                Item4Attri: document.getElementById("item4_attri_select").value,
+                Item4Enabled: document.getElementById("item4_enabled_input").checked,
+                Item5Name: document.getElementById("item5_name_input").value,
+                Item5Value: document.getElementById("item5_value_input").value,
+                Item5Attri: document.getElementById("item5_attri_select").value,
+                Item5Enabled: document.getElementById("item5_enabled_input").checked,
+                Resource1Name: document.getElementById("resource1_name_input").value,
+                Resource1Value: document.getElementById("resource1_input").value,
+                Resource2Name: document.getElementById("resource2_name_input").value,
+                Resource2Value: document.getElementById("resource2_input").value,
+                NonItems: document.getElementById("nonitems_input").value,
+                Brawn: document.getElementById("brawn_input").value,
+                Agility: document.getElementById("agility_input").value,
+                Intelligence: document.getElementById("intelligence_input").value,
+                Wit: document.getElementById("wit_input").value,
+                Charm: document.getElementById("charm_input").value,
+                Presence: document.getElementById("presence_input").value,
+                Ult1: document.getElementById("ult1_select").value,
+                Ult2: document.getElementById("ult2_select").value,
+                Athletics: document.getElementById("athletics_select").value,
+                Biology: document.getElementById("biology_select").value,
+                Computers: document.getElementById("computers_select").value,
+                Empathy: document.getElementById("empathy_select").value,
+                Engineering: document.getElementById("engineering_select").value,
+                Explosives: document.getElementById("explosives_select").value,
+                Firearms: document.getElementById("firearms_select").value,
+                Investigation: document.getElementById("investigation_select").value,
+                Lying: document.getElementById("lying_select").value,
+                Melee: document.getElementById("melee_select").value,
+                Perform: document.getElementById("perform_select").value,
+                Piloting: document.getElementById("piloting_select").value,
+                Persuasion: document.getElementById("persuasion_select").value,
+                Sneaking: document.getElementById("sneaking_select").value,
+                Spacewise: document.getElementById("spacewise_select").value,
+                Survival: document.getElementById("survival_select").value,
+                Telekinesis: document.getElementById("telekinesis_select").value,
+                Telepathy: document.getElementById("telepathy_select").value,
+                Custom1: document.getElementById("custom1_input").value,
+                Custom1Value: document.getElementById("custom1_select").value,
+                Custom2: document.getElementById("custom2_input").value,
+                Custom2Value: document.getElementById("custom2_select").value
+            }
+            let exportSpace = document.getElementById("import_box");
+            exportSpace.value = JSON.stringify(sheetObj);
+        }
+
+        function importSheet() {
+            console.log("Importing Character Sheet");
+            let importSpace = document.getElementById("import_box");
+            let sheetObj = JSON.parse(importSpace.value);
+
+            document.getElementById("character_input").value = sheetObj.Character;
+            document.getElementById("player_input").value = sheetObj.Player;
+            document.getElementById("concept_input").value = sheetObj.Concept;
+            document.getElementById("home_input").value = sheetObj.Home;
+            document.getElementById("species_input").value = sheetObj.Species;
+            document.getElementById("antijoker_input").checked = sheetObj.Joker;
+            document.getElementById("hero_input").value = sheetObj.Hero;
+            document.getElementById("item1_name_input").value = sheetObj.Item1Name;
+            document.getElementById("item1_value_input").value = sheetObj.Item1Value;
+            document.getElementById("item1_attri_select").value = sheetObj.Item1Attri;
+            document.getElementById("item1_enabled_input").checked = sheetObj.Item1Enabled;
+            document.getElementById("item2_name_input").value = sheetObj.Item2Name;
+            document.getElementById("item2_value_input").value = sheetObj.Item2Value;
+            document.getElementById("item2_attri_select").value = sheetObj.Item2Attri;
+            document.getElementById("item2_enabled_input").checked = sheetObj.Item2Enabled;
+            document.getElementById("item3_name_input").value = sheetObj.Item3Name;
+            document.getElementById("item3_value_input").value = sheetObj.Item3Value;
+            document.getElementById("item3_attri_select").value = sheetObj.Item3Attri;
+            document.getElementById("item3_enabled_input").checked = sheetObj.Item3Enabled;
+            document.getElementById("item4_name_input").value = sheetObj.Item4Name;
+            document.getElementById("item4_value_input").value = sheetObj.Item4Value;
+            document.getElementById("item4_attri_select").value = sheetObj.Item4Attri;
+            document.getElementById("item4_enabled_input").checked = sheetObj.Item4Enabled;
+            document.getElementById("item5_name_input").value = sheetObj.Item5Name;
+            document.getElementById("item5_value_input").value = sheetObj.Item5Value;
+            document.getElementById("item5_attri_select").value = sheetObj.Item5Attri;
+            document.getElementById("item5_enabled_input").checked = sheetObj.Item5Enabled;
+            document.getElementById("resource1_name_input").value = sheetObj.Resource1Name;
+            document.getElementById("resource1_input").value = sheetObj.Resource1Value;
+            document.getElementById("resource2_name_input").value = sheetObj.Resource2Name;
+            document.getElementById("resource2_input").value = sheetObj.Resource2Value;
+            document.getElementById("nonitems_input").value = sheetObj.NonItems;
+            document.getElementById("brawn_input").value = sheetObj.Brawn;
+            document.getElementById("agility_input").value = sheetObj.Agility;
+            document.getElementById("intelligence_input").value = sheetObj.Intelligence;
+            document.getElementById("wit_input").value = sheetObj.Wit;
+            document.getElementById("charm_input").value = sheetObj.Charm;
+            document.getElementById("presence_input").value = sheetObj.Presence;
+            document.getElementById("ult1_select").value = sheetObj.Ult1;
+            document.getElementById("ult2_select").value = sheetObj.Ult2;
+            document.getElementById("athletics_select").value = sheetObj.Athletics;
+            document.getElementById("biology_select").value = sheetObj.Biology;
+            document.getElementById("computers_select").value = sheetObj.Computers;
+            document.getElementById("empathy_select").value = sheetObj.Empathy;
+            document.getElementById("engineering_select").value = sheetObj.Engineering;
+            document.getElementById("explosives_select").value = sheetObj.Explosives;
+            document.getElementById("firearms_select").value = sheetObj.Firearms;
+            document.getElementById("investigation_select").value = sheetObj.Investigation;
+            document.getElementById("lying_select").value = sheetObj.Lying;
+            document.getElementById("melee_select").value = sheetObj.Melee;
+            document.getElementById("perform_select").value = sheetObj.Perform;
+            document.getElementById("piloting_select").value = sheetObj.Piloting;
+            document.getElementById("persuasion_select").value = sheetObj.Persuasion;
+            document.getElementById("sneaking_select").value = sheetObj.Sneaking;
+            document.getElementById("spacewise_select").value = sheetObj.Spacewise;
+            document.getElementById("survival_select").value = sheetObj.Survival;
+            document.getElementById("telekinesis_select").value = sheetObj.Telekinesis;
+            document.getElementById("telepathy_select").value = sheetObj.Telepathy;
+            document.getElementById("custom1_input").value = sheetObj.Custom1;
+            document.getElementById("custom1_select").value = sheetObj.Custom1Value;
+            document.getElementById("custom2_input").value = sheetObj.Custom2;
+            document.getElementById("custom2_select").value = sheetObj.Custom2Value;
+            validateValues();
+            calculateStats();
+            updateHealth();
+            updateDodge();
+            updateDrive();
+            document.getElementById("health_input").value = sheetObj.Health;
+            document.getElementById("dodge_input").value = sheetObj.Dodge;
+            document.getElementById("drive_input").value = sheetObj.Drive;
+            renderHealth();
+            renderDodge();
+            renderDrive();
         }
 
     </script>
@@ -4473,24 +4605,24 @@
                 <div id="bio_input" class="character_sheet_float bio">  
                     <div class="input">
                         <label for="character_input">Character: </label>
-                        <input class="text_input" type="text" id="character_input" name="character_input" onblur="saveInput();">
+                        <input class="text_input" type="text" id="character_input" maxlength="40" name="character_input" onblur="saveInput();">
                     </div>
                     <div class="input">
                         <label for="player_input">Player: </label>
-                        <input class="text_input" type="text" id="player_input" name="player_input" onblur="saveInput();">
+                        <input class="text_input" type="text" id="player_input" name="player_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
                         <label for="concept_input">Concept: </label>
-                        <input class="text_input" type="text" id="concept_input" name="concept_input" onblur="saveInput();">
+                        <input class="text_input" type="text" id="concept_input" name="concept_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <br>
                     <div class="input">
                         <label for="home_input">Home: </label>
-                        <input class="text_input" type="text" id="home_input" name="home_input" onblur="saveInput();">
+                        <input class="text_input" type="text" id="home_input" name="home_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
                         <label for="species_input">Species: </label>
-                        <input class="text_input" type="text" id="species_input" name="species_input" onblur="saveInput();">
+                        <input class="text_input" type="text" id="species_input" name="species_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <br>
                     <div class="input">
@@ -4637,7 +4769,7 @@
             <div class="row">
                 <div class="character_sheet_float useful_items column_useful" id="useful_items">
                     <div id="item1_input" class="input">
-                        <input class="text_input item_name" type="text" id="item1_name_input" name="item1_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item1);"> (+
+                        <input class="text_input item_name" type="text" id="item1_name_input" name="item1_name_input" maxlength="40" placeholder="Useful item..." onblur="saveInput(); itemEnable(item1);"> (+
                         <input class="num_input" type="number" id="item1_value_input" name="item1_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item1_attri_select" id="item1_attri_select" onchange="saveInput();">
                             <option id="item1_all" value="all">All</option>
@@ -4672,7 +4804,7 @@
                         <label id ="item1_enabled_label" for="item1_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item2_input" class="input">
-                        <input class="text_input item_name" type="text" id="item2_name_input" name="item2_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item2);"> (+
+                        <input class="text_input item_name" type="text" id="item2_name_input" name="item2_name_input" maxlength="40" placeholder="Useful item..." onblur="saveInput(); itemEnable(item2);"> (+
                         <input class="num_input" type="number" id="item2_value_input" name="item2_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item2_attri_select" id="item2_attri_select" onchange="saveInput();">
                             <option id="item2_all" value="all">All</option>
@@ -4707,7 +4839,7 @@
                         <label id ="item2_enabled_label" for="item2_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item3_input" class="input">
-                        <input class="text_input item_name" type="text" id="item3_name_input" name="item3_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item3);"> (+
+                        <input class="text_input item_name" type="text" id="item3_name_input" name="item3_name_input" maxlength="40" placeholder="Useful item..." onblur="saveInput(); itemEnable(item3);"> (+
                         <input class="num_input" type="number" id="item3_value_input" name="item3_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item3_attri_select" id="item3_attri_select" onchange="saveInput();">
                             <option id="item3_all" value="all">All</option>
@@ -4742,7 +4874,7 @@
                         <label id ="item3_enabled_label" for="item3_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item4_input" class="input">
-                        <input class="text_input item_name" type="text" id="item4_name_input" name="item4_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item4);"> (+
+                        <input class="text_input item_name" type="text" id="item4_name_input" name="item4_name_input" maxlength="40" placeholder="Useful item..." onblur="saveInput(); itemEnable(item4);"> (+
                         <input class="num_input" type="number" id="item4_value_input" name="item4_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item4_attri_select" id="item4_attri_select" onchange="saveInput();">
                             <option id="item4_all" value="all">All</option>
@@ -4777,7 +4909,7 @@
                         <label id ="item4_enabled_label" for="item4_enabled_input" class="item_label"> Disabled</label>
                     </div>
                     <div id="item5_input" class="input">
-                        <input class="text_input item_name" type="text" id="item5_name_input" name="item5_name_input" placeholder="Useful item..." onblur="saveInput(); itemEnable(item5);"> (+
+                        <input class="text_input item_name" type="text" id="item5_name_input" name="item5_name_input" maxlength="40" placeholder="Useful item..." onblur="saveInput(); itemEnable(item5);"> (+
                         <input class="num_input" type="number" id="item5_value_input" name="item5_value_input" style="width: 50px;" onchange="saveInput();" value="0">
                         <select class="select_input" name="item5_attri_select" id="item5_attri_select" onchange="saveInput();">
                             <option id="item5_all" value="all">All</option>
@@ -4815,18 +4947,18 @@
                 </div>
                 <div id="nonuseful_items" class="nonuseful_items column_nonuseful">
                     <div class="input">
-                        <input class="text_input" type="text" id="resource1_name_input" name="resource1_name_input" placeholder="Resource Counter: " style="width: 120px;" onblur="saveInput();">
+                        <input class="text_input" type="text" id="resource1_name_input" name="resource1_name_input" maxlength="40" placeholder="Resource Counter: " style="width: 120px;" onblur="saveInput();">
                         <input class="num_input" type="number" id="resource1_input" name="resource1_input" min="0" onchange="saveInput();" style="width: 50px;" value="0">
                     </div>
                     <div class="input">
-                        <input class="text_input" type="text" id="resource2_name_input" name="resource2_name_input" placeholder="Resource Counter: " style="width: 120px;" onblur="saveInput();">
+                        <input class="text_input" type="text" id="resource2_name_input" name="resource2_name_input" maxlength="40" placeholder="Resource Counter: " style="width: 120px;" onblur="saveInput();">
                         <input class="num_input" type="number" id="resource2_input" name="resource2_input" min="0" onchange="saveInput();" style="width: 50px;" value="0">
                     </div>
                     <br>
                     <div class="input">
                         <label for="resource_input">Non-Useful Items: </label>
                         <br>
-                        <textarea class="textarea_input" id="nonitems_input" name="nonitems_input" rows="6" cols="22" style="resize: none;"></textarea>
+                        <textarea class="textarea_input" id="nonitems_input" name="nonitems_input" rows="6" cols="22" onblur="saveInput();" style="resize: none;"></textarea>
                     </div>
                 </div>
             </div>
@@ -5126,7 +5258,7 @@
                         </select>
                     </div>
                     <div class="input">
-                        <input class="text_input" type="text" id="custom1_input" name="custom1_input" placeholder="Custom..." style="width: 100px;" onblur="saveInput();">:
+                        <input class="text_input" type="text" id="custom1_input" name="custom1_input" maxlength="40" placeholder="Custom..." style="width: 100px;" onblur="saveInput();">:
                         <select class="select_input" name="custom1_select" id="custom1_select" onchange="saveInput();">
                             <option id="custom1_none" value="none">None</option>
                             <option id="custom1_practice" value="2">Practice (2)</option>
@@ -5134,7 +5266,7 @@
                         </select>
                     </div>
                     <div class="input">
-                        <input class="text_input" type="text" id="custom2_input" name="custom2_input" placeholder="Custom..." style="width: 100px;" onblur="saveInput();">:
+                        <input class="text_input" type="text" id="custom2_input" name="custom2_input" maxlength="40" placeholder="Custom..." style="width: 100px;" onblur="saveInput();">:
                         <select class="select_input" name="custom2_select" id="custom2_select" onchange="saveInput();">
                             <option id="custom2_none" value="none">None</option>
                             <option id="custom2_practice" value="2">Practice (2)</option>
@@ -5143,6 +5275,11 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <button type="button" onclick="exportSheet();">Export Character Sheet</button>
+            <button type="button" onclick="importSheet();">Import Character Sheet</button>
+            <br>
+            <textarea class="textarea_input" id="import_box" name="import_box" style="resize: none;" rows="6" cols="50"></textarea>
             <br>
             <br>
             <div class="footer_main"> Space Kings © Kevin Cole and Super∴Try Studios - Buddy Site by Callum West</div>
