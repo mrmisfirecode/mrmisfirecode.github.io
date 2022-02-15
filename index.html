@@ -193,6 +193,64 @@
         const viewfromthetopDesc = `At the start of Combat, you may grant +3 Initiative to the character of your choice.`
         const workoutDesc = `At the beginning of the session you may choose one of the following benefits:<br><br>1. Cardio - Your Initiative increases by 2 until the end of the session.<br><br>2. Core - You flip an additional card for all Brawn actions until the end of the session.<br><br>3. Hot Yoga - Your Base Dodge increases by 2 until the end of the session.`
 
+        //Values for Concept Randomizer
+        const concepts = [
+            ["Innocent", "Assassin"],
+            ["Bombastic", "Hacker"],
+            ["Daring", "Mechanic"],
+            ["Flighty", "Sidekick"],
+            ["Nosy", "Burglar"],
+            ["Immature", "Cultist"],
+            ["Excitable", "Pirate"],
+            ["Tired", "Mercenary"],
+            ["Slippery", "Oaf"],
+            ["Abrasive", "Daredevil"],
+            ["Genuine", "Monk"],
+            ["Kindly", "Scholar"],
+            ["Cold", "Lawyer"],
+            ["Cheerful", "Street Tough"],
+            ["Morose", "Farmer"],
+            ["Rude", "Escapee"],
+            ["Cheesy", "Bouncer"],
+            ["Gullible", "Psychic"],
+            ["Meddling", "Chosen One"],
+            ["Grizzled", "Bounty Hunter"],
+            ["Mellow", "Ruffian"],
+            ["Smug", "Aristocrat"],
+            ["Stoic", "Ex-Cop"],
+            ["Slick", "Gambler"],
+            ["Dutiful", "Test Subject"],
+            ["Dense", "Moron"],
+            ["Hard-Boiled", "Revolutionary"],
+            ["Sweet", "Gangster"],
+            ["Adorable", "Tourist"],
+            ["Hot-Blooded", "Smuggler"],
+            ["Intense", "Soldier"],
+            ["Lazy", "Drifter"],
+            ["Haggard", "Bon Vivant"],
+            ["Wise", "Star Child"],
+            ["Mercurial", "Janitor"],
+            ["Honorable", "Hippy"],
+            ["Vain", "Detective"],
+            ["Undercover", "Punk"],
+            ["Washed-Up", "Knight"],
+            ["Pure", "Guru"],
+            ["Snooty", "Geek"],
+            ["Dour", "Swindler"],
+            ["Penitent", "Pop Star"],
+            ["Spacey", "Politician"],
+            ["Bitter", "Wildling"],
+            ["Ostentatious", "Peacemaker"],
+            ["Valiant", "Engineer"],
+            ["Friendly", "Scientist"],
+            ["Wise-Cracking", "Pilot"],
+            ["Ruthless", "Rat"],
+            ["Paranoid", "Doctor"],
+            ["Crooked", "Hermit"],
+            ["Vengeful", "Salesperson"],
+            ["Goofy", "Mascot"]
+        ]
+
         //Default values for Health
         let healthMax = 3;
         let healthInj = 2;
@@ -1860,6 +1918,21 @@
             else {
                 button.innerText = "Spend Drive"
             }
+        }
+
+        //Generates a random Concept and prints it into the input field
+        function randomConcept() {
+            let num1 = Math.floor(Math.random() * 54);
+            let num2 = Math.floor(Math.random() * 54);
+
+            let section1 = concepts[num1];
+            let section2 = concepts[num2];
+
+            let concept1 = section1[0];
+            let concept2 = section2[1];
+
+            document.getElementById("concept_input").value = concept1 + " " + concept2;
+            saveInput();
         }
 
         //Cards
@@ -4612,6 +4685,7 @@
                         <input class="text_input" type="text" id="player_input" name="player_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
+                        <button type="button" onclick="randomConcept();">🎲</button>
                         <label for="concept_input">Concept: </label>
                         <input class="text_input" type="text" id="concept_input" name="concept_input" maxlength="40" onblur="saveInput();">
                     </div>
