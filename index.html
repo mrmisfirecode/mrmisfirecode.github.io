@@ -251,6 +251,149 @@
             ["Goofy", "Mascot"]
         ]
 
+        const randNames = [
+            ["Jayton", "Emmitt"],
+            ["Benson", "Endmoor"],
+            ["Dekkah", "Termez"],
+            ["Isho", "Smirnov"],
+            ["Uzax", "Gómez"],
+            ["Soroc", "Santos"],
+            ["Everex", "Izgren"],
+            ["Kevid", "Montgomery"],
+            ["Skye", "Chavis"],
+            ["Kelban", "Tabrook"],
+            ["Emerella", "Yoon"],
+            ["Umiria", "Dex"],
+            ["Bahlula", "Escobar"],
+            ["Felani", "Marrov"],
+            ["Clemavia", "Jhorgen"],
+            ["Joak", "Emman"],
+            ["Usani", "Markash"],
+            ["Livari", "Mondi"],
+            ["Isori", "Endman"],
+            ["Zonari", "Lexas"],
+            ["Dimaxia", "Dovan"],
+            ["Mr.", "Weiner"],
+            ["Dr.", "Peterson"],
+            ["Lady", "Johnson"],
+            ["King", "Wigglebottom"],
+            ["Queen", "Trout"],
+            ["Princess", "West"],
+            ["Count", "Strider"],
+            ["Figgs", "Moonshine"],
+            ["Max", "Power"],
+            ["Jimmy", "Biscuits"],
+            ["Freddy", "Goon"],
+            ["Jimbo", "Jones"],
+            ["Captain", "Bones"],
+            ["Kelly", "Hart"],
+            ["Ozzy", "Freak"],
+            ["Droopy", "McCool"],
+            ["Rick", "Sleazebag"],
+            ["Laura", "Palmer"],
+            ["Dale", "Cooper"],
+            ["Paul", "Ritchie"],
+            ["Nick", "Murphy"],
+            ["Josh", "Henderson"],
+            ["Kevin", "Cole"],
+            ["Rich", "Evans"],
+            ["Starlight", "Shine"],
+            ["Haywood", "Jablomey"],
+            ["Gavin", "Free"],
+            ["Wise-Cracking", "Pilot"],
+            ["Eli", "Silverman"],
+            ["Christina", "Hendrix"],
+            ["Natalie", "Portman"],
+            ["Ellie", "3000"],
+            ["Jésus", "Goodman"]
+        ]
+
+        const planetsTrad = [
+            ["Ava", "phus"],
+            ["Venki", "stea"],
+            ["Lu", "ria"],
+            ["Ua", "tera"],
+            ["Chel", "gelea"],
+            ["Moo", "vars"],
+            ["Jupi", "sie"],
+            ["Zobra", "zuno"],
+            ["Dun", "dara"],
+            ["Gron", "sora"],
+            ["Nep", "lia"],
+            ["Plu", "tia"],
+            ["Ara", "mera"],
+            ["Fio", "xis"],
+            ["Kloom", "dix"],
+            ["Rann", "cora"],
+            ["Ebb", "tara"],
+            ["Win", "vis"],
+            ["Bin", "gawa"]
+        ]
+
+        const planetsFun = [
+            ["Cowboy", "topia"],
+            ["Forbidden", " Station"],
+            ["Cheese", " Planet"],
+            ["Crime", " Asteroid"],
+            ["Robot", " Universe"],
+            ["Evil", " Dimension"],
+            ["Monster", " City"],
+            ["Backwards", " Galaxy"],
+            ["Stupid", " Colony"],
+            ["Improv", " Land"],
+            ["Vacation", " Labs"],
+            ["Cyborg", " Factory"],
+            ["Clone", " Coropration"],
+            ["Pirate", " Planet"],
+            ["Ninja", " Planet"],
+            ["Anime", " Planet"],
+            ["Prison", " Asteroid"],
+            ["Clown", " Asteroid"],
+            ["Werewolf", " Dimension"]
+        ]
+
+        const species = [
+            "Human",
+            "Bear",
+            "Gorilla",
+            "Cyber-Chimp",
+            "Dog-Person",
+            "Cat-Person",
+            "Crab-Person",
+            "Sloth-Person",
+            "Bird-Person",
+            "Bug-Person",
+            "Fish-Person",
+            "Cyborg",
+            "Defective Clone",
+            "Space-Being",
+            "Android",
+            "Robot",
+            "Space Elf",
+            "Space Orc",
+            "Space Dwarf",
+            "Mer-Person",
+            "Bog Monster",
+            "Graylien",
+            "Brain in a Jar",
+            "Tulpa",
+            "Ghost",
+            "Vampire",
+            "Space Sasquatch",
+            "Humanzee",
+            "Gnome",
+            "Starchild",
+            "Dark Matter Being",
+            "Blob",
+            "Giant Worm",
+            "Earthworm",
+            "Brain Fungus",
+            "Candyman",
+            "Large Mouse",
+            "Blob",
+            "Slug-Person"
+        ]
+
         //Default values for Health
         let healthMax = 3;
         let healthInj = 2;
@@ -261,6 +404,11 @@
         let driveMax = 2;
         let initiativeValue = 2;
         let critValue = 2;
+
+        let practiceMax;     
+        let masteryMax;
+
+        let randomUltCheck = false;
 
         let item1 = "item1"
         let item2 = "item2"
@@ -937,7 +1085,10 @@
 
             let attriCount = brawn + agility + intelligence + wit + charm + presence;
 
-            if (attriCount < 14) {
+            if (attriCount === 13) {
+                attriSpace.innerHTML = `<span class="empty_attri">Attribute points left: ${(13 - attriCount)}</span>`;
+            }
+            else if (attriCount < 14) {
                 attriSpace.innerHTML = `<span class="valid_attri">Attribute points left: ${(13 - attriCount)}</span>`;
             }
             else {
@@ -952,8 +1103,6 @@
             practiceSpace.innerHTML = ``;
             
             let intelligenceValue = document.getElementById("intelligence_input").value;
-
-            let practiceMax
             
             if (document.getElementById("ult1_select").value === "linkedin" || document.getElementById("ult2_select").value === "linkedin") {
                 practiceMax = Number(intelligenceValue) + 3;
@@ -972,7 +1121,10 @@
                 }
             }
 
-            if (practiceCounter < (practiceMax + 1)) {
+            if ((practiceCounter - practiceMax) === 0) {
+                practiceSpace.innerHTML = `<span class="empty_practice">Practices left: ${(practiceMax - practiceCounter)}</span>`;
+            }
+            else if (practiceCounter < (practiceMax + 1)) {
                 practiceSpace.innerHTML = `<span class="valid_practice">Practices left: ${(practiceMax - practiceCounter)}</span>`;
             }
             else {
@@ -986,7 +1138,6 @@
         function calculateMastery() {
             let masterySpace = document.getElementById("mastery_space");
             masterySpace.innerHTML = ``;
-            let masteryMax
             
             if (document.getElementById("ult1_select").value === "knack" || document.getElementById("ult2_select").value === "knack") {
                 masteryMax = 3;
@@ -1005,7 +1156,10 @@
                 }
             }
 
-            if (masteryCounter < (masteryMax + 1)) {
+            if ((masteryCounter - masteryMax) === 0) {
+                masterySpace.innerHTML = `<span class="empty_practice">Masteries left: ${(masteryMax - masteryCounter)}</span>`;
+            }
+            else if (masteryCounter < (masteryMax + 1)) {
                 masterySpace.innerHTML = `<span class="valid_practice">Masteries left: ${(masteryMax - masteryCounter)}</span>`;
             }
             else {
@@ -1920,10 +2074,39 @@
             }
         }
 
+        function randomSheet() {
+            console.log("Generating Random Character...");
+            clearAllInput();
+            randomName();
+            randomConcept();
+            randomHome();
+            randomSpecies();
+            randomAttri();
+            randomSkills();
+            randomUltCheck = true;
+            randomUlt();
+            randomUltCheck = false;
+            saveInput();
+        }
+
+        function randomName() {
+            let num1 = Math.floor(Math.random() * randNames.length);
+            let num2 = Math.floor(Math.random() * randNames.length);
+
+            let section1 = randNames[num1];
+            let section2 = randNames[num2];
+
+            let name1 = section1[0];
+            let name2 = section2[1];
+
+            document.getElementById("character_input").value = name1 + " " + name2;
+            saveInput();
+        }
+
         //Generates a random Concept and prints it into the input field
         function randomConcept() {
-            let num1 = Math.floor(Math.random() * 54);
-            let num2 = Math.floor(Math.random() * 54);
+            let num1 = Math.floor(Math.random() * concepts.length);
+            let num2 = Math.floor(Math.random() * concepts.length);
 
             let section1 = concepts[num1];
             let section2 = concepts[num2];
@@ -1932,6 +2115,1028 @@
             let concept2 = section2[1];
 
             document.getElementById("concept_input").value = concept1 + " " + concept2;
+            saveInput();
+        }
+
+        function randomHome() {
+            let array;
+            if (Math.random() > 0.5) {
+                array = planetsTrad;
+            }
+            else {
+                array = planetsFun;
+            }
+            let num1 = Math.floor(Math.random() * array.length);
+            let num2 = Math.floor(Math.random() * array.length);
+
+            let section1 = array[num1];
+            let section2 = array[num2];
+
+            let planet1 = section1[0];
+            let planet2 = section2[1];
+
+            document.getElementById("home_input").value = planet1 + planet2;
+            saveInput();
+        }
+
+        function randomSpecies() {
+            let num = Math.floor(Math.random() * species.length);
+
+            let newSpecies = species[num];
+
+            document.getElementById("species_input").value = newSpecies;
+            saveInput();
+        }
+
+        function randomAttri() {
+            let i = 0;
+            let brawn = document.getElementById("brawn_input");
+            let agility = document.getElementById("agility_input");
+            let intelligence = document.getElementById("intelligence_input");
+            let wit = document.getElementById("wit_input");
+            let charm = document.getElementById("charm_input");
+            let presence = document.getElementById("presence_input");
+
+            brawn.value = 1;
+            agility.value = 1;
+            intelligence.value = 1;
+            wit.value = 1;
+            charm.value = 1;
+            presence.value = 1;
+
+            while (i < 7) {
+                let rand = Math.floor(Math.random() * 6) + 1;
+                if (rand === 1 && Number(brawn.value) < 4) {
+                    brawn.value ++;
+                    i++;
+                }
+                else if (rand === 2 && Number(agility.value) < 4) {
+                    agility.value ++;
+                    i++;
+                }
+                else if (rand === 3 && Number(intelligence.value) < 4) {
+                    intelligence.value ++;
+                    i++;
+                }
+                else if (rand === 4 && Number(wit.value) < 4) {
+                    wit.value ++;
+                    i++;
+                }
+                else if (rand === 5 && Number(charm.value) < 4) {
+                    charm.value ++;
+                    i++;
+                }
+                else if (rand === 6 && Number(presence.value) < 4) {
+                    presence.value ++;
+                    i++;
+                }
+            }
+            calculateStats();
+            updateHealth();
+            updateDodge();
+            updateDrive();
+            saveInput();
+        }
+
+        function randomSkills() {
+            let athletics = document.getElementById("athletics_select");
+            let biology = document.getElementById("biology_select");
+            let computers = document.getElementById("computers_select");
+            let empathy = document.getElementById("empathy_select");
+            let engineering = document.getElementById("engineering_select");
+            let explosives = document.getElementById("explosives_select");
+            let firearms = document.getElementById("firearms_select");
+            let investigation = document.getElementById("investigation_select");
+            let lying = document.getElementById("lying_select");
+            let melee = document.getElementById("melee_select");
+            let perform = document.getElementById("perform_select");
+            let piloting = document.getElementById("piloting_select");
+            let persuasion = document.getElementById("persuasion_select");
+            let sneaking = document.getElementById("sneaking_select");
+            let spacewise = document.getElementById("spacewise_select");
+            let survival = document.getElementById("survival_select");
+            let telekinesis = document.getElementById("telekinesis_select");
+            let telepathy = document.getElementById("telepathy_select");
+
+            athletics.value = "none";
+            biology.value = "none";
+            computers.value = "none";
+            empathy.value = "none";
+            engineering.value = "none";
+            explosives.value = "none";
+            firearms.value = "none";
+            investigation.value = "none";
+            lying.value = "none";
+            melee.value = "none";
+            perform.value = "none";
+            piloting.value = "none";
+            persuasion.value = "none";
+            sneaking.value = "none";
+            spacewise.value = "none";
+            survival.value = "none";
+            telekinesis.value = "none";
+            telepathy.value = "none";
+
+            let i = 0;
+            let x = 0;
+
+            while (i < practiceMax) {
+                let rand = Math.floor(Math.random() * 18) + 1;
+                if (rand === 1 && athletics.value === "none") {
+                    athletics.value = "2";
+                    i++;
+                }
+                else if (rand === 2 && biology.value === "none") {
+                    biology.value = "2";
+                    i++;
+                }
+                else if (rand === 3 && computers.value === "none") {
+                    computers.value = "2";
+                    i++;
+                }
+                else if (rand === 4 && empathy.value === "none") {
+                    empathy.value = "2";
+                    i++;
+                }
+                else if (rand === 5 && engineering.value === "none") {
+                    engineering.value = "2";
+                    i++;
+                }
+                else if (rand === 6 && explosives.value === "none") {
+                    explosives.value = "2";
+                    i++;
+                }
+                else if (rand === 7 && firearms.value === "none") {
+                    firearms.value = "2";
+                    i++;
+                }
+                else if (rand === 8 && investigation.value === "none") {
+                    investigation.value = "2";
+                    i++;
+                }
+                else if (rand === 9 && lying.value === "none") {
+                    lying.value = "2";
+                    i++;
+                }
+                else if (rand === 10 && melee.value === "none") {
+                    melee.value = "2";
+                    i++;
+                }
+                else if (rand === 11 && perform.value === "none") {
+                    perform.value = "2";
+                    i++;
+                }
+                else if (rand === 12 && piloting.value === "none") {
+                    piloting.value = "2";
+                    i++;
+                }
+                else if (rand === 13 && persuasion.value === "none") {
+                    persuasion.value = "2";
+                    i++;
+                }
+                else if (rand === 14 && sneaking.value === "none") {
+                    sneaking.value = "2";
+                    i++;
+                }
+                else if (rand === 15 && spacewise.value === "none") {
+                    spacewise.value = "2";
+                    i++;
+                }
+                else if (rand === 16 && survival.value === "none") {
+                    survival.value = "2";
+                    i++;
+                }
+                else if (rand === 17 && telekinesis.value === "none") {
+                    telekinesis.value = "2";
+                    i++;
+                }
+                else if (rand === 18 && telepathy.value === "none") {
+                    telepathy.value = "2";
+                    i++;
+                }
+            }
+            while (x < masteryMax) {
+                let rand = Math.floor(Math.random() * 18) + 1;
+                if (rand === 1 && athletics.value === "none") {
+                    athletics.value = "4";
+                    x++;
+                }
+                else if (rand === 2 && biology.value === "none") {
+                    biology.value = "4";
+                    x++;
+                }
+                else if (rand === 3 && computers.value === "none") {
+                    computers.value = "4";
+                    x++;
+                }
+                else if (rand === 4 && empathy.value === "none") {
+                    empathy.value = "4";
+                    x++;
+                }
+                else if (rand === 5 && engineering.value === "none") {
+                    engineering.value = "4";
+                    x++;
+                }
+                else if (rand === 6 && explosives.value === "none") {
+                    explosives.value = "4";
+                    x++;
+                }
+                else if (rand === 7 && firearms.value === "none") {
+                    firearms.value = "4";
+                    x++;
+                }
+                else if (rand === 8 && investigation.value === "none") {
+                    investigation.value = "4";
+                    x++;
+                }
+                else if (rand === 9 && lying.value === "none") {
+                    lying.value = "4";
+                    x++;
+                }
+                else if (rand === 10 && melee.value === "none") {
+                    melee.value = "4";
+                    x++;
+                }
+                else if (rand === 11 && perform.value === "none") {
+                    perform.value = "4";
+                    x++;
+                }
+                else if (rand === 12 && piloting.value === "none") {
+                    piloting.value = "4";
+                    x++;
+                }
+                else if (rand === 13 && persuasion.value === "none") {
+                    persuasion.value = "4";
+                    x++;
+                }
+                else if (rand === 14 && sneaking.value === "none") {
+                    sneaking.value = "4";
+                    x++;
+                }
+                else if (rand === 15 && spacewise.value === "none") {
+                    spacewise.value = "4";
+                    x++;
+                }
+                else if (rand === 16 && survival.value === "none") {
+                    survival.value = "4";
+                    x++;
+                }
+                else if (rand === 17 && telekinesis.value === "none") {
+                    telekinesis.value = "4";
+                    x++;
+                }
+                else if (rand === 18 && telepathy.value === "none") {
+                    telepathy.value = "4";
+                    x++;
+                }
+            }
+            calculateStats();
+            saveInput();
+        }
+
+        function randomUlt() {
+            let ult1 = document.getElementById("ult1_select");
+            let ult2 = document.getElementById("ult2_select");
+
+            let athletics = document.getElementById("athletics_select");
+            let biology = document.getElementById("biology_select");
+            let computers = document.getElementById("computers_select");
+            let empathy = document.getElementById("empathy_select");
+            let engineering = document.getElementById("engineering_select");
+            let explosives = document.getElementById("explosives_select");
+            let firearms = document.getElementById("firearms_select");
+            let investigation = document.getElementById("investigation_select");
+            let lying = document.getElementById("lying_select");
+            let melee = document.getElementById("melee_select");
+            let perform = document.getElementById("perform_select");
+            let piloting = document.getElementById("piloting_select");
+            let persuasion = document.getElementById("persuasion_select");
+            let sneaking = document.getElementById("sneaking_select");
+            let spacewise = document.getElementById("spacewise_select");
+            let survival = document.getElementById("survival_select");
+            let telekinesis = document.getElementById("telekinesis_select");
+            let telepathy = document.getElementById("telepathy_select");
+
+            ult1.value = "none";
+            ult2.value = "none";
+
+            i = 0;
+
+            while (i < 1) {
+                let rand = Math.floor(Math.random() * 34) + 1;
+                if (rand === 1 && document.getElementById("melee_select").value === "4") {
+                    console.log("bear");
+                    ult1.value = "bearstance";
+                    i++;
+                }
+                else if (rand === 2 && Number(document.getElementById("brawn_input").value) < 4 && Number(document.getElementById("charm_input").value) > 1) {
+                    console.log("beloved");
+                    ult1.value = "beloved";
+                    i++;
+                }
+                else if (rand === 3 && Number(document.getElementById("agility_input").value) === 1) {
+                    console.log("bulwark");
+                    ult1.value = "bulwark";
+                    i++;
+                }
+                else if (rand === 4 && Number(document.getElementById("charm_input").value) === 4) {
+                    console.log("desper");
+                    ult1.value = "desperado";
+                    i++;
+                }
+                else if (rand === 5 && Number(document.getElementById("agility_input").value) < 4 && Number(document.getElementById("brawn_input").value) < 4) {
+                    console.log("duel");
+                    ult1.value = "duelist";
+                    i++;
+                }
+                else if (rand === 6 && Number(document.getElementById("intelligence_input").value) === 4) {
+                    console.log("eclec");
+                    ult1.value = "eclectic";
+                    i++;
+                }
+                else if (rand === 7 && document.getElementById("telepathy_select").value === "4") {
+                    console.log("evermind");
+                    ult1.value = "evermind";
+                    i++;
+                }
+                else if (rand === 8 && document.getElementById("explosives_select").value === "4") {
+                    console.log("explode");
+                    ult1.value = "extraexplosions";
+                    i++;
+                }
+                else if (rand === 9 && document.getElementById("piloting_select").value === "4") {
+                    console.log("floor");
+                    ult1.value = "floorit";
+                    i++;
+                }
+                else if (rand === 10 && document.getElementById("empathy_select").value === "4") {
+                    console.log("friend");
+                    ult1.value = "friendshipspeech";
+                    i++;
+                }
+                else if (rand === 11 && initiativeValue < 3) {
+                    console.log("golast");
+                    ult1.value = "gottagolast";
+                    i++;
+                }
+                else if (rand === 12 && document.getElementById("persuasion_select").value === "4") {
+                    console.log("grace");
+                    ult1.value = "graceunderpressure";
+                    i++;
+                }
+                else if (rand === 13 && document.getElementById("lying_select").value === "4") {
+                    console.log("hail");
+                    ult1.value = "hailmary";
+                    i++;
+                }
+                else if (rand === 14 && Number(document.getElementById("brawn_input").value) === 4) {
+                    console.log("fine");
+                    ult1.value = "ifeelfine";
+                    i++;
+                }
+                else if (rand === 15 && Number(document.getElementById("intelligence_input").value) === 1) {
+                    console.log("knack");
+                    ult1.value = "knack";
+                    i++;
+                    if (randomUltCheck === true) {
+
+                        let masteryCounter = 0;
+                        let x = 0;
+
+                        for (p = 0; p < skillSelectArray.length; p++) {
+                            let inputId = skillSelectArray[p];
+                            let inputBox = document.getElementById(inputId);
+                            console.log("Input: " + inputBox.value);
+                            if (inputBox.value === "4") {
+                                masteryCounter ++;
+                            }
+                        }
+                        console.log("Masteries: " + masteryCounter);
+                        console.log("Max Masteries: " + masteryMax);
+                        if (masteryCounter === masteryMax) {
+                            while (x < 1) {
+                                let rando = Math.floor(Math.random() * 18) + 1;
+                                if (rando === 1 && athletics.value === "none") {
+                                    athletics.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 2 && biology.value === "none") {
+                                    biology.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 3 && computers.value === "none") {
+                                    computers.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 4 && empathy.value === "none") {
+                                    empathy.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 5 && engineering.value === "none") {
+                                    engineering.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 6 && explosives.value === "none") {
+                                    explosives.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 7 && firearms.value === "none") {
+                                    firearms.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 8 && investigation.value === "none") {
+                                    investigation.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 9 && lying.value === "none") {
+                                    lying.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 10 && melee.value === "none") {
+                                    melee.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 11 && perform.value === "none") {
+                                    perform.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 12 && piloting.value === "none") {
+                                    piloting.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 13 && persuasion.value === "none") {
+                                    persuasion.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 14 && sneaking.value === "none") {
+                                    sneaking.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 15 && spacewise.value === "none") {
+                                    spacewise.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 16 && survival.value === "none") {
+                                    survival.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 17 && telekinesis.value === "none") {
+                                    telekinesis.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 18 && telepathy.value === "none") {
+                                    telepathy.value = "4";
+                                    x++;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (rand === 16 && document.getElementById("firearms_select").value === "4") {
+                    console.log("kneecap");
+                    ult1.value = "kneecapper";
+                    i++;
+                }
+                else if (rand === 17 && document.getElementById("computers_select").value === "4") {
+                    console.log("linked");
+                    ult1.value = "linkedin";
+                    i++;
+                    if (randomUltCheck === true) {
+                        let practiceCounter = 0;
+                        let z = 0;
+
+                        for (y = 0; y < skillSelectArray.length; y++) {
+                            let inputId = skillSelectArray[y];
+                            let inputBox = document.getElementById(inputId);
+                            if (inputBox.value === "2") {
+                                practiceCounter ++;
+                            }
+                        }
+                        if (practiceCounter === practiceMax) {
+                            while (z < 1) {
+                                let rand = Math.floor(Math.random() * 18) + 1;
+                                if (rand === 1 && athletics.value === "none") {
+                                    athletics.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 2 && biology.value === "none") {
+                                    biology.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 3 && computers.value === "none") {
+                                    computers.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 4 && empathy.value === "none") {
+                                    empathy.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 5 && engineering.value === "none") {
+                                    engineering.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 6 && explosives.value === "none") {
+                                    explosives.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 7 && firearms.value === "none") {
+                                    firearms.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 8 && investigation.value === "none") {
+                                    investigation.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 9 && lying.value === "none") {
+                                    lying.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 10 && melee.value === "none") {
+                                    melee.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 11 && perform.value === "none") {
+                                    perform.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 12 && piloting.value === "none") {
+                                    piloting.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 13 && persuasion.value === "none") {
+                                    persuasion.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 14 && sneaking.value === "none") {
+                                    sneaking.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 15 && spacewise.value === "none") {
+                                    spacewise.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 16 && survival.value === "none") {
+                                    survival.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 17 && telekinesis.value === "none") {
+                                    telekinesis.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 18 && telepathy.value === "none") {
+                                    telepathy.value = "2";
+                                    z++;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (rand === 18 && Number(document.getElementById("brawn_input").value) === 1) {
+                    console.log("little");
+                    ult1.value = "littlehelp";
+                    i++;
+                }
+                else if (rand === 19 && document.getElementById("spacewise_select").value === "4") {
+                    console.log("other");
+                    ult1.value = "otherworldly";
+                    i++;
+                }
+                else if (rand === 20 && document.getElementById("telekinesis_select").value === "4") {
+                    console.log("over");
+                    ult1.value = "overshield";
+                    i++;
+                }
+                else if (rand === 21 && document.getElementById("survival_select").value === "4") {
+                    console.log("pack");
+                    ult1.value = "packhunter";
+                    i++;
+                }
+                else if (rand === 22 && Number(document.getElementById("presence_input").value) === 1) {
+                    console.log("punch");
+                    ult1.value = "punchingbag";
+                    i++;
+                }
+                else if (rand === 23 && Number(document.getElementById("wit_input").value) === 4) {
+                    console.log("refresh");
+                    ult1.value = "refresh";
+                    i++;
+                }
+                else if (rand === 24 && Number(document.getElementById("charm_input").value) === 1) {
+                    console.log("schaden");
+                    ult1.value = "schadenfreude";
+                    i++;
+                }
+                else if (rand === 25 && document.getElementById("sneaking_select").value === "4") {
+                    console.log("skulk");
+                    ult1.value = "skulk";
+                    i++;
+                }
+                else if (rand === 26 && document.getElementById("investigation_select").value === "4") {
+                    console.log("sleuth");
+                    ult1.value = "sleuthing";
+                    i++;
+                }
+                else if (rand === 27 && Number(document.getElementById("agility_input").value) === 4) {
+                    console.log("speed");
+                    ult1.value = "speeddemon";
+                    i++;
+                }
+                else if (rand === 28 && document.getElementById("engineering_select").value === "4") {
+                    console.log("spuck");
+                    ult1.value = "spucktape";
+                    i++;
+                }
+                else if (rand === 29 && document.getElementById("biology_select").value === "4") {
+                    console.log("stitch");
+                    ult1.value = "stitch";
+                    i++;
+                }
+                else if (rand === 30) {
+                    console.log("sweet");
+                    ult1.value = "sweetrelease";
+                    i++;
+                }
+                else if (rand === 31 && document.getElementById("perform_select").value === "4") {
+                    console.log("symp");
+                    ult1.value = "sympatico";
+                    i++;
+                }
+                else if (rand === 32 && Number(document.getElementById("wit_input").value) === 1) {
+                    console.log("takeit");
+                    ult1.value = "takeittotheface";
+                    i++;
+                }
+                else if (rand === 33 && Number(document.getElementById("presence_input").value) === 4) {
+                    console.log("view");
+                    ult1.value = "viewfromthetop";
+                    i++;
+                }
+                else if (rand === 34 && document.getElementById("athletics_select").value === "4") {
+                    console.log("workout");
+                    ult1.value = "workout";
+                    i++;
+                }
+                console.log(ult1.value);
+            }
+            i = 0;
+
+            while (i < 1) {
+                let rand = Math.floor(Math.random() * 34) + 1;
+                if (rand === 1 && document.getElementById("melee_select").value === "4" && ult1.value !== "bearstance") {
+                    console.log("bear");
+                    ult2.value = "bearstance";
+                    i++;
+                }
+                else if (rand === 2 && Number(document.getElementById("brawn_input").value) < 4 && Number(document.getElementById("charm_input").value) > 1 && ult1.value !== "beloved") {
+                    console.log("beloved");
+                    ult2.value = "beloved";
+                    i++;
+                }
+                else if (rand === 3 && Number(document.getElementById("agility_input").value) === 1 && ult1.value !== "bulwark") {
+                    console.log("bulwark");
+                    ult2.value = "bulwark";
+                    i++;
+                }
+                else if (rand === 4 && Number(document.getElementById("charm_input").value) === 4 && ult1.value !== "desperado") {
+                    console.log("desper");
+                    ult2.value = "desperado";
+                    i++;
+                }
+                else if (rand === 5 && Number(document.getElementById("agility_input").value) < 4 && Number(document.getElementById("brawn_input").value) < 4 && ult1.value !== "duelist") {
+                    console.log("duel");
+                    ult2.value = "duelist";
+                    i++;
+                }
+                else if (rand === 6 && Number(document.getElementById("intelligence_input").value) === 4 && ult1.value !== "eclectic") {
+                    console.log("eclec");
+                    ult2.value = "eclectic";
+                    i++;
+                }
+                else if (rand === 7 && document.getElementById("telepathy_select").value === "4" && ult1.value !== "evermind") {
+                    console.log("evermind");
+                    ult2.value = "evermind";
+                    i++;
+                }
+                else if (rand === 8 && document.getElementById("explosives_select").value === "4" && ult1.value !== "extraexplosions") {
+                    console.log("explode");
+                    ult2.value = "extraexplosions";
+                    i++;
+                }
+                else if (rand === 9 && document.getElementById("piloting_select").value === "4" && ult1.value !== "floorit") {
+                    console.log("floor");
+                    ult2.value = "floorit";
+                    i++;
+                }
+                else if (rand === 10 && document.getElementById("empathy_select").value === "4" && ult1.value !== "friendshipspeech") {
+                    console.log("friend");
+                    ult2.value = "friendshipspeech";
+                    i++;
+                }
+                else if (rand === 11 && initiativeValue < 3 && ult1.value !== "gottagolast") {
+                    console.log("golast");
+                    ult2.value = "gottagolast";
+                    i++;
+                }
+                else if (rand === 12 && document.getElementById("persuasion_select").value === "4" && ult1.value !== "graceunderpressure") {
+                    console.log("grace");
+                    ult2.value = "graceunderpressure";
+                    i++;
+                }
+                else if (rand === 13 && document.getElementById("lying_select").value === "4" && ult1.value !== "hailmary") {
+                    console.log("hail");
+                    ult2.value = "hailmary";
+                    i++;
+                }
+                else if (rand === 14 && Number(document.getElementById("brawn_input").value) === 4 && ult1.value !== "ifeelfine") {
+                    console.log("fine");
+                    ult2.value = "ifeelfine";
+                    i++;
+                }
+                else if (rand === 15 && Number(document.getElementById("intelligence_input").value) === 1 && ult1.value !== "knack") {
+                    console.log("knack");
+                    ult2.value = "knack";
+                    i++;
+                    if (randomUltCheck === true) {
+                        let masteryCounter = 0;
+                        let x = 0;
+
+                        for (p = 0; p < skillSelectArray.length; p++) {
+                            let inputId = skillSelectArray[p];
+                            let inputBox = document.getElementById(inputId);
+                            console.log("Input: " + inputBox.value);
+                            if (inputBox.value === "4") {
+                                masteryCounter ++;
+                            }
+                        }
+                        console.log("Masteries: " + masteryCounter);
+                        console.log("Max Masteries: " + masteryMax);
+                        if (masteryCounter === masteryMax) {
+                            while (x < 1) {
+                                let rando = Math.floor(Math.random() * 18) + 1;
+                                if (rando === 1 && athletics.value === "none") {
+                                    athletics.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 2 && biology.value === "none") {
+                                    biology.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 3 && computers.value === "none") {
+                                    computers.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 4 && empathy.value === "none") {
+                                    empathy.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 5 && engineering.value === "none") {
+                                    engineering.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 6 && explosives.value === "none") {
+                                    explosives.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 7 && firearms.value === "none") {
+                                    firearms.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 8 && investigation.value === "none") {
+                                    investigation.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 9 && lying.value === "none") {
+                                    lying.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 10 && melee.value === "none") {
+                                    melee.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 11 && perform.value === "none") {
+                                    perform.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 12 && piloting.value === "none") {
+                                    piloting.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 13 && persuasion.value === "none") {
+                                    persuasion.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 14 && sneaking.value === "none") {
+                                    sneaking.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 15 && spacewise.value === "none") {
+                                    spacewise.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 16 && survival.value === "none") {
+                                    survival.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 17 && telekinesis.value === "none") {
+                                    telekinesis.value = "4";
+                                    x++;
+                                }
+                                else if (rando === 18 && telepathy.value === "none") {
+                                    telepathy.value = "4";
+                                    x++;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (rand === 16 && document.getElementById("firearms_select").value === "4" && ult1.value !== "kneecapper") {
+                    console.log("kneecap");
+                    ult2.value = "kneecapper";
+                    i++;
+                }
+                else if (rand === 17 && document.getElementById("computers_select").value === "4" && ult1.value !== "linkedin") {
+                    console.log("linked");
+                    ult2.value = "linkedin";
+                    i++;
+                    if (randomUltCheck === true) {
+                        let practiceCounter = 0
+                        let y = 0;
+                        let z = 0;
+
+                        for (y = 0; y < skillSelectArray.length; y++) {
+                            let inputId = skillSelectArray[y];
+                            let inputBox = document.getElementById(inputId);
+                            if (inputBox.value === "2") {
+                                practiceCounter ++;
+                            }
+                        }
+                        if (practiceCounter === practiceMax) {
+                            while (z < 1) {
+                                let rand = Math.floor(Math.random() * 18) + 1;
+                                if (rand === 1 && athletics.value === "none") {
+                                    athletics.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 2 && biology.value === "none") {
+                                    biology.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 3 && computers.value === "none") {
+                                    computers.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 4 && empathy.value === "none") {
+                                    empathy.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 5 && engineering.value === "none") {
+                                    engineering.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 6 && explosives.value === "none") {
+                                    explosives.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 7 && firearms.value === "none") {
+                                    firearms.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 8 && investigation.value === "none") {
+                                    investigation.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 9 && lying.value === "none") {
+                                    lying.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 10 && melee.value === "none") {
+                                    melee.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 11 && perform.value === "none") {
+                                    perform.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 12 && piloting.value === "none") {
+                                    piloting.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 13 && persuasion.value === "none") {
+                                    persuasion.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 14 && sneaking.value === "none") {
+                                    sneaking.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 15 && spacewise.value === "none") {
+                                    spacewise.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 16 && survival.value === "none") {
+                                    survival.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 17 && telekinesis.value === "none") {
+                                    telekinesis.value = "2";
+                                    z++;
+                                }
+                                else if (rand === 18 && telepathy.value === "none") {
+                                    telepathy.value = "2";
+                                    z++;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (rand === 18 && Number(document.getElementById("brawn_input").value) === 1 && ult1.value !== "littlehelp") {
+                    console.log("little");
+                    ult2.value = "littlehelp";
+                    i++;
+                }
+                else if (rand === 19 && document.getElementById("spacewise_select").value === "4" && ult1.value !== "otherworldly") {
+                    console.log("other");
+                    ult2.value = "otherworldly";
+                    i++;
+                }
+                else if (rand === 20 && document.getElementById("telekinesis_select").value === "4" && ult1.value !== "overshield") {
+                    console.log("over");
+                    ult2.value = "overshield";
+                    i++;
+                }
+                else if (rand === 21 && document.getElementById("survival_select").value === "4" && ult1.value !== "packhunter") {
+                    console.log("pack");
+                    ult2.value = "packhunter";
+                    i++;
+                }
+                else if (rand === 22 && Number(document.getElementById("presence_input").value) === 1 && ult1.value !== "punchingbag") {
+                    console.log("punch");
+                    ult2.value = "punchingbag";
+                    i++;
+                }
+                else if (rand === 23 && Number(document.getElementById("wit_input").value) === 4 && ult1.value !== "refresh") {
+                    console.log("refresh");
+                    ult2.value = "refresh";
+                    i++;
+                }
+                else if (rand === 24 && Number(document.getElementById("charm_input").value) === 1 && ult1.value !== "schadenfreude") {
+                    console.log("schaden");
+                    ult2.value = "schadenfreude";
+                    i++;
+                }
+                else if (rand === 25 && document.getElementById("sneaking_select").value === "4" && ult1.value !== "skulk") {
+                    console.log("skulk");
+                    ult2.value = "skulk";
+                    i++;
+                }
+                else if (rand === 26 && document.getElementById("investigation_select").value === "4" && ult1.value !== "sleuthing") {
+                    console.log("sleuth");
+                    ult2.value = "sleuthing";
+                    i++;
+                }
+                else if (rand === 27 && Number(document.getElementById("agility_input").value) === 4 && ult1.value !== "speeddemon") {
+                    console.log("speed");
+                    ult2.value = "speeddemon";
+                    i++;
+                }
+                else if (rand === 28 && document.getElementById("engineering_select").value === "4" && ult1.value !== "spucktape") {
+                    console.log("spuck");
+                    ult2.value = "spucktape";
+                    i++;
+                }
+                else if (rand === 29 && document.getElementById("biology_select").value === "4" && ult1.value !== "stitch") {
+                    console.log("stitch");
+                    ult2.value = "stitch";
+                    i++;
+                }
+                else if (rand === 30  && ult1.value !== "sweetrelease") {
+                    console.log("sweet");
+                    ult2.value = "sweetrelease";
+                    i++;
+                }
+                else if (rand === 31 && document.getElementById("perform_select").value === "4" && ult1.value !== "sympatico") {
+                    console.log("symp");
+                    ult2.value = "sympatico";
+                    i++;
+                }
+                else if (rand === 32 && Number(document.getElementById("wit_input").value) === 1 && ult1.value !== "takeittotheface") {
+                    console.log("takeit");
+                    ult2.value = "takeittotheface";
+                    i++;
+                }
+                else if (rand === 33 && Number(document.getElementById("presence_input").value) === 4 && ult1.value !== "viewfromthetop") {
+                    console.log("view");
+                    ult2.value = "viewfromthetop";
+                    i++;
+                }
+                else if (rand === 34 && document.getElementById("athletics_select").value === "4" && ult1.value !== "workout") {
+                    console.log("workout");
+                    ult2.value = "workout";
+                    i++;
+                }
+                console.log(ult2.value);
+            }
+            calculateStats();
             saveInput();
         }
 
@@ -2682,20 +3887,20 @@
                     report.innerHTML += `<span class="report_skill">Flipped ${flip1Cards} card for Survival</span><br>`;
                 }
             }
-            //Telekenesis
-            if (flip1 === "telekenesis") {
-                if (document.getElementById("telekenesis_select").value === "none") {
+            //telekinesis
+            if (flip1 === "telekinesis") {
+                if (document.getElementById("telekinesis_select").value === "none") {
                     skill = 0
                 }
                 else {
-                    skill = Number(document.getElementById("telekenesis_select").value)
+                    skill = Number(document.getElementById("telekinesis_select").value)
                 }
                 flip1Cards += skill;
                 if (flip1Cards !== 1) {
-                    report.innerHTML += `<span class="report_skill">Flipped ${flip1Cards} cards for Telekenesis</span><br>`;
+                    report.innerHTML += `<span class="report_skill">Flipped ${flip1Cards} cards for telekinesis</span><br>`;
                 }
                 else {
-                    report.innerHTML += `<span class="report_skill">Flipped ${flip1Cards} card for Telekenesis</span><br>`;
+                    report.innerHTML += `<span class="report_skill">Flipped ${flip1Cards} card for telekinesis</span><br>`;
                 }
             }
             //Telepathy
@@ -3194,20 +4399,20 @@
                     report.innerHTML += `<span class="report_skill">Flipped ${flip2Cards} card for Survival</span><br>`;
                 }
             }
-            //Telekenesis
-            if (flip2 === "telekenesis") {
-                if (document.getElementById("telekenesis_select").value === "none") {
+            //telekinesis
+            if (flip2 === "telekinesis") {
+                if (document.getElementById("telekinesis_select").value === "none") {
                     skill = 0
                 }
                 else {
-                    skill = Number(document.getElementById("telekenesis_select").value)
+                    skill = Number(document.getElementById("telekinesis_select").value)
                 }
                 flip2Cards += skill;
                 if (flip2Cards !== 1) {
-                    report.innerHTML += `<span class="report_skill">Flipped ${flip2Cards} cards for Telekenesis</span><br>`;
+                    report.innerHTML += `<span class="report_skill">Flipped ${flip2Cards} cards for telekinesis</span><br>`;
                 }
                 else {
-                    report.innerHTML += `<span class="report_skill">Flipped ${flip2Cards} card for Telekenesis</span><br>`;
+                    report.innerHTML += `<span class="report_skill">Flipped ${flip2Cards} card for telekinesis</span><br>`;
                 }
             }
             //Telepathy
@@ -4491,12 +5696,20 @@
         }
         .valid_attri {
             font-weight:bold;
+            color: limegreen;
+        }
+        .empty_attri {
+            font-weight:bold;
         }
         .error_attri {
             font-weight:bold;
             color: #ff5b62;
         }
         .valid_practice {
+            font-weight:bold;
+            color: limegreen;
+        }
+        .empty_practice {
             font-weight:bold;
         }
         .error_practice {
@@ -4672,11 +5885,13 @@
     </header>
     <main>
         <button type="button" onclick="clearAllInput();">Clear Character Sheet</button>
+        <button type="button" onclick="randomSheet();">Generate Random Character</button>
         <h4>Bio and Stats</h4>
         <div class="character_sheet row" id="character_sheet_top">
             <div class="column">
                 <div id="bio_input" class="character_sheet_float bio">  
                     <div class="input">
+                        <button type="button" onclick="randomName();">🎲</button>
                         <label for="character_input">Character: </label>
                         <input class="text_input" type="text" id="character_input" maxlength="40" name="character_input" onblur="saveInput();">
                     </div>
@@ -4691,10 +5906,12 @@
                     </div>
                     <br>
                     <div class="input">
+                        <button type="button" onclick="randomHome();">🎲</button>
                         <label for="home_input">Home: </label>
                         <input class="text_input" type="text" id="home_input" name="home_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
+                        <button type="button" onclick="randomSpecies();">🎲</button>
                         <label for="species_input">Species: </label>
                         <input class="text_input" type="text" id="species_input" name="species_input" maxlength="40" onblur="saveInput();">
                     </div>
@@ -5042,6 +6259,8 @@
                 <div class="character_sheet_float attributes column" id="attributes_ults">
                     <div id="attributes">
                         <br>
+                        <button type="button" onclick="randomAttri();">🎲</button>
+                        <br>
                         <div id="attri_count_space"></div>
                         <div class="input">
                             <label for="brawn_input">Brawn: </label>
@@ -5069,8 +6288,11 @@
                         </div>
                     </div>
                     <br>
+                    <br>
                     <div id="ults">
                         <div class="input">
+                            <button type="button" onclick="randomUlt();">🎲</button>
+                            <br>
                             <label for="ult1_select">Ultimate 1: </label>
                             <select class="select_input" name="ult1_select" id="ult1_select" onchange="saveInput();">
                                 <option id="ult1_none" value="none" selected>None</option>
@@ -5185,6 +6407,8 @@
                     <br>
                 </div>
                 <div id="skills" class="skills column">
+                    <button type="button" onclick="randomSkills();">🎲</button>
+                    <br>
                     <div id="practice_space"></div>
                     <div id="mastery_space"></div>
                     <div class="input">
