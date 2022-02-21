@@ -1966,6 +1966,16 @@
                 buttonPost.innerHTML += `<br>`;
             }
 
+            if (ult1 === "eclectic" || ult2 === "eclectic") {
+                for (i = 0; i < 20; i++) {
+                    let flip1 = document.getElementById("flip1_select").value + "_select";
+                    let flip2 = document.getElementById("flip2_select").value  + "_select";
+                    if ((flip1 === skillSelectArray[i] || flip2 === skillSelectArray[i]) && document.getElementById(skillSelectArray[i]).value !== "none") {
+                        buttonPost.innerHTML += `<br>`;
+                    }
+                }
+            }
+
             if ((ult1 === "bearstance" || ult2 === "bearstance")  && (document.getElementById("flip1_select").value === "melee" || document.getElementById("flip2_select").value === "melee")) {
                 buttonPost.innerHTML += `<button type="button" onclick="bearstanceButton();">Bear Stance: Spend Dodge</button>`;
             }
@@ -2002,6 +2012,16 @@
 
             if (ult1 === "punchingbag" || ult2 === "punchingbag" || ult1 === "refresh" || ult2 === "refresh" || ult1 === "schadenfreude" || ult2 === "schadenfreude") {
                 buttonPre.innerHTML += `<br>`;
+            }
+
+            if (ult1 === "eclectic" || ult2 === "eclectic") {
+                for (i = 0; i < 20; i++) {
+                    let flip1 = document.getElementById("flip1_select").value + "_select";
+                    let flip2 = document.getElementById("flip2_select").value  + "_select";
+                    if ((flip1 === skillSelectArray[i] || flip2 === skillSelectArray[i]) && document.getElementById(skillSelectArray[i]).value !== "none") {
+                        buttonPost.innerHTML += `<button type="button" onclick="eclecticButton();">Eclectic: First Use Bonus</button>`;
+                    }
+                }
             }
         }
 
@@ -3165,6 +3185,7 @@
         let explosionsCheck = false;
 
         let duelistCheck = false;
+        let eclecticCheck = false;
         let gottagolastCheck = false;
         let graceunderpressureCheck = false;
         let sleuthingCheck = false;
@@ -3541,6 +3562,7 @@
             heroCheck = false;
             explosionsCheck = false;
             duelistCheck = false;
+            eclecticCheck = false;
             gottagolastCheck = false;
             graceunderpressureCheck = false;
             sleuthingCheck = false;
@@ -4820,7 +4842,7 @@
                     }
 
                     if (card.Value === "A" && card.Suit === "spades") {
-                        report.innerHTML += `<span class="report_general">You flipped the </span><span class="black_card">Ace of Spades</span><span class="report_general"><i> *Motörhead starts playing out of nowhere*</i></span><br>`;
+                        report.innerHTML += `<span class="report_general">You flipped the </span><span class="black_card">Ace of ♠</span><span class="report_general"><i> *Motörhead starts playing out of nowhere*</i></span><br>`;
                     }
                     else if (card.Suit === "spades" || card.Suit === "clubs") {
                         report.innerHTML += `<span class="report_general">You flipped the </span><span class="black_card">${value} of ${suit}</span><br>`;
@@ -5046,6 +5068,7 @@
             heroCheck = false;
             explosionsCheck = false;
             duelistCheck = false;
+            eclecticCheck = false;
             gottagolastCheck = false;
             graceunderpressureCheck = false;
             sleuthingCheck = false;
@@ -5110,6 +5133,27 @@
             
         }
 
+        function eclecticButton() {
+            if (eclecticCheck === false) {
+                if ((mainDeck.length + discardDeck.length) < 1) {
+                report.innerHTML += `<span class="report_error">There aren't enough cards in the deck or discard pile!</span><br>`;
+                }
+                else {
+
+                    report.innerHTML += `<span class="report_ult">Eclectic: +1 to Practices or Masteries you haven't used yet</span><br>`;
+
+                    drawCards(1);
+                    reportHand();
+                    calculateScore();
+                    displayScore();
+                    eclecticCheck = true;
+                }
+            }
+            else {
+                report.innerHTML += `<span class="report_error">You've already used this ability for this flip!</span><br>`;
+            }
+        }
+        
         function gottagolastButton() {
             if (gottagolastCheck === false) {
                 if ((mainDeck.length + discardDeck.length) < 3) {
@@ -5194,6 +5238,7 @@
             heroCheck = false;
             explosionsCheck = false;
             duelistCheck = false;
+            eclecticCheck = false;
             gottagolastCheck = false;
             graceunderpressureCheck = false;
             sleuthingCheck = false;
@@ -5891,7 +5936,7 @@
             <div class="column">
                 <div id="bio_input" class="character_sheet_float bio">  
                     <div class="input">
-                        <button type="button" onclick="randomName();">🎲</button>
+                        <button type="button" onclick="randomName();" style="width: 32px">🎲</button>
                         <label for="character_input">Character: </label>
                         <input class="text_input" type="text" id="character_input" maxlength="40" name="character_input" onblur="saveInput();">
                     </div>
@@ -5900,18 +5945,18 @@
                         <input class="text_input" type="text" id="player_input" name="player_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
-                        <button type="button" onclick="randomConcept();">🎲</button>
+                        <button type="button" onclick="randomConcept();" style="margin: 0 19px 0 0;" style="width: 32px">🎲</button>
                         <label for="concept_input">Concept: </label>
                         <input class="text_input" type="text" id="concept_input" name="concept_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <br>
                     <div class="input">
-                        <button type="button" onclick="randomHome();">🎲</button>
+                        <button type="button" onclick="randomHome();" style="margin: 0 47px 0 0;" style="width: 32px">🎲</button>
                         <label for="home_input">Home: </label>
                         <input class="text_input" type="text" id="home_input" name="home_input" maxlength="40" onblur="saveInput();">
                     </div>
                     <div class="input">
-                        <button type="button" onclick="randomSpecies();">🎲</button>
+                        <button type="button" onclick="randomSpecies();" style="margin: 0 18px 0 0;" style="width: 32px">🎲</button>
                         <label for="species_input">Species: </label>
                         <input class="text_input" type="text" id="species_input" name="species_input" maxlength="40" onblur="saveInput();">
                     </div>
@@ -5970,7 +6015,7 @@
                 <br>
                 <br>
                 <button type="button" onclick="flipCards();">Flip</button> for 
-                <select class="select_input" name="flip1_select" id="flip1_select" onchange="showManual();">
+                <select class="select_input" name="flip1_select" id="flip1_select" onchange="showManual(); saveInput();">
                     <option id="flip1_all" value="manual">Manual</option>
                     <option id="flip1_brawn" value="brawn" selected>Brawn</option>
                     <option id="flip1_agility" value="agility">Agility</option>
@@ -6001,7 +6046,7 @@
                 </select>
                 <input class="num_input" type="number" id="flip1_value_input" name="flip1_value_input" style="width: 50px;" value="0">
                  and 
-                <select class="select_input" name="flip2_select" id="flip2_select" onchange="showManual();">
+                <select class="select_input" name="flip2_select" id="flip2_select" onchange="showManual(); saveInput();">
                     <option id="flip2_all" value="manual">Manual</option>
                     <option id="flip2_brawn" value="brawn">Brawn</option>
                     <option id="flip2_agility" value="agility">Agility</option>
