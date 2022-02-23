@@ -3255,8 +3255,59 @@
         //Displays the cards as text in the deck area, table area and discard area
         //For hand and discard cards, attributes an onclick function for withdrawing and discarding individual cards
         function renderDecks(){
-            deckSpace.innerHTML = ""
+            deckSpace.innerHTML = "";
 
+            for(let i = 0; i < mainDeck.length; i++) {
+                let card = document.createElement("div");
+                let icon = "";
+                let value = "";
+                let cardCol = "";
+
+                value = mainDeck[i].Value;
+
+                if (mainDeck[i].Suit == 'hearts') {
+                    icon = "♥";
+                    cardCol = "red";
+                }
+                else if (mainDeck[i].Suit == 'spades') {
+                    icon = "♠";
+                    cardCol = "black";
+                }
+                else if (mainDeck[i].Suit == 'diamonds') {
+                    icon = "♦";
+                    cardCol = "red";
+                }
+                else if (mainDeck[i].Suit == 'clubs') {
+                    icon = "♣";
+                    cardCol = "black";
+                }
+                else if (mainDeck[i].Suit == 'red') {
+                    icon = "J";
+                    cardCol = "red";
+                }
+                else {
+                    icon = "J";
+                    cardCol = "black";
+                }
+
+                if (value !== "Joker") {
+                    card.innerHTML = `<div>${value}${icon}</div>`
+                    card.className = "mini_card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                else {
+                    card.innerHTML = `<div class="joker">${value}</div>`
+                    card.className = "mini_card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                deckSpace.appendChild(card);
+            }
+
+            /*
 	        for(let i = 0; i < mainDeck.length; i++)
 	            {
                     if (mainDeck[i].Suit == 'hearts')
@@ -3275,9 +3326,65 @@
 	            }
             deckSpace.innerHTML = deckSpace.innerHTML.slice(0, -2);
             deckSpace.innerHTML += `<br><br>`;
+            */
 
-            handSpace.innerHTML = ""
+            handSpace.innerHTML = "";
 
+            for(let i = 0; i < handDeck.length; i++) {
+                let handInfo = handDeck[i].Value + handDeck[i].Suit;
+                let card = document.createElement("div");
+                let icon = "";
+                let value = "";
+                let cardCol = "";
+
+                value = handDeck[i].Value;
+
+                if (handDeck[i].Suit == 'hearts') {
+                    icon = "♥";
+                    cardCol = "red";
+                }
+                else if (handDeck[i].Suit == 'spades') {
+                    icon = "♠";
+                    cardCol = "black";
+                }
+                else if (handDeck[i].Suit == 'diamonds') {
+                    icon = "♦";
+                    cardCol = "red";
+                }
+                else if (handDeck[i].Suit == 'clubs') {
+                    icon = "♣";
+                    cardCol = "black";
+                }
+                else if (handDeck[i].Suit == 'red') {
+                    icon = "J";
+                    cardCol = "red";
+                }
+                else {
+                    icon = "J";
+                    cardCol = "black";
+                }
+
+                if (value !== "Joker") {
+                    card.innerHTML = `<div class="top_num">${value}</div><div class="icon">${icon}</div><div class="bottom_num">${value}</div>`
+                    card.className = "card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                else {
+                    card.innerHTML = `<div class="top_joker">${value}</div><div class="joker_icon">${icon}</div><div class="bottom_joker">${value}</div>`
+                    card.className = "card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                let func = "discardCard('" + handInfo + "');";
+
+                card.setAttribute("onclick",func);
+                handSpace.appendChild(card);
+            }
+
+            /*
 	        for(let i = 0; i < handDeck.length; i++)
 	            {
                     let handInfo = handDeck[i].Value + handDeck[i].Suit;
@@ -3296,10 +3403,66 @@
                     
 	            }
             handSpace.innerHTML = handSpace.innerHTML.slice(0, -2);
+            */
 
             discardSpace.innerHTML = "";
 
-	        for(let i = 0; i < discardDeck.length; i++)
+            for(let i = 0; i < discardDeck.length; i++) {
+                let discardInfo = discardDeck[i].Value + discardDeck[i].Suit;
+                let card = document.createElement("div");
+                let icon = "";
+                let value = "";
+                let cardCol = "";
+
+                value = discardDeck[i].Value;
+
+                if (discardDeck[i].Suit == 'hearts') {
+                    icon = "♥";
+                    cardCol = "red";
+                }
+                else if (discardDeck[i].Suit == 'spades') {
+                    icon = "♠";
+                    cardCol = "black";
+                }
+                else if (discardDeck[i].Suit == 'diamonds') {
+                    icon = "♦";
+                    cardCol = "red";
+                }
+                else if (discardDeck[i].Suit == 'clubs') {
+                    icon = "♣";
+                    cardCol = "black";
+                }
+                else if (discardDeck[i].Suit == 'red') {
+                    icon = "J";
+                    cardCol = "red";
+                }
+                else {
+                    icon = "J";
+                    cardCol = "black";
+                }
+
+                if (value !== "Joker") {
+                    card.innerHTML = `<div>${value}${icon}</div>`
+                    card.className = "mini_card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                else {
+                    card.innerHTML = `<div class="joker">${value}</div>`
+                    card.className = "mini_card";
+                    if (cardCol === "red") {
+                        card.classList.add("red");
+                    }
+                }
+                let func = "retriveCard('" + discardInfo + "');";
+
+                card.setAttribute("onclick",func);
+                discardSpace.appendChild(card);
+            }
+
+	        /*
+            for(let i = 0; i < discardDeck.length; i++)
 	            {
                     let discardInfo = discardDeck[i].Value + discardDeck[i].Suit;
                     if (discardDeck[i].Suit == 'hearts')
@@ -3318,6 +3481,8 @@
 	            }
             discardSpace.innerHTML = discardSpace.innerHTML.slice(0, -2);
             discardSpace.innerHTML += `<br><br>`;
+            */
+
             displayScore();
             saveDecks();
         }
@@ -5784,19 +5949,23 @@
         .card_space {
             background-color:#353535;
             color: white;
-            font-family:'Times New Roman', Times, serif
+            font-family:'Times New Roman', Times, serif;
         }
         .deck_space {
             font-weight: bold;
             padding: 10px 10px;
             color: black;
             background-color: #c7c7c7;
+            display: block;
+            overflow: auto;
         }
         .discard_space {
             font-weight: bold;
             padding: 10px 10px;
             color: black;
             background-color: #c7c7c7;
+            display: block;
+            overflow: auto;
         }
         .discard_instructions {
             font-family:Arial, Helvetica, sans-serif;
@@ -5808,9 +5977,12 @@
         .table_space {
             color: black;
             font-size: 2em;
-            padding: 30px 30px;
-            line-height: 50px;
+            padding: 10px 10px;
+            line-height: 70px;
+            min-height: 50px;
             background-color: #3ca05c;
+            display: block;
+            overflow: auto;
         }
         .red_card {
             color: crimson;
@@ -5819,6 +5991,64 @@
         .black_card {
             color: black;
             font-weight: bold;
+        }
+        .mini_card {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            float: left;
+            color: black;
+            background-color: white;
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            padding: 2px;
+            margin: 2px;
+        }
+        .joker {
+            font-size: 0.5em;
+        }
+        .card {
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            float: left;
+            color: black;
+            background-color: white;
+            border: solid 1px #aaa;
+            border-radius: 5px;
+            width: 45px;
+            height: 68px;
+            padding: 2px;
+            margin: 5px;
+        }
+        .top_num{
+            line-height: 20px;
+        }
+        .bottom_num{
+            text-align: right;
+            line-height: 20px;
+        }
+        .icon {
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 28px;
+            font-family:'Times New Roman', Times, serif;
+        }
+        .red {
+            color: crimson;
+        }
+        .top_joker{
+            font-size: 0.7em;
+            line-height: 10px;
+        }
+        .bottom_joker{
+            text-align: right;
+            font-size: 0.7em;
+            line-height: 10px;
+        }
+        .joker_icon {
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 48px;
+            font-family:'Times New Roman', Times, serif;
         }
         .report_space {
             background-color: black;
