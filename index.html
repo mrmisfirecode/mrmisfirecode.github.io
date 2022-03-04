@@ -418,7 +418,7 @@
 
         let dialogueOrigLength = dialogueNew.length;
         
-        const testLog = true;
+        const testLog = false;
 
         let turnCounter = 0;
         let cardCounter = 0;
@@ -1893,6 +1893,8 @@
             else {
                 potMoney = 0;
             }
+
+            saveValues();
 
             renderAll();
 
@@ -3555,6 +3557,7 @@
         function updateDialogue() {
             if (turnCounter === hanafudaTurn) {
                 for (i = 0; i < dialogueHanafuda.length; i++) {
+                    console.log("Added dialogue: Hanafuda");
                     dialogueNew.push(dialogueHanafuda[i]);
                     dialogueStage1.push(dialogueHanafuda[i]);
                     dialogueStage2.push(dialogueHanafuda[i]);
@@ -3562,27 +3565,30 @@
                 }
             }
             else if (turnCounter === tarotTurn) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueTarot.length; i++) {
+                    console.log("Added dialogue: Tarot");
+                    dialogueNew.push(dialogueTarot[i]);
+                    dialogueStage1.push(dialogueTarot[i]);
+                    dialogueStage2.push(dialogueTarot[i]);
+                    dialogueStage3.push(dialogueTarot[i]);
                 }
             }
             else if (turnCounter === unoTurn) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueUno.length; i++) {
+                    console.log("Added dialogue: Uno");
+                    dialogueNew.push(dialogueUno[i]);
+                    dialogueStage1.push(dialogueUno[i]);
+                    dialogueStage2.push(dialogueUno[i]);
+                    dialogueStage3.push(dialogueUno[i]);
                 }
             }
             else if (turnCounter === extraTurn) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueExtra.length; i++) {
+                    console.log("Added dialogue: Extra");
+                    dialogueNew.push(dialogueExtra[i]);
+                    dialogueStage1.push(dialogueExtra[i]);
+                    dialogueStage2.push(dialogueExtra[i]);
+                    dialogueStage3.push(dialogueExtra[i]);
                 }
             }
         }
@@ -3590,6 +3596,7 @@
         function loadDialogue() {
             if (turnCounter > (hanafudaTurn - 1)) {
                 for (i = 0; i < dialogueHanafuda.length; i++) {
+                    console.log("Loaded dialogue: Hanafuda");
                     dialogueNew.push(dialogueHanafuda[i]);
                     dialogueStage1.push(dialogueHanafuda[i]);
                     dialogueStage2.push(dialogueHanafuda[i]);
@@ -3597,27 +3604,30 @@
                 }
             }
             if (turnCounter > (tarotTurn - 1)) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueTarot.length; i++) {
+                    console.log("Loaded dialogue: Tarot");
+                    dialogueNew.push(dialogueTarot[i]);
+                    dialogueStage1.push(dialogueTarot[i]);
+                    dialogueStage2.push(dialogueTarot[i]);
+                    dialogueStage3.push(dialogueTarot[i]);
                 }
             }
             if (turnCounter > (unoTurn - 1)) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueUno.length; i++) {
+                    console.log("Loaded dialogue: Uno");
+                    dialogueNew.push(dialogueUno[i]);
+                    dialogueStage1.push(dialogueUno[i]);
+                    dialogueStage2.push(dialogueUno[i]);
+                    dialogueStage3.push(dialogueUno[i]);
                 }
             }
             if (turnCounter > (extraTurn - 1)) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+                for (i = 0; i < dialogueExtra.length; i++) {
+                    console.log("Loaded dialogue: Extra");
+                    dialogueNew.push(dialogueExtra[i]);
+                    dialogueStage1.push(dialogueExtra[i]);
+                    dialogueStage2.push(dialogueExtra[i]);
+                    dialogueStage3.push(dialogueExtra[i]);
                 }
             }
         }
@@ -3659,6 +3669,7 @@
         header {
             color: white;
             background-color: #202020;
+            padding: 5px;
         }
         header h1 {
             margin: 0 10px 0;
@@ -3923,7 +3934,7 @@
 </head>
 <body>
     <header>
-        <h1>Title</h1>
+        <h1>TotallyNormalPoker</h1>
     </header>
     <main>
         <div class="dialogue">
