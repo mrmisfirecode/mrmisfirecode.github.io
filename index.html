@@ -16,24 +16,24 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>Document</title>
+    <title>TotallyNormalPoker</title>
     <script language="JavaScript">
 
         const testRiver = [
-        {Name:"Blue 9",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Blue",Colour:"Blue",Type:"uno"},
-        {Name:"9. The Hermit",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
-        {Name:"Queen of Spades",PairValue:"Q",PairAlt:null,PairRank:12,RankValue:12,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
-        {Name:"6 of Diamonds",PairValue:"6",PairAlt:null,PairRank:6,RankValue:6,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"},
+        {Name:"Black Joker",PairValue:"Joker",PairAlt:"A",PairRank:0,RankValue:"Wild",RankAlt:null,Suit:"Wild",Colour:"Black",Type:"playing"},
+        {Name:"Red Joker",PairValue:"Joker",PairAlt:"A",PairRank:0,RankValue:"Wild",RankAlt:null,Suit:"Wild",Colour:"Red",Type:"playing"},
+        {Name:"Rules",PairValue:null,PairAlt:null,PairRank:-100,RankValue:-100,RankAlt:null,Suit:null,Colour:"Black",Type:"playing"},
+        {Name:"Blue 8",PairValue:"8",PairAlt:null,PairRank:8,RankValue:8,RankAlt:null,Suit:"Blue",Colour:"Blue",Type:"uno"},
         {Name:"3 of Clubs",PairValue:"3",PairAlt:null,PairRank:3,RankValue:3,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"}
         ]
 
         const testPlayer = [
-        {Name:"6 of Clubs",PairValue:"6",PairAlt:null,PairRank:6,RankValue:6,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
+        {Name:"0. The Fool",PairValue:"0",PairAlt:"Joker",PairRank:0,RankValue:0,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
+        {Name:"Red Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"}
         ]
 
         const testOpp = [
-        {Name:"6 of Clubs",PairValue:"6",PairAlt:null,PairRank:6,RankValue:6,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"Red 4",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
         {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
         ]
 
@@ -41,7 +41,7 @@
         const playingValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
         const unoColours = ["Red", "Blue", "Green", "Yellow"];
-        const unoValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        const unoValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
         const tarotNames = ["The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", "The Lovers", "The Chariot", "Justice", "The Hermit", "Wheel of Fortune", "Strength", "The Hanged Man", "Death", "Temperance", "The Devil", "The Tower", "The Star", "The Moon", "The Sun", "Judgement", "The World"]
 
@@ -93,7 +93,7 @@
             {Name: "Chrysanthemum", PairValue: "Chrysanthemum", PairAlt: null, PairRank: 23, RankValue: -100, RankAlt: null, Suit: "September", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Chrysanthemum", PairValue: "Chrysanthemum", PairAlt: null, PairRank: 23, RankValue: -100, RankAlt: null, Suit: "September", Colour: "Hanafuda", Type: "hanafuda"},
 
-            {Name: "Maple (Sake Cup)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 5, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda"},
+            {Name: "Maple (Deer)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 5, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Maple (Blue Ribbon)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 10, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Maple", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: -100, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Maple", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: -100, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda"},
@@ -147,6 +147,33 @@
             "You sure you want to play again?"
         ]
 
+        const dialogueThink = [
+            "Let's see here...",
+            "Hmmmm...",
+            "OK, well...",
+            "So the thing is...",
+            "OK, OK...",
+            "Oh Christ, OK...",
+            "OK, one sec...",
+            "Gimmie a minute to think...",
+            "Let me just weigh this up",
+            "OK, so if I get that and that..."
+        ]
+
+        const dialogueRaise = [
+            "OK, I'll raise you",
+            "Let's raise this",
+            "I'm throwing some money in"
+        ]
+
+        const dialogueCheck = [
+            "Check, please",
+            "Checkin'",
+            "I'll check",
+            "Checkmate... Wait, wrong game...",
+            "OK, fine... Check"
+        ]
+        
         let dialogueNew = [
             "Those certianly are some cards...",
             "Not too shabby...",
@@ -192,7 +219,7 @@
             "At this rate I'm gonna be betting my kids' college money...",
             "Do they sell sandwiches here?"
         ]
-
+        
         let dialogueStage1 = [
             "Those certianly are some cards...",
             "Not too shabby...",
@@ -353,7 +380,18 @@
         const dialogueWin = [
             "You won? What rubbish!",
             "That's money I'll never see again",
-            "You've ruined me"
+            "You've ruined me",
+            "What? I demand a recount",
+            "Well played, good sir",
+            "Enjoy it, 'cos that's the last hand you're winning",
+            "Wow, nice hand",
+            "Looks like my luck's run out",
+            "There goes my kid's college money",
+            "My wife is gonna kill me...",
+            "Do you take I.O.U.'s? No? Fine...",
+            "It just isn't my day today",
+            "Are you cheating or something?",
+            "Are you counting cards?"
         ]
 
         const dialogueLose = [
@@ -368,27 +406,62 @@
             "I can finally pay off that student loan",
             "Wow! You really are bad at this, huh?",
             "Aw, don't cry! I'll buy you a taxi home",
-            "That's why they call me"
+            "That's why they call me 'The Prince of Poker'! What? People call me that...",
+            "Finally, I've actually won something",
+            "Tough luck, friend",
+            "That's just how the cookie crumbles sometimes",
+            "Hey, could you take a picture of me with all this money I took from you?"
         ]
 
         const dialogueCloseWin = [
             "Close, but no cigar",
-            "I can't believe you've done this to me"
+            "I can't believe you've done this to me",
+            "Down to the wire and I still lose",
+            "Damn, I had my hopes up for a second",
+            "Yes! I win... Wait... NOOO!",
+            "Don't get cocky, you only *just* beat me...",
+            "I can't do anything right",
+            "That's incredibly frustrating",
+            "Maybe I should take up Blackjack...",
+            "I can't take this much longer"
         ]
 
         const dialogueCloseLose = [
             "That was a close one!",
-            "For a minute there I thought you might beat me"
+            "For a minute there I thought you might beat me",
+            "Not so fast! I think you'll find my cards are slightly better",
+            "I'll be taking that pot, thank you very much",
+            "It's mine! All mine!",
+            "Sorry pal, but this isn't ameture hour",
+            "Maybe next time you shouldn't play against a pro like me",
+            "Looks like luck *was* a lady tonight!",
+            "Looks like the cards were *just* in my favour"
         ]
 
         const dialogueTie = [
             "What a pointless hand",
-            "Well that was a waste of time"
+            "Well that was a waste of time",
+            "Oh... I guess we'll have to play again",
+            "Really? That's boring...",
+            "At least I didn't lose any money",
+            "Thank God... I thought you'd won for sure!"
+        ]
+        
+        const dialogueBroke = [
+            "What's the matter? Out of money?",
+            "Looks like I've cleaned you out",
+            "Better luck next time",
+            "I think you should probably call it quits",
+            "Need to take out a loan? I know a guy...",
+            "Sorry, bub, I only take cash",
+            "No shirt, no shoes, no money, no service"
         ]
         
         const dialogueExtra = [
             "I don't think these cards are standard issue",
             "I don't think these cards are according to Hoyle",
+            "I've never played Poker like this before",
+            "Is it just me or do these cards seem kinda weird?",
             "I heard Jokers and other wild cards can count as any suit in a flush",
             "I heard Jokers and other wild cards can count as any value in a straight",
             "Sometimes Jokers are added as additional Aces for pairs, threes etc."
@@ -416,11 +489,10 @@
             "Hanafuda cards have 12 suits, each representing a month. I bet later months are worth more..."
         ]
 
-        let dialogueOrigLength = dialogueNew.length;
         
-        const testLog = false;
+        const testLog = true;
 
-        let turnCounter = 0;
+        let turnCounter = 2;
         let cardCounter = 0;
 
         const extraTurn = 4;
@@ -428,6 +500,11 @@
         const tarotTurn = 10;
         const hanafudaTurn = 15;
         const magnify1Turn = 20;
+
+        let extraFlag = false;
+        let unoFlag = false;
+        let tarotFlag = false;
+        let hanafudaFlag = false;
         
         let mainDeck = [];
         let riverDeck = [];
@@ -439,10 +516,14 @@
 
         let playerMoney = 10000;
         let betMoney = 0;
+        let oppBetMoney = 0;
         let potMoney = 0;
 
-        let hold1 = false;
-        let hold2 = false;
+        let hold1 = 0;
+        let hold2 = 0;
+        let hold3 = 0;
+        let hold4 = 0;
+        let hold5 = 0;
 
         let stage = 0;
 
@@ -474,6 +555,8 @@
 
         console.log("Rand: " + randDialoge);
 
+        //Deck Generation
+        
         function genPlayingDeck() {
             let deck = new Array();
 
@@ -524,11 +607,11 @@
         function genPlayingExtra() {
             let deck = new Array();
 
-            let card = {Name: "Black Joker", PairValue: "Joker", PairAlt: "A", PairRank: 0, RankValue: "Wild", RankAlt: null, Suit: "Wild", Colour: "Black", Type: "playing"};
+            let card = {Name: "Black Joker", PairValue: "Joker", PairAlt: "A", PairRank: 0, RankValue: "Wild", RankAlt: null, Suit: "Wild", Colour: "Black", Type: "extra"};
             deck.push(card);
-            card = {Name: "Red Joker", PairValue: "Joker", PairAlt: "A", PairRank: 0, RankValue: "Wild", RankAlt: null, Suit: "Wild", Colour: "Red", Type: "playing"};
+            card = {Name: "Red Joker", PairValue: "Joker", PairAlt: "A", PairRank: 0, RankValue: "Wild", RankAlt: null, Suit: "Wild", Colour: "Red", Type: "extra"};
             deck.push(card);
-            card = {Name: "Rules", PairValue: null, PairAlt: null,  PairRank: -100, RankValue: -100, RankAlt: null, Suit: null, Colour: "Black", Type: "playing"};
+            card = {Name: "Rules", PairValue: null, PairAlt: null,  PairRank: -100, RankValue: -100, RankAlt: null, Suit: null, Colour: "Black", Type: "extra"};
             deck.push(card);
             
             return deck;
@@ -558,6 +641,9 @@
                     card = {Name: unoColours[i] + " " + unoValues[x], PairValue: unoValues[x], PairAlt: null, PairRank: Number(unoValues[x]), RankValue: Number(unoValues[x]), RankAlt: null, Suit: unoColours[i], Colour: unoColours[i], Type: "uno"};
                     deck.push(card);
                 }
+
+                card = {Name: unoColours[i] + " 0", PairValue: "0", PairAlt: null, PairRank: 0, RankValue: 0, RankAlt: null, Suit: unoColours[i], Colour: unoColours[i], Type: "uno"};
+                deck.push(card);
 
                 for(let x = 0; x < 2; x++) {
                     card = {Name: unoColours[i] + " Draw 2", PairValue: "Draw2", PairAlt: null, PairRank: 2.5, RankValue: 2, RankAlt: null, Suit: unoColours[i], Colour: unoColours[i], Type: "uno"};
@@ -762,6 +848,8 @@
             }
         }
 
+        //Rendering
+        
         function renderAll() {
             //renderCards("main");
             renderCards("river");
@@ -774,9 +862,13 @@
         }
 
         function renderMoney() {
+            document.getElementById("turn_counter").innerHTML = `Turn: ${turnCounter} Stage: ${stage}`;
+
             document.getElementById("inventory_space").innerHTML = `$ ${playerMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("bet_space").innerHTML = `Bet: $ ${betMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("pot_space").innerHTML = `Pot: $ ${potMoney.toLocaleString('en', {useGrouping:true})}`;
+
+            document.getElementById("opp_bet_space").innerHTML = `Bet: $ ${oppBetMoney.toLocaleString('en', {useGrouping:true})}`;
         }
 
         function renderCards(deckType) {
@@ -796,7 +888,7 @@
                 name = deck[i].Name;
                 wild = deck[i].Wild;
 
-                if (deck[i].Type === "playing") {
+                if (deck[i].Type === "playing" || deck[i].Type === "extra") {
 
                     value = deck[i].PairValue;
 
@@ -1138,9 +1230,17 @@
         function renderReport() {
             reportSpace.innerHTML = ``;
             if (handDeck.length !== 0) {
-                reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                //reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                reportSpace.innerHTML += `Current Hand: `;
+                for (i = 0; i < handDeck.length; i++) {
+                    if (handDeck[i].Type !== "hidden") {
+                        reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                    }
+                }
+                reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                reportSpace.innerHTML += `<br><br>`;
             }
-            if (stage > 0) {
+            if (stage > 1 && handDeck.length === 2) {
                 reportSpace.innerHTML += `Board: `;
                 for (i = 0; i < riverDeck.length; i++) {
                     if (riverDeck[i].Type !== "hidden") {
@@ -1152,7 +1252,15 @@
             }
         }
         
-        function drawRound() {
+        //Texas Hold 'Em
+        
+        function drawTexRound() {
+
+            handSpace.className = "";
+            handSpace.classList.add("card_space");
+            oppShowSpace.className = "";
+            oppShowSpace.classList.add("card_space");
+
             turnCounter++;
             randLover = Math.floor((Math.random() * 3));
             mainDeck = [];
@@ -1177,23 +1285,6 @@
                 oppDeck.push(card);
             }
 
-            /*
-            for (i = 0; i < 2; i++) {
-                let card = mainDeck.shift();
-                handDeck.push(card);
-            }
-
-            for (i = 0; i < 2; i++) {
-                let card = hiddenCard;
-                oppShowDeck.push(card);
-            }
-
-            for (i = 0; i < 5; i++) {
-                let card = hiddenCard;
-                riverDeck.push(card);
-            }
-            */
-
             if (turnCounter === 1) {
                 randDialoge = Math.floor(Math.random() * (dialogueDealNew.length));
                 dialogueSpace.innerText = dialogueDealNew[randDialoge];
@@ -1204,72 +1295,71 @@
             }
 
             cardCounter = 0;
-            setTimeout(drawCard, 500);
+            setTimeout(drawPairs, 500);
 
-            document.getElementById("newhand_button").style.visibility = "hidden";
+            document.getElementById("newtexhand_button").style.visibility = "hidden";
+            document.getElementById("newfivehand_button").style.visibility = "hidden";
             document.getElementById("win_cards1").style.visibility = "hidden";
             document.getElementById("win_cards2").style.visibility = "hidden";
-
-            updateDialogue();
         }
 
-        function drawCard() {
+        function drawPairs() {
             let card;
             if (cardCounter === 0) {
                 card = mainDeck.shift();
                 handDeck.push(card);
                 cardCounter++;
                 renderCards("hand");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 1) {
                 card = mainDeck.shift();
                 handDeck.push(card);
                 cardCounter++;
                 renderCards("hand");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 2) {
                 card = hiddenCard;
                 oppShowDeck.push(card);
                 cardCounter++;
                 renderCards("oppShow");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 3) {
                 card = hiddenCard;
                 oppShowDeck.push(card);
                 cardCounter++;
                 renderCards("oppShow");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 4) {
                 card = hiddenCard;
                 riverDeck.push(card);
                 cardCounter++;
                 renderCards("river");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 5) {
                 card = hiddenCard;
                 riverDeck.push(card);
                 cardCounter++;
                 renderCards("river");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 6) {
                 card = hiddenCard;
                 riverDeck.push(card);
                 cardCounter++;
                 renderCards("river");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 7) {
                 card = hiddenCard;
                 riverDeck.push(card);
                 cardCounter++;
                 renderCards("river");
-                setTimeout(drawCard, 500);
+                setTimeout(drawPairs, 500);
             }
             else if (cardCounter === 8) {
                 card = hiddenCard;
@@ -1284,7 +1374,11 @@
 
                 renderAll();
             }
-            else if (cardCounter === 9) {
+        }
+
+        function drawRiver() {
+            let card;
+            if (cardCounter === 1) {
                 riverDeck = [];
                 card = mainDeck.shift();
                 riverDeck.push(card);
@@ -1294,9 +1388,9 @@
                     riverDeck.push(card);
                 }
                 renderAll();
-                setTimeout(drawCard, 500);
+                setTimeout(drawRiver, 500);
             }
-            else if (cardCounter === 10) {
+            else if (cardCounter === 2) {
                 riverDeck.pop();
                 riverDeck.pop();
                 riverDeck.pop();
@@ -1309,65 +1403,641 @@
                 }
                 cardCounter++;
                 renderAll();
-                setTimeout(drawCard, 500);
+                setTimeout(drawRiver, 500);
             }
-            else if (cardCounter === 11) {
+            else if (cardCounter === 3) {
                 riverDeck.pop();
                 riverDeck.pop();
                 riverDeck.pop();
                 card = mainDeck.shift();
                 riverDeck.push(card);
                 for (i = 0; i < 2; i++) {
-                    let card = hiddenCard;
+                    card = hiddenCard;
                     riverDeck.push(card);
                 }
+                cardCounter++;
+                renderAll();
+                setTimeout(drawRiver, 500);
+            }
+            else if (cardCounter === 4) {
+                riverDeck.pop();
+                riverDeck.pop();
+                card = mainDeck.shift();
+                riverDeck.push(card);
+                for (i = 0; i < 1; i++) {
+                    card = hiddenCard;
+                    riverDeck.push(card);
+                }
+                cardCounter++;
+                renderAll();
+                setTimeout(drawRiver, 500);
+            }
+            else if (cardCounter === 5) {
+                riverDeck.pop();
+                card = mainDeck.shift();
+                riverDeck.push(card);
                 cardCounter++;
                 document.getElementById("betup_button").style.visibility = "visible";
                 document.getElementById("betdown_button").style.visibility = "visible";
                 document.getElementById("makebet_button").style.visibility = "visible";
                 document.getElementById("fold_button").style.visibility = "visible";
                 renderAll();
+
+                randDialoge = Math.floor(Math.random() * (dialogueStage1.length));
+                dialogueSpace.innerText = dialogueStage1[randDialoge];
+
+                updateDialogue();
+            }
+        }
+        
+        function oppEvalPair() {
+            let conf = 0;
+            let rank;
+            let compare = [];
+            if (oppDeck[0].PairValue === oppDeck[1].PairValue || oppDeck[0].PairValue === oppDeck[1].PairAlt) {
+                console.log("Pair Detected");
+                compare.push(oppDeck[0].PairRank);
+                compare.push(oppDeck[1].PairRank);
+                conf = Math.max(...compare);
+            }
+            else if (oppDeck[0].RankValue === oppDeck[1].RankValue + 1 || oppDeck[0].RankValue === oppDeck[1].RankValue - 1) {
+                console.log("Straight Detected");
+                compare.push(oppDeck[0].RankValue);
+                compare.push(oppDeck[0].RankAlt);
+                compare.push(oppDeck[1].RankValue);
+                compare.push(oppDeck[1].RankAlt);
+                let num = Math.max(...compare);
+                conf = Math.floor(num / 2);
+            }
+            else if (oppDeck[0].Suit === oppDeck[1].Suit) {
+                conf = 5;
+            }
+            let check = (Math.floor((Math.random() * 11)) - 5);
+            console.log(oppDeck[0].Name + ", " + oppDeck[1].Name);
+            console.log("Check: " + check);
+            console.log("Confidence: " + conf);
+            let confCheck = check + conf;
+            console.log("Combined: " + confCheck);
+            let roll = Math.floor((Math.random() * 9) + 1);
+            console.log("Roll: " + roll);
+            if (confCheck > roll && playerMoney > 0) {
+                stage = 1;
+                console.log("Bet");
+                let multi = Math.random();
+                console.log("Multiplier: " + multi);
+                let bet = 500 * Math.ceil((multi * confCheck));
+                console.log("$" + bet);
+
+                randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
+                dialogueSpace.innerText = dialogueRaise[randDialoge];
+
+                if (bet > playerMoney) {
+                    bet = playerMoney
+                }
+
+                oppBetMoney = betMoney + bet;
+                betMoney = oppBetMoney;
+                playerMoney += (0 - bet);
+                saveValues();
+                renderAll();
+
+                document.getElementById("betup_button").style.visibility = "visible";
+                document.getElementById("betdown_button").style.visibility = "visible";
+                document.getElementById("makebet_button").style.visibility = "visible";
+                document.getElementById("fold_button").style.visibility = "visible";
+
+                reportSpace.innerHTML = ``;
+                reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
+                if (handDeck.length !== 0) {
+                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                }
+            }
+            else {
+                stage = 2;
+                console.log("Check");
+                randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                potMoney += betMoney * 2;
+                betMoney = 0;
+                oppBetMoney = 0;
+                renderAll();
+
+                cardCounter = 1;
+                drawRiver();
+            }
+        }
+        
+        function oppEvalBoard() {
+            let oppHand = calculateHand("opp");
+            let conf = oppHand[0];
+            let check = (Math.floor((Math.random() * 11)) - 5);
+            let confCheck = check + conf;
+            let roll = Math.floor((Math.random() * 9) + 1);
+            if (confCheck > roll && playerMoney > 0) {
+                stage = 3;
+                console.log("Bet");
+                let multi = Math.random();
+                console.log("Multiplier: " + multi);
+                let bet = 500 * Math.ceil((multi * confCheck));
+                console.log("$" + bet);
+
+                randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
+                dialogueSpace.innerText = dialogueRaise[randDialoge];
+
+                if (bet > playerMoney) {
+                    bet = playerMoney
+                }
+
+                oppBetMoney = betMoney + bet;
+                betMoney = oppBetMoney;
+                playerMoney += (0 - bet);
+                saveValues();
+                renderAll();
+
+                document.getElementById("betup_button").style.visibility = "visible";
+                document.getElementById("betdown_button").style.visibility = "visible";
+                document.getElementById("makebet_button").style.visibility = "visible";
+                document.getElementById("fold_button").style.visibility = "visible";
+
+                reportSpace.innerHTML = ``;
+                reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
+                if (handDeck.length !== 0) {
+                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                }
+                reportSpace.innerHTML += `Board: `;
+                for (i = 0; i < riverDeck.length; i++) {
+                    if (riverDeck[i].Type !== "hidden") {
+                        reportSpace.innerHTML += `<span class="report_${riverDeck[i].Colour}">${riverDeck[i].Name}</span>, `;
+                    }
+                }
+                reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                reportSpace.innerHTML += `<br><br>`;
+            }
+            else {
+                stage = 4;
+                console.log("Check");
+                randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                potMoney += betMoney * 2;
+                betMoney = 0;
+                oppBetMoney = 0;
+                renderAll();
+
+                cardCounter = 1;
+                setTimeout(flipOpp, 500);
+            }
+        }
+        
+        //Five Card Draw
+        
+        function drawFiveRound() {
+
+            handSpace.className = "";
+            handSpace.classList.add("river_space");
+            oppShowSpace.className = "";
+            oppShowSpace.classList.add("river_space");
+
+            hold1 = 0;
+            hold2 = 0;
+            hold3 = 0;
+            hold4 = 0;
+            hold5 = 0;
+
+            turnCounter++;
+            randLover = Math.floor((Math.random() * 3));
+            mainDeck = [];
+            riverDeck = [];
+            handDeck = [];
+            oppDeck = [];
+            oppShowDeck = [];
+            winDeck = [];
+            tieDeck = [];
+            mainDeck = combineDecks();
+            shuffleDeck();
+            console.log(mainDeck);
+
+            playerMoney += -500;
+            potMoney += 1000;
+            saveValues();
+
+            renderAll();
+
+            for (i = 0; i < 5; i++) {
+                let card = mainDeck.shift();
+                oppDeck.push(card);
+            }
+
+            if (turnCounter === 1) {
+                randDialoge = Math.floor(Math.random() * (dialogueDealNew.length));
+                dialogueSpace.innerText = dialogueDealNew[randDialoge];
+            }
+            else {
+                randDialoge = Math.floor(Math.random() * (dialogueDeal.length));
+                dialogueSpace.innerText = dialogueDeal[randDialoge];
+            }
+
+            cardCounter = 0;
+            setTimeout(drawFiveHand, 500);
+
+            document.getElementById("newtexhand_button").style.visibility = "hidden";
+            document.getElementById("newfivehand_button").style.visibility = "hidden";
+            document.getElementById("win_cards1").style.visibility = "hidden";
+            document.getElementById("win_cards2").style.visibility = "hidden";
+
+        }
+        
+        function drawFiveHand() {
+            let card;
+            if (cardCounter === 0) {
+                card = mainDeck.shift();
+                handDeck.push(card);
+                cardCounter++;
+                renderCards("hand");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 1) {
+                card = mainDeck.shift();
+                handDeck.push(card);
+                cardCounter++;
+                renderCards("hand");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 2) {
+                card = mainDeck.shift();
+                handDeck.push(card);
+                cardCounter++;
+                renderCards("hand");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 3) {
+                card = mainDeck.shift();
+                handDeck.push(card);
+                cardCounter++;
+                renderCards("hand");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 4) {
+                card = mainDeck.shift();
+                handDeck.push(card);
+                cardCounter++;
+                renderCards("hand");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 5) {
+                card = hiddenCard;
+                oppShowDeck.push(card);
+                cardCounter++;
+                renderCards("oppShow");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 6) {
+                card = hiddenCard;
+                oppShowDeck.push(card);
+                cardCounter++;
+                renderCards("oppShow");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 7) {
+                card = hiddenCard;
+                oppShowDeck.push(card);
+                cardCounter++;
+                renderCards("oppShow");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 8) {
+                card = hiddenCard;
+                oppShowDeck.push(card);
+                cardCounter++;
+                renderCards("oppShow");
+                setTimeout(drawFiveHand, 500);
+            }
+            else if (cardCounter === 9) {
+                card = hiddenCard;
+                oppShowDeck.push(card);
+                cardCounter++;
+                document.getElementById("betup_button").style.visibility = "visible";
+                document.getElementById("betdown_button").style.visibility = "visible";
+                document.getElementById("makebet_button").style.visibility = "visible";
+                document.getElementById("fold_button").style.visibility = "visible";
+                randDialoge = Math.floor(Math.random() * (dialogueNew.length));
+                dialogueSpace.innerText = dialogueNew[randDialoge];
+
+                renderAll();
+
+                updateDialogue();
+            }
+        }
+        
+        function oppEvalFive() {
+            stage = 2;
+            console.log("Check");
+            randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+            dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+            potMoney += betMoney * 2;
+            betMoney = 0;
+            oppBetMoney = 0;
+            renderAll();
+
+            cardCounter = 1;
+
+            document.getElementById("betup_button").style.display = "none";
+            document.getElementById("betdown_button").style.display = "none";
+            document.getElementById("makebet_button").style.display = "none";
+            document.getElementById("fold_button").style.display = "none";
+
+            document.getElementById("hold1_button").style.display = "inline";
+            document.getElementById("hold2_button").style.display = "inline";
+            document.getElementById("hold3_button").style.display = "inline";
+            document.getElementById("hold4_button").style.display = "inline";
+            document.getElementById("hold5_button").style.display = "inline";
+            document.getElementById("holddeal_button").style.display = "inline";
+            
+        }
+        
+        function holdCard1() {
+            if (hold1 === 0) {
+                document.getElementById("hand_0").classList.add("hold");
+                hold1 = 1;
+            }
+            else {
+                document.getElementById("hand_0").classList.remove("hold");
+                hold1 = 0;
             }
         }
 
+        function holdCard2() {
+            if (hold2 === 0) {
+                document.getElementById("hand_1").classList.add("hold");
+                hold2 = 1;
+            }
+            else {
+                document.getElementById("hand_1").classList.remove("hold");
+                hold2 = 0;
+            }
+        }
+
+        function holdCard3() {
+            if (hold3 === 0) {
+                document.getElementById("hand_2").classList.add("hold");
+                hold3 = 1;
+            }
+            else {
+                document.getElementById("hand_2").classList.remove("hold");
+                hold3 = 0;
+            }
+        }
+
+        function holdCard4() {
+            if (hold4 === 0) {
+                document.getElementById("hand_3").classList.add("hold");
+                hold4 = 1;
+            }
+            else {
+                document.getElementById("hand_3").classList.remove("hold");
+                hold4 = 0;
+            }
+        }
+
+        function holdCard5() {
+            if (hold5 === 0) {
+                document.getElementById("hand_4").classList.add("hold");
+                hold5 = 1;
+            }
+            else {
+                document.getElementById("hand_4").classList.remove("hold");
+                hold5 = 0;
+            }
+        }
+        
+        function holdDealStart() {
+            document.getElementById("hold1_button").style.visibility = "hidden";
+            document.getElementById("hold2_button").style.visibility = "hidden";
+            document.getElementById("hold3_button").style.visibility = "hidden";
+            document.getElementById("hold4_button").style.visibility = "hidden";
+            document.getElementById("hold5_button").style.visibility = "hidden";
+            document.getElementById("holddeal_button").style.visibility = "hidden";
+            reportSpace.innerHTML = `Current Hand: `;
+            setTimeout(holdDeal, 500);
+        }
+        
+        function holdDeal() {
+
+            if (hold1 === 0) {
+                handDeck[0] = hiddenCard;
+                renderCards("hand");
+                hold1 = 2;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold2 === 0) {
+                handDeck[1] = hiddenCard;
+                renderCards("hand");
+                hold2 = 2;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold3 === 0) {
+                handDeck[2] = hiddenCard;
+                renderCards("hand");
+                hold3 = 2;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold4 === 0) {
+                handDeck[3] = hiddenCard;
+                renderCards("hand");
+                hold4 = 2;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold5 === 0) {
+                handDeck[4] = hiddenCard;
+                renderCards("hand");
+                hold5 = 2;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold1 === 2) {
+                let card = mainDeck.shift();
+                handDeck[0] = card;
+                renderCards("hand");
+                hold1 = 1;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold2 === 2) {
+                let card = mainDeck.shift();
+                handDeck[1] = card;
+                renderCards("hand");
+                hold2 = 1;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold3 === 2) {
+                let card = mainDeck.shift();
+                handDeck[2] = card;
+                renderCards("hand");
+                hold3 = 1;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold4 === 2) {
+                let card = mainDeck.shift();
+                handDeck[3] = card;
+                renderCards("hand");
+                hold4 = 1;
+                setTimeout(holdDeal, 500);
+            }
+            else if (hold5 === 2) {
+                let card = mainDeck.shift();
+                handDeck[4] = card;
+                renderCards("hand");
+                hold5 = 1;
+                setTimeout(holdDeal, 500);
+            }
+            else {
+                document.getElementById("betup_button").style.display = "initial";
+                document.getElementById("betdown_button").style.display = "initial";
+                document.getElementById("makebet_button").style.display = "initial";
+                document.getElementById("fold_button").style.display = "initial";
+                document.getElementById("betup_button").style.visibility = "visible";
+                document.getElementById("betdown_button").style.visibility = "visible";
+                document.getElementById("makebet_button").style.visibility = "visible";
+                document.getElementById("fold_button").style.visibility = "visible";
+
+                document.getElementById("hold1_button").style.display = "none";
+                document.getElementById("hold2_button").style.display = "none";
+                document.getElementById("hold3_button").style.display = "none";
+                document.getElementById("hold4_button").style.display = "none";
+                document.getElementById("hold5_button").style.display = "none";
+                document.getElementById("holddeal_button").style.display = "none";
+                renderAll();
+            }
+        }
+
+        //Shared Functions
+        
+        function checkRaise() {
+            if (handDeck.length === 2) {
+                if (stage === 0 || stage === 4) {
+
+                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                    dialogueSpace.innerText = dialogueThink[randDialoge];
+
+                    renderAll();
+
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    setTimeout(oppEvalPair, 2000);
+
+                }
+                else if (stage === 1) {
+                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                    dialogueSpace.innerText = dialogueThink[randDialoge];
+
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    console.log("Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+                    
+                    stage = 2;
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    cardCounter = 1;
+                    drawRiver();
+                }
+                else if (stage === 2) {
+
+                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                    dialogueSpace.innerText = dialogueThink[randDialoge];
+
+                    renderAll();
+
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    setTimeout(oppEvalBoard, 2000);
+
+                }
+                else if (stage === 3) {
+                    stage = 4;
+                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                    dialogueSpace.innerText = dialogueThink[randDialoge];
+
+                    renderAll();
+
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    console.log("Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    setTimeout(flipOpp, 2000);
+                }
+            }
+            else {
+                if (stage === 0 || stage === 4) {
+
+                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                    dialogueSpace.innerText = dialogueThink[randDialoge];
+
+                    renderAll();
+
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    setTimeout(oppEvalFive, 2000);
+
+                }
+            }
+        }
+        
         function increaseBet() {
             if (playerMoney !== 0) {
                 playerMoney += -500;
                 betMoney += 500;
             }
-            renderAll();
+            if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Raise";
+            }
+            else {
+                document.getElementById("makebet_button").innerText = "Check";
+            }
+            renderMoney();
         }
 
         function decreaseBet() {
-            if (betMoney !== 0) {
+            if (betMoney !== 0 && betMoney !== oppBetMoney) {
                 playerMoney += 500;
                 betMoney += -500;
             }
-            renderAll();
-        }
-
-        function holdCard1() {
-            if (hold1 === false) {
-                document.getElementById("hand_0").classList.add("hold");
-                hold1 = true;
+            if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Raise";
             }
             else {
-                document.getElementById("hand_0").classList.remove("hold");
-                hold1 = false;
+                document.getElementById("makebet_button").innerText = "Check";
             }
+            renderMoney();
         }
-
-        function holdCard2() {
-            if (hold2 === false) {
-                document.getElementById("hand_1").classList.add("hold");
-                hold2 = true;
-            }
-            else {
-                document.getElementById("hand_1").classList.remove("hold");
-                hold2 = false;
-            }
-        }
-
+        
         function foldHand() {
             mainDeck = [];
             riverDeck = [];
@@ -1378,9 +2048,12 @@
             tieDeck = [];
             playerMoney += betMoney;
             betMoney = 0;
+            oppBetMoney = 0;
             potMoney = 0;
+            saveValues();
 
-            document.getElementById("newhand_button").style.visibility = "visible";
+            document.getElementById("newtexhand_button").style.visibility = "visible";
+            document.getElementById("newfivehand_button").style.visibility = "visible";
             document.getElementById("betup_button").style.visibility = "hidden";
             document.getElementById("betdown_button").style.visibility = "hidden";
             document.getElementById("makebet_button").style.visibility = "hidden";
@@ -1391,105 +2064,40 @@
 
             renderAll();
         }
+        
+        function flipOpp() {
+            oppShowDeck = [];
 
-        function makeBet() {
-            if (stage === 0 || stage === 4) {
-                stage = 1;
-                potMoney += (betMoney * 2);
-                betMoney = 0;
-                saveValues();
-
-                randDialoge = Math.floor(Math.random() * (dialogueStage1.length));
-                dialogueSpace.innerText = dialogueStage1[randDialoge];
-
-                renderAll();
-
-                document.getElementById("betup_button").style.visibility = "hidden";
-                document.getElementById("betdown_button").style.visibility = "hidden";
-                document.getElementById("makebet_button").style.visibility = "hidden";
-                document.getElementById("fold_button").style.visibility = "hidden";
-
-                setTimeout(drawCard, 500);
-
-                /*
-                riverDeck = [];
-
-                for (i = 0; i < 3; i++) {
-                    let card = mainDeck.shift();
-                    riverDeck.push(card);
-                }
-
-                for (i = 0; i < 2; i++) {
-                    let card = hiddenCard;
-                    riverDeck.push(card);
-                }
-                */
-
+            for (i = 0; i < oppDeck.length; i++) {
+                let card = oppDeck[i];
+                oppShowDeck.push(card);
             }
-            else if (stage === 1) {
-                stage = 2;
-                potMoney += (betMoney * 2);
-                betMoney = 0;
-                saveValues();
-
-                
-                riverDeck.pop();
-                riverDeck.pop();
-
-                for (i = 0; i < 1; i++) {
-                    let card = mainDeck.shift();
-                    riverDeck.push(card);
-                }
-
-                for (i = 0; i < 1; i++) {
-                    let card = hiddenCard;
-                    riverDeck.push(card);
-                }
-                
-
-                randDialoge = Math.floor(Math.random() * (dialogueStage2.length));
-                dialogueSpace.innerText = dialogueStage2[randDialoge];
-
-                renderAll();
-            }
-            else if (stage === 2) {
-                stage = 3;
-                potMoney += (betMoney * 2);
-                betMoney = 0;
-                saveValues();
-
-                riverDeck.pop();
-
-                for (i = 0; i < 1; i++) {
-                    let card = mainDeck.shift();
-                    riverDeck.push(card);
-                }
-
-                randDialoge = Math.floor(Math.random() * (dialogueStage2.length));
-                dialogueSpace.innerText = dialogueStage3[randDialoge];
-
-                renderAll();
-            }
-            else if (stage === 3) {
-                stage = 3;
-                potMoney += (betMoney * 2);
-                betMoney = 0;
-                saveValues();
-                compareHands();
-                stage = 0;
-            }
+            renderAll();
+            setTimeout(compareHands, 500);
         }
-
+        
         function compareHands() {
 
-            console.log("####################################");
-            console.log("Opponent Pair:");
-            console.log(oppDeck[0].Name + ", " + oppDeck[1].Name);
-            console.log("River:");
-            console.log(riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
-            console.log("Player Pair:");
-            console.log(handDeck[0].Name + ", " + handDeck[1].Name);
-            console.log("####################################");
+            if (testLog === true) {
+                if (handDeck.length === 2) {
+                    console.log("####################################");
+                    console.log("Opponent Pair:");
+                    console.log(oppDeck[0].Name + ", " + oppDeck[1].Name);
+                    console.log("River:");
+                    console.log(riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
+                    console.log("Player Pair:");
+                    console.log(handDeck[0].Name + ", " + handDeck[1].Name);
+                    console.log("####################################");
+                }
+                else {
+                    console.log("####################################");
+                    console.log("Opponent Hand:");
+                    console.log(oppDeck[0].Name + ", " + oppDeck[1].Name + ", " + oppDeck[2].Name + ", " + oppDeck[3].Name + ", " + oppDeck[4].Name);
+                    console.log("Player Hand:");
+                    console.log(handDeck[0].Name + ", " + handDeck[1].Name + ", " + handDeck[2].Name + ", " + handDeck[3].Name + ", " + handDeck[4].Name);
+                    console.log("####################################");
+                }
+            }
 
             let playerHand = calculateHand("hand");
             let oppHand = calculateHand("opp");
@@ -1829,13 +2437,6 @@
             let handType = handValues[handTypeIndex];
             console.log(winningHand);
 
-            oppShowDeck = [];
-
-            for (i = 0; i < oppDeck.length; i++) {
-                let card = oppDeck[i];
-                oppShowDeck.push(card);
-            }
-
             console.log("Compare Hands:");
             console.log(playerHand[0]);
             console.log(oppHand[0]);
@@ -1910,12 +2511,23 @@
                 reportSpace.innerHTML = `You lose!<br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
             }
 
-            document.getElementById("newhand_button").style.visibility = "visible";
+            document.getElementById("newtexhand_button").style.visibility = "visible";
+            document.getElementById("newfivehand_button").style.visibility = "visible";
             document.getElementById("betup_button").style.visibility = "hidden";
             document.getElementById("betdown_button").style.visibility = "hidden";
             document.getElementById("makebet_button").style.visibility = "hidden";
             document.getElementById("fold_button").style.visibility = "hidden";
+
+            if (playerMoney === 0) {
+                document.getElementById("newtexhand_button").style.visibility = "hidden";
+                document.getElementById("newfivehand_button").style.visibility = "hidden";
+
+                randDialoge = Math.floor(Math.random() * (dialogueBroke.length));
+                dialogueSpace.innerText = dialogueBroke[randDialoge];
+            }
         }
+        
+        //Hand Calculation
         
         function calculateHand(deckType) {
             //let space = eval(deckType + "Space");
@@ -1943,7 +2555,14 @@
             //#########################################################
             */
 
-            cardPool = [deck[0], deck[1], riverDeck[0], riverDeck[1], riverDeck[2], riverDeck[3], riverDeck[4]];
+            if (handDeck.length === 2) {
+                cardPool = [deck[0], deck[1], riverDeck[0], riverDeck[1], riverDeck[2], riverDeck[3], riverDeck[4]];
+            }
+            else {
+                cardPool = [deck[0], deck[1], deck[2], deck[3], deck[4]];
+            }
+
+            console.log(JSON.stringify(cardPool));
 
             if (testLog === true) {
                 console.log("Card Pool:");
@@ -2012,8 +2631,13 @@
             if (testLog === true) {
             console.log("########################################");
 
-            console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name);
-            console.log("River: " + riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
+            if (handDeck.length === 2) {
+                console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name);
+                console.log("River: " + riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
+            }
+            else {
+                console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name + ", " + handDeck[2].Name + ", " + handDeck[3].Name + ", " + handDeck[4].Name);
+            }
 
             console.log("Five of a Kind: " + fiveCounter);
             console.log("Straight Flush: " + straightFlushCounter);
@@ -2108,6 +2732,8 @@
             console.log(sortedRanks);
             }
 
+            let altArray = [];
+            
             for (i = 0; i < sortedRanks.length; i++) {
                 let value;
                 let valCounter = 0;
@@ -2121,7 +2747,7 @@
                                 repCounter++;
                             }
                         }
-                        if (repCounter === 0) {
+                        if (repCounter === 0 && value !== null) {
                             valArray.push(value);
                         }  
                     }
@@ -2129,10 +2755,21 @@
                 if (testLog === true) {
                 console.log(sortedRanks[i] + " Val Array: ");
                 console.log(valArray);
+                //console.log("Cards: ");
+                //console.log(JSON.stringify(cards));
                 }
                 
                 for (y = 0; y < valArray.length; y++) {
                     valCounter = 0;
+                    for (x = 0; x < cards.length; x++) {
+                        if (cards[x].PairValue === valArray[y]) {
+                            valCounter++;
+                            altArray.push(cards[x])
+                            cards.splice(x,1);
+                            x = -1;
+                        }
+                    }
+                    /*
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === valArray[y] || cards[x].PairAlt === valArray[y]) {
                             valCounter++;
@@ -2140,8 +2777,29 @@
                             x = -1;
                         }
                     }
+                    */
                     let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
                     groupsArray.push(group);
+                }
+            }
+            console.log("Alt Array:");
+            console.log(altArray);
+
+            if (testLog === true) {
+            console.log("Groups:");
+            console.log(groupsArray);
+            }
+
+            for (i = 0; i < altArray.length; i++) {
+                for (x = 0; x < groupsArray.length; x++) {
+                    if (altArray[i].PairValue === groupsArray[x].Value && groupsArray[x].Num > 1) {
+                        console.log("Break: " + altArray[i].PairValue + " and " + groupsArray[x].Value);
+                        break;
+                    }
+                    else if (altArray[i].PairAlt === groupsArray[x].Value) {
+                        console.log("Nice...");
+                        groupsArray[x].Num++;
+                    }
                 }
             }
 
@@ -2149,6 +2807,7 @@
             console.log("Groups:");
             console.log(groupsArray);
             }
+
             return groupsArray;
         }
 
@@ -3554,83 +4213,98 @@
             bestHand.unshift(1);
         }
         
+        //Dialogue
+        
         function updateDialogue() {
-            if (turnCounter === hanafudaTurn) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    console.log("Added dialogue: Hanafuda");
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
-                }
-            }
-            else if (turnCounter === tarotTurn) {
-                for (i = 0; i < dialogueTarot.length; i++) {
-                    console.log("Added dialogue: Tarot");
-                    dialogueNew.push(dialogueTarot[i]);
-                    dialogueStage1.push(dialogueTarot[i]);
-                    dialogueStage2.push(dialogueTarot[i]);
-                    dialogueStage3.push(dialogueTarot[i]);
-                }
-            }
-            else if (turnCounter === unoTurn) {
-                for (i = 0; i < dialogueUno.length; i++) {
-                    console.log("Added dialogue: Uno");
-                    dialogueNew.push(dialogueUno[i]);
-                    dialogueStage1.push(dialogueUno[i]);
-                    dialogueStage2.push(dialogueUno[i]);
-                    dialogueStage3.push(dialogueUno[i]);
-                }
-            }
-            else if (turnCounter === extraTurn) {
-                for (i = 0; i < dialogueExtra.length; i++) {
-                    console.log("Added dialogue: Extra");
-                    dialogueNew.push(dialogueExtra[i]);
-                    dialogueStage1.push(dialogueExtra[i]);
-                    dialogueStage2.push(dialogueExtra[i]);
-                    dialogueStage3.push(dialogueExtra[i]);
-                }
-            }
-        }
 
-        function loadDialogue() {
-            if (turnCounter > (hanafudaTurn - 1)) {
-                for (i = 0; i < dialogueHanafuda.length; i++) {
-                    console.log("Loaded dialogue: Hanafuda");
-                    dialogueNew.push(dialogueHanafuda[i]);
-                    dialogueStage1.push(dialogueHanafuda[i]);
-                    dialogueStage2.push(dialogueHanafuda[i]);
-                    dialogueStage3.push(dialogueHanafuda[i]);
+            for (i = 0; i < riverDeck.length - 1; i++) {
+                if (riverDeck[i].Type === "extra" && extraFlag === false) {
+                    extraFlag = true;
+                    console.log("Added dialogue: Extra");
+                    for (x = 0; x < dialogueExtra.length; x++) {
+                        dialogueNew.push(dialogueExtra[i]);
+                        dialogueStage1.push(dialogueExtra[i]);
+                        dialogueStage2.push(dialogueExtra[i]);
+                        dialogueStage3.push(dialogueExtra[i]);
+                    }
+                }
+                if (riverDeck[i].Type === "uno" && unoFlag === false) {
+                    unoFlag = true;
+                    console.log("Added dialogue: Uno");
+                    for (x = 0; x < dialogueUno.length; x++) {
+                        dialogueNew.push(dialogueUno[i]);
+                        dialogueStage1.push(dialogueUno[i]);
+                        dialogueStage2.push(dialogueUno[i]);
+                        dialogueStage3.push(dialogueUno[i]);
+                    }
+                }
+                if (riverDeck[i].Type === "tarot" && tarotFlag === false) {
+                    tarotFlag = true;
+                    console.log("Added dialogue: Tarot");
+                    for (x = 0; x < dialogueTarot.length; x++) {
+                        dialogueNew.push(dialogueTarot[i]);
+                        dialogueStage1.push(dialogueTarot[i]);
+                        dialogueStage2.push(dialogueTarot[i]);
+                        dialogueStage3.push(dialogueTarot[i]);
+                    }
+                }
+                if (riverDeck[i].Type === "hanafuda" && hanafudaFlag === false) {
+                    hanafudaFlag = true;
+                    console.log("Added dialogue: Hanafuda");
+                    for (x = 0; x < dialogueHanafuda.length; x++) {
+                        dialogueNew.push(dialogueHanafuda[i]);
+                        dialogueStage1.push(dialogueHanafuda[i]);
+                        dialogueStage2.push(dialogueHanafuda[i]);
+                        dialogueStage3.push(dialogueHanafuda[i]);
+                    }
                 }
             }
-            if (turnCounter > (tarotTurn - 1)) {
-                for (i = 0; i < dialogueTarot.length; i++) {
-                    console.log("Loaded dialogue: Tarot");
-                    dialogueNew.push(dialogueTarot[i]);
-                    dialogueStage1.push(dialogueTarot[i]);
-                    dialogueStage2.push(dialogueTarot[i]);
-                    dialogueStage3.push(dialogueTarot[i]);
+            for (i = 0; i < handDeck.length; i++) {
+                if (handDeck[i].Type === "extra" && extraFlag === false) {
+                    extraFlag = true;
+                    console.log("Added dialogue: Extra");
+                    for (x = 0; x < dialogueExtra.length; x++) {
+                        dialogueNew.push(dialogueExtra[i]);
+                        dialogueStage1.push(dialogueExtra[i]);
+                        dialogueStage2.push(dialogueExtra[i]);
+                        dialogueStage3.push(dialogueExtra[i]);
+                    }
+                }
+                if (handDeck[i].Type === "uno" && unoFlag === false) {
+                    unoFlag = true;
+                    console.log("Added dialogue: Uno");
+                    for (x = 0; x < dialogueUno.length; x++) {
+                        dialogueNew.push(dialogueUno[i]);
+                        dialogueStage1.push(dialogueUno[i]);
+                        dialogueStage2.push(dialogueUno[i]);
+                        dialogueStage3.push(dialogueUno[i]);
+                    }
+                }
+                if (handDeck[i].Type === "tarot" && tarotFlag === false) {
+                    tarotFlag = true;
+                    console.log("Added dialogue: Tarot");
+                    for (x = 0; x < dialogueTarot.length; x++) {
+                        dialogueNew.push(dialogueTarot[i]);
+                        dialogueStage1.push(dialogueTarot[i]);
+                        dialogueStage2.push(dialogueTarot[i]);
+                        dialogueStage3.push(dialogueTarot[i]);
+                    }
+                }
+                if (handDeck[i].Type === "hanafuda" && hanafudaFlag === false) {
+                    hanafudaFlag = true;
+                    console.log("Added dialogue: Hanafuda");
+                    for (x = 0; x < dialogueHanafuda.length; x++) {
+                        dialogueNew.push(dialogueHanafuda[i]);
+                        dialogueStage1.push(dialogueHanafuda[i]);
+                        dialogueStage2.push(dialogueHanafuda[i]);
+                        dialogueStage3.push(dialogueHanafuda[i]);
+                    }
                 }
             }
-            if (turnCounter > (unoTurn - 1)) {
-                for (i = 0; i < dialogueUno.length; i++) {
-                    console.log("Loaded dialogue: Uno");
-                    dialogueNew.push(dialogueUno[i]);
-                    dialogueStage1.push(dialogueUno[i]);
-                    dialogueStage2.push(dialogueUno[i]);
-                    dialogueStage3.push(dialogueUno[i]);
-                }
-            }
-            if (turnCounter > (extraTurn - 1)) {
-                for (i = 0; i < dialogueExtra.length; i++) {
-                    console.log("Loaded dialogue: Extra");
-                    dialogueNew.push(dialogueExtra[i]);
-                    dialogueStage1.push(dialogueExtra[i]);
-                    dialogueStage2.push(dialogueExtra[i]);
-                    dialogueStage3.push(dialogueExtra[i]);
-                }
-            }
+            console.log(dialogueNew);
         }
+        
+        //Local Storage
         
         function clearStorage() {
             localStorage.clear();
@@ -3741,6 +4415,18 @@
         .buttons button {
             height: 30px;
         }
+        .clear_container {
+            overflow:auto;
+        }
+        .clear_button {
+            float: right;
+            margin: 5px;
+        }
+        .turn_counter {
+            color: white;
+            font-weight: bold;
+            margin: 0 20px;
+        }
         .inventory {
             background-color: darkslategray;
             min-width: 400px;
@@ -3754,6 +4440,11 @@
         .bet {
             font-weight: bold;
             color:white;
+        }
+        .pot {
+            font-weight: bold;
+            color: yellow;
+            font-size: 1.2em;
         }
         .report {
             background-color: black;
@@ -3934,27 +4625,33 @@
 </head>
 <body>
     <header>
-        <h1>TotallyNormalPoker</h1>
+        <h1 style="visibility: hidden;">TotallyNormalPoker</h1>
     </header>
     <main>
+        <div class="clear_container"><button id="clear_button" class="clear_button" type="button" onclick="clearStorage();">Clear Saved Data</button></div>
         <div class="dialogue">
             <div class="dialogue_icon_container"><div class="dialogue_icon"></div></div><div class="dialogue_text_container"></div><div id="dialogue_text" class="dialogue_text"></div></div>
         </div>
-        <div id="buttons1" class="buttons"><button id="newhand_button" type="button" onclick="drawRound();">New Hand ($500)</button><button id="clear_button" type="button" onclick="clearStorage();">Clear Saved Data</button></div>
+        <div id="opp_bet_space" class="inventory bet"></div>
+        <div id="buttons1" class="buttons"><button id="newtexhand_button" type="button" onclick="drawTexRound();">Texas Hold 'em ($500)</button><button id="newfivehand_button" type="button" onclick="drawFiveRound();">5 Card Draw ($500)</button><span id="turn_counter" class="turn_counter"></span></div>
         <div class="card_container"><div id="opp_space" class="card_space"></div></div>
         <div><div id="main_space" class="card_space" hidden></div></div>
         <div class="card_container"><div id="river_space" class="river_space"></div></div>
         <div class="card_container"><div id="hand_space" class="card_space"></div></div>
-        <button type="button" onclick="holdCard1();" hidden>Hold</button>
-        <button type="button" onclick="holdCard2();" hidden>Hold</button>
         <div id="inventory_space" class="inventory money"></div>
         <div id="bet_space" class="inventory bet"></div>
-        <div id="pot_space" class="inventory bet"></div>
+        <div id="pot_space" class="inventory pot"></div>
         <div id="buttons2" class="buttons">
             <button id="betup_button" type="button" onclick="increaseBet();" style="visibility: hidden;">Bet +$500</button>
             <button id="betdown_button" type="button" onclick="decreaseBet();" style="visibility: hidden;">Bet -$500</button>
-            <button id="makebet_button" type="button" onclick="makeBet();" style="visibility: hidden;">Submit Bet</button>
+            <button id="makebet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Check</button>
             <button id="fold_button" type="button" onclick="foldHand();" style="visibility: hidden;">Fold</button>
+            <button id="hold1_button" type="button" onclick="holdCard1();" style="display: none;">Hold</button>
+            <button id="hold2_button" type="button" onclick="holdCard2();" style="display: none;">Hold</button>
+            <button id="hold3_button" type="button" onclick="holdCard3();" style="display: none;">Hold</button>
+            <button id="hold4_button" type="button" onclick="holdCard4();" style="display: none;">Hold</button>
+            <button id="hold5_button" type="button" onclick="holdCard5();" style="display: none;">Hold</button>
+            <button id="holddeal_button" type="button" onclick="holdDealStart();" style="display: none;">Deal</button>
         </div>
         <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
@@ -3988,14 +4685,39 @@
         //window.location.reload();
 
         loadValues();
-        loadDialogue();
 
         renderAll();
 
         //riverDeck = testRiver;
         //handDeck = testPlayer;
         //oppDeck = testOpp;
+
+        /*
+        mainDeck = combineDecks();
+        shuffleDeck();
+        for (i = 0; i < 2; i++) {
+            let card = mainDeck.shift();
+            oppDeck.push(card);
+        }
+        for (i = 0; i < 2; i++) {
+            let card = mainDeck.shift();
+            handDeck.push(card);
+        }
+        for (i = 0; i < 5; i++) {
+            let card = mainDeck.shift();
+            riverDeck.push(card);
+        }
+        */
+
         //compareHands();
+
+        if (playerMoney === 0) {
+            document.getElementById("newtexhand_button").style.visibility = "hidden";
+            document.getElementById("newfivehand_button").style.visibility = "hidden";
+
+            randDialoge = Math.floor(Math.random() * (dialogueBroke.length));
+            dialogueSpace.innerText = dialogueBroke[randDialoge];
+        }
 
     </script>
 </body>
