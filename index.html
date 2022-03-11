@@ -203,6 +203,11 @@
             "Check-check-check it out!"
         ]
         
+        const dialogueChecked = [
+            "That's the spirit",
+            "I see you want tango"
+        ]
+        
         let dialogueNew = [
             "Those certianly are some cards...",
             "Not too shabby...",
@@ -1490,8 +1495,14 @@
             console.log("Confidence: " + conf);
             let confCheck = check + conf;
             console.log("Combined: " + confCheck);
-            let roll = Math.floor((Math.random() * 9) + 1);
+            let roll = Math.floor((Math.random() * 10) + 1);
             console.log("Roll: " + roll);
+            console.log("Bet Money: " + betMoney);
+            console.log("Bet Money Units: " + (betMoney / 500));
+            let betBonus = Math.floor(Math.random() * (betMoney / 500))
+            console.log("Bet Bonus: " + betBonus);
+            roll += betBonus;
+            console.log("New Roll: " + roll);
             if (confCheck > roll && playerMoney > 0) {
                 stage = 1;
                 console.log("Bet");
@@ -1546,7 +1557,8 @@
             let conf = oppHand[0];
             let check = (Math.floor(Math.random() * 11) - 5);
             let confCheck = check + conf;
-            let roll = Math.floor((Math.random() * 9) + 1);
+            let roll = Math.floor((Math.random() * 10) + 1);
+            roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
                 console.log("Bet");
@@ -1764,7 +1776,8 @@
             conf = Math.max(...compare);
             let check = (Math.floor(Math.random() * 11) - 5);
             let confCheck = check + conf;
-            let roll = Math.floor((Math.random() * 9) + 1);
+            let roll = Math.floor((Math.random() * 10) + 1);
+            roll += Math.floor(Math.random() * (betMoney / 500));
 
             oppHoldNum = 0;
 
@@ -2100,7 +2113,8 @@
             let conf = oppHand[0];
             let check = (Math.floor((Math.random() * 11)) - 5);
             let confCheck = check + conf;
-            let roll = Math.floor((Math.random() * 9) + 1);
+            let roll = Math.floor((Math.random() * 10) + 1);
+            roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
                 console.log("Bet");
@@ -2171,27 +2185,40 @@
 
                 }
                 else if (stage === 1) {
-                    randDialoge = Math.floor(Math.random() * (dialogueThink.length));
-                    dialogueSpace.innerText = dialogueThink[randDialoge];
+                    if (betMoney > oppBetMoney) {
+                        randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                        dialogueSpace.innerText = dialogueThink[randDialoge];
 
-                    document.getElementById("betup_button").style.visibility = "hidden";
-                    document.getElementById("betdown_button").style.visibility = "hidden";
-                    document.getElementById("makebet_button").style.visibility = "hidden";
-                    document.getElementById("fold_button").style.visibility = "hidden";
+                        renderAll();
 
-                    console.log("Check");
-                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
-                    dialogueSpace.innerText = dialogueCheck[randDialoge];
-                    
-                    stage = 2;
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
 
-                    potMoney += betMoney * 2;
-                    betMoney = 0;
-                    oppBetMoney = 0;
-                    renderAll();
+                        setTimeout(oppEvalPair, 2000);
+                    }
+                    else {
 
-                    cardCounter = 1;
-                    drawRiver();
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
+
+                        console.log("Check");
+                        randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
+                        dialogueSpace.innerText = dialogueChecked[randDialoge];
+                        
+                        stage = 2;
+
+                        potMoney += betMoney * 2;
+                        betMoney = 0;
+                        oppBetMoney = 0;
+                        renderAll();
+
+                        cardCounter = 1;
+                        drawRiver();
+                    }
                 }
                 else if (stage === 2) {
 
@@ -2209,25 +2236,40 @@
 
                 }
                 else if (stage === 3) {
-                    stage = 4;
+                    if (betMoney > oppBetMoney) {
+                        randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                        dialogueSpace.innerText = dialogueThink[randDialoge];
 
-                    renderAll();
+                        renderAll();
 
-                    document.getElementById("betup_button").style.visibility = "hidden";
-                    document.getElementById("betdown_button").style.visibility = "hidden";
-                    document.getElementById("makebet_button").style.visibility = "hidden";
-                    document.getElementById("fold_button").style.visibility = "hidden";
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
 
-                    console.log("Check");
-                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
-                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+                        setTimeout(oppEvalBoard, 2000);
+                    }
+                    else {
+                        stage = 4;
 
-                    potMoney += betMoney * 2;
-                    betMoney = 0;
-                    oppBetMoney = 0;
-                    renderAll();
+                        renderAll();
 
-                    setTimeout(flipOpp, 2000);
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
+
+                        console.log("Check");
+                        randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
+                        dialogueSpace.innerText = dialogueChecked[randDialoge];
+
+                        potMoney += betMoney * 2;
+                        betMoney = 0;
+                        oppBetMoney = 0;
+                        renderAll();
+
+                        setTimeout(flipOpp, 2000);
+                    }
                 }
             }
             else {
@@ -2247,30 +2289,44 @@
 
                 }
                 else if (stage === 1) {
+                    if (betMoney > oppBetMoney) {
+                        randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                        dialogueSpace.innerText = dialogueThink[randDialoge];
 
-                    stage = 2;
-                    console.log("Check");
-                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
-                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+                        renderAll();
 
-                    potMoney += betMoney * 2;
-                    betMoney = 0;
-                    oppBetMoney = 0;
-                    renderAll();
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
 
-                    cardCounter = 1;
+                        setTimeout(oppEvalFive, 2000);
+                    }
+                    else {
+                        stage = 2;
+                        console.log("Check");
+                        randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
+                        dialogueSpace.innerText = dialogueChecked[randDialoge];
 
-                    document.getElementById("betup_button").style.display = "none";
-                    document.getElementById("betdown_button").style.display = "none";
-                    document.getElementById("makebet_button").style.display = "none";
-                    document.getElementById("fold_button").style.display = "none";
+                        potMoney += betMoney * 2;
+                        betMoney = 0;
+                        oppBetMoney = 0;
+                        renderAll();
 
-                    document.getElementById("hold1_button").removeAttribute("hidden");
-                    document.getElementById("hold2_button").removeAttribute("hidden");
-                    document.getElementById("hold3_button").removeAttribute("hidden");
-                    document.getElementById("hold4_button").removeAttribute("hidden");
-                    document.getElementById("hold5_button").removeAttribute("hidden");
-                    document.getElementById("holddeal_button").removeAttribute("hidden");
+                        cardCounter = 1;
+
+                        document.getElementById("betup_button").style.display = "none";
+                        document.getElementById("betdown_button").style.display = "none";
+                        document.getElementById("makebet_button").style.display = "none";
+                        document.getElementById("fold_button").style.display = "none";
+
+                        document.getElementById("hold1_button").removeAttribute("hidden");
+                        document.getElementById("hold2_button").removeAttribute("hidden");
+                        document.getElementById("hold3_button").removeAttribute("hidden");
+                        document.getElementById("hold4_button").removeAttribute("hidden");
+                        document.getElementById("hold5_button").removeAttribute("hidden");
+                        document.getElementById("holddeal_button").removeAttribute("hidden");
+                    }
                 }
                 else if (stage === 2) {
 
@@ -2288,25 +2344,40 @@
 
                 }
                 else if (stage === 3) {
-                    stage = 4;
+                    if (betMoney > oppBetMoney) {
+                        randDialoge = Math.floor(Math.random() * (dialogueThink.length));
+                        dialogueSpace.innerText = dialogueThink[randDialoge];
 
-                    renderAll();
+                        renderAll();
 
-                    document.getElementById("betup_button").style.visibility = "hidden";
-                    document.getElementById("betdown_button").style.visibility = "hidden";
-                    document.getElementById("makebet_button").style.visibility = "hidden";
-                    document.getElementById("fold_button").style.visibility = "hidden";
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
 
-                    console.log("Check");
-                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
-                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+                        setTimeout(oppEvalFiveFinal, 2000);
+                    }
+                    else {
+                        stage = 4;
 
-                    potMoney += betMoney * 2;
-                    betMoney = 0;
-                    oppBetMoney = 0;
-                    renderAll();
+                        renderAll();
 
-                    setTimeout(flipOpp, 2000);
+                        document.getElementById("betup_button").style.visibility = "hidden";
+                        document.getElementById("betdown_button").style.visibility = "hidden";
+                        document.getElementById("makebet_button").style.visibility = "hidden";
+                        document.getElementById("fold_button").style.visibility = "hidden";
+
+                        console.log("Check");
+                        randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
+                        dialogueSpace.innerText = dialogueChecked[randDialoge];
+
+                        potMoney += betMoney * 2;
+                        betMoney = 0;
+                        oppBetMoney = 0;
+                        renderAll();
+
+                        setTimeout(flipOpp, 2000);
+                    }
                 }
             }
         }
