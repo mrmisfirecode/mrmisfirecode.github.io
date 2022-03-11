@@ -25,17 +25,17 @@
         {Name:"Rules",PairValue:null,PairAlt:null,PairRank:-100,RankValue:-100,RankAlt:null,Suit:null,Colour:"Black",Type:"playing"},
         {Name:"Blue 8",PairValue:"8",PairAlt:null,PairRank:8,RankValue:8,RankAlt:null,Suit:"Blue",Colour:"Blue",Type:"uno"},
         {Name:"3 of Clubs",PairValue:"3",PairAlt:null,PairRank:3,RankValue:3,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"}
-        ]
+        ];
 
         const testPlayer = [
         {Name:"0. The Fool",PairValue:"0",PairAlt:"Joker",PairRank:0,RankValue:0,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
         {Name:"Red Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"}
-        ]
+        ];
 
         const testOpp = [
         {Name:"Red 4",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
         {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
-        ]
+        ];
 
         const playingSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
         const playingValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
@@ -43,9 +43,9 @@
         const unoColours = ["Red", "Blue", "Green", "Yellow"];
         const unoValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-        const tarotNames = ["The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", "The Lovers", "The Chariot", "Justice", "The Hermit", "Wheel of Fortune", "Strength", "The Hanged Man", "Death", "Temperance", "The Devil", "The Tower", "The Star", "The Moon", "The Sun", "Judgement", "The World"]
+        const tarotNames = ["The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", "The Lovers", "The Chariot", "Justice", "The Hermit", "Wheel of Fortune", "Strength", "The Hanged Man", "Death", "Temperance", "The Devil", "The Tower", "The Star", "The Moon", "The Sun", "Judgement", "The World"];
 
-        const tarotValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+        const tarotValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"];
 
         const hanafuda = [
             {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda"},
@@ -107,7 +107,7 @@
             {Name: "Yellow Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: 10, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: -100, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: -100, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda"}
-        ]
+        ];
 
         const handValues = ["", "High card", "One Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "5 of a Kind"];
         
@@ -125,7 +125,7 @@
             "What's your game?",
             "Can I interest you in a game of cards?",
             "Come play, I'm getting lonely over here"
-        ]
+        ];
 
         const dialogueDealNew = [
             "Alright, let's get this thing going",
@@ -137,7 +137,7 @@
             "Let's rock and roll",
             "I hope I actually make some money tonight...",
             "You've just made the biggest financial mistake of your life"
-        ]
+        ];
 
         const dialogueDeal = [
             "I'll go again",
@@ -153,7 +153,7 @@
             "You sure you want to play again?",
             "I can feel the big win getting closer",
             "I'm pretty washed-out... OK, one more game"
-        ]
+        ];
 
         const dialogueThink = [
             "Let's see here...",
@@ -173,7 +173,7 @@
             "For God's sake... OK...",
             "Let me just ponder this...",
             "Evaluating..."
-        ]
+        ];
 
         const dialogueRaise = [
             "OK, I'll raise you",
@@ -188,7 +188,7 @@
             "Screw it, I'll raise",
             "I guess I'll raise you...",
             "Yeah, I'll raise... Scared yet?"
-        ]
+        ];
 
         const dialogueCheck = [
             "Check, please",
@@ -201,12 +201,19 @@
             "Oh God... OK, check...",
             "That's just rich enough for my blood",
             "Check-check-check it out!"
-        ]
+        ];
         
         const dialogueChecked = [
             "That's the spirit",
-            "I see you want tango"
-        ]
+            "I see you want tango",
+            "Checking? Good idea",
+            "Don't you want to raise?",
+            "Let's keep it moving",
+            "Not folding yet, huh?",
+            "I think you meant to fold",
+            "Darn, I thought you'd fold",
+            "Yikes! I was bluffing..."
+        ];
         
         let dialogueNew = [
             "Those certianly are some cards...",
@@ -253,7 +260,7 @@
             "At this rate I'm gonna be betting my kids' college money...",
             "Do they sell sandwiches here?",
             "This is like a Bond movie"
-        ]
+        ];
         
         let dialogueStage1 = [
             "Those certianly are some cards...",
@@ -301,7 +308,7 @@
             "This hand was a mistake",
             "I've won this hand for sure",
             "This is like a Bond movie"
-        ]
+        ];
         
         const dialogueFold = [
             "Guess this money's mine then",
@@ -328,8 +335,17 @@
             "Don't you know how to play Poker? You're supposed to bet!",
             "If you knew what hand I was holding, you wouldn't have done that",
             "Haha! The money is all mine!"
-        ]
+        ];
 
+        const dialogueOppFold = [
+            "Fine, I'll fold",
+            "I'm folding this trash hand",
+            "Too rich for my blood",
+            "I can't do this...",
+            "Nah, too much for me",
+            "I... Will fold..."
+        ];
+        
         const dialogueWin = [
             "You won? What rubbish!",
             "That's money I'll never see again",
@@ -346,7 +362,7 @@
             "Are you cheating or something?",
             "Are you counting cards?",
             "Wow! Would you teach me how to play like that?"
-        ]
+        ];
 
         const dialogueLose = [
             "Ha ha! I win!",
@@ -366,7 +382,7 @@
             "That's just how the cookie crumbles sometimes",
             "Hey, could you take a picture of me with all this money I took from you?",
             "Haha! The money is all mine!"
-        ]
+        ];
 
         const dialogueCloseWin = [
             "I can't believe you've done this to me",
@@ -379,7 +395,7 @@
             "Maybe I should take up Blackjack...",
             "I can't take this much longer",
             "This loss is gonna keep me up at night"
-        ]
+        ];
 
         const dialogueCloseLose = [
             "Close, but no cigar",
@@ -392,7 +408,7 @@
             "Maybe next time you shouldn't play against a pro like me",
             "Looks like luck *was* a lady tonight!",
             "Looks like the cards were *just* in my favour"
-        ]
+        ];
 
         const dialogueTie = [
             "What a pointless hand",
@@ -401,7 +417,7 @@
             "Really? That's boring...",
             "At least I didn't lose any money",
             "Thank God... I thought you'd won for sure!"
-        ]
+        ];
         
         const dialogueBroke = [
             "What's the matter? Out of money?",
@@ -413,7 +429,7 @@
             "No shirt, no shoes, no money, no service",
             "Out of money? Not my problem",
             "Come back when you have some dough"
-        ]
+        ];
         
         const dialogueExtra = [
             "I don't think these cards are standard issue",
@@ -424,7 +440,7 @@
             "I heard Jokers and other wild cards can count as any suit in a flush",
             "I heard Jokers and other wild cards can count as any value in a straight",
             "Sometimes Jokers are added as additional Aces for pairs, threes etc."
-        ]
+        ];
 
         const dialogueUno = [
             "OK these are definitely not legal cards",
@@ -437,14 +453,14 @@
             "Do you think +4's are worth more than normal 4's because of the '+' part?",
             "I wonder if UNO Wild cards work the same as other wild cards...",
             "The 4 different colours of UNO cards probably work the same as suits"
-        ]
+        ];
 
         const dialogueTarot = [
             "What the heck are Tarot cards doing in here?",
             "The Emperor and Empress in the Tarot deck kinda remind me of a King and Queen...",
             "The Fool in the Tarot deck kinda reminds me of a Joker...",
             "If you only had Tarot cards in your hand, would it be a flush?"
-        ]
+        ];
 
         const dialogueHanafuda = [
             "If I remember my Hanafuda rules right, you gotta pair cards of the same suit",
@@ -455,7 +471,7 @@
             "Hanafuda cards have 12 suits, each representing a month. I bet later months are worth more...",
             "There's only 4 cards per suit in Hanafuda, so a flush is very unlikely",
             "Some of these cards don't even have numbers on 'em!"
-        ]
+        ];
 
         
         const testLog = true;
@@ -501,6 +517,7 @@
 
         let oppHoldNum = 0;
         let oppDrawNum = 0;
+        let drawNumReport = 0;
 
         let stage = 0;
 
@@ -588,7 +605,7 @@
             deck.push(card);
             card = {Name: "Red Joker", PairValue: "Joker", PairAlt: "A", PairRank: 0, RankValue: "Wild", RankAlt: null, Suit: "Wild", Colour: "Red", Type: "extra"};
             deck.push(card);
-            card = {Name: "Rules", PairValue: null, PairAlt: null,  PairRank: -100, RankValue: -100, RankAlt: null, Suit: null, Colour: "Black", Type: "extra"};
+            card = {Name: "Rules of Poker", PairValue: null, PairAlt: null,  PairRank: -100, RankValue: -100, RankAlt: null, Suit: null, Colour: "Black", Type: "extra"};
             deck.push(card);
             
             return deck;
@@ -878,7 +895,7 @@
         }
 
         function renderMoney() {
-            document.getElementById("turn_counter").innerHTML = `Turn: ${turnCounter} Stage: ${stage}`;
+            document.getElementById("turn_counter").innerHTML = `Stage: ${stage}`;
 
             document.getElementById("inventory_space").innerHTML = `$ ${playerMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("bet_space").innerHTML = `Bet: $ ${betMoney.toLocaleString('en', {useGrouping:true})}`;
@@ -932,7 +949,7 @@
                             card.classList.add("red");
                         }
                     }
-                    else if (deck[i].Name === "Rules") {
+                    else if (deck[i].Name === "Rules of Poker") {
                         card.innerHTML = `<div class="top_rules">RULES FOR DRAW AND STUD POKER</div><div class="bottom_rules">▒▒▒</div>`;
                         if (cardCol === "Red") {
                             card.classList.add("red");
@@ -1271,6 +1288,7 @@
         //Texas Hold 'Em
         
         function drawTexRound() {
+            stage = 0;
 
             handSpace.className = "";
             handSpace.classList.add("card_space");
@@ -1533,7 +1551,61 @@
                 reportSpace.innerHTML = ``;
                 reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
                 if (handDeck.length !== 0) {
-                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                    reportSpace.innerHTML += `Current Hand: `;
+                    for (i = 0; i < handDeck.length; i++) {
+                        if (handDeck[i].Type !== "hidden") {
+                            reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                        }
+                    }
+                    reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                    reportSpace.innerHTML += `<br><br>`;
+                }
+            }
+            else if ((confCheck * 2) < roll) {
+                if (Math.random() > 0.875) {
+                    mainDeck = [];
+                    riverDeck = [];
+                    handDeck = [];
+                    oppDeck = [];
+                    oppShowDeck = [];
+                    winDeck = [];
+                    tieDeck = [];
+                    playerMoney += betMoney;
+                    playerMoney += potMoney;
+                    let reportPot = potMoney;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    potMoney = 0;
+                    stage = 0;
+                    saveValues();
+
+                    document.getElementById("newtexhand_button").style.visibility = "visible";
+                    document.getElementById("newfivehand_button").style.visibility = "visible";
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    randDialoge = Math.floor(Math.random() * (dialogueOppFold.length));
+                    dialogueSpace.innerText = dialogueOppFold[randDialoge];
+
+                    renderAll();
+
+                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                }
+                else {
+                    stage = 2;
+                    console.log("Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    cardCounter = 1;
+                    drawRiver();
                 }
             }
             else {
@@ -1589,7 +1661,14 @@
                 reportSpace.innerHTML = ``;
                 reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
                 if (handDeck.length !== 0) {
-                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                    reportSpace.innerHTML += `Current Hand: `;
+                    for (i = 0; i < handDeck.length; i++) {
+                        if (handDeck[i].Type !== "hidden") {
+                            reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                        }
+                    }
+                    reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                    reportSpace.innerHTML += `<br><br>`;
                 }
                 reportSpace.innerHTML += `Board: `;
                 for (i = 0; i < riverDeck.length; i++) {
@@ -1599,6 +1678,53 @@
                 }
                 reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
                 reportSpace.innerHTML += `<br><br>`;
+            }
+            else if ((confCheck * 2) < roll) {
+                if (Math.random() > 0.875) {
+                    mainDeck = [];
+                    riverDeck = [];
+                    handDeck = [];
+                    oppDeck = [];
+                    oppShowDeck = [];
+                    winDeck = [];
+                    tieDeck = [];
+                    playerMoney += betMoney;
+                    playerMoney += potMoney;
+                    let reportPot = potMoney;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    potMoney = 0;
+                    stage = 0;
+                    saveValues();
+
+                    document.getElementById("newtexhand_button").style.visibility = "visible";
+                    document.getElementById("newfivehand_button").style.visibility = "visible";
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    randDialoge = Math.floor(Math.random() * (dialogueOppFold.length));
+                    dialogueSpace.innerText = dialogueOppFold[randDialoge];
+
+                    renderAll();
+
+                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                }
+                else {
+                    stage = 4;
+                    console.log("Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    cardCounter = 1;
+                    setTimeout(flipOpp, 500);
+                }
             }
             else {
                 stage = 4;
@@ -1619,6 +1745,7 @@
         //Five Card Draw
         
         function drawFiveRound() {
+            stage = 0;
 
             handSpace.className = "";
             handSpace.classList.add("river_space");
@@ -1882,12 +2009,85 @@
                 reportSpace.innerHTML = ``;
                 reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
                 if (handDeck.length !== 0) {
-                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                    reportSpace.innerHTML += `Current Hand: `;
+                    for (i = 0; i < handDeck.length; i++) {
+                        if (handDeck[i].Type !== "hidden") {
+                            reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                        }
+                    }
+                    reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                    reportSpace.innerHTML += `<br><br>`;
+                }
+            }
+            else if ((confCheck * 2) < roll) {
+                if (Math.random() > 0.875) {
+                    mainDeck = [];
+                    riverDeck = [];
+                    handDeck = [];
+                    oppDeck = [];
+                    oppShowDeck = [];
+                    winDeck = [];
+                    tieDeck = [];
+                    playerMoney += betMoney;
+                    playerMoney += potMoney;
+                    let reportPot = potMoney;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    potMoney = 0;
+                    stage = 0;
+                    saveValues();
+
+                    document.getElementById("newtexhand_button").style.visibility = "visible";
+                    document.getElementById("newfivehand_button").style.visibility = "visible";
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    randDialoge = Math.floor(Math.random() * (dialogueOppFold.length));
+                    dialogueSpace.innerText = dialogueOppFold[randDialoge];
+
+                    renderAll();
+
+                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                }
+                else {
+                    stage = 2;
+                    console.log("Opp Fold => Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    cardCounter = 1;
+
+                    /*
+                    document.getElementById("betup_button").style.display = "none";
+                    document.getElementById("betdown_button").style.display = "none";
+                    document.getElementById("makebet_button").style.display = "none";
+                    document.getElementById("fold_button").style.display = "none";
+
+                    document.getElementById("hold1_button").removeAttribute("hidden");
+                    document.getElementById("hold2_button").removeAttribute("hidden");
+                    document.getElementById("hold3_button").removeAttribute("hidden");
+                    document.getElementById("hold4_button").removeAttribute("hidden");
+                    document.getElementById("hold5_button").removeAttribute("hidden");
+                    document.getElementById("holddeal_button").removeAttribute("hidden");
+                    */
+
+                    document.getElementById("buttons2").style.display = "none";
+                    document.getElementById("buttons3").style.display = "block";
+
+
+                    console.log("Hold Button Check");
                 }
             }
             else {
                 stage = 2;
-                console.log("Check");
+                console.log("Opp Check");
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -1898,6 +2098,7 @@
 
                 cardCounter = 1;
 
+                /*
                 document.getElementById("betup_button").style.display = "none";
                 document.getElementById("betdown_button").style.display = "none";
                 document.getElementById("makebet_button").style.display = "none";
@@ -1909,6 +2110,10 @@
                 document.getElementById("hold4_button").removeAttribute("hidden");
                 document.getElementById("hold5_button").removeAttribute("hidden");
                 document.getElementById("holddeal_button").removeAttribute("hidden");
+                */
+
+                document.getElementById("buttons2").style.display = "none";
+                document.getElementById("buttons3").style.display = "block";
 
                 console.log("Hold Button Check");
             }
@@ -1992,12 +2197,14 @@
                 oppDeck[4] = card;
             }
 
+            
             document.getElementById("hold1_button").style.visibility = "hidden";
             document.getElementById("hold2_button").style.visibility = "hidden";
             document.getElementById("hold3_button").style.visibility = "hidden";
             document.getElementById("hold4_button").style.visibility = "hidden";
             document.getElementById("hold5_button").style.visibility = "hidden";
             document.getElementById("holddeal_button").style.visibility = "hidden";
+            
             reportSpace.innerHTML = `Current Hand: `;
             setTimeout(holdDeal, 500);
         }
@@ -2071,6 +2278,7 @@
             }
             else if (oppHoldNum < 5) {
                 oppDrawNum = 5 - oppHoldNum;
+                drawNumReport = oppDrawNum;
                 for (i = 0; i < (oppDrawNum); i++) {
                     oppShowDeck.pop();
                 }
@@ -2085,6 +2293,7 @@
                 setTimeout(holdDeal, 500);
             }
             else {
+                /*
                 document.getElementById("makebet_button").innerText = "Check";
                 document.getElementById("betup_button").style.display = "initial";
                 document.getElementById("betdown_button").style.display = "initial";
@@ -2101,7 +2310,41 @@
                 document.getElementById("hold4_button").hidden = true;
                 document.getElementById("hold5_button").hidden = true;
                 document.getElementById("holddeal_button").hidden = true;
+                */
+
+                console.log("New hands drawn");
+
+                document.getElementById("buttons2").style.display = "block";
+                document.getElementById("buttons3").style.display = "none";
+
+                document.getElementById("betup_button").style.visibility = "visible";
+                document.getElementById("betdown_button").style.visibility = "visible";
+                document.getElementById("makebet_button").style.visibility = "visible";
+                document.getElementById("fold_button").style.visibility = "visible";
+
                 renderAll();
+
+                reportSpace.innerHTML = ``;
+                if (drawNumReport === 0) {
+                    reportSpace.innerHTML += `Opponent keeps their initial hand<br><br>`;
+                }
+                else if (drawNumReport === 1) {
+                    reportSpace.innerHTML += `Opponent discards and draws ${drawNumReport} card<br><br>`;
+                }
+                else {
+                    reportSpace.innerHTML += `Opponent discards and draws ${drawNumReport} cards<br><br>`;
+                }
+                
+                if (handDeck.length !== 0) {
+                    reportSpace.innerHTML += `Current Hand: `;
+                    for (i = 0; i < handDeck.length; i++) {
+                        if (handDeck[i].Type !== "hidden") {
+                            reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                        }
+                    }
+                    reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                    reportSpace.innerHTML += `<br><br>`;
+                }
 
                 randDialoge = Math.floor(Math.random() * (dialogueStage1.length));
                 dialogueSpace.innerText = dialogueStage1[randDialoge];
@@ -2145,7 +2388,61 @@
                 reportSpace.innerHTML = ``;
                 reportSpace.innerHTML += `Opponent raises their bet to $ ${oppBetMoney}<br><br>`;
                 if (handDeck.length !== 0) {
-                    reportSpace.innerHTML += `Current Hand: <span class="report_${handDeck[0].Colour}">${handDeck[0].Name}</span>, <span class="report_${handDeck[1].Colour}">${handDeck[1].Name}</span><br><br>`;
+                    reportSpace.innerHTML += `Current Hand: `;
+                    for (i = 0; i < handDeck.length; i++) {
+                        if (handDeck[i].Type !== "hidden") {
+                            reportSpace.innerHTML += `<span class="report_${handDeck[i].Colour}">${handDeck[i].Name}</span>, `;
+                        }
+                    }
+                    reportSpace.innerHTML = reportSpace.innerHTML.slice(0, -2);
+                    reportSpace.innerHTML += `<br><br>`;
+                }
+            }
+            else if ((confCheck * 2) < roll) {
+                if (Math.random() > 0.875) {
+                    mainDeck = [];
+                    riverDeck = [];
+                    handDeck = [];
+                    oppDeck = [];
+                    oppShowDeck = [];
+                    winDeck = [];
+                    tieDeck = [];
+                    playerMoney += betMoney;
+                    playerMoney += potMoney;
+                    let reportPot = potMoney;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    potMoney = 0;
+                    stage = 0;
+                    saveValues();
+
+                    document.getElementById("newtexhand_button").style.visibility = "visible";
+                    document.getElementById("newfivehand_button").style.visibility = "visible";
+                    document.getElementById("betup_button").style.visibility = "hidden";
+                    document.getElementById("betdown_button").style.visibility = "hidden";
+                    document.getElementById("makebet_button").style.visibility = "hidden";
+                    document.getElementById("fold_button").style.visibility = "hidden";
+
+                    randDialoge = Math.floor(Math.random() * (dialogueOppFold.length));
+                    dialogueSpace.innerText = dialogueOppFold[randDialoge];
+
+                    renderAll();
+
+                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                }
+                else {
+                    stage = 4;
+                    console.log("Check");
+                    randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
+                    dialogueSpace.innerText = dialogueCheck[randDialoge];
+
+                    potMoney += betMoney * 2;
+                    betMoney = 0;
+                    oppBetMoney = 0;
+                    renderAll();
+
+                    cardCounter = 1;
+                    setTimeout(flipOpp, 500);
                 }
             }
             else {
@@ -2169,8 +2466,7 @@
         
         function checkRaise() {
             if (handDeck.length === 2) {
-                if (stage === 0 || stage === 4) {
-
+                if (stage === 0) {
                     randDialoge = Math.floor(Math.random() * (dialogueThink.length));
                     dialogueSpace.innerText = dialogueThink[randDialoge];
 
@@ -2273,7 +2569,7 @@
                 }
             }
             else {
-                if (stage === 0 || stage === 4) {
+                if (stage === 0) {
 
                     randDialoge = Math.floor(Math.random() * (dialogueThink.length));
                     dialogueSpace.innerText = dialogueThink[randDialoge];
@@ -2304,7 +2600,7 @@
                     }
                     else {
                         stage = 2;
-                        console.log("Check");
+                        console.log("Player Check");
                         randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
 
@@ -2315,6 +2611,7 @@
 
                         cardCounter = 1;
 
+                        /*
                         document.getElementById("betup_button").style.display = "none";
                         document.getElementById("betdown_button").style.display = "none";
                         document.getElementById("makebet_button").style.display = "none";
@@ -2326,6 +2623,12 @@
                         document.getElementById("hold4_button").removeAttribute("hidden");
                         document.getElementById("hold5_button").removeAttribute("hidden");
                         document.getElementById("holddeal_button").removeAttribute("hidden");
+                        */
+
+                        document.getElementById("buttons2").style.display = "none";
+                        document.getElementById("buttons3").style.display = "block";
+
+                        console.log("Hold Button Check");
                     }
                 }
                 else if (stage === 2) {
@@ -2419,6 +2722,7 @@
             winDeck = [];
             tieDeck = [];
             playerMoney += betMoney;
+            let reportPot = potMoney;
             betMoney = 0;
             oppBetMoney = 0;
             potMoney = 0;
@@ -2436,6 +2740,8 @@
             dialogueSpace.innerText = dialogueFold[randDialoge];
 
             renderAll();
+
+            reportSpace.innerHTML = `You fold!<br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
         }
         
         function flipOpp() {
@@ -4749,7 +5055,7 @@
             min-width: 410px;
         }
         .river_space {
-            max-width: 305px;
+            max-width: 308px;
             overflow:auto;
             min-height: 84px;
             margin: 0 auto;
@@ -4986,6 +5292,7 @@
         .hold {
             outline: blue solid 5px;
         }
+        /*
         @media screen and (max-width: 600px){
         main {
         max-width: 100%;
@@ -4994,6 +5301,7 @@
         box-sizing: border-box;
         }
         }
+        */
     </style>
 </head>
 <body>
@@ -5019,19 +5327,21 @@
             <button id="betdown_button" type="button" onclick="decreaseBet();" style="visibility: hidden;">Bet -$500</button>
             <button id="makebet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Check</button>
             <button id="fold_button" type="button" onclick="foldHand();" style="visibility: hidden;">Fold</button>
-            <button class="holdfirst_button" id="hold1_button" type="button" onclick="holdCard1();" hidden>Hold</button>
-            <button class="hold_button" id="hold2_button" type="button" onclick="holdCard2();" hidden>Hold</button>
-            <button class="hold_button" id="hold3_button" type="button" onclick="holdCard3();" hidden>Hold</button>
-            <button class="hold_button" id="hold4_button" type="button" onclick="holdCard4();" hidden>Hold</button>
-            <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();" hidden>Hold</button>
-            <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();" hidden>Deal</button>
         </div>
-        <div id="report_space" class="report"></div>
+        <div id="buttons3" class="buttons" style="display: none">
+            <button class="holdfirst_button" id="hold1_button" type="button" onclick="holdCard1();">Hold</button>
+            <button class="hold_button" id="hold2_button" type="button" onclick="holdCard2();">Hold</button>
+            <button class="hold_button" id="hold3_button" type="button" onclick="holdCard3();">Hold</button>
+            <button class="hold_button" id="hold4_button" type="button" onclick="holdCard4();">Hold</button>
+            <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();">Hold</button>
+            <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();">Deal</button>
+        </div>
+        <div id="report_space" class="report">Pick a Poker type to start playing</div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
         <div id="win_cards2" class="win_container" style="visibility: hidden;"><div id="tie_space" class="river_space"></div></div>
     </main>
     <footer>
-        <p></p> 
+        <p>Goo<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>goo</p> 
     </footer>
     <script>
         //Internet Explorer detection
