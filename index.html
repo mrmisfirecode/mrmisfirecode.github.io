@@ -455,7 +455,7 @@
         
         const testLog = true;
 
-        let turnCounter = 2;
+        let turnCounter = 0;
         let cardCounter = 0;
 
         const extraTurn = 4;
@@ -1589,7 +1589,7 @@
                 reportSpace.innerHTML += `<br><br>`;
             }
             else {
-                stage = 0;
+                stage = 4;
                 console.log("Check");
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
@@ -1790,54 +1790,47 @@
             if (oppHold1 === 1) {
                 oppHoldNum++;
             }
-            else {
-                rand = Math.floor((Math.random() * 8) + 1);
-                console.log("Random: " + rand);
-                if (rand === 8) {
-                    oppHold1 = 1;
-                    oppHoldNum++;
-                }
-            }
             if (oppHold2 === 1) {
                 oppHoldNum++;
-            }
-            else {
-                rand = Math.floor((Math.random() * 8) + 1);
-                console.log("Random: " + rand);
-                if (rand === 8) {
-                    oppHold2 = 1;
-                    oppHoldNum++;
-                }
             }
             if (oppHold3 === 1) {
                 oppHoldNum++;
             }
-            else {
-                rand = Math.floor((Math.random() * 8) + 1);
-                console.log("Random: " + rand);
-                if (rand === 8) {
-                    oppHold3 = 1;
-                    oppHoldNum++;
-                }
-            }
             if (oppHold4 === 1) {
                 oppHoldNum++;
-            }
-            else {
-                rand = Math.floor((Math.random() * 8) + 1);
-                console.log("Random: " + rand);
-                if (rand === 8) {
-                    oppHold4 = 1;
-                    oppHoldNum++;
-                }
             }
             if (oppHold5 === 1) {
                 oppHoldNum++;
             }
-            else {
-                rand = Math.floor((Math.random() * 8) + 1);
+
+            if (oppHoldNum === 0) {
+                rand = Math.floor((Math.random() * 5) + 1);
                 console.log("Random: " + rand);
-                if (rand === 8) {
+                if (rand === 5) {
+                    oppHold1 = 1;
+                    oppHoldNum++;
+                }
+                rand = Math.floor((Math.random() * 5) + 1);
+                console.log("Random: " + rand);
+                if (rand === 5) {
+                    oppHold2 = 1;
+                    oppHoldNum++;
+                }
+                rand = Math.floor((Math.random() * 5) + 1);
+                console.log("Random: " + rand);
+                if (rand === 5) {
+                    oppHold3 = 1;
+                    oppHoldNum++;
+                }
+                rand = Math.floor((Math.random() * 5) + 1);
+                console.log("Random: " + rand);
+                if (rand === 5) {
+                    oppHold4 = 1;
+                    oppHoldNum++;
+                }
+                rand = Math.floor((Math.random() * 5) + 1);
+                console.log("Random: " + rand);
+                if (rand === 5) {
                     oppHold5 = 1;
                     oppHoldNum++;
                 }
@@ -1897,12 +1890,14 @@
                 document.getElementById("makebet_button").style.display = "none";
                 document.getElementById("fold_button").style.display = "none";
 
-                document.getElementById("hold1_button").style.display = "inline";
-                document.getElementById("hold2_button").style.display = "inline";
-                document.getElementById("hold3_button").style.display = "inline";
-                document.getElementById("hold4_button").style.display = "inline";
-                document.getElementById("hold5_button").style.display = "inline";
-                document.getElementById("holddeal_button").style.display = "inline";
+                for (i = 0; i < 100; i++) {
+                    document.getElementById("hold1_button").style.display = "inline";
+                    document.getElementById("hold2_button").style.display = "inline";
+                    document.getElementById("hold3_button").style.display = "inline";
+                    document.getElementById("hold4_button").style.display = "inline";
+                    document.getElementById("hold5_button").style.display = "inline";
+                    document.getElementById("holddeal_button").style.display = "inline";
+                }
             }
             
         }
@@ -2140,7 +2135,7 @@
                 }
             }
             else {
-                stage = 0;
+                stage = 4;
                 console.log("Check");
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
@@ -2160,7 +2155,7 @@
         
         function checkRaise() {
             if (handDeck.length === 2) {
-                if (stage === 0) {
+                if (stage === 0 || stage === 4) {
 
                     randDialoge = Math.floor(Math.random() * (dialogueThink.length));
                     dialogueSpace.innerText = dialogueThink[randDialoge];
@@ -2214,7 +2209,7 @@
 
                 }
                 else if (stage === 3) {
-                    stage = 0;
+                    stage = 4;
 
                     renderAll();
 
@@ -2236,7 +2231,7 @@
                 }
             }
             else {
-                if (stage === 0) {
+                if (stage === 0 || stage === 4) {
 
                     randDialoge = Math.floor(Math.random() * (dialogueThink.length));
                     dialogueSpace.innerText = dialogueThink[randDialoge];
@@ -2270,13 +2265,14 @@
                     document.getElementById("makebet_button").style.display = "none";
                     document.getElementById("fold_button").style.display = "none";
 
-                    document.getElementById("hold1_button").style.display = "inline";
-                    document.getElementById("hold2_button").style.display = "inline";
-                    document.getElementById("hold3_button").style.display = "inline";
-                    document.getElementById("hold4_button").style.display = "inline";
-                    document.getElementById("hold5_button").style.display = "inline";
-                    document.getElementById("holddeal_button").style.display = "inline";
-
+                    for (i = 0; i < 100; i++) {
+                        document.getElementById("hold1_button").style.display = "inline";
+                        document.getElementById("hold2_button").style.display = "inline";
+                        document.getElementById("hold3_button").style.display = "inline";
+                        document.getElementById("hold4_button").style.display = "inline";
+                        document.getElementById("hold5_button").style.display = "inline";
+                        document.getElementById("holddeal_button").style.display = "inline";
+                    }
                 }
                 else if (stage === 2) {
 
@@ -2294,7 +2290,7 @@
 
                 }
                 else if (stage === 3) {
-                    stage = 0;
+                    stage = 4;
 
                     renderAll();
 
@@ -4705,6 +4701,16 @@
         .buttons button {
             height: 30px;
         }
+        .holdfirst_button {
+            margin: 0 0 0 15px;
+        }
+        .hold_button {
+            margin: 0 0 0 5px;
+        }
+        .holddeal_button {
+            margin: 0 0 0 10px;
+            width: 100px;
+        }
         .clear_container {
             overflow:auto;
         }
@@ -4944,12 +4950,12 @@
             <button id="betdown_button" type="button" onclick="decreaseBet();" style="visibility: hidden;">Bet -$500</button>
             <button id="makebet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Check</button>
             <button id="fold_button" type="button" onclick="foldHand();" style="visibility: hidden;">Fold</button>
-            <button id="hold1_button" type="button" onclick="holdCard1();" style="display: none;">Hold</button>
-            <button id="hold2_button" type="button" onclick="holdCard2();" style="display: none;">Hold</button>
-            <button id="hold3_button" type="button" onclick="holdCard3();" style="display: none;">Hold</button>
-            <button id="hold4_button" type="button" onclick="holdCard4();" style="display: none;">Hold</button>
-            <button id="hold5_button" type="button" onclick="holdCard5();" style="display: none;">Hold</button>
-            <button id="holddeal_button" type="button" onclick="holdDealStart();" style="display: none;">Deal</button>
+            <button class="holdfirst_button" id="hold1_button" type="button" onclick="holdCard1();" style="display: none;">Hold</button>
+            <button class="hold_button" id="hold2_button" type="button" onclick="holdCard2();" style="display: none;">Hold</button>
+            <button class="hold_button" id="hold3_button" type="button" onclick="holdCard3();" style="display: none;">Hold</button>
+            <button class="hold_button" id="hold4_button" type="button" onclick="holdCard4();" style="display: none;">Hold</button>
+            <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();" style="display: none;">Hold</button>
+            <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();" style="display: none;">Deal</button>
         </div>
         <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
