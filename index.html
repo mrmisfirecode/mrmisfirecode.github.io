@@ -1890,14 +1890,14 @@
                 document.getElementById("makebet_button").style.display = "none";
                 document.getElementById("fold_button").style.display = "none";
 
-                for (i = 0; i < 100; i++) {
-                    document.getElementById("hold1_button").style.display = "inline";
-                    document.getElementById("hold2_button").style.display = "inline";
-                    document.getElementById("hold3_button").style.display = "inline";
-                    document.getElementById("hold4_button").style.display = "inline";
-                    document.getElementById("hold5_button").style.display = "inline";
-                    document.getElementById("holddeal_button").style.display = "inline";
-                }
+                document.getElementById("hold1_button").removeAttribute("hidden");
+                document.getElementById("hold2_button").removeAttribute("hidden");
+                document.getElementById("hold3_button").removeAttribute("hidden");
+                document.getElementById("hold4_button").removeAttribute("hidden");
+                document.getElementById("hold5_button").removeAttribute("hidden");
+                document.getElementById("holddeal_button").removeAttribute("hidden");
+
+                console.log("Hold Button Check");
             }
             
         }
@@ -2082,12 +2082,12 @@
                 document.getElementById("makebet_button").style.visibility = "visible";
                 document.getElementById("fold_button").style.visibility = "visible";
 
-                document.getElementById("hold1_button").style.display = "none";
-                document.getElementById("hold2_button").style.display = "none";
-                document.getElementById("hold3_button").style.display = "none";
-                document.getElementById("hold4_button").style.display = "none";
-                document.getElementById("hold5_button").style.display = "none";
-                document.getElementById("holddeal_button").style.display = "none";
+                document.getElementById("hold1_button").hidden = true;
+                document.getElementById("hold2_button").hidden = true;
+                document.getElementById("hold3_button").hidden = true;
+                document.getElementById("hold4_button").hidden = true;
+                document.getElementById("hold5_button").hidden = true;
+                document.getElementById("holddeal_button").hidden = true;
                 renderAll();
 
                 randDialoge = Math.floor(Math.random() * (dialogueStage1.length));
@@ -2265,14 +2265,12 @@
                     document.getElementById("makebet_button").style.display = "none";
                     document.getElementById("fold_button").style.display = "none";
 
-                    for (i = 0; i < 100; i++) {
-                        document.getElementById("hold1_button").style.display = "inline";
-                        document.getElementById("hold2_button").style.display = "inline";
-                        document.getElementById("hold3_button").style.display = "inline";
-                        document.getElementById("hold4_button").style.display = "inline";
-                        document.getElementById("hold5_button").style.display = "inline";
-                        document.getElementById("holddeal_button").style.display = "inline";
-                    }
+                    document.getElementById("hold1_button").removeAttribute("hidden");
+                    document.getElementById("hold2_button").removeAttribute("hidden");
+                    document.getElementById("hold3_button").removeAttribute("hidden");
+                    document.getElementById("hold4_button").removeAttribute("hidden");
+                    document.getElementById("hold5_button").removeAttribute("hidden");
+                    document.getElementById("holddeal_button").removeAttribute("hidden");
                 }
                 else if (stage === 2) {
 
@@ -4950,12 +4948,12 @@
             <button id="betdown_button" type="button" onclick="decreaseBet();" style="visibility: hidden;">Bet -$500</button>
             <button id="makebet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Check</button>
             <button id="fold_button" type="button" onclick="foldHand();" style="visibility: hidden;">Fold</button>
-            <button class="holdfirst_button" id="hold1_button" type="button" onclick="holdCard1();" style="display: none;">Hold</button>
-            <button class="hold_button" id="hold2_button" type="button" onclick="holdCard2();" style="display: none;">Hold</button>
-            <button class="hold_button" id="hold3_button" type="button" onclick="holdCard3();" style="display: none;">Hold</button>
-            <button class="hold_button" id="hold4_button" type="button" onclick="holdCard4();" style="display: none;">Hold</button>
-            <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();" style="display: none;">Hold</button>
-            <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();" style="display: none;">Deal</button>
+            <button class="holdfirst_button" id="hold1_button" type="button" onclick="holdCard1();" hidden>Hold</button>
+            <button class="hold_button" id="hold2_button" type="button" onclick="holdCard2();" hidden>Hold</button>
+            <button class="hold_button" id="hold3_button" type="button" onclick="holdCard3();" hidden>Hold</button>
+            <button class="hold_button" id="hold4_button" type="button" onclick="holdCard4();" hidden>Hold</button>
+            <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();" hidden>Hold</button>
+            <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();" hidden>Deal</button>
         </div>
         <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
