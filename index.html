@@ -28,7 +28,7 @@
         
         const testRiver = [
         {Name:"King of Spades",PairValue:"K",PairAlt:null,PairRank:13,RankValue:13,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
-        {Name:"Ace of Clubs",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"Yellow Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name:"Yellow Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
         {Name:"Ace of Spades",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Spades",Colour:"Black",Type:"playing"}
@@ -2247,6 +2247,12 @@
                     document.getElementById("holddeal_button").removeAttribute("hidden");
                     */
 
+                    document.getElementById("hold1_button").classList.remove("holdb");
+                    document.getElementById("hold2_button").classList.remove("holdb");
+                    document.getElementById("hold3_button").classList.remove("holdb");
+                    document.getElementById("hold4_button").classList.remove("holdb");
+                    document.getElementById("hold5_button").classList.remove("holdb");
+
                     document.getElementById("buttons2").style.display = "none";
                     document.getElementById("buttons3").style.display = "block";
 
@@ -2292,6 +2298,12 @@
                 document.getElementById("hold5_button").removeAttribute("hidden");
                 document.getElementById("holddeal_button").removeAttribute("hidden");
                 */
+
+                document.getElementById("hold1_button").classList.remove("holdb");
+                document.getElementById("hold2_button").classList.remove("holdb");
+                document.getElementById("hold3_button").classList.remove("holdb");
+                document.getElementById("hold4_button").classList.remove("holdb");
+                document.getElementById("hold5_button").classList.remove("holdb");
 
                 document.getElementById("buttons2").style.display = "none";
                 document.getElementById("buttons3").style.display = "block";
@@ -2398,15 +2410,10 @@
             }
 
             document.getElementById("hand_0").classList.remove("hold");
-            document.getElementById("hold1_button").classList.remove("holdb");
             document.getElementById("hand_1").classList.remove("hold");
-            document.getElementById("hold2_button").classList.remove("holdb");
             document.getElementById("hand_2").classList.remove("hold");
-            document.getElementById("hold3_button").classList.remove("holdb");
             document.getElementById("hand_3").classList.remove("hold");
-            document.getElementById("hold4_button").classList.remove("holdb");
             document.getElementById("hand_4").classList.remove("hold");
-            document.getElementById("hold5_button").classList.remove("holdb");
 
             
             document.getElementById("hold1_button").style.visibility = "hidden";
@@ -2863,6 +2870,12 @@
                         document.getElementById("hold5_button").removeAttribute("hidden");
                         document.getElementById("holddeal_button").removeAttribute("hidden");
                         */
+
+                        document.getElementById("hold1_button").classList.remove("holdb");
+                        document.getElementById("hold2_button").classList.remove("holdb");
+                        document.getElementById("hold3_button").classList.remove("holdb");
+                        document.getElementById("hold4_button").classList.remove("holdb");
+                        document.getElementById("hold5_button").classList.remove("holdb");
 
                         document.getElementById("buttons2").style.display = "none";
                         document.getElementById("buttons3").style.display = "block";
@@ -3727,6 +3740,8 @@
                     for (x = 0; x < altArray.length; x++){
                         if (altArray[x].PairValue === valArray[y] || altArray[x].PairAlt === valArray[y]) {
                             valCounter++;
+                            console.log(valArray[y] + " Removed Alt:");
+                            console.log(altArray[x]);
                             altArray.splice(x,1);
                             x = -1;
                         }
@@ -3735,6 +3750,8 @@
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === valArray[y]) {
                             valCounter++;
+                            console.log(valArray[y] + " Removed Cards:");
+                            console.log(cards[x]);
                             cards.splice(x,1);
                             x = -1;
                         }
@@ -5296,7 +5313,7 @@
         }
         .dialogue_icon_container {
             float: left;
-            margin: 10px 5px;
+            margin: 10px 15px;
         }
         .dialogue_icon {
             height: 50px;
