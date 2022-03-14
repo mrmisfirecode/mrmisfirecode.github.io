@@ -28,7 +28,7 @@
         
         const testRiver = [
         {Name:"King of Spades",PairValue:"K",PairAlt:null,PairRank:13,RankValue:13,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
-        {Name:"4 of Clubs",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"Ace of Clubs",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Clubs",Colour:"Black",Type:"playing"},
         {Name:"Yellow Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
         {Name:"Ace of Spades",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Spades",Colour:"Black",Type:"playing"}
@@ -496,7 +496,7 @@
 
         //Enable for console log reporting
         
-        const testLog = false;
+        const testLog = true;
 
         //Variable for card generation
 
@@ -2397,6 +2397,17 @@
                 oppDeck[4] = card;
             }
 
+            document.getElementById("hand_0").classList.remove("hold");
+            document.getElementById("hold1_button").classList.remove("holdb");
+            document.getElementById("hand_1").classList.remove("hold");
+            document.getElementById("hold2_button").classList.remove("holdb");
+            document.getElementById("hand_2").classList.remove("hold");
+            document.getElementById("hold3_button").classList.remove("holdb");
+            document.getElementById("hand_3").classList.remove("hold");
+            document.getElementById("hold4_button").classList.remove("holdb");
+            document.getElementById("hand_4").classList.remove("hold");
+            document.getElementById("hold5_button").classList.remove("holdb");
+
             
             document.getElementById("hold1_button").style.visibility = "hidden";
             document.getElementById("hold2_button").style.visibility = "hidden";
@@ -3672,6 +3683,20 @@
                 let value;
                 let valCounter = 0;
                 let valArray = [];
+                for (x = 0; x < altArray.length; x++) {
+                    if (altArray[x].PairRank === sortedRanks[i]) {
+                        value = altArray[x].PairValue;
+                        let repCounter = 0;
+                        for (y = 0; y < valArray.length; y++) {
+                            if (value === valArray[y]) {
+                                repCounter++;
+                            }
+                        }
+                        if (repCounter === 0 && value !== null) {
+                            valArray.push(value);
+                        }  
+                    }
+                }
                 for (x = 0; x < cards.length; x++) {
                     if (cards[x].PairRank === sortedRanks[i]) {
                         value = cards[x].PairValue;
@@ -5458,11 +5483,13 @@
         .top_uno{
             font-size: 0.8em;
             line-height: 16px;
+            margin-left: 3px;
         }
         .bottom_uno{
             text-align: right;
             font-size: 0.8em;
             line-height: 16px;
+            margin-right: 3px;
         }
         .uno_icon{
             font-size: 1.5em;
@@ -5718,7 +5745,7 @@
 
         //Displays initial report text
 
-        reportSpace.innerHTML = `Pick a Poker type to start playing`;
+        //reportSpace.innerHTML = `Pick a Poker type to start playing`;
 
     </script>
 </body>
