@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Enjoy a totally normal non-subversive game of play money Poker. Nothing weird going on here, no Ma'am.">
     <meta name="author" content="Callum West">
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
@@ -19,12 +19,19 @@
     <title>TotallyNormalPoker</title>
     <script language="JavaScript">
 
+        //Totally Normal Poker v1.0 - Callum West © 2022
+        
+        //I went into this project with a very dumb idea and absolutely no clue how to write code for evaluating poker hands. I've come out with a very dumb game and code that can kinda evaluate poker hands most of the time. It's actually been very fun to write and test, even if the hand calculation code is a little complex and I made very little effort to annotate it. Hope you enjoy!
+
+        //###############################################
+        //Test hands for testing purposes
+        
         const testRiver = [
-        {Name:"Black Joker",PairValue:"Joker",PairAlt:"A",PairRank:0,RankValue:"Wild",RankAlt:null,Suit:"Wild",Colour:"Black",Type:"playing"},
-        {Name:"Red Joker",PairValue:"Joker",PairAlt:"A",PairRank:0,RankValue:"Wild",RankAlt:null,Suit:"Wild",Colour:"Red",Type:"playing"},
-        {Name:"Rules",PairValue:null,PairAlt:null,PairRank:-100,RankValue:-100,RankAlt:null,Suit:null,Colour:"Black",Type:"playing"},
-        {Name:"Blue 8",PairValue:"8",PairAlt:null,PairRank:8,RankValue:8,RankAlt:null,Suit:"Blue",Colour:"Blue",Type:"uno"},
-        {Name:"3 of Clubs",PairValue:"3",PairAlt:null,PairRank:3,RankValue:3,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"}
+        {Name:"King of Spades",PairValue:"K",PairAlt:null,PairRank:13,RankValue:13,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
+        {Name:"4 of Clubs",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"4. The Emperor",PairValue:"4",PairAlt:"K",PairRank:4,RankValue:4,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
+        {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
+        {Name:"Ace of Spades",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Spades",Colour:"Black",Type:"playing"}
         ];
 
         const testPlayer = [
@@ -33,10 +40,14 @@
         ];
 
         const testOpp = [
-        {Name:"Red 4",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
+        {Name:"Yellow Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
         ];
 
+        //###############################################
+
+        //Values for card generation
+        
         const playingSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
         const playingValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
@@ -47,6 +58,8 @@
 
         const tarotValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"];
 
+        //Full Hanafuda deck 
+        
         const hanafuda = [
             {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda"},
             {Name: "Pine (Poetry Ribbon)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 10, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda"},
@@ -109,7 +122,11 @@
             {Name: "Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: -100, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda"}
         ];
 
+        //Names of hand types to be reported in compareHands()
+        
         const handValues = ["", "High card", "One Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "5 of a Kind"];
+        
+        //Dialogue
         
         const dialogueStart = [
             "Fancy a game?",
@@ -187,7 +204,8 @@
             "After careful consideration, I'm going to raise the bet",
             "Screw it, I'll raise",
             "I guess I'll raise you...",
-            "Yeah, I'll raise... Scared yet?"
+            "Yeah, I'll raise... Scared yet?",
+            "I'll raise ya! How about that?"
         ];
 
         const dialogueCheck = [
@@ -216,7 +234,7 @@
         ];
         
         let dialogueNew = [
-            "Those certianly are some cards...",
+            "Those certainly are some cards...",
             "Not too shabby...",
             "OK... OK... I can work with this...",
             "I'm off to a good start",
@@ -230,7 +248,7 @@
             "Are you kidding?",
             "Are you actually kidding me?",
             "You have GOT to be kidding me right now",
-            "...Huh? Sorry, my mind was somewhre else",
+            "...Huh? Sorry, my mind was somewhere else",
             "Zoo-wee mama!",
             "The Poker Gods have smiled on me this day!",
             "Welp...",
@@ -259,11 +277,12 @@
             "I have so many debts to pay off, you don't even know",
             "At this rate I'm gonna be betting my kids' college money...",
             "Do they sell sandwiches here?",
-            "This is like a Bond movie"
+            "This is like a Bond movie",
+            "For another dumb web toy, try dayattherac.es"
         ];
         
         let dialogueStage1 = [
-            "Those certianly are some cards...",
+            "Those certainly are some cards...",
             "Not too shabby...",
             "OK... OK... I can work with this...",
             "Now this is what I'm talking about",
@@ -275,7 +294,7 @@
             "Are you kidding?",
             "Are you actually kidding me?",
             "You have GOT to be kidding me right now",
-            "...Huh? Sorry, my mind was somewhre else",
+            "...Huh? Sorry, my mind was somewhere else",
             "Zoo-wee mama!",
             "The Poker Gods have smiled on me this day!",
             "Welp...",
@@ -307,7 +326,8 @@
             "Counting cards? I can hardly count my fingers",
             "This hand was a mistake",
             "I've won this hand for sure",
-            "This is like a Bond movie"
+            "This is like a Bond movie",
+            "For another dumb web toy, try dayattherac.es"
         ];
         
         const dialogueFold = [
@@ -330,7 +350,7 @@
             "Go home and be a family man",
             "Boo-hoo! Little baby doesn't like his cards",
             "I mean my cards aren't great either, but you don't see me folding",
-            "I'm glad you folded becasue I was RIGHT behind you",
+            "I'm glad you folded because I was RIGHT behind you",
             "This is too easy",
             "Don't you know how to play Poker? You're supposed to bet!",
             "If you knew what hand I was holding, you wouldn't have done that",
@@ -404,7 +424,7 @@
             "Not so fast! I think you'll find my cards are slightly better",
             "I'll be taking that pot, thank you very much",
             "It's mine! All mine!",
-            "Sorry pal, but this isn't ameture hour",
+            "Sorry pal, but this isn't amateur hour",
             "Maybe next time you shouldn't play against a pro like me",
             "Looks like luck *was* a lady tonight!",
             "Looks like the cards were *just* in my favour"
@@ -428,7 +448,8 @@
             "Sorry, bub, I only take cash",
             "No shirt, no shoes, no money, no service",
             "Out of money? Not my problem",
-            "Come back when you have some dough"
+            "Come back when you have some dough",
+            "Game over, man! Game over!"
         ];
         
         const dialogueExtra = [
@@ -473,22 +494,36 @@
             "Some of these cards don't even have numbers on 'em!"
         ];
 
+        //Enable for console log reporting
         
-        const testLog = true;
+        const testLog = false;
 
+        //Variable for card generation
+
+        let cardColour;
+
+        //Global variables for counting
+        
         let turnCounter = 0;
         let cardCounter = 0;
+        let stage = 0;
 
+        //Costants for turn at which new cards are introduced
+        
         const extraTurn = 4;
         const unoTurn = 7;
         const tarotTurn = 10;
         const hanafudaTurn = 15;
         const wildTurn = 20;
 
+        //Variables for updating dialogue
+        
         let extraFlag = false;
         let unoFlag = false;
         let tarotFlag = false;
         let hanafudaFlag = false;
+        
+        //Global variables for the different deck arrays
         
         let mainDeck = [];
         let riverDeck = [];
@@ -498,11 +533,15 @@
         let winDeck = [];
         let tieDeck = [];
 
+        //Global variables for money values
+        
         let playerMoney = 10000;
         let betMoney = 0;
         let oppBetMoney = 0;
         let potMoney = 0;
 
+        //Variables for player and opponent holding in 5 Card Draw hands
+        
         let hold1 = 0;
         let hold2 = 0;
         let hold3 = 0;
@@ -519,19 +558,18 @@
         let oppDrawNum = 0;
         let drawNumReport = 0;
 
-        let stage = 0;
+        //Initial randomised value for Lovers card emoji
 
         let randLover = Math.floor((Math.random() * 3));
-        console.log(randLover);
 
+        //Global variables for hand calculation
+        
         let cardPool;
         let groups;
         let straights;
         let flushes;
         let bestHand = [];
         let best = 0;
-
-        let cardColour;
 
         let fiveCounter;
         let fourCounter;
@@ -543,11 +581,13 @@
         let flushCounter;
         let straightCounter;
 
+        //Hidden card (Displayed as card back)
+
         let hiddenCard = {Type: "hidden"};
 
+        //Random number generator for initial dialogue
+        
         let randDialoge = Math.floor(Math.random() * (dialogueStart.length));
-
-        console.log("Rand: " + randDialoge);
 
         //Deck Generation
         
@@ -681,7 +721,9 @@
         }
 
         function combineDecks() {
-            console.log("Turn: " + turnCounter);
+            if (testLog === true) {
+                console.log("Turn: " + turnCounter);
+            }
             let deck = new Array();
             let playing = genPlayingDeck();
             let extra = genPlayingExtra();
@@ -693,14 +735,18 @@
             shuffle(hanafuda);
             
             if (turnCounter < extraTurn) {
-                console.log("Cards: Standard 52");
+                if (testLog === true) {
+                    console.log("Cards: Standard 52");
+                }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
                     deck.push(card);
                 }
             }
             else if (turnCounter < unoTurn) {
-                console.log("Cards: Standard + Jokers + Rules");
+                if (testLog === true) {
+                    console.log("Cards: Standard + Jokers + Rules");
+                }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
                     deck.push(card);
@@ -711,7 +757,9 @@
                 }
             }
             else if (turnCounter < tarotTurn) {
-                console.log("Cards: 55 Deck + Uno");
+                if (testLog === true) {
+                    console.log("Cards: 55 Deck + Uno");
+                }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
                     deck.push(card);
@@ -726,7 +774,9 @@
                 }
             }
             else if (turnCounter < hanafudaTurn) {
-                console.log("Cards: 55 Deck + Uno + Tarot");
+                if (testLog === true) {
+                    console.log("Cards: 55 Deck + Uno + Tarot");
+                }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
                     deck.push(card);
@@ -745,7 +795,9 @@
                 }
             }
             else if (turnCounter < wildTurn) {
-                console.log("Cards: 55 Deck + Uno + Tarot + Hanafuda");
+                if (testLog === true) {
+                    console.log("Cards: 55 Deck + Uno + Tarot + Hanafuda");
+                }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
                     deck.push(card);
@@ -768,7 +820,9 @@
                 }
             }
             else {
-                console.log("Cards: Wild");
+                if (testLog === true) {
+                    console.log("Cards: Wild");
+                }
 
                 let rand = Math.floor((Math.random() * 10) + 1);
 
@@ -783,11 +837,17 @@
                             let card = extra[i];
                             deck.push(card);
                         }
+                        if (testLog === true) {
+                            console.log("Standard deck + Extras only");
+                        }
                     }
                     else if (rand === 2) {
                         for (i = 0; i < uno.length; i++) {
                             let card = uno[i];
                             deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log("Uno only");
                         }
                     }
                     else if (rand === 3) {
@@ -795,11 +855,17 @@
                             let card = tarot[i];
                             deck.push(card);
                         }
+                        if (testLog === true) {
+                            console.log("Tarot only");
+                        }
                     }
                     else if (rand === 4) {
                         for (i = 0; i < hanafuda.length; i++) {
                             let card = hanafuda[i];
                             deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log("Hanafuda only");
                         }
                     }
                 }
@@ -812,20 +878,35 @@
                         let card = extra[i];
                         deck.push(card);
                     }
-                    rand = Math.floor((Math.random() * 30) + 1);
-                    for (i = 0; i < rand; i++) {
-                        let card = uno[i];
-                        deck.push(card);
+                    if (Math.random() > 0.5) {
+                        rand = Math.floor((Math.random() * 30) + 1);
+                        for (i = 0; i < rand; i++) {
+                            let card = uno[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log(rand + " Uno cards");
+                        }
                     }
-                    rand = Math.floor((Math.random() * 30) + 1);
-                    for (i = 0; i < rand; i++) {
-                        let card = tarot[i];
-                        deck.push(card);
+                    if (Math.random() > 0.5) {
+                        rand = Math.floor((Math.random() * 22) + 1);
+                        for (i = 0; i < rand; i++) {
+                            let card = tarot[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log(rand + " Tarot cards");
+                        }
                     }
-                    rand = Math.floor((Math.random() * 30) + 1);
-                    for (i = 0; i < rand; i++) {
-                        let card = hanafuda[i];
-                        deck.push(card);
+                    if (Math.random() > 0.5) {
+                        rand = Math.floor((Math.random() * 30) + 1);
+                        for (i = 0; i < rand; i++) {
+                            let card = hanafuda[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log(rand + " Hanafuda cards");
+                        }
                     }
                 }
             }
@@ -1306,7 +1387,11 @@
             tieDeck = [];
             mainDeck = combineDecks();
             shuffleDeck();
-            console.log(mainDeck);
+
+            if (testLog === true) {
+                console.log("Main Deck:");
+                console.log(mainDeck);
+            }
 
             playerMoney += -500;
             potMoney += 1000;
@@ -1335,6 +1420,8 @@
             document.getElementById("newfivehand_button").style.visibility = "hidden";
             document.getElementById("win_cards1").style.visibility = "hidden";
             document.getElementById("win_cards2").style.visibility = "hidden";
+
+            document.getElementById("makebet_button").innerText = "Check";
         }
 
         function drawPairs() {
@@ -1490,44 +1577,73 @@
             let conf = 0;
             let compare = [];
             if (oppDeck[0].PairValue === oppDeck[1].PairValue || oppDeck[0].PairValue === oppDeck[1].PairAlt) {
-                console.log("Pair Detected");
                 compare.push(oppDeck[0].PairRank);
                 compare.push(oppDeck[1].PairRank);
                 conf = Math.max(...compare);
+
+                if (testLog === true) {
+                    console.log("Opp Eval - Pair Detected");
+                }
             }
             else if (oppDeck[0].RankValue === oppDeck[1].RankValue + 1 || oppDeck[0].RankValue === oppDeck[1].RankValue - 1) {
-                console.log("Straight Detected");
                 compare.push(oppDeck[0].RankValue);
                 compare.push(oppDeck[0].RankAlt);
                 compare.push(oppDeck[1].RankValue);
                 compare.push(oppDeck[1].RankAlt);
                 let num = Math.max(...compare);
                 conf = Math.floor(num / 2);
+
+                if (testLog === true) {
+                    console.log("Opp Eval - Straight Detected");
+                }
             }
             else if (oppDeck[0].Suit === oppDeck[1].Suit) {
                 conf = 5;
             }
             let check = (Math.floor(Math.random() * 11) - 5);
-            console.log(oppDeck[0].Name + ", " + oppDeck[1].Name);
-            console.log("Check: " + check);
-            console.log("Confidence: " + conf);
+            if (testLog === true) {
+                console.log(oppDeck[0].Name + ", " + oppDeck[1].Name);
+                console.log("Check: " + check);
+                console.log("Confidence: " + conf);
+            }
+
             let confCheck = check + conf;
-            console.log("Combined: " + confCheck);
+            if (testLog === true) {
+                console.log("Combined: " + confCheck);
+            }
+
             let roll = Math.floor((Math.random() * 10) + 1);
-            console.log("Roll: " + roll);
-            console.log("Bet Money: " + betMoney);
-            console.log("Bet Money Units: " + (betMoney / 500));
+            if (testLog === true) {
+                console.log("Roll: " + roll);
+                console.log("Bet Money: " + betMoney);
+                console.log("Bet Money Units: " + (betMoney / 500));
+            }
+
             let betBonus = Math.floor(Math.random() * (betMoney / 500))
-            console.log("Bet Bonus: " + betBonus);
+            if (testLog === true) {
+                console.log("Bet Bonus: " + betBonus);
+            }
+
             roll += betBonus;
-            console.log("New Roll: " + roll);
+            if (testLog === true) {
+                console.log("New Roll: " + roll);
+            }
+
             if (confCheck > roll && playerMoney > 0) {
                 stage = 1;
-                console.log("Bet");
+                if (testLog === true) {
+                    console.log("Opp Eval - Bet");
+                }
+
                 let multi = Math.random();
-                console.log("Multiplier: " + multi);
+                if (testLog === true) {
+                    console.log("Multiplier: " + multi);
+                }
+
                 let bet = 500 * Math.ceil((multi * confCheck));
-                console.log("$" + bet);
+                if (testLog === true) {
+                    console.log("$" + bet);
+                }
 
                 randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
                 dialogueSpace.innerText = dialogueRaise[randDialoge];
@@ -1595,7 +1711,9 @@
                 }
                 else {
                     stage = 2;
-                    console.log("Check");
+                    if (testLog === true) {
+                        console.log("Opp Eval - Fold => Check");
+                    }
                     randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                     dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -1610,7 +1728,9 @@
             }
             else {
                 stage = 2;
-                console.log("Check");
+                if (testLog === true) {
+                    console.log("Opp Eval - Check");
+                }
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -1633,11 +1753,19 @@
             roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
-                console.log("Bet");
+                if (testLog === true) {
+                    console.log("Opp Eval - Bet");
+                }
+
                 let multi = Math.random();
-                console.log("Multiplier: " + multi);
+                if (testLog === true) {
+                    console.log("Multiplier: " + multi);
+                }
+
                 let bet = 500 * Math.ceil((multi * confCheck));
-                console.log("$" + bet);
+                if (testLog === true) {
+                    console.log("$" + bet);
+                }
 
                 randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
                 dialogueSpace.innerText = dialogueRaise[randDialoge];
@@ -1713,7 +1841,9 @@
                 }
                 else {
                     stage = 4;
-                    console.log("Check");
+                    if (testLog === true) {
+                        console.log("Opp Eval - Fold => Check");
+                    }
                     randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                     dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -1728,7 +1858,9 @@
             }
             else {
                 stage = 4;
-                console.log("Check");
+                if (testLog === true) {
+                    console.log("Opp Eval - Check");
+                }
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -1769,7 +1901,10 @@
             tieDeck = [];
             mainDeck = combineDecks();
             shuffleDeck();
-            console.log(mainDeck);
+            if (testLog === true) {
+                console.log("Main Deck:");
+                console.log(mainDeck);
+            }
 
             playerMoney += -500;
             potMoney += 1000;
@@ -1799,6 +1934,7 @@
             document.getElementById("win_cards1").style.visibility = "hidden";
             document.getElementById("win_cards2").style.visibility = "hidden";
 
+            document.getElementById("makebet_button").innerText = "Check";
         }
         
         function drawFiveHand() {
@@ -1887,8 +2023,10 @@
         function oppEvalFive() {
             cardPool = oppDeck.slice(0);
             groups = calculateGroups();
-            console.log("oppEvalFive:");
-            console.log(groups);
+            if (testLog === true) {
+                console.log("Opp Eval Groups:");
+                console.log(groups);
+            }
 
             let conf = 0;
             let compare = [];
@@ -1945,47 +2083,52 @@
 
             if (oppHoldNum === 0) {
                 rand = Math.floor((Math.random() * 5) + 1);
-                console.log("Random: " + rand);
                 if (rand === 5) {
                     oppHold1 = 1;
                     oppHoldNum++;
                 }
                 rand = Math.floor((Math.random() * 5) + 1);
-                console.log("Random: " + rand);
                 if (rand === 5) {
                     oppHold2 = 1;
                     oppHoldNum++;
                 }
                 rand = Math.floor((Math.random() * 5) + 1);
-                console.log("Random: " + rand);
                 if (rand === 5) {
                     oppHold3 = 1;
                     oppHoldNum++;
                 }
                 rand = Math.floor((Math.random() * 5) + 1);
-                console.log("Random: " + rand);
                 if (rand === 5) {
                     oppHold4 = 1;
                     oppHoldNum++;
                 }
                 rand = Math.floor((Math.random() * 5) + 1);
-                console.log("Random: " + rand);
                 if (rand === 5) {
                     oppHold5 = 1;
                     oppHoldNum++;
                 }
             }
 
+            if (testLog === true) {
             console.log("Hold 1: " + oppHold1 + " Hold 2: " + oppHold2 + " Hold 3: "+ oppHold3 + " Hold 4: "+ oppHold4 + " Hold 5: "+ oppHold5);
             console.log("Hold Num: " + oppHoldNum);
+            }
 
             if (confCheck > roll && playerMoney > 0) {
                 stage = 1;
-                console.log("Bet");
+                if (testLog === true) {
+                    console.log("Opp Eval - Bet");
+                }
+
                 let multi = Math.random();
-                console.log("Multiplier: " + multi);
+                if (testLog === true) {
+                    console.log("Multiplier: " + multi);
+                }
+
                 let bet = 500 * Math.ceil((multi * confCheck));
-                console.log("$" + bet);
+                if (testLog === true) {
+                    console.log("$" + bet);
+                }
 
                 randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
                 dialogueSpace.innerText = dialogueRaise[randDialoge];
@@ -2053,7 +2196,9 @@
                 }
                 else {
                     stage = 2;
-                    console.log("Opp Fold => Check");
+                    if (testLog === true) {
+                        console.log("Opp Eval - Fold => Check");
+                    }
                     randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                     dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -2088,13 +2233,17 @@
                     document.getElementById("hold5_button").style.visibility = "visible";
                     document.getElementById("holddeal_button").style.visibility = "visible";
 
-
-                    console.log("Hold Button Check");
+                    if (testLog === true) {
+                        console.log("Hold Button Check");
+                    }
                 }
             }
             else {
                 stage = 2;
-                console.log("Opp Check");
+                if (testLog === true) {
+                    console.log("Opp Check");
+                }
+
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -2129,7 +2278,9 @@
                 document.getElementById("hold5_button").style.visibility = "visible";
                 document.getElementById("holddeal_button").style.visibility = "visible";
 
-                console.log("Hold Button Check");
+                if (testLog === true) {
+                    console.log("Hold Button Check");
+                }
             }
             
         }
@@ -2137,10 +2288,12 @@
         function holdCard1() {
             if (hold1 === 0) {
                 document.getElementById("hand_0").classList.add("hold");
+                document.getElementById("hold1_button").classList.add("holdb");
                 hold1 = 1;
             }
             else {
                 document.getElementById("hand_0").classList.remove("hold");
+                document.getElementById("hold1_button").classList.remove("holdb");
                 hold1 = 0;
             }
         }
@@ -2148,10 +2301,12 @@
         function holdCard2() {
             if (hold2 === 0) {
                 document.getElementById("hand_1").classList.add("hold");
+                document.getElementById("hold2_button").classList.add("holdb");
                 hold2 = 1;
             }
             else {
                 document.getElementById("hand_1").classList.remove("hold");
+                document.getElementById("hold2_button").classList.remove("holdb");
                 hold2 = 0;
             }
         }
@@ -2159,10 +2314,12 @@
         function holdCard3() {
             if (hold3 === 0) {
                 document.getElementById("hand_2").classList.add("hold");
+                document.getElementById("hold3_button").classList.add("holdb");
                 hold3 = 1;
             }
             else {
                 document.getElementById("hand_2").classList.remove("hold");
+                document.getElementById("hold3_button").classList.remove("holdb");
                 hold3 = 0;
             }
         }
@@ -2170,10 +2327,12 @@
         function holdCard4() {
             if (hold4 === 0) {
                 document.getElementById("hand_3").classList.add("hold");
+                document.getElementById("hold4_button").classList.add("holdb");
                 hold4 = 1;
             }
             else {
                 document.getElementById("hand_3").classList.remove("hold");
+                document.getElementById("hold4_button").classList.remove("holdb");
                 hold4 = 0;
             }
         }
@@ -2181,10 +2340,12 @@
         function holdCard5() {
             if (hold5 === 0) {
                 document.getElementById("hand_4").classList.add("hold");
+                document.getElementById("hold5_button").classList.add("holdb");
                 hold5 = 1;
             }
             else {
                 document.getElementById("hand_4").classList.remove("hold");
+                document.getElementById("hold5_button").classList.remove("holdb");
                 hold5 = 0;
             }
         }
@@ -2326,7 +2487,9 @@
                 document.getElementById("holddeal_button").hidden = true;
                 */
 
-                console.log("New hands drawn");
+                if (testLog === true) {
+                    console.log("New hands drawn");
+                }
 
                 document.getElementById("buttons2").style.display = "block";
                 document.getElementById("buttons3").style.display = "none";
@@ -2375,11 +2538,19 @@
             roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
-                console.log("Bet");
+                if (testLog === true) {
+                    console.log("Opp Eval - Bet");
+                }
+
                 let multi = Math.random();
-                console.log("Multiplier: " + multi);
+                if (testLog === true) {
+                    console.log("Multiplier: " + multi);
+                }
+
                 let bet = 500 * Math.ceil((multi * confCheck));
-                console.log("$" + bet);
+                if (testLog === true) {
+                    console.log("$" + bet);
+                }
 
                 randDialoge = Math.floor(Math.random() * (dialogueRaise.length));
                 dialogueSpace.innerText = dialogueRaise[randDialoge];
@@ -2447,7 +2618,9 @@
                 }
                 else {
                     stage = 4;
-                    console.log("Check");
+                    if (testLog === true) {
+                    console.log("Opp Eval - Fold => Check");
+                    }
                     randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                     dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -2462,7 +2635,9 @@
             }
             else {
                 stage = 4;
-                console.log("Check");
+                if (testLog === true) {
+                    console.log("Opp Eval - Check");
+                }
                 randDialoge = Math.floor(Math.random() * (dialogueCheck.length));
                 dialogueSpace.innerText = dialogueCheck[randDialoge];
 
@@ -2516,7 +2691,9 @@
                         document.getElementById("makebet_button").style.visibility = "hidden";
                         document.getElementById("fold_button").style.visibility = "hidden";
 
-                        console.log("Check");
+                        if (testLog === true) {
+                            console.log("Player Check");
+                        }
                         randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
                         
@@ -2570,7 +2747,9 @@
                         document.getElementById("makebet_button").style.visibility = "hidden";
                         document.getElementById("fold_button").style.visibility = "hidden";
 
-                        console.log("Check");
+                        if (testLog === true) {
+                            console.log("Player Check");
+                        }
                         randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
 
@@ -2615,7 +2794,9 @@
                     }
                     else {
                         stage = 2;
-                        console.log("Player Check");
+                        if (testLog === true) {
+                            console.log("Player Check");
+                        }
                         randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
 
@@ -2650,7 +2831,9 @@
                         document.getElementById("hold5_button").style.visibility = "visible";
                         document.getElementById("holddeal_button").style.visibility = "visible";
 
-                        console.log("Hold Button Check");
+                        if (testLog === true) {
+                            console.log("Hold Button Check");
+                        }
                     }
                 }
                 else if (stage === 2) {
@@ -2692,7 +2875,9 @@
                         document.getElementById("makebet_button").style.visibility = "hidden";
                         document.getElementById("fold_button").style.visibility = "hidden";
 
-                        console.log("Check");
+                        if (testLog === true) {
+                            console.log("Player Check");
+                        }
                         randDialoge = Math.floor(Math.random() * (dialogueChecked.length));
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
 
@@ -2851,7 +3036,7 @@
             }
             else if (playerHand[0] === oppHand[0]) {
 
-                console.log("Same Hand Type!");
+                console.log("Same Hand Type Detected");
 
                 if (playerHand[0] === 10) {
                     let pCard = playerHand[1];
@@ -2960,7 +3145,7 @@
                         }
                         else{
                             tieCounter++;
-                            console.log(tieCounter);
+                            console.log("Tie Countertie: " + tieCounter);
                         }
                         if (tieCounter === 5) {
                             winningHand = "No Winner";
@@ -3141,8 +3326,6 @@
             console.log("Compare Hands:");
             console.log(playerHand[0]);
             console.log(oppHand[0]);
-            console.log(typeof playerHand[0]);
-            console.log(typeof oppHand[0]);
             if (playerHand[0] === oppHand[0]) {
                 if (winner === "Player") {
                     randDialoge = Math.floor(Math.random() * (dialogueCloseWin.length));
@@ -3263,12 +3446,8 @@
                 cardPool = [deck[0], deck[1], deck[2], deck[3], deck[4]];
             }
 
+            console.log("Card Pool:");
             console.log(JSON.stringify(cardPool));
-
-            if (testLog === true) {
-                console.log("Card Pool:");
-                console.log(cardPool);
-            }
 
             groups = calculateGroups();
 
@@ -3330,27 +3509,27 @@
             }
 
             if (testLog === true) {
-            console.log("########################################");
+                console.log("########################################");
 
-            if (handDeck.length === 2) {
-                console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name);
-                console.log("River: " + riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
-            }
-            else {
-                console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name + ", " + handDeck[2].Name + ", " + handDeck[3].Name + ", " + handDeck[4].Name);
-            }
+                if (handDeck.length === 2) {
+                    console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name);
+                    console.log("River: " + riverDeck[0].Name + ", " + riverDeck[1].Name + ", " + riverDeck[2].Name + ", " + riverDeck[3].Name + ", " + riverDeck[4].Name);
+                }
+                else {
+                    console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name + ", " + handDeck[2].Name + ", " + handDeck[3].Name + ", " + handDeck[4].Name);
+                }
 
-            console.log("Five of a Kind: " + fiveCounter);
-            console.log("Straight Flush: " + straightFlushCounter);
-            console.log("Four of a Kind: " + fourCounter);
-            console.log("Full House: " + fullCounter);
-            console.log("Flush: " + flushCounter);
-            console.log("Straight: " + straightCounter);
-            console.log("Three of a Kind: " + threeCounter);
-            console.log("Two Pair: " + twoPairCounter);
-            console.log("One Pair: " + onePairCounter);
+                console.log("Five of a Kind: " + fiveCounter);
+                console.log("Straight Flush: " + straightFlushCounter);
+                console.log("Four of a Kind: " + fourCounter);
+                console.log("Full House: " + fullCounter);
+                console.log("Flush: " + flushCounter);
+                console.log("Straight: " + straightCounter);
+                console.log("Three of a Kind: " + threeCounter);
+                console.log("Two Pair: " + twoPairCounter);
+                console.log("One Pair: " + onePairCounter);
 
-            console.log("########################################");
+                console.log("########################################");
             }
 
             bestHand = [];
@@ -3388,8 +3567,8 @@
                 junkHand();
             }
             if (testLog === true) {
-            console.log("Best hand:");
-            console.log(bestHand);
+                console.log("Best hand:");
+                console.log(bestHand);
             }
             return bestHand;
         }
@@ -3400,15 +3579,17 @@
             let groupCompare = [];
             let cards = cardPool.slice(0);
 
+            //Adds all pair rank values to array
             for (i = 0; i < cards.length; i++) {
                 groupRanks.push(cards[i].PairRank);
             }
 
             if (testLog === true) {
-            console.log("Ranks: ");
-            console.log(groupRanks);
+                console.log("Ranks: ");
+                console.log(groupRanks);
             }
 
+            //Adds all pair ranks to comparison array without duplicates
             for (i = 0; i < groupRanks.length; i++) {
                 let repCounter = 0;
                 for (x = 0; x < groupCompare.length; x++) {
@@ -3422,19 +3603,37 @@
             }
 
             if (testLog === true) {
-            console.log("Compare (Removed Duplicates): ");
-            console.log(groupCompare);
+                console.log("Compare (Removed Duplicates): ");
+                console.log(groupCompare);
             }
 
+            //Sorts comparison array from highest to lowest
             let sortedRanks = groupCompare.slice().sort(function(a,b){return b-a});
 
             if (testLog === true) {
-            console.log("Sorted: ");
-            console.log(sortedRanks);
+                console.log("Sorted: ");
+                console.log(sortedRanks);
             }
 
+            //Moves cards with pair alt values to a different array so they can be evaluated first
             let altArray = [];
+            for (i = 0; i < cards.length; i++) {
+                if (cards[i].PairAlt !== null) {
+                    altArray.push(cards[i]);
+                    cards.splice(i,1);
+                    i = -1;
+                }
+            }
+
+            if (testLog === true) {
+                console.log("Alt Array:");
+                console.log(altArray);
+
+                console.log("Cards:");
+                console.log(JSON.stringify(cards));
+            }
             
+            //Sorts pair values with same rank into different arrays
             for (i = 0; i < sortedRanks.length; i++) {
                 let value;
                 let valCounter = 0;
@@ -3454,59 +3653,41 @@
                     }
                 }
                 if (testLog === true) {
-                console.log(sortedRanks[i] + " Val Array: ");
-                console.log(valArray);
-                //console.log("Cards: ");
-                //console.log(JSON.stringify(cards));
+                    console.log(sortedRanks[i] + " Val Array: ");
+                    console.log(valArray);
+                    //console.log("Cards: ");
+                    //console.log(JSON.stringify(cards));
                 }
                 
+                //Goes through each group value
+                //Goes through each card in alt array and assigns to group if values match
+                //Goes through remaining cards and assigns to group if values match
                 for (y = 0; y < valArray.length; y++) {
                     valCounter = 0;
+
+                    for (x = 0; x < altArray.length; x++){
+                        if (altArray[x].PairValue === valArray[y] || altArray[x].PairAlt === valArray[y]) {
+                            valCounter++;
+                            altArray.splice(x,1);
+                            x = -1;
+                        }
+                    }
+
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === valArray[y]) {
                             valCounter++;
-                            altArray.push(cards[x])
                             cards.splice(x,1);
                             x = -1;
                         }
                     }
-                    /*
-                    for (x = 0; x < cards.length; x++) {
-                        if (cards[x].PairValue === valArray[y] || cards[x].PairAlt === valArray[y]) {
-                            valCounter++;
-                            cards.splice(x,1);
-                            x = -1;
-                        }
-                    }
-                    */
                     let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
                     groupsArray.push(group);
                 }
             }
-            console.log("Alt Array:");
-            console.log(altArray);
 
             if (testLog === true) {
-            console.log("Groups:");
-            console.log(groupsArray);
-            }
-
-            for (i = 0; i < altArray.length; i++) {
-                for (x = 0; x < groupsArray.length; x++) {
-                    if (altArray[i].PairValue === groupsArray[x].Value && groupsArray[x].Num > 1) {
-                        console.log("Break: " + altArray[i].PairValue + " and " + groupsArray[x].Value);
-                        break;
-                    }
-                    else if (altArray[i].PairAlt === groupsArray[x].Value) {
-                        console.log("Nice...");
-                        groupsArray[x].Num++;
-                    }
-                }
-            }
-
-            if (testLog === true) {
-            console.log("Groups:");
-            console.log(groupsArray);
+                console.log("Final Groups:");
+                console.log(groupsArray);
             }
 
             return groupsArray;
@@ -3516,8 +3697,8 @@
             let straightsArray = [];
             for (i = 0; i < cardPool.length; i++) {
                 if (testLog === true) {
-                console.log("#################################################");
-                console.log("Rank Value: " + cardPool[i].RankValue);
+                    console.log("#################################################");
+                    console.log("Rank Value: " + cardPool[i].RankValue);
                 }
                 let straight1 = cardPool[i].RankValue - 4;
                 let straight2 = cardPool[i].RankValue - 3;
@@ -3525,7 +3706,7 @@
                 let straight4 = cardPool[i].RankValue - 1;
 
                 if (testLog === true) {
-                console.log("Straight Values: " + straight1 + ", " + straight2 + ", " + straight3 + ", " + straight4 + ", " + cardPool[i].RankValue)
+                    console.log("Straight Values: " + straight1 + ", " + straight2 + ", " + straight3 + ", " + straight4 + ", " + cardPool[i].RankValue);
                 }
 
                 let check1 = false;
@@ -3556,9 +3737,9 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Pre-Wild ####################");
-                console.log(check1 + " " + check2 + " " + check3 + " " + check4 + " " + cardPool[i].RankValue);
-                console.log("Wilds: " + wildCounter);
+                    console.log("Pre-Wild ####################");
+                    console.log(check1 + " " + check2 + " " + check3 + " " + check4 + " " + cardPool[i].RankValue);
+                    console.log("Wilds: " + wildCounter);
                 }
 
                 if (check1 === false && wildCounter > 0) {
@@ -3578,22 +3759,22 @@
                     wildCounter += -1;
                 }
                 if (testLog === true) {
-                console.log("Post-Wild ####################");
-                console.log(check1 + " " + check2 + " " + check3 + " " + check4 + " " + cardPool[i].RankValue);
-                console.log("Wilds: " + wildCounter);
+                    console.log("Post-Wild ####################");
+                    console.log(check1 + " " + check2 + " " + check3 + " " + check4 + " " + cardPool[i].RankValue);
+                    console.log("Wilds: " + wildCounter);
                 }
 
                 if (check1 === true && check2 === true && check3 === true && check4 === true) {
                     if (testLog === true) {
-                    console.log("Straight detected!");
+                        console.log("Straight detected!");
                     }
                     let straight = {Suit: cardPool[i].Suit, Value1: cardPool[i].RankValue, Value2: straight4, Value3: straight3, Value4: straight2, Value5: straight1}
                     straightsArray.push(straight);
                 }    
             }
             if (testLog === true) {
-            console.log("Straights:");
-            console.log(straightsArray);
+                console.log("Straights:");
+                console.log(straightsArray);
             }
 
             //Detect straight flush
@@ -3622,19 +3803,19 @@
                         }
                     }
                     if (testLog === true) {
-                    console.log("Flush: " + flushCounter);
+                        console.log("Flush: " + flushCounter);
                     }
                     if (flushCounter > 4) {
                         if (testLog === true) {
-                        console.log("Straight Flush Detected");
+                            console.log("Straight Flush Detected");
                         }
                         straightsArray[i].Flush = true;
                     }
                 }
             }
             if (testLog === true) {
-            console.log("Flush Straights:");
-            console.log(straightsArray);
+                console.log("Flush Straights:");
+                console.log(straightsArray);
             }
 
             return straightsArray;
@@ -3645,11 +3826,11 @@
             let flush = 0;
             if (testLog === true) {
                 console.log("Detecting Flushes...");
-                }
+            }
             for (i = 0; i < cardPool.length; i++) {
                 let suit = cardPool[i].Suit;
                 if (testLog === true) {
-                console.log("Suit: " + suit);
+                    console.log("Suit: " + suit);
                 }
                 let suitCounter = 0;
                 if (suit !== "Wild") {
@@ -3674,8 +3855,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Flush:");
-            console.log(flushesArray);
+                console.log("Flush:");
+                console.log(flushesArray);
             }
             return flushesArray;
         }
@@ -3702,8 +3883,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter === 5) {
                 let x = 0;
@@ -3746,19 +3927,19 @@
             let compare = [];
             for (i = 0; i < straights.length; i++) {
                 if (testLog === true) {
-                console.log("Suit: " + straights[i].Suit + " Flush: " + straights[i].Flush);
+                    console.log("Suit: " + straights[i].Suit + " Flush: " + straights[i].Flush);
                 }
                 if (straights[i].Flush === true && straights[i].Suit !== "Wild") {
                     compare.push(straights[i].Value1);
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue = Math.max(...compare);
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             
             for (i = 0; i < straights.length; i++) {
@@ -3767,8 +3948,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Best:");
-            console.log(best);
+                console.log("Best:");
+                console.log(best);
             }
 
             for (i = 0; i < cardPool.length; i++) {
@@ -3871,8 +4052,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter === 4) {
                 let x = 0;
@@ -3925,8 +4106,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue;
             if (compare.length > 0) {
@@ -3936,7 +4117,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             
             for (i = 0; i < cardPool.length; i++) {
@@ -3957,12 +4138,12 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Compare:");
-                console.log(compare);
+                    console.log("Compare:");
+                    console.log(compare);
                 }
                 let topValue = Math.max(...compare);
                 if (testLog === true) {
-                console.log("Top: " + topValue);
+                    console.log("Top: " + topValue);
                 }
 
                 let threeValue;
@@ -3976,8 +4157,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Three: " + threeValue);
-                console.log("Pair: " + twoValue);
+                    console.log("Three: " + threeValue);
+                    console.log("Pair: " + twoValue);
                 }
                 let pairCounter = 0;
                 let altCounter = 0;
@@ -3990,8 +4171,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Regular cards: " + pairCounter);
-                console.log("Alt cards: " + altCounter);
+                    console.log("Regular cards: " + pairCounter);
+                    console.log("Alt cards: " + altCounter);
                 }
                 if (pairCounter === 3) {
                     let x = 0;
@@ -4038,8 +4219,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Regular cards: " + pairCounter);
-                console.log("Alt cards: " + altCounter);
+                    console.log("Regular cards: " + pairCounter);
+                    console.log("Alt cards: " + altCounter);
                 }
                 if (pairCounter > 1) {
                     let x = 0;
@@ -4103,8 +4284,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Regular cards: " + pairCounter);
-                console.log("Alt cards: " + altCounter);
+                    console.log("Regular cards: " + pairCounter);
+                    console.log("Alt cards: " + altCounter);
                 }
                 if (pairCounter === 3) {
                     let x = 0;
@@ -4151,8 +4332,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Regular cards: " + pairCounter);
-                console.log("Alt cards: " + altCounter);
+                    console.log("Regular cards: " + pairCounter);
+                    console.log("Alt cards: " + altCounter);
                 }
                 if (pairCounter > 1) {
                     let x = 0;
@@ -4203,12 +4384,12 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Compare:");
-                console.log(compare);
+                    console.log("Compare:");
+                    console.log(compare);
                 }
                 let topValue = Math.max(...compare);
                 if (testLog === true) {
-                console.log("Top: " + topValue);
+                    console.log("Top: " + topValue);
                 }
                 for (i = 0; i < cardPool.length; i++) {
                     if (cardPool[i].RankValue === topValue) {
@@ -4216,15 +4397,15 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Suit:");
-                console.log(suit);
+                    console.log("Suit:");
+                    console.log(suit);
                 }
             }
             else {
                 suit = flushes[0].Suit;
                 if (testLog === true) {
-                console.log("Suit:");
-                console.log(suit);
+                    console.log("Suit:");
+                    console.log(suit);
                 }
             }
             for (i = 0; i < cardPool.length; i++) {
@@ -4233,8 +4414,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("All flush cards:");
-            console.log(JSON.stringify(flushHand));
+                console.log("All flush cards:");
+                console.log(JSON.stringify(flushHand));
             }
             let y = 0;
             while (y < 5) {
@@ -4246,14 +4427,14 @@
                 }
                 let topValue = Math.max(...compare);
                 if (testLog === true) {
-                console.log("Top: " + topValue);
+                    console.log("Top: " + topValue);
                 }
                 let index = null;
                 for (i = 0; i < flushHand.length; i++) {
                     if (flushHand[i].RankValue === topValue) {
                         index = i;
                         if (testLog === true) {
-                        console.log("Index: " + index);
+                            console.log("Index: " + index);
                         }
                     }
                 }
@@ -4282,12 +4463,12 @@
                 compare.push(straights[i].Value1);
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue = Math.max(...compare);
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             
             for (i = 0; i < straights.length; i++) {
@@ -4296,8 +4477,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Best:");
-            console.log(best);
+                console.log("Best:");
+                console.log(best);
             }
 
             for (i = 0; i < cardPool.length; i++) {
@@ -4385,7 +4566,7 @@
                 }
             }
             if (testLog === true) {
-            console.log(best);
+                console.log(best);
             }
             let mainVal = best.Value;
             let pairCounter = 0;
@@ -4399,8 +4580,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter === 3) {
                 let x = 0;
@@ -4453,8 +4634,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue;
             if (compare.length > 0) {
@@ -4464,7 +4645,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             let index;
             for (i = 0; i < cardPool.length; i++) {
@@ -4483,8 +4664,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             if (compare.length > 0) {
                 topValue = Math.max(...compare);
@@ -4493,7 +4674,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             index = 0;
             for (i = 0; i < cardPool.length; i++) {
@@ -4515,12 +4696,12 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue = Math.max(...compare);
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
 
             let highValue;
@@ -4536,19 +4717,19 @@
                 }
             }
             if (testLog === true) {
-            console.log("High Array:");
-            console.log(highArray);
-            console.log("Compare:");
-            console.log(compare);
+                console.log("High Array:");
+                console.log(highArray);
+                console.log("Compare:");
+                console.log(compare);
             }
             if (highArray.length < 2) {
                 highValue = highArray[0];
                 if (testLog === true) {
-                console.log(compare);
+                    console.log(compare);
                 }
                 topValue = Math.max(...compare);
                 if (testLog === true) {
-                console.log("Top: " + topValue);
+                    console.log("Top: " + topValue);
                 }
                 for (i = 0; i < groups.length; i++) {
                     if (groups[i].Rank === topValue) {
@@ -4562,10 +4743,10 @@
             }
 
             if (testLog === true) {
-            console.log("High: " + highValue);
-            console.log(typeof highValue);
-            console.log("Low: " + lowValue);
-            console.log(typeof lowValue);
+                console.log("High: " + highValue);
+                console.log(typeof highValue);
+                console.log("Low: " + lowValue);
+                console.log(typeof lowValue);
             }
             let pairCounter = 0;
             let altCounter = 0;
@@ -4578,8 +4759,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter === 2) {
                 let x = 0;
@@ -4632,8 +4813,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter > 1) {
                 let x = 0;
@@ -4665,7 +4846,7 @@
                 x = 0;
                 y = 0;
                 if (testLog === true) {
-                console.log(bestHand);
+                    console.log(bestHand);
                 }
                 while (y < (2 - pairCounter)) {
                     if (cardPool[x].PairAlt === lowValue) {
@@ -4679,8 +4860,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Remaining cards:");
-            console.log(cardPool);
+                console.log("Remaining cards:");
+                console.log(cardPool);
             }
             compare = [];
             for (i = 0; i < cardPool.length; i++) {
@@ -4689,8 +4870,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             if (compare.length > 0) {
                 topValue = Math.max(...compare);
@@ -4699,7 +4880,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             
             for (i = 0; i < cardPool.length; i++) {
@@ -4725,12 +4906,12 @@
             let pairCounter = 0;
             let altCounter = 0;
             if (testLog === true) {
-            console.log(mainVal);
-            console.log(cardPool);
+                console.log(mainVal);
+                console.log(cardPool);
             }
             for (i = 0; i < cardPool.length; i++) {
                 if (testLog === true) {
-                console.log("Checking: " + cardPool[i].PairValue);
+                    console.log("Checking: " + cardPool[i].PairValue);
                 }
                 if (cardPool[i].PairValue === mainVal) {
                     pairCounter++;
@@ -4740,8 +4921,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Regular cards: " + pairCounter);
-            console.log("Alt cards: " + altCounter);
+                console.log("Regular cards: " + pairCounter);
+                console.log("Alt cards: " + altCounter);
             }
             if (pairCounter === 2) {
                 let x = 0;
@@ -4794,8 +4975,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             let topValue;
             if (compare.length > 0) {
@@ -4805,7 +4986,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             let index;
             for (i = 0; i < cardPool.length; i++) {
@@ -4824,8 +5005,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             if (compare.length > 0) {
                 topValue = Math.max(...compare);
@@ -4834,7 +5015,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             index = 0;
             for (i = 0; i < cardPool.length; i++) {
@@ -4853,8 +5034,8 @@
                 }
             }
             if (testLog === true) {
-            console.log("Compare:");
-            console.log(compare);
+                console.log("Compare:");
+                console.log(compare);
             }
             if (compare.length > 0) {
                 topValue = Math.max(...compare);
@@ -4863,7 +5044,7 @@
                 topValue = "Wild";
             }
             if (testLog === true) {
-            console.log("Top: " + topValue);
+                console.log("Top: " + topValue);
             }
             index = 0;
             for (i = 0; i < cardPool.length; i++) {
@@ -4888,8 +5069,8 @@
                     }
                 }
                 if (testLog === true) {
-                console.log("Compare:");
-                console.log(compare);
+                    console.log("Compare:");
+                    console.log(compare);
                 }
                 if (compare.length > 0) {
                     topValue = Math.max(...compare);
@@ -4898,7 +5079,7 @@
                     topValue = "Wild";
                 }
                 if (testLog === true) {
-                console.log("Top: " + topValue);
+                    console.log("Top: " + topValue);
                 }
                 let index = 0;
                 for (i = 0; i < cardPool.length; i++) {
@@ -5013,9 +5194,9 @@
             }
         }
         
-        let comb = allDecks();
-
-        console.log(JSON.stringify(comb));
+        //Prints all card objects into console
+        //let comb = allDecks();
+        //console.log(JSON.stringify(comb));
 
     </script>
     <style>  
@@ -5124,7 +5305,7 @@
             background-color: darkslategray;
             min-width: 400px;
             padding: 5px;
-            font-family: Helvetica, Arial, sans-serif
+            font-family: Helvetica, Arial, sans-serif;
         }
         .money {
             font-weight: bold;
@@ -5314,16 +5495,43 @@
         .hold {
             outline: blue solid 5px;
         }
-        /*
+        .holdb {
+            background-color: blue;
+            color: white;
+        }
+        footer {
+            position:fixed;
+            bottom:0;
+            width:94%;
+            height:60px;
+            text-align: end;
+            color: #2b2b2b;
+            z-index: -1;
+        }
         @media screen and (max-width: 600px){
         main {
-        max-width: 100%;
-        width: 400px;
-        margin: 0 0 0;
-        box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+        }
+        .dialogue {
+            min-width: 100%;
+        }
+        .card_container {
+            min-width: 100%;
+        }
+        .win_container {
+            min-width: 100%;
+        }
+        .buttons {
+            min-width: 100%;
+        }
+        .inventory {
+            min-width: 100%;
+        }
+        .report {
+            min-width: 100%;
         }
         }
-        */
     </style>
 </head>
 <body>
@@ -5363,7 +5571,7 @@
         <div id="win_cards2" class="win_container" style="visibility: hidden;"><div id="tie_space" class="river_space"></div></div>
     </main>
     <footer>
-        <p></p> 
+        <p>© Callum West 2022</p> 
     </footer>
     <script>
         //Internet Explorer detection
@@ -5375,6 +5583,8 @@
             console.log("Compatible browser detected");
         }
 
+        //Constants for deck and text rendering in document
+
         const oppShowSpace = document.getElementById("opp_space");
         const mainSpace = document.getElementById("main_space");
         const handSpace = document.getElementById("hand_space");
@@ -5385,18 +5595,27 @@
 
         const dialogueSpace = document.getElementById("dialogue_text");
 
+        //Initial dialogue rendering
+
         dialogueSpace.innerText = dialogueStart[randDialoge];
 
-        //window.location.reload();
+        //Load saved values
 
         loadValues();
 
+        //Render any updated values from load
+
         renderAll();
 
+        //###############################################
+        //Auto-compare hands for testing and bug-fixing purposes
+
+        //###Enable these for test decks###
         //riverDeck = testRiver;
         //handDeck = testPlayer;
         //oppDeck = testOpp;
 
+        //###Enable this for randomly generated deck###
         /*
         mainDeck = combineDecks();
         shuffleDeck();
@@ -5414,8 +5633,13 @@
         }
         */
 
+        //###Enable this for auto-compare hands###
         //compareHands();
 
+        //###############################################
+
+        //Displays "broke" dialogue when player is out of money
+        
         if (playerMoney === 0) {
             document.getElementById("newtexhand_button").style.visibility = "hidden";
             document.getElementById("newfivehand_button").style.visibility = "hidden";
