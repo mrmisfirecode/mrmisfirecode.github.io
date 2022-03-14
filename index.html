@@ -29,7 +29,7 @@
         const testRiver = [
         {Name:"King of Spades",PairValue:"K",PairAlt:null,PairRank:13,RankValue:13,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
         {Name:"4 of Clubs",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"4. The Emperor",PairValue:"4",PairAlt:"K",PairRank:4,RankValue:4,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
+        {Name:"Yellow Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
         {Name:"Ace of Spades",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Spades",Colour:"Black",Type:"playing"}
         ];
@@ -742,6 +742,7 @@
                     let card = playing[i];
                     deck.push(card);
                 }
+                console.log("Array length: " + deck.length);
             }
             else if (turnCounter < unoTurn) {
                 if (testLog === true) {
@@ -870,13 +871,15 @@
                     }
                 }
                 else {
-                    for (i = 0; i < playing.length; i++) {
-                    let card = playing[i];
-                    deck.push(card);
-                    }
-                    for (i = 0; i < extra.length; i++) {
-                        let card = extra[i];
+                    if (Math.random() > 0.3) {
+                        for (i = 0; i < playing.length; i++) {
+                        let card = playing[i];
                         deck.push(card);
+                        }
+                        for (i = 0; i < extra.length; i++) {
+                            let card = extra[i];
+                            deck.push(card);
+                        }
                     }
                     if (Math.random() > 0.5) {
                         rand = Math.floor((Math.random() * 30) + 1);
@@ -898,7 +901,7 @@
                             console.log(rand + " Tarot cards");
                         }
                     }
-                    if (Math.random() > 0.5) {
+                    if (Math.random() > 0.7) {
                         rand = Math.floor((Math.random() * 30) + 1);
                         for (i = 0; i < rand; i++) {
                             let card = hanafuda[i];
@@ -907,6 +910,16 @@
                         if (testLog === true) {
                             console.log(rand + " Hanafuda cards");
                         }
+                    }
+                }
+                if (deck.length === 0) {
+                    for (i = 0; i < playing.length; i++) {
+                        let card = playing[i];
+                        deck.push(card);
+                    }
+                    for (i = 0; i < extra.length; i++) {
+                        let card = extra[i];
+                        deck.push(card);
                     }
                 }
             }
@@ -1057,8 +1070,8 @@
                         card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
                     }
                     else if (value === "Skip") {
-                        icon = "🚫";
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
+                        icon = "&#128683;";
+                        card.innerHTML = `<div class="top_skip">${icon}</div><div class="skip_icon">${icon}</div><div class="bottom_skip">${icon}</div>`;
                     }
                     else if (value === "Wild") {
                         icon = "Wild";
@@ -5240,7 +5253,7 @@
         }
         main {
             max-width: 100%;
-            width: 400px;
+            width: 600px;
             margin: 0 auto 0;
             box-sizing: border-box;
         }
@@ -5248,7 +5261,7 @@
             background-color: black;
             color: white;
             min-height: 60px;
-            min-width: 400px;
+            min-width: 600px;
             overflow:auto;
             padding: 5px;
             font-family: 'Courier New', Courier, monospace;
@@ -5274,13 +5287,13 @@
             margin: 0 auto;
             box-sizing: border-box;
             background-color: #3ca05c;
-            min-width: 400px;
+            min-width: 600px;
         }
         .win_container {
             margin: 0 auto;
             box-sizing: border-box;
             background-color: black;
-            min-width: 400px;
+            min-width: 600px;
         }
         .river_space {
             max-width: 308px;
@@ -5299,7 +5312,7 @@
         .buttons {
             background-color: gray;
             padding: 5px;
-            min-width: 400px;
+            min-width: 600px;
             box-sizing: border-box;
         }
         .buttons button {
@@ -5329,7 +5342,7 @@
         }
         .inventory {
             background-color: darkslategray;
-            min-width: 400px;
+            min-width: 600px;
             box-sizing: border-box;
             padding: 5px;
             font-family: Helvetica, Arial, sans-serif;
@@ -5344,8 +5357,7 @@
         }
         .pot {
             font-weight: bold;
-            color: yellow;
-            font-size: 1.2em;
+            color: gold;
         }
         .report {
             background-color: black;
@@ -5354,7 +5366,7 @@
             padding: 5px;
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
-            min-width: 400px;
+            min-width: 600px;
             box-sizing: border-box;
         }
         .report_Red {
@@ -5460,6 +5472,23 @@
             font-size: 0.8em;
             text-align: center;
             line-height: 19px;
+        }
+        .skip_icon{
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 38px;
+            font-family: 'Segoe UI Symbol';
+        }
+        .top_skip{
+            font-size: 0.8em;
+            line-height: 16px;
+            font-family: 'Segoe UI Symbol';
+        }
+        .bottom_skip{
+            text-align: right;
+            font-size: 0.8em;
+            line-height: 16px;
+            font-family: 'Segoe UI Symbol';
         }
         .uno_red{
             background-color: red;
@@ -5643,9 +5672,9 @@
         //Auto-compare hands for testing and bug-fixing purposes
 
         //###Enable these for test decks###
-        //riverDeck = testRiver;
-        //handDeck = testPlayer;
-        //oppDeck = testOpp;
+        riverDeck = testRiver;
+        handDeck = testPlayer;
+        oppDeck = testOpp;
 
         //###Enable this for randomly generated deck###
         /*
@@ -5666,7 +5695,7 @@
         */
 
         //###Enable this for auto-compare hands###
-        //compareHands();
+        compareHands();
 
         //###############################################
 
