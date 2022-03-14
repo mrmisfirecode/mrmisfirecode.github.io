@@ -976,8 +976,6 @@
         }
 
         function renderMoney() {
-            document.getElementById("turn_counter").innerHTML = `Stage: ${stage}`;
-
             document.getElementById("inventory_space").innerHTML = `$ ${playerMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("bet_space").innerHTML = `Bet: $ ${betMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("pot_space").innerHTML = `Pot: $ ${potMoney.toLocaleString('en', {useGrouping:true})}`;
@@ -1370,6 +1368,7 @@
         
         function drawTexRound() {
             stage = 0;
+            console.log("-Stage 0-");
 
             handSpace.className = "";
             handSpace.classList.add("card_space");
@@ -1631,6 +1630,7 @@
 
             if (confCheck > roll && playerMoney > 0) {
                 stage = 1;
+                console.log("-Stage 1-");
                 if (testLog === true) {
                     console.log("Opp Eval - Bet");
                 }
@@ -1693,6 +1693,7 @@
                     oppBetMoney = 0;
                     potMoney = 0;
                     stage = 0;
+                    console.log("-Stage 0-");
                     saveValues();
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -1711,6 +1712,7 @@
                 }
                 else {
                     stage = 2;
+                    console.log("-Stage 2-");
                     if (testLog === true) {
                         console.log("Opp Eval - Fold => Check");
                     }
@@ -1728,6 +1730,7 @@
             }
             else {
                 stage = 2;
+                console.log("-Stage 2-");
                 if (testLog === true) {
                     console.log("Opp Eval - Check");
                 }
@@ -1753,6 +1756,7 @@
             roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
+                console.log("-Stage 3-");
                 if (testLog === true) {
                     console.log("Opp Eval - Bet");
                 }
@@ -1823,6 +1827,7 @@
                     oppBetMoney = 0;
                     potMoney = 0;
                     stage = 0;
+                    console.log("-Stage 0-");
                     saveValues();
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -1841,6 +1846,7 @@
                 }
                 else {
                     stage = 4;
+                    console.log("-Stage 4-");
                     if (testLog === true) {
                         console.log("Opp Eval - Fold => Check");
                     }
@@ -1858,6 +1864,7 @@
             }
             else {
                 stage = 4;
+                console.log("-Stage 4-");
                 if (testLog === true) {
                     console.log("Opp Eval - Check");
                 }
@@ -1878,6 +1885,7 @@
         
         function drawFiveRound() {
             stage = 0;
+            console.log("-Stage 0-");
 
             handSpace.className = "";
             handSpace.classList.add("river_space");
@@ -2116,6 +2124,7 @@
 
             if (confCheck > roll && playerMoney > 0) {
                 stage = 1;
+                console.log("-Stage 1-");
                 if (testLog === true) {
                     console.log("Opp Eval - Bet");
                 }
@@ -2178,6 +2187,7 @@
                     oppBetMoney = 0;
                     potMoney = 0;
                     stage = 0;
+                    console.log("-Stage 0-");
                     saveValues();
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -2196,6 +2206,7 @@
                 }
                 else {
                     stage = 2;
+                    console.log("-Stage 2-");
                     if (testLog === true) {
                         console.log("Opp Eval - Fold => Check");
                     }
@@ -2240,6 +2251,7 @@
             }
             else {
                 stage = 2;
+                console.log("-Stage 2-");
                 if (testLog === true) {
                     console.log("Opp Check");
                 }
@@ -2538,6 +2550,7 @@
             roll += Math.floor(Math.random() * (betMoney / 500));
             if (confCheck > roll && playerMoney > 0) {
                 stage = 3;
+                console.log("-Stage 3-");
                 if (testLog === true) {
                     console.log("Opp Eval - Bet");
                 }
@@ -2600,6 +2613,7 @@
                     oppBetMoney = 0;
                     potMoney = 0;
                     stage = 0;
+                    console.log("-Stage 0-");
                     saveValues();
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -2618,6 +2632,7 @@
                 }
                 else {
                     stage = 4;
+                    console.log("-Stage 4-");
                     if (testLog === true) {
                     console.log("Opp Eval - Fold => Check");
                     }
@@ -2635,6 +2650,7 @@
             }
             else {
                 stage = 4;
+                console.log("-Stage 4-");
                 if (testLog === true) {
                     console.log("Opp Eval - Check");
                 }
@@ -2698,6 +2714,7 @@
                         dialogueSpace.innerText = dialogueChecked[randDialoge];
                         
                         stage = 2;
+                        console.log("-Stage 2-");
 
                         potMoney += betMoney * 2;
                         betMoney = 0;
@@ -2739,6 +2756,7 @@
                     }
                     else {
                         stage = 4;
+                        console.log("-Stage 4-");
 
                         renderAll();
 
@@ -2794,6 +2812,7 @@
                     }
                     else {
                         stage = 2;
+                        console.log("-Stage 2-");
                         if (testLog === true) {
                             console.log("Player Check");
                         }
@@ -2867,6 +2886,7 @@
                     }
                     else {
                         stage = 4;
+                        console.log("-Stage 4-");
 
                         renderAll();
 
@@ -2934,6 +2954,7 @@
             oppBetMoney = 0;
             potMoney = 0;
             stage = 0;
+            console.log("-Stage 0-");
             saveValues();
 
             document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -5530,6 +5551,9 @@
         }
         .report {
             min-width: 100%;
+        }
+        footer {
+            position:sticky;
         }
         }
     </style>
