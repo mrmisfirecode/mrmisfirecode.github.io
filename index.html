@@ -21,7 +21,7 @@
 
         //Totally Normal Poker v1.0 - Callum West © 2022
         
-        //I went into this project with a very dumb idea and absolutely no clue how to write code for evaluating poker hands. I've come out with a very dumb game and code that can kinda evaluate poker hands most of the time. It's actually been very fun to write and test, even if the hand calculation code is a little complex and I made very little effort to annotate it. Hope you enjoy!
+        //I went into this project with a very dumb idea and absolutely no clue how to write code for evaluating poker hands. I've come out with a very dumb game and code that can kinda evaluate poker hands most of the time. It's actually been very fun to write and test, even if the hand calculation code was a pain to debug at times due to my lack of annotation. Hope you enjoy!
 
         //###############################################
         //Test hands for testing purposes
@@ -3716,6 +3716,7 @@
 
         function calculateStraights() {
             let straightsArray = [];
+            //Goes through each card and defines the required previous 4 values needed for a straight
             for (i = 0; i < cardPool.length; i++) {
                 if (testLog === true) {
                     console.log("#################################################");
@@ -3734,12 +3735,10 @@
                 let check2 = false;
                 let check3 = false;
                 let check4 = false;
-                let check5 = false;
-                let check6 = false;
-                let check7 = false;
-                let check8 = false;
                 let wildCounter = 0;
 
+                //Goes through each card and checks if the required cards are present in the card pool
+                //If a wild card is detected, wild counter is increased
                 for (x = 0; x < cardPool.length; x++) {
                     if (cardPool[x].RankValue === straight1 || cardPool[x].RankAlt === straight1) {
                         check1 = true;
@@ -3762,7 +3761,7 @@
                     console.log(check1 + " " + check2 + " " + check3 + " " + check4 + " " + cardPool[i].RankValue);
                     console.log("Wilds: " + wildCounter);
                 }
-
+                //Goes through each false check and makes true for each wild card counted
                 if (check1 === false && wildCounter > 0) {
                     check1 = true;
                     wildCounter += -1;
@@ -3785,6 +3784,7 @@
                     console.log("Wilds: " + wildCounter);
                 }
 
+                //If all checks are true, a straight is detected
                 if (check1 === true && check2 === true && check3 === true && check4 === true) {
                     if (testLog === true) {
                         console.log("Straight detected!");
@@ -3798,7 +3798,7 @@
                 console.log(straightsArray);
             }
 
-            //Detect straight flush
+            //Goes through each detected straight and checks if the associated cards have the same suit
             if (straightsArray.length > 0) {
                 for (i = 0; i < straightsArray.length; i++) {
                     let suit = straightsArray[i].Suit;
@@ -3848,6 +3848,9 @@
             if (testLog === true) {
                 console.log("Detecting Flushes...");
             }
+            //Goes through each card and compares suit with every other card
+            //If suits match, suit counter increases
+            //If suit counter is 5 or more, a flush is detected
             for (i = 0; i < cardPool.length; i++) {
                 let suit = cardPool[i].Suit;
                 if (testLog === true) {
@@ -5530,8 +5533,9 @@
             width:94%;
             height:60px;
             text-align: end;
-            color: #2b2b2b;
+            color: #636363;
             z-index: -1;
+            font-family: Helvetica, Arial, sans-serif;
         }
         @media screen and (max-width: 600px){
         main {
