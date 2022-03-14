@@ -5245,6 +5245,8 @@
             color: white;
             background-color: #202020;
             padding: 5px;
+            position: sticky;
+            top: 0;
         }
         header h1 {
             margin: 0 10px 0;
@@ -5627,7 +5629,7 @@
             <button class="hold_button" id="hold5_button" type="button" onclick="holdCard5();">Hold</button>
             <button class="holddeal_button" id="holddeal_button" type="button" onclick="holdDealStart();">Deal</button>
         </div>
-        <div id="report_space" class="report">Pick a Poker type to start playing</div>
+        <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
         <div id="win_cards2" class="win_container" style="visibility: hidden;"><div id="tie_space" class="river_space"></div></div>
     </main>
@@ -5708,6 +5710,10 @@
             randDialoge = Math.floor(Math.random() * (dialogueBroke.length));
             dialogueSpace.innerText = dialogueBroke[randDialoge];
         }
+
+        //Displays initial report text
+
+        reportSpace.innerHTML = `Pick a Poker type to start playing`;
 
     </script>
 </body>
