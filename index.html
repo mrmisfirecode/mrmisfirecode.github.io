@@ -5831,11 +5831,14 @@
 
             randDialoge = Math.floor(Math.random() * (dialogueBroke.length));
             dialogueSpace.innerText = dialogueBroke[randDialoge];
+
+            reportSpace.innerHTML = `Out of cash! Clear Saved Data to start again`;
+        }
+        else {
+            reportSpace.innerHTML = `Pick a Poker type to start playing`;
         }
 
-        //Displays initial report text
-
-        reportSpace.innerHTML = `Pick a Poker type to start playing`;
+        
 
     </script>
 </body>
