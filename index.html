@@ -1521,7 +1521,7 @@
                     let card = hiddenCard;
                     riverDeck.push(card);
                 }
-                renderAll();
+                renderCards("river");
                 setTimeout(drawRiver, 500);
             }
             else if (cardCounter === 2) {
@@ -1536,7 +1536,7 @@
                     riverDeck.push(card);
                 }
                 cardCounter++;
-                renderAll();
+                renderCards("river");
                 setTimeout(drawRiver, 500);
             }
             else if (cardCounter === 3) {
@@ -1550,7 +1550,7 @@
                     riverDeck.push(card);
                 }
                 cardCounter++;
-                renderAll();
+                renderCards("river");
                 setTimeout(drawRiver, 500);
             }
             else if (cardCounter === 4) {
@@ -1563,7 +1563,7 @@
                     riverDeck.push(card);
                 }
                 cardCounter++;
-                renderAll();
+                renderCards("river");
                 setTimeout(drawRiver, 500);
             }
             else if (cardCounter === 5) {
@@ -1721,7 +1721,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 2;
@@ -1855,7 +1855,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 4;
@@ -2215,7 +2215,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 2;
@@ -2659,7 +2659,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 4;
@@ -3006,7 +3006,7 @@
 
             renderAll();
 
-            reportSpace.innerHTML = `You fold!<br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+            reportSpace.innerHTML = `You fold!<br><br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
         }
         
         function flipOpp() {
@@ -3444,13 +3444,13 @@
             reportSpace.innerHTML = ``;
 
             if (winner === "Player") {
-                reportSpace.innerHTML = `You win!<br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
+                reportSpace.innerHTML = `You win!<br><br>You take the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
             }
             else if (winner === "Tie") {
-                reportSpace.innerHTML = `Tie!<br>The pot is split and returned to both players</span>!<br><br>Both players hands:`;
+                reportSpace.innerHTML = `Tie!<br><br>The pot is split and returned to both players</span>!<br><br>Both players hands:`;
             }
             else {
-                reportSpace.innerHTML = `You lose!<br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
+                reportSpace.innerHTML = `You lose!<br><br>Your opponent takes the pot of <span class="money">$ ${reportPot.toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
             }
 
             document.getElementById("newtexhand_button").style.visibility = "visible";
