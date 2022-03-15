@@ -27,20 +27,20 @@
         //Test hands for testing purposes
         
         const testRiver = [
-        {Name:"King of Spades",PairValue:"K",PairAlt:null,PairRank:13,RankValue:13,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"},
-        {Name:"Yellow Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
-        {Name:"Yellow Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
-        {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
-        {Name:"Ace of Spades",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Spades",Colour:"Black",Type:"playing"}
+        {Name:"3 of Clubs",PairValue:"3",PairAlt:null,PairRank:3,RankValue:3,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"4 of Clubs",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"5 of Clubs",PairValue:"5",PairAlt:null,PairRank:5,RankValue:5,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"6 of Clubs",PairValue:"6",PairAlt:null,PairRank:6,RankValue:6,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
+        {Name:"10 of Spades",PairValue:"10",PairAlt:null,PairRank:10,RankValue:10,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"}
         ];
 
         const testPlayer = [
-        {Name:"0. The Fool",PairValue:"0",PairAlt:"Joker",PairRank:0,RankValue:0,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"},
+        {Name:"7 of Clubs",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
         {Name:"Red Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"}
         ];
 
         const testOpp = [
-        {Name:"Yellow Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
+        {Name:"7 of Hearts",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Hearts",Colour:"Red",Type:"playing"},
         {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
         ];
 
@@ -3678,8 +3678,6 @@
             for (i = 0; i < cards.length; i++) {
                 if (cards[i].PairAlt !== null) {
                     altArray.push(cards[i]);
-                    cards.splice(i,1);
-                    i = -1;
                 }
             }
 
@@ -3737,29 +3735,101 @@
                 for (y = 0; y < valArray.length; y++) {
                     valCounter = 0;
 
-                    for (x = 0; x < altArray.length; x++){
-                        if (altArray[x].PairValue === valArray[y] || altArray[x].PairAlt === valArray[y]) {
-                            valCounter++;
-                            console.log(valArray[y] + " Removed Alt:");
-                            console.log(altArray[x]);
-                            altArray.splice(x,1);
-                            x = -1;
-                        }
-                    }
-
+                    /*
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === valArray[y]) {
                             valCounter++;
-                            console.log(valArray[y] + " Removed Cards:");
-                            console.log(cards[x]);
-                            cards.splice(x,1);
-                            x = -1;
                         }
                     }
                     let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
                     groupsArray.push(group);
+                    */
+                    let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
+                    groupsArray.push(group);
                 }
             }
+
+            if (testLog === true) {
+                console.log("Pre-Alt Groups:");
+                console.log(JSON.stringify(groupsArray));
+                let cardsLog1 = cards.slice(0);
+                console.log("Cards:");
+                console.log(cardsLog1);
+            }
+
+            
+            for (i = 0; i < groupsArray.length; i++) {
+                let pairCounter = 0;
+                let altCounter = 0;
+                for (x = 0; x < cards.length; x++) {
+                    if (cards[x].PairValue === groupsArray[i].Value) {
+                        pairCounter ++;
+                    }
+                    if (cards[x].PairAlt === groupsArray[i].Value) {
+                        altCounter ++;
+                    }
+                }
+                let combCounter = pairCounter + altCounter;
+                console.log("Group Value: " + groupsArray[i].Value);
+                console.log("Pair Conter: " + pairCounter);
+                console.log("Alt Conter: " + altCounter);
+                console.log("Total: " + combCounter);
+                console.log("####################################");
+                if (combCounter > 1) {
+                    groupsArray[i].Num = combCounter;
+                    for (x = 0; x < cards.length; x++) {
+                        if (cards[x].PairValue === groupsArray[i].Value || cards[x].PairAlt === groupsArray[i].Value) {
+                            cards.splice(x,1);
+                            x = -1;
+                        }
+                    }
+                }
+                else {
+                    groupsArray[i].Num = 1;
+                    for (x = 0; x < cards.length; x++) {
+                        if (cards[x].PairValue === groupsArray[i].Value || cards[x].PairAlt === groupsArray[i].Value) {
+                            cards.splice(x,1);
+                            x = -1;
+                        }
+                    }
+                }
+            }
+
+            /*
+            console.log(JSON.stringify(altArray));
+
+            for (i = 0; i < altArray.length; i++) {
+                console.log("i = " + i + " Card = " + altArray[i].Name);
+                for (x = 0; x < groupsArray.length; x++) {
+                    console.log("x = " + x + " Value = " + groupsArray[x].Value);
+                    if (groupsArray[x].Value === altArray[i].PairValue && groupsArray[x].Num > 1) {
+                        console.log("Pair Value Matched");
+                        altArray.splice(i,1);
+                        console.log(JSON.stringify(altArray));
+                        i = -1;
+                        break;
+                    }
+                    else if (groupsArray[x].Value === altArray[i].PairAlt) {
+                        console.log("Pair Alt Matched");
+                        groupsArray[x].Num++;
+                        for (y = 0; y < groupsArray.length; y++) {
+                            console.log("y = " + y);
+                            if (groupsArray[y].Value === altArray[i].PairValue && groupsArray[y].Num > 1) {
+                                groupsArray[y].Num += -1;
+                                altArray.splice(i,1);
+                                console.log(JSON.stringify(altArray));
+                                i = -1;
+                                break;
+                            }
+                        }
+                    }
+                    else {
+                        console.log("Nothing...");
+                    }
+                }
+            }
+
+            */
 
             if (testLog === true) {
                 console.log("Final Groups:");
@@ -4811,7 +4881,8 @@
                     console.log("Top: " + topValue);
                 }
                 for (i = 0; i < groups.length; i++) {
-                    if (groups[i].Rank === topValue) {
+                    if (groups[i].Rank === topValue && groups[i].Num === 2) {
+                        console.log("Quack");
                         lowValue = groups[i].Value;
                     }
                 }
@@ -5500,13 +5571,13 @@
         .top_uno{
             font-size: 0.8em;
             line-height: 16px;
-            margin-left: 3px;
+            margin-left: 2px;
         }
         .bottom_uno{
             text-align: right;
             font-size: 0.8em;
             line-height: 16px;
-            margin-right: 3px;
+            margin-right: 2px;
         }
         .uno_icon{
             font-size: 1.5em;
@@ -5529,12 +5600,14 @@
             font-size: 0.8em;
             line-height: 16px;
             font-family: 'Segoe UI Symbol';
+            margin-left: 2px;
         }
         .bottom_skip{
             text-align: right;
             font-size: 0.8em;
             line-height: 16px;
             font-family: 'Segoe UI Symbol';
+            margin-right: 2px;
         }
         .uno_red{
             background-color: red;
@@ -5723,9 +5796,9 @@
         //Auto-compare hands for testing and bug-fixing purposes
 
         //###Enable these for test decks###
-        //riverDeck = testRiver;
-        //handDeck = testPlayer;
-        //oppDeck = testOpp;
+        riverDeck = testRiver;
+        handDeck = testPlayer;
+        oppDeck = testOpp;
 
         //###Enable this for randomly generated deck###
         /*
@@ -5746,7 +5819,7 @@
         */
 
         //###Enable this for auto-compare hands###
-        //compareHands();
+        compareHands();
 
         //###############################################
 
