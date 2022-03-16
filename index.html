@@ -251,8 +251,8 @@
             {Name: "No. 077 - Ponyta", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 77, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
             {Name: "No. 078 - Rapidash", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 78, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
 
-            {Name: "No. 079 - Slowpoke", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 79, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 080 - Slowbro", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 80, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 079 - Slowpoke", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 79, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 080 - Slowbro", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 80, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
 
             {Name: "No. 081 - Magnemite", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 81, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
             {Name: "No. 082 - Magneton", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 82, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
@@ -764,7 +764,7 @@
 
         //Global variables for counting
         
-        let turnCounter = 0;
+        let turnCounter = 70;
         let cardCounter = 0;
         let stage = 0;
 
@@ -1337,7 +1337,7 @@
                 name = deck[i].Name;
                 wild = deck[i].Wild;
 
-                if (10 > 0) {
+                if (10 > 40) {
 
                     if (deck[i].Type === "playing" || deck[i].Type === "extra") {
 
@@ -1699,8 +1699,7 @@
 
                         card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="icon_pokemon">${icon}</div><div class="square_pokemon"></div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
                     }
-
-                    if (deck[i].Type === "hidden") {
+                    else if (deck[i].Type === "hidden") {
                         card.innerHTML = `<div class="card_back">▒</div>`;
                         card.classList.add("hidden");
                     }
@@ -1713,1008 +1712,1015 @@
                     if (deck[i].Type === "playing" || deck[i].Type === "extra") {
                         name = deck[i].Name;
                         if (name === "2 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p2.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "3 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p3.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "4 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p4.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "5 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p5.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "6 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p6.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "7 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p7.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "8 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p8.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "9 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p9.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "10 of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/p10.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Jack of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/pj.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Queen of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/pq.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "King of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/pk.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Ace of Spades") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/pa.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "2 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l2.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "3 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l3.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "4 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l4.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "5 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l5.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "6 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l6.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "7 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l7.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "8 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l8.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "9 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l9.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "10 of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/l10.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Jack of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/lj.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Queen of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/lq.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "King of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/lk.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Ace of Diamonds") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/la.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "2 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k2.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "3 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k3.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "4 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k4.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "5 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k5.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "6 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k6.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "7 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k7.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "8 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k8.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "9 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k9.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "10 of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/k10.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Jack of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/kj.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Queen of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/kq.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "King of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/kk.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Ace of Clubs") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/ka.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "2 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s2.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "3 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s3.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "4 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s4.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "5 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s5.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "6 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s6.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "7 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s7.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "8 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s8.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "9 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s9.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "10 of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/s10.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Jack of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/sj.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Queen of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/sq.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "King of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/sk.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Ace of Hearts") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.improvemagic.com/wp-content/uploads/2020/11/sa.png?ezimgfmt=ng:webp/ngcb13')";
                         }
                         else if (name === "Black Joker") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/ahjeUJz.png')";
                         }
                         else if (name === "Red Joker") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/qyi0V6e.png')";
                         }
                         else if (name === "Rules of Poker") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/SUW3Bvx.png')";
                         }
                     }
                     else if (deck[i].Type === "uno") {
                         if (name === "Red 0") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/FqeujBM.png')";
                         }
                         else if (name === "Red 1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/cOBubv8.png')";
                         }
                         else if (name === "Red 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/83OH0cr.png')";
                         }
                         else if (name === "Red 3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/8vdq1QQ.png')";
                         }
                         else if (name === "Red 4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/pA4Q9id.png')";
                         }
                         else if (name === "Red 5") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/ywVbvhb.png')";
                         }
                         else if (name === "Red 6") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/d9XFzi7.png')";
                         }
                         else if (name === "Red 7") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/PHkuDc1.png')";
                         }
                         else if (name === "Red 8") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/5hAsIyV.png')";
                         }
                         else if (name === "Red 9") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/QYik2Mn.png')";
                         }
                         else if (name === "Red Draw 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/0e7pMDh.png')";
                         }
                         else if (name === "Red Reverse") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/ahPGCJu.png')";
                         }
                         else if (name === "Red Skip") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/RynMRL4.png')";
                         }
                         else if (name === "Blue 0") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/8SMnvK4.png')";
                         }
                         else if (name === "Blue 1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/9MSWaBR.png')";
                         }
                         else if (name === "Blue 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/gFwqqvc.png')";
                         }
                         else if (name === "Blue 3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/Vuiy7et.png')";
                         }
                         else if (name === "Blue 4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/7ul2wei.png')";
                         }
                         else if (name === "Blue 5") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/RpdLmR0.png')";
                         }
                         else if (name === "Blue 6") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/xiYzWZZ.png')";
                         }
                         else if (name === "Blue 7") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/zbje6Sn.png')";
                         }
                         else if (name === "Blue 8") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/KDcCO7J.png')";
                         }
                         else if (name === "Blue 9") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/SLFfIV5.png')";
                         }
                         else if (name === "Blue Draw 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/eNyyduc.png')";
                         }
                         else if (name === "Blue Reverse") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/iTKUlV9.png')";
                         }
                         else if (name === "Blue Skip") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/Xgc0pKI.png')";
                         }
                         else if (name === "Green 0") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/f8ssVAY.png')";
                         }
                         else if (name === "Green 1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/o15h0Kc.png')";
                         }
                         else if (name === "Green 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/sXJWtbD.png')";
                         }
                         else if (name === "Green 3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/ZtqsCZz.png')";
                         }
                         else if (name === "Green 4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/VKFPOzp.png')";
                         }
                         else if (name === "Green 5") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/6JeCrGw.png')";
                         }
                         else if (name === "Green 6") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/7Wvk0Jf.png')";
                         }
                         else if (name === "Green 7") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/gq5VW2v.png')";
                         }
                         else if (name === "Green 8") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/uXVaWZE.png')";
                         }
                         else if (name === "Green 9") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/3v3skiw.png')";
                         }
                         else if (name === "Green Draw 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/NNfzlKW.png')";
                         }
                         else if (name === "Green Reverse") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/KOQCGBr.png')";
                         }
                         else if (name === "Green Skip") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/hIocQnh.png')";
                         }
                         else if (name === "Yellow 0") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/4mTSSHo.png')";
                         }
                         else if (name === "Yellow 1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/wHqoVSc.png')";
                         }
                         else if (name === "Yellow 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/4lsLNwG.png')";
                         }
                         else if (name === "Yellow 3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/ZrJCoaI.png')";
                         }
                         else if (name === "Yellow 4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/2BKk3vh.png')";
                         }
                         else if (name === "Yellow 5") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/NbgxSiN.png')";
                         }
                         else if (name === "Yellow 6") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/tMBg8KR.png')";
                         }
                         else if (name === "Yellow 7") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/AKSuoZy.png')";
                         }
                         else if (name === "Yellow 8") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/m0jo7X4.png')";
                         }
                         else if (name === "Yellow 9") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/mG1OTja.png')";
                         }
                         else if (name === "Yellow Draw 2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/clUldSR.png')";
                         }
                         else if (name === "Yellow Reverse") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/3WfxQCa.png')";
                         }
                         else if (name === "Yellow Skip") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/jsQ2TqH.png')";
                         }
                         else if (name === "Wild") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/CkYYzc0.png')";
                         }
                         else if (name === "Wild Draw 4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i.imgur.com/XjKAfuF.png')";
                         }
                     }
                     else if (deck[i].Type === "tarot") {
                         value = deck[i].RankValue;
                         if (value === 0) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/0.jpg')";
                         }
                         else if (value === 1) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/1.jpg')";
                         }
                         else if (value === 2) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/2.jpg')";
                         }
                         else if (value === 3) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/3.jpg')";
                         }
                         else if (value === 4) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/4.jpg')";
                         }
                         else if (value === 5) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/5.jpg')";
                         }
                         else if (value === 6) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/6.jpg')";
                         }
                         else if (value === 7) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/7.jpg')";
                         }
                         else if (value === 8) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/8.jpg')";
                         }
                         else if (value === 9) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/9.jpg')";
                         }
                         else if (value === 10) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/10.jpg')";
                         }
                         else if (value === 11) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/11.jpg')";
                         }
                         else if (value === 12) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/12.jpg')";
                         }
                         else if (value === 13) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/13.jpg')";
                         }
                         else if (value === 14) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/14.jpg')";
                         }
                         else if (value === 15) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/15.jpg')";
                         }
                         else if (value === 16) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/16.jpg')";
                         }
                         else if (value === 17) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/17.jpg')";
                         }
                         else if (value === 18) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/18.jpg')";
                         }
                         else if (value === 19) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/19.jpg')";
                         }
                         else if (value === 20) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/20.jpg')";
                         }
                         else if (value === 21) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://gfx.tarot.com/images/site/decks/universal-waite/full_size/21.jpg')";
                         }
                     }
                     else if (deck[i].Type === "hanafuda") {
                         name = deck[i].Img;
                         if (name === "pine1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/1.jpg')";
                         }
                         else if (name === "pine2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/2.jpg')";
                         }
                         else if (name === "pine3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/3.jpg')";
                         }
                         else if (name === "pine4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/4.jpg')";
                         }
                         else if (name === "plum1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/5.jpg')";
                         }
                         else if (name === "plum2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/6.jpg')";
                         }
                         else if (name === "plum3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/7.jpg')";
                         }
                         else if (name === "plum4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/8.jpg')";
                         }
                         else if (name === "cherry1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/9.jpg')";
                         }
                         else if (name === "cherry2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/10.jpg')";
                         }
                         else if (name === "cherry3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/11.jpg')";
                         }
                         else if (name === "cherry4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/12.jpg')";
                         }
                         else if (name === "wisteria1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/13.jpg')";
                         }
                         else if (name === "wisteria2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/14.jpg')";
                         }
                         else if (name === "wisteria3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/15.jpg')";
                         }
                         else if (name === "wisteria4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/16.jpg')";
                         }
                         else if (name === "iris1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/17.jpg')";
                         }
                         else if (name === "iris2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/18.jpg')";
                         }
                         else if (name === "iris3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/19.jpg')";
                         }
                         else if (name === "iris4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/20.jpg')";
                         }
                         else if (name === "peony1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/21.jpg')";
                         }
                         else if (name === "peony2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/22.jpg')";
                         }
                         else if (name === "peony3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/23.jpg')";
                         }
                         else if (name === "peony4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/24.jpg')";
                         }
                         else if (name === "bush1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/25.jpg')";
                         }
                         else if (name === "bush2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/26.jpg')";
                         }
                         else if (name === "bush3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/27.jpg')";
                         }
                         else if (name === "bush4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/28.jpg')";
                         }
                         else if (name === "grass1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/29.jpg')";
                         }
                         else if (name === "grass2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/30.jpg')";
                         }
                         else if (name === "grass3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/31.jpg')";
                         }
                         else if (name === "grass4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/32.jpg')";
                         }
                         else if (name === "chrys1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/33.jpg')";
                         }
                         else if (name === "chrys2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/34.jpg')";
                         }
                         else if (name === "chrys3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/35.jpg')";
                         }
                         else if (name === "chrys4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/36.jpg')";
                         }
                         else if (name === "maple1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/37.jpg')";
                         }
                         else if (name === "maple2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/38.jpg')";
                         }
                         else if (name === "maple3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/39.jpg')";
                         }
                         else if (name === "maple4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/40.jpg')";
                         }
                         else if (name === "willow1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/41.jpg')";
                         }
                         else if (name === "willow2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/42.jpg')";
                         }
                         else if (name === "willow3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/43.jpg')";
                         }
                         else if (name === "willow4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/44.jpg')";
                         }
                         else if (name === "paulo1") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/45.jpg')";
                         }
                         else if (name === "paulo2") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/46.jpg')";
                         }
                         else if (name === "paulo3") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/47.jpg')";
                         }
                         else if (name === "paulo4") {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://www.maxlaumeister.com/lfs/hanafuda/thumbs/48.jpg')";
                         }
                     }
                     else if (deck[i].Type === "pokemon") {
                         value = deck[i].RankValue;
                         if (value === 1) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/bulbasaur-base-set-bs-44.jpg?w=600&ssl=1')";
                         }
                         else if (value === 2) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/ivysaur-base-set-bs-30.jpg?w=600&ssl=1')";
                         }
                         else if (value === 3) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/venusaur-base-set-bs-15.jpg?w=600&ssl=1')";
                         }
                         else if (value === 4) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/charmander-base-set-bs-46.jpg?w=600&ssl=1')";
                         }
                         else if (value === 5) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/charmeleon-base-set-bs-24.jpg?w=600&ssl=1')";
                         }
                         else if (value === 6) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/charizard-base-set-bs-4.jpg?w=600&ssl=1')";
                         }
                         else if (value === 7) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/squirtle-base-set-bs-63.jpg?w=600&ssl=1')";
                         }
                         else if (value === 8) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/wartortle-base-set-bs-42.jpg?w=600&ssl=1')";
                         }
                         else if (value === 9) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/blastoise-base-set-bs-2.jpg?fit=600%2C825&ssl=1')";
                         }
                         else if (value === 10) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/caterpie-base-set-bs-45.jpg?w=600&ssl=1')";
                         }
                         else if (value === 11) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/metapod-base-set-bs-54.jpg?w=600&ssl=1')";
                         }
                         else if (value === 12) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/butterfree-jungle-ju-33.jpg?w=600&ssl=1')";
                         }
                         else if (value === 13) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/weedle-base-set-bs-69.jpg?w=600&ssl=1')";
                         }
                         else if (value === 14) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kakuna-base-set-bs-33.jpg?w=600&ssl=1')";
                         }
                         else if (value === 15) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/beedrill-base-set-bs-17.jpg?w=600&ssl=1')";
                         }
                         else if (value === 16) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/pidgey-base-set-bs-57.jpg?w=600&ssl=1')";
                         }
                         else if (value === 17) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/pidgeotto-base-set-bs-22.jpg?w=600&ssl=1')";
                         }
                         else if (value === 18) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/pidgeot-jungle-ju-24.jpg?w=600&ssl=1')";
                         }
                         else if (value === 19) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/rattata-base-set-bs-61.jpg?w=600&ssl=1')";
                         }
                         else if (value === 20) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/raticate-base-set-bs-40.jpg?w=600&ssl=1')";
                         }
                         else if (value === 21) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/spearow-jungle-ju-62.jpg?w=600&ssl=1')";
                         }
                         else if (value === 22) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/fearow-jungle-ju-36.jpg?w=600&ssl=1')";
                         }
                         else if (value === 23) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/ekans-fossil-fo-46.jpg?w=600&ssl=1')";
                         }
                         else if (value === 24) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/arbok-fossil-fo-31.jpg?w=600&ssl=1')";
                         }
                         else if (value === 25) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/pikachu-base-set-bs-58.jpg?w=600&ssl=1')";
                         }
                         else if (value === 26) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/raichu-base-set-bs-14.jpg?w=600&ssl=1')";
                         }
                         else if (value === 27) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/sandshrew-base-set-bs-62.jpg?w=600&ssl=1')";
                         }
                         else if (value === 28) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/sandslash-fossil-fo-41.jpg?w=600&ssl=1')";
                         }
                         else if (value === 29) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidoran-female-jungle-ju-57.jpg?w=600&ssl=1')";
                         }
                         else if (value === 30) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidorina-jungle-ju-40.jpg?w=600&ssl=1')";
                         }
                         else if (value === 31) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidoqueen-jungle-ju-7.jpg?w=600&ssl=1')";
                         }
                         else if (value === 32) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidoran-male-base-set-bs-55.jpg?w=600&ssl=1')";
                         }
                         else if (value === 33) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidorino-base-set-bs-37.jpg?w=600&ssl=1')";
                         }
                         else if (value === 34) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/nidoking-base-set-bs-11.jpg?w=600&ssl=1')";
                         }
                         else if (value === 35) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/clefairy-base-set-bs-5.jpg?w=600&ssl=1')";
                         }
                         else if (value === 36) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/clefable-jungle-ju-17.jpg?w=600&ssl=1')";
                         }
                         else if (value === 37) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/vulpix-base-set-bs-68.jpg?w=600&ssl=1')";
                         }
                         else if (value === 38) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/ninetales-base-set-bs-12.jpg?w=600&ssl=1')";
                         }
                         else if (value === 39) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/jigglypuff-jungle-ju-54.jpg?w=600&ssl=1')";
                         }
                         else if (value === 40) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/wigglytuff-jungle-ju-16.jpg?w=600&ssl=1')";
                         }
                         else if (value === 41) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/zubat-fossil-fo-57.jpg?w=600&ssl=1')";
                         }
                         else if (value === 42) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/golbat-fossil-fo-34.jpg?w=600&ssl=1')";
                         }
                         else if (value === 43) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/oddish-jungle-ju-58.jpg?w=600&ssl=1')";
                         }
                         else if (value === 44) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/gloom-jungle-ju-37.jpg?w=600&ssl=1')";
                         }
                         else if (value === 45) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/vileplume-jungle-ju-15.jpg?w=600&ssl=1')";
                         }
                         else if (value === 46) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/paras-jungle-ju-59.jpg?w=600&ssl=1')";
                         }
                         else if (value === 47) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/parasect-jungle-ju-41.jpg?w=600&ssl=1')";
                         }
                         else if (value === 48) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/venonat-jungle-ju-63.jpg?w=600&ssl=1')";
                         }
                         else if (value === 49) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/venomoth-jungle-ju-13.jpg?w=600&ssl=1')";
                         }
                         else if (value === 50) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/diglett-base-set-2-b2-71.jpg?w=600&ssl=1')";
                         }
                         else if (value === 51) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dugtrio-base-set-2-b2-23.jpg?w=600&ssl=1')";
                         }
                         else if (value === 52) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/meowth-base-set-2-b2-80.jpg?w=600&ssl=1')";
                         }
                         else if (value === 53) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/persian-base-set-2-b2-56.jpg?w=600&ssl=1')";
                         }
                         else if (value === 54) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/psyduck-fossil-fo-53.jpg?w=600&ssl=1')";
                         }
                         else if (value === 55) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/golduck-fossil-fo-35.jpg?w=600&ssl=1')";
                         }
                         else if (value === 56) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/mankey-jungle-ju-55.jpg?w=600&ssl=1')";
                         }
                         else if (value === 57) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/primeape-jungle-ju-43.jpg?w=600&ssl=1')";
                         }
                         else if (value === 58) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/growlithe-base-set-bs-28.jpg?w=600&ssl=1')";
                         }
                         else if (value === 59) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/arcanine-base-set-bs-23.jpg?w=600&ssl=1')";
                         }
                         else if (value === 60) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/poliwag-base-set-bs-59.jpg?w=600&ssl=1')";
                         }
                         else if (value === 61) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/poliwhirl-base-set-bs-38.jpg?w=600&ssl=1')";
                         }
                         else if (value === 62) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/poliwrath-base-set-bs-13.jpg?w=600&ssl=1')";
                         }
                         else if (value === 63) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/abra-base-set-bs-43.jpg?w=600&ssl=1')";
                         }
                         else if (value === 64) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kadabra-base-set-bs-32.jpg?w=600&ssl=1')";
                         }
                         else if (value === 65) {
-                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/alakazam-base-set-bs-1.jpg?fit=600%2C825&ssl=1')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/alakazam-base-set-bs-1.jpg?w=600&ssl=1')";
                         }
                         else if (value === 66) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/machop-base-set-bs-52.jpg?w=600&ssl=1')";
                         }
                         else if (value === 67) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/machoke-base-set-bs-34.jpg?w=600&ssl=1')";
                         }
                         else if (value === 68) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/machamp-base-set-bs-8.jpg?w=600&ssl=1')";
                         }
                         else if (value === 69) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/bellsprout-jungle-ju-49.jpg?w=600&ssl=1')";
                         }
                         else if (value === 70) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/weepinbell-jungle-ju-48.jpg?w=600&ssl=1')";
                         }
                         else if (value === 71) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/victreebel-jungle-ju-14.jpg?w=600&ssl=1')";
                         }
                         else if (value === 72) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/tentacool-fossil-fo-56.jpg?w=600&ssl=1')";
                         }
                         else if (value === 73) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/tentacruel-fossil-fo-44.jpg?w=600&ssl=1')";
                         }
                         else if (value === 74) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/geodude-fossil-fo-47.jpg?w=600&ssl=1')";
                         }
                         else if (value === 75) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/graveler-fossil-fo-37.jpg?w=600&ssl=1')";
                         }
                         else if (value === 76) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/golem-fossil-fo-36.jpg?w=600&ssl=1')";
                         }
                         else if (value === 77) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/ponyta-base-set-bs-60.jpg?w=600&ssl=1')";
                         }
                         else if (value === 78) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/rapidash-jungle-ju-44.jpg?w=600&ssl=1')";
                         }
                         else if (value === 79) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/slowpoke-fossil-fo-55.jpg?w=600&ssl=1')";
                         }
                         else if (value === 80) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/slowbro-fossil-fo-43.jpg?w=600&ssl=1')";
                         }
                         else if (value === 81) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/magnemite-base-set-bs-53.jpg?w=600&ssl=1')";
                         }
                         else if (value === 82) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/magneton-base-set-bs-9.jpg?w=600&ssl=1')";
                         }
                         else if (value === 83) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/farfetchd-base-set-bs-27.jpg?w=600&ssl=1')";
                         }
                         else if (value === 84) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/doduo-base-set-bs-48.jpg?w=600&ssl=1')";
                         }
                         else if (value === 85) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dodrio-jungle-ju-34.jpg?w=600&ssl=1')";
                         }
                         else if (value === 86) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/seel-base-set-bs-41.jpg?w=600&ssl=1')";
                         }
                         else if (value === 87) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dewgong-base-set-bs-25.jpg?w=600&ssl=1')";
                         }
                         else if (value === 88) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/grimer-fossil-fo-48.jpg?w=600&ssl=1')";
                         }
                         else if (value === 89) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/muk-fossil-fo-28.jpg?w=600&ssl=1')";
                         }
                         else if (value === 90) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/shellder-fossil-fo-54.jpg?w=600&ssl=1')";
                         }
                         else if (value === 91) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/cloyster-fossil-fo-32.jpg?w=600&ssl=1')";
                         }
                         else if (value === 92) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/gastly-base-set-2-b2-75.jpg?w=600&ssl=1')";
                         }
                         else if (value === 93) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/haunter-base-set-2-b2-43.jpg?w=600&ssl=1')";
                         }
                         else if (value === 94) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/gengar-fossil-fo-5.jpg?w=600&ssl=1')";
                         }
                         else if (value === 95) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/onix-base-set-bs-56.jpg?w=600&ssl=1')";
                         }
                         else if (value === 96) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/drowzee-base-set-2-b2-73.jpg?w=600&ssl=1')";
                         }
                         else if (value === 97) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/hypno-fossil-fo-8.jpg?w=600&ssl=1')";
                         }
                         else if (value === 98) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/krabby-fossil-fo-51.jpg?w=600&ssl=1')";
                         }
                         else if (value === 99) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kingler-fossil-fo-38.jpg?w=600&ssl=1')";
                         }
                         else if (value === 100) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/voltorb-base-set-bs-67.jpg?w=600&ssl=1')";
                         }
                         else if (value === 101) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/electrode-base-set-bs-21.jpg?w=600&ssl=1')";
                         }
                         else if (value === 102) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/exeggcute-base-set-2-b2-74.jpg?w=600&ssl=1')";
                         }
                         else if (value === 103) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/exeggutor-base-set-2-b2-39.jpg?w=600&ssl=1')";
                         }
                         else if (value === 104) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/cubone-jungle-ju-50.jpg?w=600&ssl=1')";
                         }
                         else if (value === 105) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/marowak-jungle-ju-39.jpg?w=600&ssl=1')";
                         }
                         else if (value === 106) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/hitmonlee-fossil-fo-7.jpg?w=600&ssl=1')";
                         }
                         else if (value === 107) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/hitmonchan-base-set-bs-7.jpg?w=600&ssl=1')";
                         }
                         else if (value === 108) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/lickitung-jungle-ju-38.jpg?w=600&ssl=1')";
                         }
                         else if (value === 109) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/koffing-base-set-bs-51.jpg?w=600&ssl=1')";
                         }
                         else if (value === 110) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/weezing-fossil-fo-45.jpg?w=600&ssl=1')";
                         }
                         else if (value === 111) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/rhyhorn-jungle-ju-61.jpg?w=600&ssl=1')";
                         }
                         else if (value === 112) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/rhydon-jungle-ju-45.jpg?w=600&ssl=1')";
                         }
                         else if (value === 113) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/chansey-base-set-bs-3.jpg?w=600&ssl=1')";
                         }
                         else if (value === 114) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/tangela-base-set-bs-66.jpg?w=600&ssl=1')";
                         }
                         else if (value === 115) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kangaskhan-jungle-ju-5.jpg?w=600&ssl=1')";
                         }
                         else if (value === 116) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/horsea-fossil-fo-49.jpg?w=600&ssl=1')";
                         }
                         else if (value === 117) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/seadra-fossil-fo-42.jpg?w=600&ssl=1')";
                         }
                         else if (value === 118) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/goldeen-jungle-ju-53.jpg?w=600&ssl=1')";
                         }
                         else if (value === 119) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/seaking-jungle-ju-46.jpg?w=600&ssl=1')";
                         }
                         else if (value === 120) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/staryu-base-set-2-b2-95.jpg?w=600&ssl=1')";
                         }
                         else if (value === 121) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/starmie-base-set-2-b2-94.jpg?w=600&ssl=1')";
                         }
                         else if (value === 122) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/mr.-mime-jungle-ju-6.jpg?w=600&ssl=1')";
                         }
                         else if (value === 123) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/scyther-jungle-ju-10.jpg?w=600&ssl=1')";
                         }
                         else if (value === 124) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/jynx-base-set-2-b2-45.jpg?w=600&ssl=1')";
                         }
                         else if (value === 125) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/electabuzz-base-set-bs-20.jpg?w=600&ssl=1')";
                         }
                         else if (value === 126) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/magmar-base-set-bs-36.jpg?w=600&ssl=1')";
                         }
                         else if (value === 127) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/pinsir-jungle-ju-9.jpg?w=600&ssl=1')";
                         }
                         else if (value === 128) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/tauros-jungle-ju-47.jpg?w=600&ssl=1')";
                         }
                         else if (value === 129) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/magikarp-base-set-bs-35.jpg?w=600&ssl=1')";
                         }
                         else if (value === 130) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/gyarados-base-set-bs-6.jpg?w=600&ssl=1')";
                         }
                         else if (value === 131) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/lapras-fossil-fo-10.jpg?w=600&ssl=1')";
                         }
                         else if (value === 132) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/ditto-fossil-fo-18.jpg?w=600&ssl=1')";
                         }
                         else if (value === 133) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/eevee-jungle-ju-51.jpg?w=600&ssl=1')";
                         }
                         else if (value === 134) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/vaporeon-jungle-ju-12.jpg?w=600&ssl=1')";
                         }
                         else if (value === 135) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/jolteon-jungle-ju-4.jpg?w=600&ssl=1')";
                         }
                         else if (value === 136) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/flareon-jungle-ju-3.jpg?w=600&ssl=1')";
                         }
                         else if (value === 137) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/porygon-base-set-bs-39.jpg?w=600&ssl=1')";
                         }
                         else if (value === 138) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/omanyte-fossil-fo-52.jpg?w=600&ssl=1')";
                         }
                         else if (value === 139) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/omastar-fossil-fo-40.jpg?w=600&ssl=1')";
                         }
                         else if (value === 140) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kabuto-fossil-fo-50.jpg?w=600&ssl=1')";
                         }
                         else if (value === 141) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/kabutops-fossil-fo-24.jpg?w=600&ssl=1')";
                         }
                         else if (value === 142) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/aerodactyl-fossil-fo-1.jpg?w=600&ssl=1')";
                         }
                         else if (value === 143) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/snorlax-base-set-2-b2-30.jpg?w=600&ssl=1')";
                         }
                         else if (value === 144) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/articuno-fossil-fo-2.jpg?w=600&ssl=1')";
                         }
                         else if (value === 145) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/zapdos-base-set-bs-16.jpg?w=600&ssl=1')";
                         }
                         else if (value === 146) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/moltres-fossil-fo-12.jpg?w=600&ssl=1')";
                         }
                         else if (value === 147) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dratini-base-set-bs-26.jpg?w=600&ssl=1')";
                         }
                         else if (value === 148) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dragonair-base-set-bs-18.jpg?w=600&ssl=1')";
                         }
                         else if (value === 149) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/dragonite-fossil-fo-4.jpg?w=600&ssl=1')";
                         }
                         else if (value === 150) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/mewtwo-base-set-bs-10.jpg?w=600&ssl=1')";
                         }
                         else if (value === 151) {
-                            card.style.backgroundImage = "url('')";
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/mew-wizards-black-star-promos-9.jpg?w=600&ssl=1')";
                         }
                     }
-                    card.style.backgroundSize = "contain";
+                    else if (deck[i].Type === "hidden") {
+                        card.style.backgroundImage = "url('https://opengameart.org/sites/default/files/card%20back%20red.png')";
+                    }
+                    card.style.backgroundSize = "100% 100%";
+                    if (deckType === "hand") {
+                        card.setAttribute("id", ("hand_" + i));
+                    }
+                    space.appendChild(card);
                 }
             }
         }
@@ -6691,7 +6697,7 @@
                         dialogueStage1.push(dialogueHanafuda[i]);
                     }
                 }
-                if (riverDeck[i].Type === "pokemon" && pokemonFlag === false) {
+                if (handDeck[i].Type === "pokemon" && pokemonFlag === false) {
                     pokemonFlag = true;
                     console.log("Added dialogue: Pokémon");
                     for (x = 0; x < dialoguePokemon.length; x++) {
@@ -6752,7 +6758,7 @@
         main {
             max-width: 100%;
             width: 600px;
-            margin: 10% auto 0;
+            margin: 5% auto 0;
             box-sizing: border-box;
         }
         .dialogue {
