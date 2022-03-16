@@ -27,21 +27,32 @@
         //Test hands for testing purposes
         
         const testRiver = [
-        {Name:"3 of Clubs",PairValue:"3",PairAlt:null,PairRank:3,RankValue:3,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"4 of Clubs",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"5 of Clubs",PairValue:"5",PairAlt:null,PairRank:5,RankValue:5,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"6 of Clubs",PairValue:"6",PairAlt:null,PairRank:6,RankValue:6,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"10 of Spades",PairValue:"10",PairAlt:null,PairRank:10,RankValue:10,RankAlt:null,Suit:"Spades",Colour:"Black",Type:"playing"}
+        {Name: "No. 042 - Golbat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 42, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+        {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+        {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+        {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+        {Name: "No. 051 - Dugtrio", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 51, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"}
         ];
 
         const testPlayer = [
-        {Name:"7 of Clubs",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Clubs",Colour:"Black",Type:"playing"},
-        {Name:"Red Skip",PairValue:"Skip",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"}
+        {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+        {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"}
         ];
 
         const testOpp = [
         {Name:"7 of Hearts",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Hearts",Colour:"Red",Type:"playing"},
         {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
+        ];
+
+        const testDeck = [
+        {Name:"7 of Hearts",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Hearts",Colour:"Red",Type:"playing"},
+        {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+        {Name:"Willow (Lightning Storm)",PairValue:"Willow",PairAlt:"A",PairRank:25,RankValue:"Wild",RankAlt:null,Suit:"November",Colour:"Hanafuda",Type:"hanafuda"},
+        {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+        {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+        {Name:"Plum Blossom",PairValue:"Plum Blossom",PairAlt:null,PairRank:16,RankValue:-100,RankAlt:null,Suit:"February",Colour:"Hanafuda",Type:"hanafuda"},
+        {Name:"Green 9",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"},
+        {Name:"Blue 4",PairValue:"4",PairAlt:null,PairRank:4,RankValue:4,RankAlt:null,Suit:"Blue",Colour:"Blue",Type:"uno"}
         ];
 
         //###############################################
@@ -122,6 +133,245 @@
             {Name: "Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: -100, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda"}
         ];
 
+        //Full Pokémon Card Deck
+
+        const pokemon1 = [
+            {Name: "No. 001 - Bulbasaur", PairValue: "bulbasaur", PairAlt: "1", PairRank: 27, RankValue: 1, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 002 - Ivysaur", PairValue: "bulbasaur", PairAlt: "2", PairRank: 27, RankValue: 2, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 003 - Venusaur", PairValue: "bulbasaur", PairAlt: "3", PairRank: 27, RankValue: 3, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 004 - Charmander", PairValue: "charmander", PairAlt: "4", PairRank: 28, RankValue: 4, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 005 - Charmeleon", PairValue: "charmander", PairAlt: "5", PairRank: 28, RankValue: 5, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 006 - Charizard", PairValue: "charmander", PairAlt: "6", PairRank: 28, RankValue: 6, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 008 - Wartortle", PairValue: "squirtle", PairAlt: "8", PairRank: 29, RankValue: 8, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 010 - Caterpie", PairValue: "caterpie", PairAlt: "10", PairRank: 30, RankValue: 10, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 011 - Metapod", PairValue: "caterpie", PairAlt: "11", PairRank: 30, RankValue: 11, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 012 - Butterfree", PairValue: "caterpie", PairAlt: "12", PairRank: 30, RankValue: 12, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 013 - Weedle", PairValue: "weedle", PairAlt: "13", PairRank: 31, RankValue: 13, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 014 - Kakuna", PairValue: "weedle", PairAlt: "14", PairRank: 31, RankValue: 14, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 015 - Beedrill", PairValue: "weedle", PairAlt: "15", PairRank: 31, RankValue: 15, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 016 - Pidgey", PairValue: "pidgey", PairAlt: "16", PairRank: 32, RankValue: 16, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 017 - Pidgeotto", PairValue: "pidgey", PairAlt: "17", PairRank: 32, RankValue: 17, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 018 - Pidgeot", PairValue: "pidgey", PairAlt: "18", PairRank: 32, RankValue: 18, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 019 - Rattata", PairValue: "rattata", PairAlt: "19", PairRank: 33, RankValue: 19, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 020 - Raticate", PairValue: "rattata", PairAlt: "20", PairRank: 33, RankValue: 20, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 021 - Spearow", PairValue: "spearow", PairAlt: "21", PairRank: 34, RankValue: 21, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 022 - Fearow", PairValue: "spearow", PairAlt: null, PairRank: 34, RankValue: 22, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"}
+            ]
+
+        const pokemon2 = [
+            {Name: "No. 023 - Ekans", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 23, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 024 - Arbok", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 24, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 026 - Raichu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 26, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+
+            {Name: "No. 027 - Sandshrew", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 27, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 028 - Sandslash", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 28, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 029 - Nidoran♀", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 29, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 030 - Nidorina", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 30, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 031 - Nidoqueen", PairValue: "Q", PairAlt: "nidoran♀", PairRank: 12, RankValue: 31, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 032 - Nidoran♂", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 32, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 033 - Nidorino", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 33, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 034 - Nidoking", PairValue: "K", PairAlt: "nidoran♂", PairRank: 13, RankValue: 34, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 035 - Clefairy", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 35, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 036 - Clefable", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 36, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 037 - Vulpix", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 37, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 038 - Ninetales", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 38, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 040 - Wigglytuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 40, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 041 - Zubat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 41, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 042 - Golbat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 42, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 043 - Oddish", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 43, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 044 - Gloom", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 44, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 045 - Vileplume", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 45, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 046 - Paras", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 46, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 047 - Parasect", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 47, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 048 - Venonat", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 48, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 049 - Venomoth", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 49, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 050 - Diglett", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 50, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 051 - Dugtrio", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 51, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 052 - Meowth", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 52, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 053 - Persian", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 53, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 054 - Psyduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 54, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 055 - Golduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 55, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 058 - Growlithe", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 58, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 059 - Arcanine", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 59, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 060 - Poliwag", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 60, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 061 - Poliwhirl", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 61, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 062 - Poliwrath", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 62, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 063 - Abra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 63, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 064 - Kadabra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 64, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+
+            {Name: "No. 066 - Machop", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 66, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 067 - Machoke", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 67, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 068 - Machamp", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 68, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 069 - Bellsprout", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 69, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 070 - Weepinbell", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 70, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 071 - Victreebel", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 71, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 072 - Tentacool", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 72, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 073 - Tentacruel", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 73, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 074 - Geodude", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 74, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 075 - Graveler", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 75, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 076 - Golem", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 76, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 077 - Ponyta", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 77, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 078 - Rapidash", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 78, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 079 - Slowpoke", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 79, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 080 - Slowbro", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 80, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 081 - Magnemite", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 81, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 082 - Magneton", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 82, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+
+            {Name: "No. 083 - Farfetch'd", PairValue: null, PairAlt: null, PairRank: null, RankValue: 83, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 084 - Doduo", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 84, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 085 - Dodrio", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 85, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 086 - Seel", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 86, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 087 - Dewgong", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 87, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 088 - Grimer", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 88, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 089 - Muk", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 89, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 090 - Shellder", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 90, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 091 - Cloyster", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 91, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 092 - Gastly", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 92, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 093 - Haunter", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 93, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 094 - Gengar", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 94, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+
+            {Name: "No. 095 - Onix", PairValue: null, PairAlt: null, PairRank: null, RankValue: 95, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 096 - Drowzee", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 96, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 097 - Hypno", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 97, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+
+            {Name: "No. 098 - Krabby", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 98, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 099 - Kingler", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 99, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 100 - Voltorb", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 100, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 101 - Electrode", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 101, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+
+            {Name: "No. 102 - Exeggcute", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 102, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 103 - Exeggutor", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 103, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 104 - Cubone", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 104, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 105 - Marowak", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 105, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 106 - Hitmonlee", PairValue: null, PairAlt: null, PairRank: null, RankValue: 106, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 107 - Hitmonchan", PairValue: null, PairAlt: null, PairRank: null, RankValue: 107, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 108 - Lickitung", PairValue: null, PairAlt: null, PairRank: null, RankValue: 108, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 109 - Koffing", PairValue: "koffing", PairAlt: null, PairRank: 71, RankValue: 109, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 110 - Weezing", PairValue: "koffing", PairAlt: null, PairRank: 71, RankValue: 110, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 111 - Rhyhorn", PairValue: "rhyhorn", PairAlt: null, PairRank: 72, RankValue: 111, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 112 - Rhydon", PairValue: "rhyhorn", PairAlt: null, PairRank: 72, RankValue: 112, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 113 - Chansey", PairValue: null, PairAlt: null, PairRank: null, RankValue: 113, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 114 - Tangela", PairValue: null, PairAlt: null, PairRank: null, RankValue: 114, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 115 - Kangaskhan", PairValue: null, PairAlt: null, PairRank: null, RankValue: 115, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 116 - Horsea", PairValue: "horsea", PairAlt: null, PairRank: 73, RankValue: 116, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 117 - Seadra", PairValue: "horsea", PairAlt: null, PairRank: 73, RankValue: 117, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 118 - Goldeen", PairValue: "goldeen", PairAlt: null, PairRank: 74, RankValue: 118, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 119 - Seaking", PairValue: "goldeen", PairAlt: null, PairRank: 74, RankValue: 119, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 120 - Staryu", PairValue: "staryu", PairAlt: null, PairRank: 75, RankValue: 120, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 121 - Starmie", PairValue: "staryu", PairAlt: null, PairRank: 75, RankValue: 121, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 122 - Mr. Mime", PairValue: "Joker", PairAlt: null, PairRank: null, RankValue: 122, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 123 - Scyther", PairValue: null, PairAlt: null, PairRank: null, RankValue: 123, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 124 - Jynx", PairValue: null, PairAlt: null, PairRank: null, RankValue: 124, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+
+            {Name: "No. 125 - Electabuzz", PairValue: null, PairAlt: null, PairRank: null, RankValue: 125, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+
+            {Name: "No. 126 - Magmar", PairValue: null, PairAlt: null, PairRank: null, RankValue: 126, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 127 - Pinsir", PairValue: null, PairAlt: null, PairRank: null, RankValue: 127, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+
+            {Name: "No. 128 - Tauros", PairValue: null, PairAlt: null, PairRank: null, RankValue: 128, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 129 - Magikarp", PairValue: "magikarp", PairAlt: null, PairRank: 76, RankValue: 129, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 130 - Gyarados", PairValue: "magikarp", PairAlt: null, PairRank: 76, RankValue: 130, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 131 - Lapras", PairValue: null, PairAlt: null, PairRank: null, RankValue: 131, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 132 - Ditto", PairValue: null, PairAlt: null, PairRank: null, RankValue: 132, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 133 - Eevee", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 133, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 134 - Vaporeon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 134, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 135 - Jolteon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 135, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 136 - Flareon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 136, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 137 - Porygon", PairValue: null, PairAlt: null, PairRank: null, RankValue: 137, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 138 - Omanyte", PairValue: "omanyte", PairAlt: null, PairRank: 78, RankValue: 138, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 139 - Omastar", PairValue: "magikarp", PairAlt: null, PairRank: 78, RankValue: 139, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 140 - Kabuto", PairValue: "kabuto", PairAlt: null, PairRank: 79, RankValue: 140, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 141 - Kabutops", PairValue: "kabuto", PairAlt: null, PairRank: 79, RankValue: 141, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 142 - Aerodactyl", PairValue: null, PairAlt: null, PairRank: null, RankValue: 142, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+
+            {Name: "No. 143 - Snorlax", PairValue: null, PairAlt: null, PairRank: null, RankValue: 143, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 144 - Articuno", PairValue: null, PairAlt: null, PairRank: null, RankValue: 144, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+
+            {Name: "No. 145 - Zapdos", PairValue: null, PairAlt: null, PairRank: null, RankValue: 145, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+
+            {Name: "No. 146 - Moltres", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+
+            {Name: "No. 147 - Dratini", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 147, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 148 - Dragonair", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 148, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 149 - Dragonite", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 149, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+
+            {Name: "No. 150 - Mewtwo", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+
+            {Name: "No. 151 - Mew", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"}
+        ]
+        
         //Names of hand types to be reported in compareHands()
         
         const handValues = ["", "High card", "One Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "5 of a Kind"];
@@ -494,6 +744,16 @@
             "Some of these cards don't even have numbers on 'em!"
         ];
 
+        const dialoguePokemon = [
+            "OK, this is getting ridiculous now",
+            "Who's that Pokémon? No, seriously",
+            "Pokémon cards come in 7 different colors... Kinda like suits...",
+            "Some of the Pokémon card colors match with the UNO card colors...",
+            "Maybe you need to match Pokémon cards by their evolution line...",
+            "There are Pokémon called Nidoqueen and Nidoking... Kinda similar to some other cards...",
+            "That Mr. Mime Pokémon kinda looks like a Joker to me..."
+        ];
+
         //Enable for console log reporting
         
         const testLog = true;
@@ -513,8 +773,9 @@
         const extraTurn = 4;
         const unoTurn = 7;
         const tarotTurn = 10;
-        const hanafudaTurn = 15;
-        const wildTurn = 20;
+        const pokemonTurn = 15
+        const hanafudaTurn = 20;
+        const wildTurn = 25;
 
         //Variables for updating dialogue
         
@@ -522,6 +783,7 @@
         let unoFlag = false;
         let tarotFlag = false;
         let hanafudaFlag = false;
+        let pokemonFlag = false;
         
         //Global variables for the different deck arrays
         
@@ -733,6 +995,8 @@
             shuffle(uno);
             shuffle(tarot);
             shuffle(hanafuda);
+            shuffle(pokemon1);
+            shuffle(pokemon2);
             
             if (turnCounter < extraTurn) {
                 if (testLog === true) {
@@ -774,7 +1038,7 @@
                 deck.push(card);
                 }
             }
-            else if (turnCounter < hanafudaTurn) {
+            else if (turnCounter < pokemonTurn) {
                 if (testLog === true) {
                     console.log("Cards: 55 Deck + Uno + Tarot");
                 }
@@ -795,9 +1059,9 @@
                 deck.push(card);
                 }
             }
-            else if (turnCounter < wildTurn) {
+            else if (turnCounter < hanafudaTurn) {
                 if (testLog === true) {
-                    console.log("Cards: 55 Deck + Uno + Tarot + Hanafuda");
+                    console.log("Cards: 55 Deck + Uno + Tarot + Pokémon");
                 }
                 for (i = 0; i < playing.length; i++) {
                     let card = playing[i];
@@ -816,6 +1080,35 @@
                 deck.push(card);
                 }
                 for (i = 0; i < 10; i++) {
+                let card = pokemon1[i];
+                deck.push(card);
+                }
+            }
+            else if (turnCounter < wildTurn) {
+                if (testLog === true) {
+                    console.log("Cards: 55 Deck + Uno + Tarot + Pokémon + Hanafuda");
+                }
+                for (i = 0; i < playing.length; i++) {
+                    let card = playing[i];
+                    deck.push(card);
+                }
+                for (i = 0; i < extra.length; i++) {
+                    let card = extra[i];
+                    deck.push(card);
+                }
+                for (i = 0; i < 10; i++) {
+                let card = uno[i];
+                deck.push(card);
+                }
+                for (i = 0; i < 10; i++) {
+                let card = tarot[i];
+                deck.push(card);
+                }
+                for (i = 0; i < 10; i++) {
+                let card = pokemon1[i];
+                deck.push(card);
+                }
+                for (i = 0; i < 10; i++) {
                 let card = hanafuda[i];
                 deck.push(card);
                 }
@@ -828,7 +1121,7 @@
                 let rand = Math.floor((Math.random() * 10) + 1);
 
                 if (rand === 10) {
-                    rand = Math.floor((Math.random() * 4) + 1);
+                    rand = Math.floor((Math.random() * 5) + 1);
                     if (rand === 1) {
                         for (i = 0; i < playing.length; i++) {
                             let card = playing[i];
@@ -869,6 +1162,19 @@
                             console.log("Hanafuda only");
                         }
                     }
+                    else if (rand === 5) {
+                        for (i = 0; i < pokemon1.length; i++) {
+                            let card = pokemon1[i];
+                            deck.push(card);
+                        }
+                        for (i = 0; i < pokemon2.length; i++) {
+                            let card = pokemon2[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log("Pokémon only");
+                        }
+                    }
                 }
                 else {
                     if (Math.random() > 0.3) {
@@ -899,6 +1205,24 @@
                         }
                         if (testLog === true) {
                             console.log(rand + " Tarot cards");
+                        }
+                    }
+                    if (Math.random() > 0.5) {
+                        rand = Math.floor((Math.random() * 22) + 1);
+                        for (i = 0; i < rand; i++) {
+                            let card = pokemon1[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log(rand + " Pokemon cards (1)");
+                        }
+                        rand = Math.floor((Math.random() * 10) + 1);
+                        for (i = 0; i < rand; i++) {
+                            let card = pokemon2[i];
+                            deck.push(card);
+                        }
+                        if (testLog === true) {
+                            console.log(rand + " Pokemon cards (2)");
                         }
                     }
                     if (Math.random() > 0.7) {
@@ -1013,342 +1337,399 @@
                 name = deck[i].Name;
                 wild = deck[i].Wild;
 
-                if (deck[i].Type === "playing" || deck[i].Type === "extra") {
+                if (10 > 0) {
 
-                    value = deck[i].PairValue;
+                    if (deck[i].Type === "playing" || deck[i].Type === "extra") {
 
-                    if (deck[i].Suit === "Hearts") {
-                        icon = "♥";
-                    }
-                    else if (deck[i].Suit === "Spades") {
-                        icon = "♠";
-                    }
-                    else if (deck[i].Suit === "Diamonds") {
-                        icon = "♦";
-                    }
-                    else if (deck[i].Suit === "Clubs") {
-                        icon = "♣";
-                    }
-                    else {
-                        icon = "J";
-                    }
+                        value = deck[i].PairValue;
 
-                    cardCol = deck[i].Colour;
+                        if (deck[i].Suit === "Hearts") {
+                            icon = "♥";
+                        }
+                        else if (deck[i].Suit === "Spades") {
+                            icon = "♠";
+                        }
+                        else if (deck[i].Suit === "Diamonds") {
+                            icon = "♦";
+                        }
+                        else if (deck[i].Suit === "Clubs") {
+                            icon = "♣";
+                        }
+                        else {
+                            icon = "J";
+                        }
 
-                    if (value === "Joker") {
-                        card.innerHTML = `<div class="top_joker">${value}</div><div class="joker_icon">${icon}</div><div class="bottom_joker">${value}</div>`;
-                        if (cardCol === "Red") {
-                            card.classList.add("red");
+                        cardCol = deck[i].Colour;
+
+                        if (value === "Joker") {
+                            card.innerHTML = `<div class="top_joker">${value}</div><div class="joker_icon">${icon}</div><div class="bottom_joker">${value}</div>`;
+                            if (cardCol === "Red") {
+                                card.classList.add("red");
+                            }
+                        }
+                        else if (deck[i].Name === "Rules of Poker") {
+                            card.innerHTML = `<div class="top_rules">RULES FOR DRAW AND STUD POKER</div><div class="bottom_rules">▒▒▒</div>`;
+                            if (cardCol === "Red") {
+                                card.classList.add("red");
+                            }
+                        }
+                        else {
+                            card.innerHTML = `<div class="top_num">${value}</div><div class="icon">${icon}</div><div class="bottom_num">${value}</div>`;
+                            if (cardCol === "Red") {
+                                card.classList.add("red");
+                            }
                         }
                     }
-                    else if (deck[i].Name === "Rules of Poker") {
-                        card.innerHTML = `<div class="top_rules">RULES FOR DRAW AND STUD POKER</div><div class="bottom_rules">▒▒▒</div>`;
-                        if (cardCol === "Red") {
-                            card.classList.add("red");
+                    else if (deck[i].Type === "uno") {
+
+                        value = deck[i].PairValue;
+
+                        card.classList.add("uno");
+
+                        if (value === "Draw2") {
+                            icon = "+2";
+                            card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
+                        }
+                        else if (value === "Reverse") {
+                            icon = "⇄";
+                            card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
+                        }
+                        else if (value === "Skip") {
+                            icon = "&#128683;";
+                            card.innerHTML = `<div class="top_skip">${icon}</div><div class="skip_icon">${icon}</div><div class="bottom_skip">${icon}</div>`;
+                        }
+                        else if (value === "Wild") {
+                            icon = "Wild";
+                            card.innerHTML = `<div class="top_uno">${icon}</div><div class="wild_icon">🟥🟦</div><div class="wild_icon">🟨🟩</div><div class="bottom_uno">${icon}</div>`;
+                        }
+                        else if (value === "Draw4") {
+                            icon = "+4";
+                            card.innerHTML = `<div class="top_uno">${icon}</div><div class="wild_icon">🟥🟦</div><div class="wild_icon">🟨🟩</div><div class="bottom_uno">${icon}</div>`;
+                        }
+                        else {
+                            icon = value;
+                            card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
+                        }
+
+                        if (deck[i].Colour === "Red") {
+                            card.classList.add("uno_red");
+                        }
+                        else if (deck[i].Colour === "Blue") {
+                            card.classList.add("uno_blue");
+                        }
+                        else if (deck[i].Colour === "Yellow") {
+                            card.classList.add("uno_yellow");
+                        }
+                        else if (deck[i].Colour === "Green") {
+                            card.classList.add("uno_green");
+                        }
+                        else {
+                            card.classList.add("uno_wild");
                         }
                     }
-                    else {
-                        card.innerHTML = `<div class="top_num">${value}</div><div class="icon">${icon}</div><div class="bottom_num">${value}</div>`;
-                        if (cardCol === "Red") {
-                            card.classList.add("red");
+                    else if (deck[i].Type === "tarot") {
+
+                        value = deck[i].PairValue;
+                        name = tarotNames[Number(value)];
+
+                        if (value === "0") {
+                            icon = "🤡";
+                        }
+                        if (value === "1") {
+                            icon = "🧙";
+                        }
+                        if (value === "2") {
+                            icon = "🧙‍♀️";
+                        }
+                        if (value === "3") {
+                            icon = "👸";
+                        }
+                        if (value === "4") {
+                            icon = "🤴";
+                        }
+                        if (value === "5") {
+                            icon = "⛪";
+                        }
+                        if (value === "6" && randLover === 0) {
+                            icon = "💑";
+                        }
+                        if (value === "6" && randLover === 1) {
+                            icon = "👨‍❤️‍👨";
+                        }
+                        if (value === "6" && randLover === 2) {
+                            icon = "👩‍❤️‍👩";
+                        }
+                        if (value === "7") {
+                            icon = "🐎";
+                        }
+                        if (value === "8") {
+                            icon = "⚖️";
+                        }
+                        if (value === "9") {
+                            icon = "👴";
+                        }
+                        if (value === "10") {
+                            icon = "🎡";
+                        }
+                        if (value === "11") {
+                            icon = "🦁";
+                        }
+                        if (value === "12") {
+                            icon = "🤸";
+                        }
+                        if (value === "13") {
+                            icon = "💀";
+                        }
+                        if (value === "14") {
+                            icon = "🍶";
+                        }
+                        if (value === "15") {
+                            icon = "😈";
+                        }
+                        if (value === "16") {
+                            icon = "🗼";
+                        }
+                        if (value === "17") {
+                            icon = "🌟";
+                        }
+                        if (value === "18") {
+                            icon = "🌛";
+                        }
+                        if (value === "19") {
+                            icon = "🌞";
+                        }
+                        if (value === "20") {
+                            icon = "👼";
+                        }
+                        if (value === "21") {
+                            icon = "🌎";
+                        }
+                        card.innerHTML = `<div class="top_tarot">${value}.<br>${name}</div><div class="tarot_icon">${icon}</div>`;
+                        card.classList.add("tarot");
+                    }
+                    else if (deck[i].Type === "hanafuda") {
+                        
+                        value = deck[i].RankValue;
+
+                        let plant = "";
+                        let animal = "";
+                        let bright = "";
+                        let ribbon = "";
+                        let suit = deck[i].Suit;
+
+                        if (suit === "January") {
+                            plant = "🌲";
+                        }
+                        if (suit === "February") {
+                            plant = "🌺";
+                        }
+                        if (suit === "March") {
+                            plant = "🌸";
+                        }
+                        if (suit === "April") {
+                            plant = "🌿";
+                        }
+                        if (suit === "May") {
+                            plant = "🌾";
+                        }
+                        if (suit === "June") {
+                            plant = "🌹";
+                        }
+                        if (suit === "July") {
+                            plant = "💐";
+                        }
+                        if (suit === "August") {
+                            plant = "⛰️";
+                        }
+                        if (suit === "September") {
+                            plant = "🏵️";
+                        }
+                        if (suit === "October") {
+                            plant = "🍁";
+                        }
+                        if (suit === "November") {
+                            plant = "🌳";
+                        }
+                        if (suit === "December") {
+                            plant = "🥀";
+                        }
+
+                        if (suit === "January" && value === 20) {
+                            card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🦢</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "January" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "February" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "February" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "March" && value === 20) {
+                            card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🧧</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "March" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "April" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "April" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "May" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌉</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "May" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "June" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🦋</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "June" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "July" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐖</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "July" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "August" && value === 20) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌕</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "August" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🕊️</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "September" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🍶</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "September" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "October" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🦌</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "October" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "November" && value === 20) {
+                            card.innerHTML = `<div class="hana_icon">🌧️</div><div class="hana_icon">🎎</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "November" && value === 5) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "November" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "December" && value === 20) {
+                            card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🦅</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "December" && value === 10) {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟨</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
+                        }
+                        else if (suit === "November" && value === "Wild") {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌩️</div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("lightning_hanafuda");
+                        }
+                        else {
+                            card.innerHTML = `<div class="hana_empty"></div><div class="hana_empty"></div><div class="hana_icon">${plant}${plant}</div>`;
+                            card.classList.add("hanafuda");
                         }
                     }
+                    else if (deck[i].Type === "pokemon") {
+                        name = deck[i].Name;
+                        value = deck[i].RankValue;
+
+                        card.classList.add("pokemon");
+
+                        if (deck[i].Colour === "Red") {
+                            card.classList.add("pokemon_red");
+                            icon = "🔥";
+                        }
+                        else if (deck[i].Colour === "Blue") {
+                            card.classList.add("pokemon_blue");
+                            icon = "🌊";
+                        }
+                        else if (deck[i].Colour === "Yellow") {
+                            card.classList.add("pokemon_yellow");
+                            icon = "⚡";
+                        }
+                        else if (deck[i].Colour === "Green") {
+                            card.classList.add("pokemon_green");
+                            icon = "🍃";
+                        }
+                        else if (deck[i].Colour === "Purple") {
+                            card.classList.add("pokemon_purple");
+                            icon = "👁️";
+                        }
+                        else if (deck[i].Colour === "Brown") {
+                            card.classList.add("pokemon_brown");
+                            icon = "👊";
+                        }
+                        else {
+                            card.classList.add("pokemon_black");
+                            icon = "✷";
+                        }
+
+                        card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="icon_pokemon">${icon}</div><div class="square_pokemon"></div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
+                    }
+
+                    if (deck[i].Type === "hidden") {
+                        card.innerHTML = `<div class="card_back">▒</div>`;
+                        card.classList.add("hidden");
+                    }
+                    if (deckType === "hand") {
+                        card.setAttribute("id", ("hand_" + i));
+                    }
+                    space.appendChild(card);
                 }
+                else {
+                    if (deck[i].Type === "playing" || deck[i].Type === "extra") {
 
-                if (deck[i].Type === "uno") {
+                    }
+                    else if (deck[i].Type === "uno") {
 
-                    value = deck[i].PairValue;
+                    }
+                    else if (deck[i].Type === "tarot") {
 
-                    card.classList.add("uno");
+                    }
+                    else if (deck[i].Type === "hanafuda") {
 
-                    if (value === "Draw2") {
-                        icon = "+2";
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
                     }
-                    else if (value === "Reverse") {
-                        icon = "⇄";
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
-                    }
-                    else if (value === "Skip") {
-                        icon = "&#128683;";
-                        card.innerHTML = `<div class="top_skip">${icon}</div><div class="skip_icon">${icon}</div><div class="bottom_skip">${icon}</div>`;
-                    }
-                    else if (value === "Wild") {
-                        icon = "Wild";
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="wild_icon">🟥🟦</div><div class="wild_icon">🟨🟩</div><div class="bottom_uno">${icon}</div>`;
-                    }
-                    else if (value === "Draw4") {
-                        icon = "+4";
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="wild_icon">🟥🟦</div><div class="wild_icon">🟨🟩</div><div class="bottom_uno">${icon}</div>`;
-                    }
-                    else {
-                        icon = value;
-                        card.innerHTML = `<div class="top_uno">${icon}</div><div class="uno_icon">${icon}</div><div class="bottom_uno">${icon}</div>`;
-                    }
-
-                    if (deck[i].Colour === "Red") {
-                        card.classList.add("uno_red");
-                    }
-                    else if (deck[i].Colour === "Blue") {
-                        card.classList.add("uno_blue");
-                    }
-                    else if (deck[i].Colour === "Yellow") {
-                        card.classList.add("uno_yellow");
-                    }
-                    else if (deck[i].Colour === "Green") {
-                        card.classList.add("uno_green");
-                    }
-                    else {
-                        card.classList.add("uno_wild");
-                    }
-                }
-
-                if (deck[i].Type === "tarot") {
-
-                    value = deck[i].PairValue;
-                    name = tarotNames[Number(value)];
-
-                    if (value === "0") {
-                        icon = "🤡";
-                    }
-                    if (value === "1") {
-                        icon = "🧙";
-                    }
-                    if (value === "2") {
-                        icon = "🧙‍♀️";
-                    }
-                    if (value === "3") {
-                        icon = "👸";
-                    }
-                    if (value === "4") {
-                        icon = "🤴";
-                    }
-                    if (value === "5") {
-                        icon = "⛪";
-                    }
-                    if (value === "6" && randLover === 0) {
-                        icon = "💑";
-                    }
-                    if (value === "6" && randLover === 1) {
-                        icon = "👨‍❤️‍👨";
-                    }
-                    if (value === "6" && randLover === 2) {
-                        icon = "👩‍❤️‍👩";
-                    }
-                    if (value === "7") {
-                        icon = "🐎";
-                    }
-                    if (value === "8") {
-                        icon = "⚖️";
-                    }
-                    if (value === "9") {
-                        icon = "👴";
-                    }
-                    if (value === "10") {
-                        icon = "🎡";
-                    }
-                    if (value === "11") {
-                        icon = "🦁";
-                    }
-                    if (value === "12") {
-                        icon = "🤸";
-                    }
-                    if (value === "13") {
-                        icon = "💀";
-                    }
-                    if (value === "14") {
-                        icon = "🍶";
-                    }
-                    if (value === "15") {
-                        icon = "😈";
-                    }
-                    if (value === "16") {
-                        icon = "🗼";
-                    }
-                    if (value === "17") {
-                        icon = "🌟";
-                    }
-                    if (value === "18") {
-                        icon = "🌛";
-                    }
-                    if (value === "19") {
-                        icon = "🌞";
-                    }
-                    if (value === "20") {
-                        icon = "👼";
-                    }
-                    if (value === "21") {
-                        icon = "🌎";
-                    }
-                    card.innerHTML = `<div class="top_tarot">${value}.<br>${name}</div><div class="tarot_icon">${icon}</div>`;
-                    card.classList.add("tarot");
-                }
-
-                if (deck[i].Type === "hanafuda") {
-                    
-                    value = deck[i].RankValue;
-
-                    let plant = "";
-                    let animal = "";
-                    let bright = "";
-                    let ribbon = "";
-                    let suit = deck[i].Suit;
-
-                    if (suit === "January") {
-                        plant = "🌲";
-                    }
-                    if (suit === "February") {
-                        plant = "🌺";
-                    }
-                    if (suit === "March") {
-                        plant = "🌸";
-                    }
-                    if (suit === "April") {
-                        plant = "🌿";
-                    }
-                    if (suit === "May") {
-                        plant = "🌾";
-                    }
-                    if (suit === "June") {
-                        plant = "🌹";
-                    }
-                    if (suit === "July") {
-                        plant = "💐";
-                    }
-                    if (suit === "August") {
-                        plant = "⛰️";
-                    }
-                    if (suit === "September") {
-                        plant = "🏵️";
-                    }
-                    if (suit === "October") {
-                        plant = "🍁";
-                    }
-                    if (suit === "November") {
-                        plant = "🌳";
-                    }
-                    if (suit === "December") {
-                        plant = "🥀";
-                    }
-
-                    if (suit === "January" && value === 20) {
-                        card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🦢</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "January" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "February" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "February" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "March" && value === 20) {
-                        card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🧧</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "March" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "April" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "April" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "May" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌉</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "May" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "June" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🦋</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "June" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "July" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐖</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "July" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "August" && value === 20) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌕</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "August" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🕊️</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "September" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🍶</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "September" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "October" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🦌</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "October" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "November" && value === 20) {
-                        card.innerHTML = `<div class="hana_icon">🌧️</div><div class="hana_icon">🎎</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "November" && value === 5) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🐦</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "November" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟥</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "December" && value === 20) {
-                        card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🦅</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "December" && value === 10) {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🟨</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
-                    }
-                    else if (suit === "November" && value === "Wild") {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🌩️</div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("lightning_hanafuda");
-                    }
-                    else {
-                        card.innerHTML = `<div class="hana_empty"></div><div class="hana_empty"></div><div class="hana_icon">${plant}${plant}</div>`;
-                        card.classList.add("hanafuda");
+                    else if (deck[i].Type === "pokemon") {
+                        if (value === 65) {
+                            card.style.backgroundImage = "url('https://i0.wp.com/pkmncards.com/wp-content/uploads/alakazam-base-set-bs-1.jpg?fit=600%2C825&ssl=1')";
+                        }
+                        card.style.backgroundSize = "contain";
                     }
                 }
-
-                if (deck[i].Type === "hidden") {
-                    card.innerHTML = `<div class="card_back">▒</div>`;
-                    card.classList.add("hidden");
-                }
-                if (deckType === "hand") {
-                    card.setAttribute("id", ("hand_" + i));
-                }
-                space.appendChild(card);
             }
         }
 
@@ -5282,6 +5663,14 @@
                         dialogueStage1.push(dialogueHanafuda[i]);
                     }
                 }
+                if (riverDeck[i].Type === "pokemon" && pokemonFlag === false) {
+                    pokemonFlag = true;
+                    console.log("Added dialogue: Pokémon");
+                    for (x = 0; x < dialoguePokemon.length; x++) {
+                        dialogueNew.push(dialoguePokemon[i]);
+                        dialogueStage1.push(dialoguePokemon[i]);
+                    }
+                }
             }
             for (i = 0; i < handDeck.length; i++) {
                 if (handDeck[i].Type === "extra" && extraFlag === false) {
@@ -5314,6 +5703,14 @@
                     for (x = 0; x < dialogueHanafuda.length; x++) {
                         dialogueNew.push(dialogueHanafuda[i]);
                         dialogueStage1.push(dialogueHanafuda[i]);
+                    }
+                }
+                if (riverDeck[i].Type === "pokemon" && pokemonFlag === false) {
+                    pokemonFlag = true;
+                    console.log("Added dialogue: Pokémon");
+                    for (x = 0; x < dialoguePokemon.length; x++) {
+                        dialogueNew.push(dialoguePokemon[i]);
+                        dialogueStage1.push(dialoguePokemon[i]);
                     }
                 }
             }
@@ -5567,6 +5964,7 @@
         }
         .uno{
             color: white;
+            box-shadow:inset 0px 0px 0px 2px white;
         }
         .top_uno{
             font-size: 0.8em;
@@ -5611,23 +6009,18 @@
         }
         .uno_red{
             background-color: red;
-            box-shadow:inset 0px 0px 0px 2px white;
         }
         .uno_blue{
             background-color: blue;
-            box-shadow:inset 0px 0px 0px 2px white;
         }
         .uno_yellow{
             background-color: gold;
-            box-shadow:inset 0px 0px 0px 2px white;
         }
         .uno_green{
             background-color: green;
-            box-shadow:inset 0px 0px 0px 2px white;
         }
         .uno_wild{
             background-color: black;
-            box-shadow:inset 0px 0px 0px 2px white;
         }
         .tarot{
             background-color: bisque;
@@ -5662,6 +6055,58 @@
         }
         .hana_empty{
             height: 22px;
+        }
+        .pokemon{
+            box-shadow:inset 0px 0px 0px 2px goldenrod;
+        }
+        .icon_pokemon{
+            font-weight: bolder;
+            font-size: 0.48em;
+            margin-left: 2px;
+            text-align: right;
+            height: 10px;
+            overflow:auto;
+        }
+        .name_pokemon{
+            line-height: 12px;
+            font-weight: bold;
+            font-size: 0.48em;
+            margin-left: 2px;
+        }
+        .square_pokemon{
+            width: 34px;
+            height: 20px;
+            background-color: white;
+            border: solid 1px #aaa;
+            margin: 2px auto 8px;
+        }
+        .bottom_pokemon{
+            font-weight: bold;
+            font-size: 0.48em;
+            text-align: right;
+            line-height: 16px;
+            margin-right: 2px;
+        }
+        .pokemon_red{
+            background-color: lightcoral;
+        }
+        .pokemon_blue{
+            background-color: lightskyblue;
+        }
+        .pokemon_yellow{
+            background-color: palegoldenrod;
+        }
+        .pokemon_green{
+            background-color: palegreen;
+        }
+        .pokemon_purple{
+            background-color: violet;
+        }
+        .pokemon_brown{
+            background-color: lightsalmon;
+        }
+        .pokemon_black{
+            background-color: lightgray;
         }
         .hidden{
             background-color: crimson;
@@ -5799,6 +6244,7 @@
         //riverDeck = testRiver;
         //handDeck = testPlayer;
         //oppDeck = testOpp;
+        //mainDeck = testDeck;
 
         //###Enable this for randomly generated deck###
         /*
@@ -5820,6 +6266,7 @@
 
         //###Enable this for auto-compare hands###
         //compareHands();
+        //drawFiveHand();
 
         //###############################################
 
@@ -5834,7 +6281,7 @@
 
             reportSpace.innerHTML = `Out of cash! Clear Saved Data to start again`;
         }
-        else {
+        else if (winDeck.length === 0) {
             reportSpace.innerHTML = `Pick a Poker type to start playing`;
         }
 
