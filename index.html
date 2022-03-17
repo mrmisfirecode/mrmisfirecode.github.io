@@ -2832,6 +2832,8 @@
             document.getElementById("win_cards1").style.visibility = "hidden";
             document.getElementById("win_cards2").style.visibility = "hidden";
 
+            document.getElementById("render_container").style.visibility = "hidden";
+
             document.getElementById("makebet_button").innerText = "Check";
         }
 
@@ -3110,6 +3112,9 @@
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
                     document.getElementById("newfivehand_button").style.visibility = "visible";
+
+                    document.getElementById("render_container").style.visibility = "visible";
+
                     document.getElementById("betup_button").style.visibility = "hidden";
                     document.getElementById("betdown_button").style.visibility = "hidden";
                     document.getElementById("makebet_button").style.visibility = "hidden";
@@ -3244,6 +3249,9 @@
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
                     document.getElementById("newfivehand_button").style.visibility = "visible";
+
+                    document.getElementById("render_container").style.visibility = "visible";
+
                     document.getElementById("betup_button").style.visibility = "hidden";
                     document.getElementById("betdown_button").style.visibility = "hidden";
                     document.getElementById("makebet_button").style.visibility = "hidden";
@@ -3353,6 +3361,8 @@
             document.getElementById("newfivehand_button").style.visibility = "hidden";
             document.getElementById("win_cards1").style.visibility = "hidden";
             document.getElementById("win_cards2").style.visibility = "hidden";
+
+            document.getElementById("render_container").style.visibility = "hidden";
 
             document.getElementById("makebet_button").innerText = "Check";
         }
@@ -3604,6 +3614,9 @@
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
                     document.getElementById("newfivehand_button").style.visibility = "visible";
+
+                    document.getElementById("render_container").style.visibility = "visible";
+
                     document.getElementById("betup_button").style.visibility = "hidden";
                     document.getElementById("betdown_button").style.visibility = "hidden";
                     document.getElementById("makebet_button").style.visibility = "hidden";
@@ -4048,6 +4061,9 @@
 
                     document.getElementById("newtexhand_button").style.visibility = "visible";
                     document.getElementById("newfivehand_button").style.visibility = "visible";
+
+                    document.getElementById("render_container").style.visibility = "visible";
+
                     document.getElementById("betup_button").style.visibility = "hidden";
                     document.getElementById("betdown_button").style.visibility = "hidden";
                     document.getElementById("makebet_button").style.visibility = "hidden";
@@ -4395,6 +4411,9 @@
 
             document.getElementById("newtexhand_button").style.visibility = "visible";
             document.getElementById("newfivehand_button").style.visibility = "visible";
+
+            document.getElementById("render_container").style.visibility = "visible";
+
             document.getElementById("betup_button").style.visibility = "hidden";
             document.getElementById("betdown_button").style.visibility = "hidden";
             document.getElementById("makebet_button").style.visibility = "hidden";
@@ -4854,6 +4873,9 @@
 
             document.getElementById("newtexhand_button").style.visibility = "visible";
             document.getElementById("newfivehand_button").style.visibility = "visible";
+
+            document.getElementById("render_container").style.visibility = "visible";
+
             document.getElementById("betup_button").style.visibility = "hidden";
             document.getElementById("betdown_button").style.visibility = "hidden";
             document.getElementById("makebet_button").style.visibility = "hidden";
@@ -6853,14 +6875,9 @@
             padding: 5px;
             min-width: 600px;
             box-sizing: border-box;
-            line-height: 30px;
         }
         .buttons button {
             height: 30px;
-        }
-        .buttons label {
-            color: white;
-            font-family: Helvetica, Arial, sans-serif;
         }
         .holdfirst_button {
             margin: 0 0 0 15px;
@@ -6874,6 +6891,13 @@
         }
         .clear_container {
             overflow:auto;
+        }
+        .render_container {
+            overflow:auto;
+            line-height: 30px;
+            color: white;
+            font-family: Helvetica, Arial, sans-serif;
+            margin-left: 5px;
         }
         .clear_button {
             float: right;
@@ -7209,12 +7233,6 @@
         <div id="buttons1" class="buttons">
             <button id="newtexhand_button" type="button" onclick="drawTexRound();">Texas Hold 'em ($500)</button>
             <button id="newfivehand_button" type="button" onclick="drawFiveRound();">5 Card Draw ($500)</button>
-            <br>
-            <label for="render_radio">Render Mode:</label>
-            <input type="radio" name="render_radio" value="image" id="image_render" onclick="saveValues(); renderAllCards();" checked>
-            <label for="image_render">Image</label>
-            <input type="radio" name="render_radio" value="text" id="text_render" onclick="saveValues(); renderAllCards();">
-            <label for="text_render">Text</label>
             <span id="turn_counter" class="turn_counter"></span></div>
         <div class="card_container"><div id="opp_space" class="card_space"></div></div>
         <div><div id="main_space" class="card_space" hidden></div></div>
@@ -7240,6 +7258,13 @@
         <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
         <div id="win_cards2" class="win_container" style="visibility: hidden;"><div id="tie_space" class="river_space"></div></div>
+        <div id="render_container" class="render_container">
+            <label for="render_radio">Render Mode:</label>
+            <input type="radio" name="render_radio" value="image" id="image_render" onclick="saveValues(); renderAllCards();" checked>
+            <label for="image_render">Image</label>
+            <input type="radio" name="render_radio" value="text" id="text_render" onclick="saveValues(); renderAllCards();">
+            <label for="text_render">Text</label>
+        </div>
     </main>
     <footer>
         <p>© Callum West 2022</p> 
