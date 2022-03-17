@@ -27,16 +27,16 @@
         //Test hands for testing purposes
         
         const testRiver = [
-        {Name: "No. 042 - Golbat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 42, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-        {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
-        {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-        {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-        {Name: "No. 051 - Dugtrio", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 51, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"}
+        {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
+        {Name:"Ace of Hearts",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Hearts",Colour:"Red",Type:"playing"},
+        {Name: "No. 001 - Bulbasaur", PairValue: "bulbasaur", PairAlt: "1", PairRank: 27, RankValue: 1, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+        {Name: "No. 005 - Charmeleon", PairValue: "charmander", PairAlt: "5", PairRank: 28, RankValue: 5, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
+        {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 3}
         ];
 
         const testPlayer = [
-        {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-        {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"}
+        {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 1},
+        {Name:"17. The Star",PairValue:"17",PairAlt:null,PairRank:17,RankValue:17,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"}
         ];
 
         const testOpp = [
@@ -136,240 +136,239 @@
         //Full Pokémon Card Deck
 
         const pokemon1 = [
-            {Name: "No. 001 - Bulbasaur", PairValue: "bulbasaur", PairAlt: "1", PairRank: 27, RankValue: 1, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 002 - Ivysaur", PairValue: "bulbasaur", PairAlt: "2", PairRank: 27, RankValue: 2, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 003 - Venusaur", PairValue: "bulbasaur", PairAlt: "3", PairRank: 27, RankValue: 3, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 001 - Bulbasaur", PairValue: "bulbasaur", PairAlt: "1", PairRank: 27, RankValue: 1, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 002 - Ivysaur", PairValue: "bulbasaur", PairAlt: "2", PairRank: 27, RankValue: 2, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 003 - Venusaur", PairValue: "bulbasaur", PairAlt: "3", PairRank: 27, RankValue: 3, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 004 - Charmander", PairValue: "charmander", PairAlt: "4", PairRank: 28, RankValue: 4, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
-            {Name: "No. 005 - Charmeleon", PairValue: "charmander", PairAlt: "5", PairRank: 28, RankValue: 5, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
-            {Name: "No. 006 - Charizard", PairValue: "charmander", PairAlt: "6", PairRank: 28, RankValue: 6, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 004 - Charmander", PairValue: "charmander", PairAlt: "4", PairRank: 28, RankValue: 4, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 1},
+            {Name: "No. 005 - Charmeleon", PairValue: "charmander", PairAlt: "5", PairRank: 28, RankValue: 5, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
+            {Name: "No. 006 - Charizard", PairValue: "charmander", PairAlt: "6", PairRank: 28, RankValue: 6, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 008 - Wartortle", PairValue: "squirtle", PairAlt: "8", PairRank: 29, RankValue: 8, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 007 - Squirtle", PairValue: "squirtle", PairAlt: "7", PairRank: 29, RankValue: 7, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 008 - Wartortle", PairValue: "squirtle", PairAlt: "8", PairRank: 29, RankValue: 8, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
+            {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 010 - Caterpie", PairValue: "caterpie", PairAlt: "10", PairRank: 30, RankValue: 10, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 011 - Metapod", PairValue: "caterpie", PairAlt: "11", PairRank: 30, RankValue: 11, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 012 - Butterfree", PairValue: "caterpie", PairAlt: "12", PairRank: 30, RankValue: 12, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 010 - Caterpie", PairValue: "caterpie", PairAlt: "10", PairRank: 30, RankValue: 10, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 011 - Metapod", PairValue: "caterpie", PairAlt: "11", PairRank: 30, RankValue: 11, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 012 - Butterfree", PairValue: "caterpie", PairAlt: "12", PairRank: 30, RankValue: 12, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 013 - Weedle", PairValue: "weedle", PairAlt: "13", PairRank: 31, RankValue: 13, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 014 - Kakuna", PairValue: "weedle", PairAlt: "14", PairRank: 31, RankValue: 14, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 015 - Beedrill", PairValue: "weedle", PairAlt: "15", PairRank: 31, RankValue: 15, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 013 - Weedle", PairValue: "weedle", PairAlt: "13", PairRank: 31, RankValue: 13, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 014 - Kakuna", PairValue: "weedle", PairAlt: "14", PairRank: 31, RankValue: 14, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 015 - Beedrill", PairValue: "weedle", PairAlt: "15", PairRank: 31, RankValue: 15, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 016 - Pidgey", PairValue: "pidgey", PairAlt: "16", PairRank: 32, RankValue: 16, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 017 - Pidgeotto", PairValue: "pidgey", PairAlt: "17", PairRank: 32, RankValue: 17, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 018 - Pidgeot", PairValue: "pidgey", PairAlt: "18", PairRank: 32, RankValue: 18, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 016 - Pidgey", PairValue: "pidgey", PairAlt: "16", PairRank: 32, RankValue: 16, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 017 - Pidgeotto", PairValue: "pidgey", PairAlt: "17", PairRank: 32, RankValue: 17, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
+            {Name: "No. 018 - Pidgeot", PairValue: "pidgey", PairAlt: "18", PairRank: 32, RankValue: 18, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 019 - Rattata", PairValue: "rattata", PairAlt: "19", PairRank: 33, RankValue: 19, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 020 - Raticate", PairValue: "rattata", PairAlt: "20", PairRank: 33, RankValue: 20, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 019 - Rattata", PairValue: "rattata", PairAlt: "19", PairRank: 33, RankValue: 19, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 020 - Raticate", PairValue: "rattata", PairAlt: "20", PairRank: 33, RankValue: 20, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 021 - Spearow", PairValue: "spearow", PairAlt: "21", PairRank: 34, RankValue: 21, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 022 - Fearow", PairValue: "spearow", PairAlt: null, PairRank: 34, RankValue: 22, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"}
+            {Name: "No. 021 - Spearow", PairValue: "spearow", PairAlt: "21", PairRank: 34, RankValue: 21, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 022 - Fearow", PairValue: "spearow", PairAlt: null, PairRank: 34, RankValue: 22, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2}
             ]
 
         const pokemon2 = [
-            {Name: "No. 023 - Ekans", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 23, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 024 - Arbok", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 24, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 023 - Ekans", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 23, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 024 - Arbok", PairValue: "ekans", PairAlt: null, PairRank: 35, RankValue: 24, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
-            {Name: "No. 026 - Raichu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 26, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 1},
+            {Name: "No. 026 - Raichu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 26, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 027 - Sandshrew", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 27, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 028 - Sandslash", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 28, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 027 - Sandshrew", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 27, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 028 - Sandslash", PairValue: "sandshrew", PairAlt: null, PairRank: 37, RankValue: 28, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 029 - Nidoran♀", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 29, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 030 - Nidorina", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 30, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 031 - Nidoqueen", PairValue: "Q", PairAlt: "nidoran♀", PairRank: 12, RankValue: 31, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 029 - Nidoran♀", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 29, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 030 - Nidorina", PairValue: "nidoran♀", PairAlt: null, PairRank: 38, RankValue: 30, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 031 - Nidoqueen", PairValue: "Q", PairAlt: "nidoran♀", PairRank: 12, RankValue: 31, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 032 - Nidoran♂", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 32, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 033 - Nidorino", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 33, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 034 - Nidoking", PairValue: "K", PairAlt: "nidoran♂", PairRank: 13, RankValue: 34, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 032 - Nidoran♂", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 32, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 033 - Nidorino", PairValue: "nidoran♂", PairAlt: null, PairRank: 39, RankValue: 33, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 034 - Nidoking", PairValue: "K", PairAlt: "nidoran♂", PairRank: 13, RankValue: 34, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 035 - Clefairy", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 35, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 036 - Clefable", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 36, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 035 - Clefairy", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 35, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 036 - Clefable", PairValue: "clefairy", PairAlt: null, PairRank: 40, RankValue: 36, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 037 - Vulpix", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 37, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
-            {Name: "No. 038 - Ninetales", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 38, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 037 - Vulpix", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 37, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 1},
+            {Name: "No. 038 - Ninetales", PairValue: "vulpix", PairAlt: null, PairRank: 41, RankValue: 38, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 040 - Wigglytuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 40, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 039 - Jigglypuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 39, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 040 - Wigglytuff", PairValue: "jigglypuff", PairAlt: null, PairRank: 42, RankValue: 40, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 041 - Zubat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 41, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 042 - Golbat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 42, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 041 - Zubat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 41, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 042 - Golbat", PairValue: "zubat", PairAlt: null, PairRank: 43, RankValue: 42, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 043 - Oddish", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 43, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 044 - Gloom", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 44, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 045 - Vileplume", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 45, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 043 - Oddish", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 43, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 044 - Gloom", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 44, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 045 - Vileplume", PairValue: "oddish", PairAlt: null, PairRank: 44, RankValue: 45, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 046 - Paras", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 46, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 047 - Parasect", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 47, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 046 - Paras", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 46, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 047 - Parasect", PairValue: "paras", PairAlt: null, PairRank: 45, RankValue: 47, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 048 - Venonat", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 48, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 049 - Venomoth", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 49, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 048 - Venonat", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 48, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 049 - Venomoth", PairValue: "venonat", PairAlt: null, PairRank: 46, RankValue: 49, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 050 - Diglett", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 50, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 051 - Dugtrio", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 51, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 050 - Diglett", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 50, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 051 - Dugtrio", PairValue: "diglett", PairAlt: null, PairRank: 47, RankValue: 51, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 052 - Meowth", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 52, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 053 - Persian", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 53, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 052 - Meowth", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 52, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 053 - Persian", PairValue: "meowth", PairAlt: null, PairRank: 48, RankValue: 53, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 054 - Psyduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 54, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 055 - Golduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 55, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 054 - Psyduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 54, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 055 - Golduck", PairValue: "psyduck", PairAlt: null, PairRank: 49, RankValue: 55, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 056 - Mankey", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 56, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 057 - Primeape", PairValue: "mankey", PairAlt: null, PairRank: 50, RankValue: 57, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 058 - Growlithe", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 58, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
-            {Name: "No. 059 - Arcanine", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 59, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 058 - Growlithe", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 58, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 1},
+            {Name: "No. 059 - Arcanine", PairValue: "growlithe", PairAlt: null, PairRank: 51, RankValue: 59, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 060 - Poliwag", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 60, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 061 - Poliwhirl", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 61, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 062 - Poliwrath", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 62, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 060 - Poliwag", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 60, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 061 - Poliwhirl", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 61, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
+            {Name: "No. 062 - Poliwrath", PairValue: "poliwag", PairAlt: null, PairRank: 52, RankValue: 62, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 063 - Abra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 63, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 064 - Kadabra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 64, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 063 - Abra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 63, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 1},
+            {Name: "No. 064 - Kadabra", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 64, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
+            {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 066 - Machop", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 66, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 067 - Machoke", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 67, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 068 - Machamp", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 68, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 066 - Machop", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 66, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 067 - Machoke", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 67, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
+            {Name: "No. 068 - Machamp", PairValue: "machop", PairAlt: null, PairRank: 54, RankValue: 68, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 069 - Bellsprout", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 69, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 070 - Weepinbell", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 70, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 071 - Victreebel", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 71, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 069 - Bellsprout", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 69, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 070 - Weepinbell", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 70, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
+            {Name: "No. 071 - Victreebel", PairValue: "bellsprout", PairAlt: null, PairRank: 55, RankValue: 71, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 072 - Tentacool", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 72, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 073 - Tentacruel", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 73, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 072 - Tentacool", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 72, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 073 - Tentacruel", PairValue: "tentacool", PairAlt: null, PairRank: 56, RankValue: 73, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 074 - Geodude", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 74, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 075 - Graveler", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 75, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 076 - Golem", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 76, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 074 - Geodude", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 74, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 075 - Graveler", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 75, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
+            {Name: "No. 076 - Golem", PairValue: "geodude", PairAlt: null, PairRank: 57, RankValue: 76, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 077 - Ponyta", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 77, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
-            {Name: "No. 078 - Rapidash", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 78, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 077 - Ponyta", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 77, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 1},
+            {Name: "No. 078 - Rapidash", PairValue: "ponyta", PairAlt: null, PairRank: 58, RankValue: 78, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 079 - Slowpoke", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 79, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 080 - Slowbro", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 80, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 079 - Slowpoke", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 79, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 1},
+            {Name: "No. 080 - Slowbro", PairValue: "slowpoke", PairAlt: null, PairRank: 59, RankValue: 80, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 081 - Magnemite", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 81, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
-            {Name: "No. 082 - Magneton", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 82, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 081 - Magnemite", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 81, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 1},
+            {Name: "No. 082 - Magneton", PairValue: "magnemite", PairAlt: null, PairRank: 60, RankValue: 82, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 083 - Farfetch'd", PairValue: null, PairAlt: null, PairRank: null, RankValue: 83, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 083 - Farfetch'd", PairValue: null, PairAlt: null, PairRank: null, RankValue: 83, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 084 - Doduo", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 84, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 085 - Dodrio", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 85, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 084 - Doduo", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 84, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 085 - Dodrio", PairValue: "doduo", PairAlt: null, PairRank: 61, RankValue: 85, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 086 - Seel", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 86, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 087 - Dewgong", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 87, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 086 - Seel", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 86, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 087 - Dewgong", PairValue: "seel", PairAlt: null, PairRank: 62, RankValue: 87, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 088 - Grimer", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 88, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 089 - Muk", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 89, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 088 - Grimer", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 88, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 089 - Muk", PairValue: "grimer", PairAlt: null, PairRank: 63, RankValue: 89, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 090 - Shellder", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 90, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 091 - Cloyster", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 91, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 090 - Shellder", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 90, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 091 - Cloyster", PairValue: "shellder", PairAlt: null, PairRank: 64, RankValue: 91, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 092 - Gastly", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 92, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 093 - Haunter", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 93, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 094 - Gengar", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 94, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 092 - Gastly", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 92, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 1},
+            {Name: "No. 093 - Haunter", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 93, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
+            {Name: "No. 094 - Gengar", PairValue: "gastly", PairAlt: null, PairRank: 65, RankValue: 94, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 095 - Onix", PairValue: null, PairAlt: null, PairRank: null, RankValue: 95, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 095 - Onix", PairValue: null, PairAlt: null, PairRank: null, RankValue: 95, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 096 - Drowzee", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 96, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-            {Name: "No. 097 - Hypno", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 97, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 096 - Drowzee", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 96, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 1},
+            {Name: "No. 097 - Hypno", PairValue: "drowzee", PairAlt: null, PairRank: 66, RankValue: 97, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 098 - Krabby", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 98, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 099 - Kingler", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 99, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 098 - Krabby", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 98, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 099 - Kingler", PairValue: "krabby", PairAlt: null, PairRank: 67, RankValue: 99, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 100 - Voltorb", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 100, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
-            {Name: "No. 101 - Electrode", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 101, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 100 - Voltorb", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 100, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 1},
+            {Name: "No. 101 - Electrode", PairValue: "voltorb", PairAlt: null, PairRank: 68, RankValue: 101, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 102 - Exeggcute", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 102, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 103 - Exeggutor", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 103, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 102 - Exeggcute", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 102, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 103 - Exeggutor", PairValue: "exeggcute", PairAlt: null, PairRank: 69, RankValue: 103, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 104 - Cubone", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 104, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 105 - Marowak", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 105, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 104 - Cubone", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 104, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 105 - Marowak", PairValue: "cubone", PairAlt: null, PairRank: 70, RankValue: 105, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 106 - Hitmonlee", PairValue: null, PairAlt: null, PairRank: null, RankValue: 106, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 106 - Hitmonlee", PairValue: "hitmonlee", PairAlt: null, PairRank: 71, RankValue: 106, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
+            {Name: "No. 107 - Hitmonchan", PairValue: "hitmonlee", PairAlt: null, PairRank: 71, RankValue: 107, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 107 - Hitmonchan", PairValue: null, PairAlt: null, PairRank: null, RankValue: 107, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 108 - Lickitung", PairValue: null, PairAlt: null, PairRank: null, RankValue: 108, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 108 - Lickitung", PairValue: null, PairAlt: null, PairRank: null, RankValue: 108, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 109 - Koffing", PairValue: "koffing", PairAlt: null, PairRank: 72, RankValue: 109, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
+            {Name: "No. 110 - Weezing", PairValue: "koffing", PairAlt: null, PairRank: 72, RankValue: 110, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 109 - Koffing", PairValue: "koffing", PairAlt: null, PairRank: 71, RankValue: 109, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
-            {Name: "No. 110 - Weezing", PairValue: "koffing", PairAlt: null, PairRank: 71, RankValue: 110, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 111 - Rhyhorn", PairValue: "rhyhorn", PairAlt: null, PairRank: 73, RankValue: 111, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 112 - Rhydon", PairValue: "rhyhorn", PairAlt: null, PairRank: 73, RankValue: 112, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 111 - Rhyhorn", PairValue: "rhyhorn", PairAlt: null, PairRank: 72, RankValue: 111, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 112 - Rhydon", PairValue: "rhyhorn", PairAlt: null, PairRank: 72, RankValue: 112, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 113 - Chansey", PairValue: null, PairAlt: null, PairRank: null, RankValue: 113, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 113 - Chansey", PairValue: null, PairAlt: null, PairRank: null, RankValue: 113, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 114 - Tangela", PairValue: null, PairAlt: null, PairRank: null, RankValue: 114, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 114 - Tangela", PairValue: null, PairAlt: null, PairRank: null, RankValue: 114, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 115 - Kangaskhan", PairValue: null, PairAlt: null, PairRank: null, RankValue: 115, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 115 - Kangaskhan", PairValue: null, PairAlt: null, PairRank: null, RankValue: 115, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 116 - Horsea", PairValue: "horsea", PairAlt: null, PairRank: 74, RankValue: 116, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 117 - Seadra", PairValue: "horsea", PairAlt: null, PairRank: 74, RankValue: 117, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 116 - Horsea", PairValue: "horsea", PairAlt: null, PairRank: 73, RankValue: 116, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 117 - Seadra", PairValue: "horsea", PairAlt: null, PairRank: 73, RankValue: 117, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 118 - Goldeen", PairValue: "goldeen", PairAlt: null, PairRank: 75, RankValue: 118, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 119 - Seaking", PairValue: "goldeen", PairAlt: null, PairRank: 75, RankValue: 119, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 118 - Goldeen", PairValue: "goldeen", PairAlt: null, PairRank: 74, RankValue: 118, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 119 - Seaking", PairValue: "goldeen", PairAlt: null, PairRank: 74, RankValue: 119, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 120 - Staryu", PairValue: "staryu", PairAlt: null, PairRank: 76, RankValue: 120, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 121 - Starmie", PairValue: "staryu", PairAlt: null, PairRank: 76, RankValue: 121, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 120 - Staryu", PairValue: "staryu", PairAlt: null, PairRank: 75, RankValue: 120, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 121 - Starmie", PairValue: "staryu", PairAlt: null, PairRank: 75, RankValue: 121, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 122 - Mr. Mime", PairValue: "Joker", PairAlt: null, PairRank: null, RankValue: 122, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 122 - Mr. Mime", PairValue: "Joker", PairAlt: null, PairRank: null, RankValue: 122, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 123 - Scyther", PairValue: null, PairAlt: null, PairRank: null, RankValue: 123, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 123 - Scyther", PairValue: null, PairAlt: null, PairRank: null, RankValue: 123, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 124 - Jynx", PairValue: null, PairAlt: null, PairRank: null, RankValue: 124, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 124 - Jynx", PairValue: null, PairAlt: null, PairRank: null, RankValue: 124, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
+            {Name: "No. 125 - Electabuzz", PairValue: null, PairAlt: null, PairRank: null, RankValue: 125, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 125 - Electabuzz", PairValue: null, PairAlt: null, PairRank: null, RankValue: 125, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 126 - Magmar", PairValue: null, PairAlt: null, PairRank: null, RankValue: 126, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 126 - Magmar", PairValue: null, PairAlt: null, PairRank: null, RankValue: 126, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 127 - Pinsir", PairValue: null, PairAlt: null, PairRank: null, RankValue: 127, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 127 - Pinsir", PairValue: null, PairAlt: null, PairRank: null, RankValue: 127, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon"},
+            {Name: "No. 128 - Tauros", PairValue: null, PairAlt: null, PairRank: null, RankValue: 128, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 128 - Tauros", PairValue: null, PairAlt: null, PairRank: null, RankValue: 128, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 129 - Magikarp", PairValue: "magikarp", PairAlt: null, PairRank: 77, RankValue: 129, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 130 - Gyarados", PairValue: "magikarp", PairAlt: null, PairRank: 77, RankValue: 130, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 129 - Magikarp", PairValue: "magikarp", PairAlt: null, PairRank: 76, RankValue: 129, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 130 - Gyarados", PairValue: "magikarp", PairAlt: null, PairRank: 76, RankValue: 130, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 131 - Lapras", PairValue: null, PairAlt: null, PairRank: null, RankValue: 131, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 131 - Lapras", PairValue: null, PairAlt: null, PairRank: null, RankValue: 131, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 132 - Ditto", PairValue: null, PairAlt: null, PairRank: null, RankValue: 132, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 132 - Ditto", PairValue: null, PairAlt: null, PairRank: null, RankValue: 132, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 133 - Eevee", PairValue: "eevee", PairAlt: null, PairRank: 78, RankValue: 133, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 134 - Vaporeon", PairValue: "eevee", PairAlt: null, PairRank: 78, RankValue: 134, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
+            {Name: "No. 135 - Jolteon", PairValue: "eevee", PairAlt: null, PairRank: 78, RankValue: 135, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
+            {Name: "No. 136 - Flareon", PairValue: "eevee", PairAlt: null, PairRank: 78, RankValue: 136, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 133 - Eevee", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 133, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 134 - Vaporeon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 134, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 135 - Jolteon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 135, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
-            {Name: "No. 136 - Flareon", PairValue: "eevee", PairAlt: null, PairRank: 77, RankValue: 136, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 137 - Porygon", PairValue: null, PairAlt: null, PairRank: null, RankValue: 137, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 137 - Porygon", PairValue: null, PairAlt: null, PairRank: null, RankValue: 137, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 138 - Omanyte", PairValue: "omanyte", PairAlt: null, PairRank: 79, RankValue: 138, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 1},
+            {Name: "No. 139 - Omastar", PairValue: "magikarp", PairAlt: null, PairRank: 79, RankValue: 139, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 138 - Omanyte", PairValue: "omanyte", PairAlt: null, PairRank: 78, RankValue: 138, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
-            {Name: "No. 139 - Omastar", PairValue: "magikarp", PairAlt: null, PairRank: 78, RankValue: 139, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 140 - Kabuto", PairValue: "kabuto", PairAlt: null, PairRank: 80, RankValue: 140, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 1},
+            {Name: "No. 141 - Kabutops", PairValue: "kabuto", PairAlt: null, PairRank: 80, RankValue: 141, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 140 - Kabuto", PairValue: "kabuto", PairAlt: null, PairRank: 79, RankValue: 140, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
-            {Name: "No. 141 - Kabutops", PairValue: "kabuto", PairAlt: null, PairRank: 79, RankValue: 141, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 142 - Aerodactyl", PairValue: null, PairAlt: null, PairRank: null, RankValue: 142, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 142 - Aerodactyl", PairValue: null, PairAlt: null, PairRank: null, RankValue: 142, RankAlt: null, Suit: "Brown", Colour: "Brown", Type: "pokemon"},
+            {Name: "No. 143 - Snorlax", PairValue: null, PairAlt: null, PairRank: null, RankValue: 143, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 143 - Snorlax", PairValue: null, PairAlt: null, PairRank: null, RankValue: 143, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 144 - Articuno", PairValue: null, PairAlt: null, PairRank: null, RankValue: 144, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 144 - Articuno", PairValue: null, PairAlt: null, PairRank: null, RankValue: 144, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon"},
+            {Name: "No. 145 - Zapdos", PairValue: null, PairAlt: null, PairRank: null, RankValue: 145, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 145 - Zapdos", PairValue: null, PairAlt: null, PairRank: null, RankValue: 145, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon"},
+            {Name: "No. 146 - Moltres", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 146 - Moltres", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon"},
+            {Name: "No. 147 - Dratini", PairValue: "dratini", PairAlt: null, PairRank: 81, RankValue: 147, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 1},
+            {Name: "No. 148 - Dragonair", PairValue: "dratini", PairAlt: null, PairRank: 81, RankValue: 148, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 2},
+            {Name: "No. 149 - Dragonite", PairValue: "dratini", PairAlt: null, PairRank: 81, RankValue: 149, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon", Stage: 3},
 
-            {Name: "No. 147 - Dratini", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 147, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 148 - Dragonair", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 148, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
-            {Name: "No. 149 - Dragonite", PairValue: "dratini", PairAlt: null, PairRank: 80, RankValue: 149, RankAlt: null, Suit: "Black", Colour: "Black", Type: "pokemon"},
+            {Name: "No. 150 - Mewtwo", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2},
 
-            {Name: "No. 150 - Mewtwo", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"},
-
-            {Name: "No. 151 - Mew", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon"}
+            {Name: "No. 151 - Mew", PairValue: null, PairAlt: null, PairRank: null, RankValue: 146, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 2}
         ]
         
         //Names of hand types to be reported in compareHands()
@@ -764,9 +763,13 @@
 
         //Global variables for counting
         
-        let turnCounter = 43;
+        let turnCounter = 0;
         let cardCounter = 0;
         let stage = 0;
+
+        //Render type
+        
+        let renderType = 0;
 
         //Costants for turn at which new cards are introduced
         
@@ -1277,15 +1280,21 @@
                 deck.push(card);
             }
 
+            for (i = 0; i < pokemon1.length; i++) {
+                let card = pokemon1[i];
+                deck.push(card);
+            }
+
+            for (i = 0; i < pokemon2.length; i++) {
+                let card = pokemon2[i];
+                deck.push(card);
+            }
+
             for (i = 0; i < hanafuda.length; i++) {
                 let card = hanafuda[i];
                 deck.push(card);
             }
             return deck;
-        }
-        
-        function shuffleDeck() {
-            shuffle(mainDeck);
         }
         
         function shuffle(deck) {
@@ -1312,6 +1321,14 @@
             renderReport();
         }
 
+        function renderAllCards() {
+            renderCards("river");
+            renderCards("hand");
+            renderCards("oppShow");
+            renderCards("win");
+            renderCards("tie");
+        }
+        
         function renderMoney() {
             document.getElementById("inventory_space").innerHTML = `$ ${playerMoney.toLocaleString('en', {useGrouping:true})}`;
             document.getElementById("bet_space").innerHTML = `Bet: $ ${betMoney.toLocaleString('en', {useGrouping:true})}`;
@@ -1337,7 +1354,7 @@
                 name = deck[i].Name;
                 wild = deck[i].Wild;
 
-                if (10 > 40) {
+                if (document.querySelector('input[name="render_radio"]:checked').value === "text") {
 
                     if (deck[i].Type === "playing" || deck[i].Type === "extra") {
 
@@ -1665,6 +1682,7 @@
                     }
                     else if (deck[i].Type === "pokemon") {
                         name = deck[i].Name;
+                        stage = deck[i].Stage;
 
                         card.classList.add("pokemon");
 
@@ -1697,7 +1715,15 @@
                             icon = "✷";
                         }
 
-                        card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="icon_pokemon">${icon}</div><div class="square_pokemon"></div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
+                        if (stage === 1) {
+                            card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="square_pokemon"></div><div class="icon_pokemon">${icon}</div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
+                        }
+                        else if (stage === 2) {
+                            card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="square_pokemon"></div><div class="icon_pokemon">${icon}${icon}</div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
+                        }
+                        else if (stage === 3) {
+                            card.innerHTML = `<div class="name_pokemon">${name.slice(10)}</div><div class="square_pokemon"></div><div class="icon_pokemon">${icon}${icon}${icon}</div><div class="bottom_pokemon">${name.slice(0,7)}</div>`;
+                        }
                     }
                     else if (deck[i].Type === "hidden") {
                         card.innerHTML = `<div class="card_back">▒</div>`;
@@ -2771,7 +2797,7 @@
             winDeck = [];
             tieDeck = [];
             mainDeck = combineDecks();
-            shuffleDeck();
+            shuffle(mainDeck);
 
             if (testLog === true) {
                 console.log("Main Deck:");
@@ -3294,7 +3320,7 @@
             winDeck = [];
             tieDeck = [];
             mainDeck = combineDecks();
-            shuffleDeck();
+            shuffle(mainDeck);
             if (testLog === true) {
                 console.log("Main Deck:");
                 console.log(mainDeck);
@@ -4427,7 +4453,7 @@
             oppShowDeck = [];
             //mainDeck = genPlayingDeck();
             mainDeck = combineDecks();
-            shuffleDeck();
+            shuffle(mainDeck);
             console.log(mainDeck);
 
             for (i = 0; i < 2; i++) {
@@ -4853,7 +4879,7 @@
             //mainDeck = testHand;
             //mainDeck = genPlaying54();
             mainDeck = combineDecks();
-            shuffleDeck();
+            shuffle(mainDeck);
 
             for (i = 0; i < 2; i++) {
                 let card = mainDeck.shift();
@@ -5152,6 +5178,8 @@
                     groupsArray[i].Num = combCounter;
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === groupsArray[i].Value || cards[x].PairAlt === groupsArray[i].Value) {
+                            console.log("Removing...");
+                            console.log(cards[x]);
                             cards.splice(x,1);
                             x = -1;
                         }
@@ -5159,12 +5187,6 @@
                 }
                 else {
                     groupsArray[i].Num = 1;
-                    for (x = 0; x < cards.length; x++) {
-                        if (cards[x].PairValue === groupsArray[i].Value || cards[x].PairAlt === groupsArray[i].Value) {
-                            cards.splice(x,1);
-                            x = -1;
-                        }
-                    }
                 }
             }
 
@@ -6718,6 +6740,10 @@
         function saveValues() {
             localStorage.setItem("money", playerMoney);
             localStorage.setItem("turns", turnCounter);
+            let renderVal = document.querySelector('input[name="render_radio"]:checked').value;
+            console.log(renderVal);
+            localStorage.setItem("render", renderVal);
+            console.log(localStorage.getItem("render"));
         }
 
         function loadValues() {
@@ -6731,11 +6757,20 @@
                 console.log("Turn Data loaded from storage");
                 turnCounter = Number(localStorage.getItem("turns"));
             }
-        }
+            if (localStorage.getItem("render")) {
+                console.log("Render Data loaded from storage");
+                if (localStorage.getItem("render") === "image") {
+                    document.getElementById("image_render").checked = true;
+                }
+                else if (localStorage.getItem("render") === "text") {
+                    document.getElementById("text_render").checked = true;
+                }
+            }
+        } 
         
         //Prints all card objects into console
-        //let comb = allDecks();
-        //console.log(JSON.stringify(comb));
+        let allDeck = allDecks();
+        console.log(JSON.stringify(allDeck));
 
     </script>
     <style>  
@@ -6818,9 +6853,14 @@
             padding: 5px;
             min-width: 600px;
             box-sizing: border-box;
+            line-height: 30px;
         }
         .buttons button {
             height: 30px;
+        }
+        .buttons label {
+            color: white;
+            font-family: Helvetica, Arial, sans-serif;
         }
         .holdfirst_button {
             margin: 0 0 0 15px;
@@ -7052,9 +7092,9 @@
             box-shadow:inset 0px 0px 0px 2px goldenrod;
         }
         .icon_pokemon{
-            font-weight: bolder;
             font-size: 0.48em;
             margin-left: 2px;
+            margin-bottom: 8px;
             text-align: right;
             height: 10px;
             overflow:auto;
@@ -7070,7 +7110,7 @@
             height: 20px;
             background-color: white;
             border: solid 1px #aaa;
-            margin: 2px auto 8px;
+            margin: 2px auto 2px;
         }
         .bottom_pokemon{
             font-weight: bold;
@@ -7166,7 +7206,16 @@
             <div class="dialogue_icon_container"><div class="dialogue_icon"></div></div><div class="dialogue_text_container"></div><div id="dialogue_text" class="dialogue_text"></div></div>
         </div>
         <div id="opp_bet_space" class="inventory bet"></div>
-        <div id="buttons1" class="buttons"><button id="newtexhand_button" type="button" onclick="drawTexRound();">Texas Hold 'em ($500)</button><button id="newfivehand_button" type="button" onclick="drawFiveRound();">5 Card Draw ($500)</button><span id="turn_counter" class="turn_counter"></span></div>
+        <div id="buttons1" class="buttons">
+            <button id="newtexhand_button" type="button" onclick="drawTexRound();">Texas Hold 'em ($500)</button>
+            <button id="newfivehand_button" type="button" onclick="drawFiveRound();">5 Card Draw ($500)</button>
+            <br>
+            <label for="render_radio">Render Mode:</label>
+            <input type="radio" name="render_radio" value="image" id="image_render" onclick="saveValues(); renderAllCards();" checked>
+            <label for="image_render">Image</label>
+            <input type="radio" name="render_radio" value="text" id="text_render" onclick="saveValues(); renderAllCards();">
+            <label for="text_render">Text</label>
+            <span id="turn_counter" class="turn_counter"></span></div>
         <div class="card_container"><div id="opp_space" class="card_space"></div></div>
         <div><div id="main_space" class="card_space" hidden></div></div>
         <div class="card_container"><div id="river_space" class="river_space"></div></div>
@@ -7239,9 +7288,10 @@
         //mainDeck = testDeck;
 
         //###Enable this for randomly generated deck###
-        /*
+        //
         mainDeck = combineDecks();
-        shuffleDeck();
+        mainDeck = allDecks();
+        shuffle(mainDeck);
         for (i = 0; i < 2; i++) {
             let card = mainDeck.shift();
             oppDeck.push(card);
@@ -7254,10 +7304,10 @@
             let card = mainDeck.shift();
             riverDeck.push(card);
         }
-        */
+        //
 
         //###Enable this for auto-compare hands###
-        //compareHands();
+        compareHands();
         //drawFiveHand();
 
         //###############################################
