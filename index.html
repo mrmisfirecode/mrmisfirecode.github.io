@@ -27,16 +27,16 @@
         //Test hands for testing purposes
         
         const testRiver = [
-        {Name: "Pine (Poetry Ribbon)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 10, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine2"},
-        {Name: "Plum Blossom (Poetry Ribbon)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 10, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum2"},
-        {Name:"Green Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"},
+        {Name:"Cherry Blossom (Curtain)",PairValue:"Cherry Blossom",PairAlt:null,PairRank:17,RankValue:20,RankAlt:null,Suit:"March",Colour:"Hanafuda",Type:"hanafuda",Img:"cherry1"},
+        {Name:"Susuki Grass (Full Moon)",PairValue:"Susuki Grass",PairAlt:null,PairRank:22,RankValue:20,RankAlt:null,Suit:"August",Colour:"Hanafuda",Type:"hanafuda",Img:"grass1"},
+        {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"},
         {Name:"Yellow 7",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
         {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 3}
         ];
 
         const testPlayer = [
-        {Name: "Cherry Blossom (Poetry Ribbon)", PairValue: "Cherry Blossom", PairAlt: null, PairRank: 17, RankValue: 10, RankAlt: null, Suit: "March", Colour: "Hanafuda", Type: "hanafuda", Img: "cherry2"},
-        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"}
+        {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine1"},
+        {Name: "Plum Blossom (Bush Warbler)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 5, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum1"}
         ];
 
         const testOpp = [
@@ -518,7 +518,8 @@
             "Can I get, uhhhhhhhh...",
             "For God's sake... OK...",
             "Let me just ponder this...",
-            "Evaluating..."
+            "Evaluating...",
+            "Ummmm..."
         ];
 
         const dialogueRaise = [
@@ -534,7 +535,11 @@
             "Screw it, I'll raise",
             "I guess I'll raise you...",
             "Yeah, I'll raise... Scared yet?",
-            "I'll raise ya! How about that?"
+            "I'll raise ya! How about that?",
+            "Raise it and blaze it",
+            "Let's make this more interesting...",
+            "Enough screwing around, let's raise",
+            "Let me just bump this bet up a little"
         ];
 
         const dialogueCheck = [
@@ -547,7 +552,9 @@
             "I'll check there",
             "Oh God... OK, check...",
             "That's just rich enough for my blood",
-            "Check-check-check it out!"
+            "Check-check-check it out!",
+            "Checkaroo",
+            "Let's proceed"
         ];
         
         const dialogueChecked = [
@@ -559,7 +566,8 @@
             "Not folding yet, huh?",
             "I think you meant to fold",
             "Darn, I thought you'd fold",
-            "Yikes! I was bluffing..."
+            "Yikes! I was bluffing...",
+            "I guess we'll keep going, then...",
         ];
         
         let dialogueNew = [
@@ -683,7 +691,8 @@
             "This is too easy",
             "Don't you know how to play Poker? You're supposed to bet!",
             "If you knew what hand I was holding, you wouldn't have done that",
-            "Haha! The money is all mine!"
+            "Haha! The money is all mine!",
+            "Why did you even bother?",
         ];
 
         const dialogueOppFold = [
@@ -692,7 +701,11 @@
             "Too rich for my blood",
             "I can't do this...",
             "Nah, too much for me",
-            "I... Will fold..."
+            "I... Will fold...",
+            "Fine, you win...",
+            "I'm gonna quit while you're ahead",
+            "I have no faith in these cards",
+            "You can have this one"
         ];
         
         const dialogueWin = [
@@ -765,20 +778,21 @@
             "Oh... I guess we'll have to play again",
             "Really? That's boring...",
             "At least I didn't lose any money",
-            "Thank God... I thought you'd won for sure!"
+            "Thank God... I thought you'd won for sure!",
+            "What a waste of my time"
         ];
         
         const dialogueBroke = [
             "What's the matter? Out of money?",
             "Looks like I've cleaned you out",
-            "Better luck next time",
             "I think you should probably call it quits",
             "Need to take out a loan? I know a guy...",
             "Sorry, bub, I only take cash",
             "No shirt, no shoes, no money, no service",
             "Out of money? Not my problem",
             "Come back when you have some dough",
-            "Game over, man! Game over!"
+            "Game over, man! Game over!",
+            "Come back when you're a little richer"
         ];
         
         const dialogueExtra = [
@@ -826,12 +840,12 @@
 
         const dialoguePokemon = [
             "OK, this is getting ridiculous now",
-            "Who's that Pokémon? No, seriously",
+            "Who's that Pokémon? No, seriously...",
             "Pokémon cards come in 7 different colors... Kinda like suits...",
-            "Some of the Pokémon card colors match with the UNO card colors...",
+            "Some of the Pokémon card colors are very similar to the UNO card colors...",
             "Maybe you need to match Pokémon cards by their evolution line...",
-            "There are Pokémon called Nidoqueen and Nidoking... Kinda similar to some other cards...",
-            "That Mr. Mime Pokémon kinda looks like a Joker to me..."
+            "Those Pokémon called Nidoqueen and Nidoking... Kinda remind me of some other cards...",
+            "That Mr. Mime Pokémon looks like some kinda Joker to me..."
         ];
 
         //Enable for console log reporting
@@ -8220,7 +8234,7 @@
         */
 
         //###Enable this for auto-compare hands###
-        compareHands();
+        //compareHands();
         //drawFiveHand();
 
         //###############################################
