@@ -24,24 +24,24 @@
         //I went into this project with a very dumb idea and absolutely no clue how to write code for evaluating poker hands. I've come out with a very dumb game and code that can kinda evaluate poker hands most of the time. It's actually been very fun to write and test, even if the hand calculation code was a pain to debug at times due to my lack of annotation. Hope you enjoy!
 
         //###############################################
-        //Test hands for testing purposes~
+        //Test hands for testing purposes
         
         const testRiver = [
-        {Name:"Red 1",PairValue:"1",PairAlt:null,PairRank:1,RankValue:1,RankAlt:null,Suit:"Red",Colour:"Red",Type:"uno"},
-        {Name:"Ace of Hearts",PairValue:"A",PairAlt:"1",PairRank:14,RankValue:14,RankAlt:1,Suit:"Hearts",Colour:"Red",Type:"playing"},
-        {Name: "No. 001 - Bulbasaur", PairValue: "bulbasaur", PairAlt: "1", PairRank: 27, RankValue: 1, RankAlt: null, Suit: "Green", Colour: "Green", Type: "pokemon", Stage: 1},
-        {Name: "No. 005 - Charmeleon", PairValue: "charmander", PairAlt: "5", PairRank: 28, RankValue: 5, RankAlt: null, Suit: "Red", Colour: "Red", Type: "pokemon", Stage: 2},
-        {Name: "No. 009 - Blastoise", PairValue: "squirtle", PairAlt: "9", PairRank: 29, RankValue: 9, RankAlt: null, Suit: "Blue", Colour: "Blue", Type: "pokemon", Stage: 3}
+        {Name: "Pine (Poetry Ribbon)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 10, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine2"},
+        {Name: "Plum Blossom (Poetry Ribbon)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 10, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum2"},
+        {Name:"Green Reverse",PairValue:"Reverse",PairAlt:null,PairRank:0,RankValue:-100,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"},
+        {Name:"Yellow 7",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Yellow",Colour:"Yellow",Type:"uno"},
+        {Name: "No. 065 - Alakazam", PairValue: "abra", PairAlt: null, PairRank: 53, RankValue: 65, RankAlt: null, Suit: "Purple", Colour: "Purple", Type: "pokemon", Stage: 3}
         ];
 
         const testPlayer = [
-        {Name: "No. 025 - Pikachu", PairValue: "pikachu", PairAlt: null, PairRank: 36, RankValue: 25, RankAlt: null, Suit: "Yellow", Colour: "Yellow", Type: "pokemon", Stage: 1},
-        {Name:"17. The Star",PairValue:"17",PairAlt:null,PairRank:17,RankValue:17,RankAlt:null,Suit:"Tarot",Colour:"Tarot",Type:"tarot"}
+        {Name: "Cherry Blossom (Poetry Ribbon)", PairValue: "Cherry Blossom", PairAlt: null, PairRank: 17, RankValue: 10, RankAlt: null, Suit: "March", Colour: "Hanafuda", Type: "hanafuda", Img: "cherry2"},
+        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"}
         ];
 
         const testOpp = [
-        {Name:"7 of Hearts",PairValue:"7",PairAlt:null,PairRank:7,RankValue:7,RankAlt:null,Suit:"Hearts",Colour:"Red",Type:"playing"},
-        {Name:"9 of Diamonds",PairValue:"9",PairAlt:null,PairRank:9,RankValue:9,RankAlt:null,Suit:"Diamonds",Colour:"Red",Type:"playing"}
+        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"},
+        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"}
         ];
 
         const testDeck = [
@@ -133,6 +133,86 @@
             {Name: "Paulownia", PairValue: "Paulownia", PairAlt: null, PairRank: 26, RankValue: -100, RankAlt: null, Suit: "December", Colour: "Hanafuda", Type: "hanafuda", Img: "paulo4"}
         ];
 
+        const yaku1yaku2 = [
+            {Name:"Cherry Blossom (Curtain)",PairValue:"Cherry Blossom",PairAlt:null,PairRank:17,RankValue:20,RankAlt:null,Suit:"March",Colour:"Hanafuda",Type:"hanafuda",Img:"cherry1"},
+            {Name:"Susuki Grass (Full Moon)",PairValue:"Susuki Grass",PairAlt:null,PairRank:22,RankValue:20,RankAlt:null,Suit:"August",Colour:"Hanafuda",Type:"hanafuda",Img:"grass1"},
+            {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"},
+            {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine1"},
+            {Name: "Plum Blossom (Bush Warbler)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 5, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum1"}
+        ];
+            
+        const yaku1yaku5 = [
+            {Name:"Cherry Blossom (Curtain)",PairValue:"Cherry Blossom",PairAlt:null,PairRank:17,RankValue:20,RankAlt:null,Suit:"March",Colour:"Hanafuda",Type:"hanafuda",Img:"cherry1"},
+            {Name:"Susuki Grass (Full Moon)",PairValue:"Susuki Grass",PairAlt:null,PairRank:22,RankValue:20,RankAlt:null,Suit:"August",Colour:"Hanafuda",Type:"hanafuda",Img:"grass1"},
+            {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"},
+            {Name:"Peony (Butterfly)",PairValue:"Peony",PairAlt:null,PairRank:20,RankValue:5,RankAlt:null,Suit:"June",Colour:"Hanafuda",Type:"hanafuda",Img:"peony1"},
+            {Name:"Maple (Deer)",PairValue:"Maple",PairAlt:null,PairRank:24,RankValue:5,RankAlt:null,Suit:"October",Colour:"Hanafuda",Type:"hanafuda",Img:"maple1"}
+        ];
+            
+        const yaku5yaku8 = [
+            {Name:"Peony (Butterfly)",PairValue:"Peony",PairAlt:null,PairRank:20,RankValue:5,RankAlt:null,Suit:"June",Colour:"Hanafuda",Type:"hanafuda",Img:"peony1"},
+            {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"},
+            {Name:"Maple (Deer)",PairValue:"Maple",PairAlt:null,PairRank:24,RankValue:5,RankAlt:null,Suit:"October",Colour:"Hanafuda",Type:"hanafuda",Img:"maple1"},
+            {Name: "Bush Clover (Boar)", PairValue: "Bush Clover", PairAlt: null, PairRank: 21, RankValue: 5, RankAlt: null, Suit: "July", Colour: "Hanafuda", Type: "hanafuda", Img: "bush1"},
+            {Name: "Susuki Grass (Geese)", PairValue: "Susuki Grass", PairAlt: null, PairRank: 22, RankValue: 5, RankAlt: null, Suit: "August", Colour: "Hanafuda", Type: "hanafuda", Img: "grass2"}
+        ];
+
+        const yaku7yaku8 = [
+            {Name: "Wisteria (Cuckoo)", PairValue: "Wisteria", PairAlt: null, PairRank: 18, RankValue: 5, RankAlt: null, Suit: "April", Colour: "Hanafuda", Type: "hanafuda", Img: "wisteria1"},
+            {Name: "Iris (Bridge)", PairValue: "Iris", PairAlt: null, PairRank: 19, RankValue: 5, RankAlt: null, Suit: "May", Colour: "Hanafuda", Type: "hanafuda", Img: "iris1"},
+            {Name: "Bush Clover (Boar)", PairValue: "Bush Clover", PairAlt: null, PairRank: 21, RankValue: 5, RankAlt: null, Suit: "July", Colour: "Hanafuda", Type: "hanafuda", Img: "bush1"},
+            {Name: "Susuki Grass (Geese)", PairValue: "Susuki Grass", PairAlt: null, PairRank: 22, RankValue: 5, RankAlt: null, Suit: "August", Colour: "Hanafuda", Type: "hanafuda", Img: "grass2"},
+            {Name:"Maple (Deer)",PairValue:"Maple",PairAlt:null,PairRank:24,RankValue:5,RankAlt:null,Suit:"October",Colour:"Hanafuda",Type:"hanafuda",Img:"maple1"}
+        ];
+
+        const yaku1 = [
+            {Name:"Cherry Blossom (Curtain)",PairValue:"Cherry Blossom",PairAlt:null,PairRank:17,RankValue:20,RankAlt:null,Suit:"March",Colour:"Hanafuda",Type:"hanafuda",Img:"cherry1"},
+            {Name:"Susuki Grass (Full Moon)",PairValue:"Susuki Grass",PairAlt:null,PairRank:22,RankValue:20,RankAlt:null,Suit:"August",Colour:"Hanafuda",Type:"hanafuda",Img:"grass1"},
+            {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"}
+                        ];
+
+        const yaku2 = [
+            {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine1"},
+            {Name: "Plum Blossom (Bush Warbler)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 5, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum1"},
+            {Name:"Cherry Blossom (Curtain)",PairValue:"Cherry Blossom",PairAlt:null,PairRank:17,RankValue:20,RankAlt:null,Suit:"March",Colour:"Hanafuda",Type:"hanafuda",Img:"cherry1"}
+                        ];
+
+        const yaku3 = [
+            {Name: "Pine (Poetry Ribbon)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 10, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine2"},
+            {Name: "Plum Blossom (Poetry Ribbon)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 10, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum2"},
+            {Name: "Cherry Blossom (Poetry Ribbon)", PairValue: "Cherry Blossom", PairAlt: null, PairRank: 17, RankValue: 10, RankAlt: null, Suit: "March", Colour: "Hanafuda", Type: "hanafuda", Img: "cherry2"}
+        ];
+
+        const yaku4 = [
+            {Name: "Peony (Blue Ribbon)", PairValue: "Peony", PairAlt: null, PairRank: 20, RankValue: 10, RankAlt: null, Suit: "June", Colour: "Hanafuda", Type: "hanafuda", Img: "peony2"},
+            {Name: "Chrysanthemum (Blue Ribbon)", PairValue: "Chrysanthemum", PairAlt: null, PairRank: 23, RankValue: 10, RankAlt: null, Suit: "September", Colour: "Hanafuda", Type: "hanafuda", Img: "chrys2"},
+            {Name: "Maple (Blue Ribbon)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 10, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda", Img: "maple2"}
+        ];
+
+        const yaku5 = [
+            {Name: "Peony (Butterfly)", PairValue: "Peony", PairAlt: null, PairRank: 20, RankValue: 5, RankAlt: null, Suit: "June", Colour: "Hanafuda", Type: "hanafuda", Img: "peony1"},
+            {Name:"Chrysanthemum (Sake Cup)",PairValue:"Chrysanthemum",PairAlt:null,PairRank:23,RankValue:5,RankAlt:null,Suit:"September",Colour:"Hanafuda",Type:"hanafuda",Img:"chrys1"},
+            {Name: "Maple (Deer)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 5, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda", Img: "maple1"}
+        ];
+
+        const yaku6 = [
+            {Name: "Wisteria (Red Ribbon)", PairValue: "Wisteria", PairAlt: null, PairRank: 18, RankValue: 10, RankAlt: null, Suit: "April", Colour: "Hanafuda", Type: "hanafuda", Img: "wisteria2"},
+            {Name: "Iris (Red Ribbon)", PairValue: "Iris", PairAlt: null, PairRank: 19, RankValue: 10, RankAlt: null, Suit: "May", Colour: "Hanafuda", Type: "hanafuda", Img: "iris2"},
+            {Name: "Bush Clover (Red Ribbon)", PairValue: "Bush Clover", PairAlt: null, PairRank: 21, RankValue: 10, RankAlt: null, Suit: "July", Colour: "Hanafuda", Type: "hanafuda", Img: "bush2"}
+        ];
+
+        const yaku7 = [
+            {Name: "Wisteria (Cuckoo)", PairValue: "Wisteria", PairAlt: null, PairRank: 18, RankValue: 5, RankAlt: null, Suit: "April", Colour: "Hanafuda", Type: "hanafuda", Img: "wisteria1"},
+            {Name: "Iris (Bridge)", PairValue: "Iris", PairAlt: null, PairRank: 19, RankValue: 5, RankAlt: null, Suit: "May", Colour: "Hanafuda", Type: "hanafuda", Img: "iris1"},
+            {Name: "Bush Clover (Boar)", PairValue: "Bush Clover", PairAlt: null, PairRank: 21, RankValue: 5, RankAlt: null, Suit: "July", Colour: "Hanafuda", Type: "hanafuda", Img: "bush1"}
+        ];
+
+        const yaku8 = [
+            {Name: "Bush Clover (Boar)", PairValue: "Bush Clover", PairAlt: null, PairRank: 21, RankValue: 5, RankAlt: null, Suit: "July", Colour: "Hanafuda", Type: "hanafuda", Img: "bush1"},
+            {Name: "Susuki Grass (Geese)", PairValue: "Susuki Grass", PairAlt: null, PairRank: 22, RankValue: 5, RankAlt: null, Suit: "August", Colour: "Hanafuda", Type: "hanafuda", Img: "grass2"},
+            {Name: "Maple (Deer)", PairValue: "Maple", PairAlt: null, PairRank: 24, RankValue: 5, RankAlt: null, Suit: "October", Colour: "Hanafuda", Type: "hanafuda", Img: "maple1"}
+        ];
+        
         //Full Pokémon Card Deck
 
         const pokemon1 = [
@@ -373,7 +453,7 @@
         
         //Names of hand types to be reported in compareHands()
         
-        const handValues = ["", "High card", "One Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "5 of a Kind"];
+        const handValues = ["", "High card", "One Pair", "Two Pair", "Three of a Kind", "Yaku", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush", "5 of a Kind", "Double Yaku"];
         
         //Dialogue
         
@@ -740,7 +820,8 @@
             "I think the Lightning Storm card in the Hanafuda deck is a wild card",
             "Hanafuda cards have 12 suits, each representing a month. I bet later months are worth more...",
             "There's only 4 cards per suit in Hanafuda, so a flush is very unlikely",
-            "Some of these cards don't even have numbers on 'em!"
+            "Some of these cards don't even have numbers on 'em!",
+            "Special combinations of 3 Hanafuda cards are called a 'Yaku'... Look 'em up!"
         ];
 
         const dialoguePokemon = [
@@ -836,8 +917,10 @@
         let bestHand = [];
         let best = 0;
 
+        let doubleYakuCounter;
         let fiveCounter;
         let fourCounter;
+        let yakuCounter;
         let threeCounter;
         let onePairCounter;
         let fullCounter;
@@ -4496,14 +4579,14 @@
                 riverDeck.push(card);
             }
             */
-            console.log("Player Hand:");
-            console.log(playerHand);
-            console.log(playerHand[1].Name + ", " + playerHand[2].Name + ", " + playerHand[3].Name + ", " + playerHand[4].Name + ", " + playerHand[5].Name);
-            console.log("Opponent Hand:");
-            console.log(oppHand);
-            console.log(oppHand[1].Name + ", " + oppHand[2].Name + ", " + oppHand[3].Name + ", " + oppHand[4].Name + ", " + oppHand[5].Name);
-            console.log("####################################");
             //################################
+
+            if (testLog === true) {
+                console.log("Player End Hand:");
+                console.log(playerHand);
+                console.log("Opponent End Hand:");
+                console.log(oppHand);
+            }
 
             let winningHand;
             let winner;
@@ -4515,7 +4598,7 @@
 
                 console.log("Same Hand Type Detected");
 
-                if (playerHand[0] === 10) {
+                if (playerHand[0] === 11) {
                     let pCard = playerHand[1];
                     let oCard = oppHand[1];
                     if (pCard.PairRank > oCard.PairRank) {
@@ -4532,7 +4615,7 @@
                     }
                 }
 
-                else if (playerHand[0] === 9) {
+                else if (playerHand[0] === 10) {
                     let pCard = playerHand[1];
                     let oCard = oppHand[1];
                     if (pCard.RankValue > oCard.RankValue) {
@@ -4549,7 +4632,7 @@
                     }
                 }
 
-                else if (playerHand[0] === 8) {
+                else if (playerHand[0] === 9) {
                     let pCard = playerHand[1];
                     let oCard = oppHand[1];
                     if (pCard.PairRank > oCard.PairRank) {
@@ -4578,7 +4661,7 @@
                     }
                 }
 
-                else if (playerHand[0] === 7) {
+                else if (playerHand[0] === 8) {
                     let pCard = playerHand[1];
                     let oCard = oppHand[1];
                     if (pCard.PairRank > oCard.PairRank) {
@@ -4607,7 +4690,7 @@
                     }
                 }
 
-                else if (playerHand[0] === 6) {
+                else if (playerHand[0] === 7) {
                     let tieCounter = 0;
                     for (i = 1; i < playerHand.length; i++) {
                         if (playerHand[i].RankValue > oppHand[i].RankValue) {
@@ -4631,7 +4714,7 @@
                     }
                 }
 
-                else if (playerHand[0] === 5) {
+                else if (playerHand[0] === 6) {
                     let pCard = playerHand[1];
                     let oCard = oppHand[1];
                     if (pCard.RankValue > oCard.RankValue) {
@@ -4897,6 +4980,10 @@
             //let space = eval(deckType + "Space");
             let deck = eval(deckType + "Deck");
 
+            if (testLog === true) {
+                console.log("##################-" + deckType + "-##################");
+            }
+
             /*
             //Testing - Deck Genration ###############################
             //mainDeck = testHand;
@@ -4936,6 +5023,13 @@
             flushes = calculateFlush();
 
             //Count Hands
+            doubleYakuCounter = 0;
+            for (i = 0; i < groups.length; i++) {
+                if (groups[i].Yaku === 2) {
+                    doubleYakuCounter++;
+                }
+            }
+
             fiveCounter = 0;
             for (i = 0; i < groups.length; i++) {
                 if (groups[i].Num > 4) {
@@ -4947,6 +5041,13 @@
             for (i = 0; i < groups.length; i++) {
                 if (groups[i].Num === 4) {
                     fourCounter++;
+                }
+            }
+
+            yakuCounter = 0;
+            for (i = 0; i < groups.length; i++) {
+                if (groups[i].Yaku === 1) {
+                    yakuCounter++;
                 }
             }
 
@@ -4965,7 +5066,7 @@
             }
 
             fullCounter = 0;
-            if (threeCounter === 2 || (threeCounter === 1 && onePairCounter === 1) ){
+            if (threeCounter === 2 || (threeCounter === 1 && onePairCounter > 0) ){
                 fullCounter++;
             }
 
@@ -4999,12 +5100,14 @@
                     console.log("Hand: " + handDeck[0].Name + ", " + handDeck[1].Name + ", " + handDeck[2].Name + ", " + handDeck[3].Name + ", " + handDeck[4].Name);
                 }
 
+                console.log("Double Yaku: " + doubleYakuCounter);
                 console.log("Five of a Kind: " + fiveCounter);
                 console.log("Straight Flush: " + straightFlushCounter);
                 console.log("Four of a Kind: " + fourCounter);
                 console.log("Full House: " + fullCounter);
                 console.log("Flush: " + flushCounter);
                 console.log("Straight: " + straightCounter);
+                console.log("Yaku: " + yakuCounter);
                 console.log("Three of a Kind: " + threeCounter);
                 console.log("Two Pair: " + twoPairCounter);
                 console.log("One Pair: " + onePairCounter);
@@ -5016,7 +5119,10 @@
             best = 0;
 
             //5 of a kind
-            if (fiveCounter > 0) {
+            if (doubleYakuCounter > 0) {
+                doubleYaku();
+            }
+            else if (fiveCounter > 0) {
                 fiveKind();
             }
             else if (straightFlushCounter > 0) {
@@ -5034,6 +5140,9 @@
             else if (straightCounter > 0) {
                 straight();
             }
+            else if (yakuCounter > 0) {
+                yaku();
+            }
             else if (threeCounter > 0) {
                 threeKind();
             }
@@ -5049,6 +5158,7 @@
             if (testLog === true) {
                 console.log("Best hand:");
                 console.log(bestHand);
+                console.log(JSON.stringify(bestHand));
             }
             return bestHand;
         }
@@ -5058,6 +5168,245 @@
             let groupRanks = [];
             let groupCompare = [];
             let cards = cardPool.slice(0);
+            let group;
+
+            //Yaku detection
+            let curtainCheck = false;
+            let moonCheck = false;
+            let sakeCheck = false;
+            let craneCheck = false;
+            let warblerCheck = false;
+            let butterflyCheck = false;
+            let deerCheck = false;
+            let cuckooCheck = false;
+            let bridgeCheck = false;
+            let boarCheck = false;
+            let geeseCheck = false;
+            let poetry1Check = false;
+            let poetry2Check = false;
+            let poetry3Check = false;
+            let blue1Check = false;
+            let blue2Check = false;
+            let blue3Check = false;
+            let red1Check = false;
+            let red2Check = false;
+            let red3Check = false;
+            for (i = 0; i < cards.length; i++) {
+                if (cards[i].Name === "Cherry Blossom (Curtain)") {
+                    curtainCheck = true;
+                }
+                if (cards[i].Name === "Susuki Grass (Full Moon)") {
+                    moonCheck = true;
+                }
+                if (cards[i].Name === "Chrysanthemum (Sake Cup)") {
+                    sakeCheck = true;
+                }
+                if (cards[i].Name === "Pine (Crane)") {
+                    craneCheck = true;
+                }
+                if (cards[i].Name === "Plum Blossom (Bush Warbler)") {
+                    warblerCheck = true;
+                }
+                if (cards[i].Name === "Peony (Butterfly)") {
+                    butterflyCheck = true;
+                }
+                if (cards[i].Name === "Maple (Deer)") {
+                    deerCheck = true;
+                }
+                if (cards[i].Name === "Wisteria (Cuckoo)") {
+                    cuckooCheck = true;
+                }
+                if (cards[i].Name === "Iris (Bridge)") {
+                    bridgeCheck = true;
+                }
+                if (cards[i].Name === "Bush Clover (Boar)") {
+                    boarCheck = true;
+                }
+                if (cards[i].Name === "Susuki Grass (Geese)") {
+                    geeseCheck = true;
+                }
+                if (cards[i].Name === "Pine (Poetry Ribbon)") {
+                    poetry1Check = true;
+                }
+                if (cards[i].Name === "Plum Blossom (Poetry Ribbon)") {
+                    poetry2Check = true;
+                }
+                if (cards[i].Name === "Cherry Blossom (Poetry Ribbon)") {
+                    poetry3Check = true;
+                }
+                if (cards[i].Name === "Peony (Blue Ribbon)") {
+                    blue1Check = true;
+                }
+                if (cards[i].Name === "Chrysanthemum (Blue Ribbon)") {
+                    blue2Check = true;
+                }
+                if (cards[i].Name === "Maple (Blue Ribbon)") {
+                    blue3Check = true;
+                }
+                if (cards[i].Name === "Wisteria (Red Ribbon)") {
+                    red1Check = true;
+                }
+                if (cards[i].Name === "Iris (Red Ribbon)") {
+                    red2Check = true;
+                }
+                if (cards[i].Name === "Bush Clover (Red Ribbon)") {
+                    red3Check = true;
+                }
+            }
+
+            if (curtainCheck === true && moonCheck === true && sakeCheck === true && craneCheck === true && warblerCheck === true) {
+                group = {Value: "yaku1yaku2", Rank: 100, Num: 5, Yaku: 2};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Cherry Blossom (Curtain)" ||
+                    cards[i].Name === "Susuki Grass (Full Moon)" ||
+                    cards[i].Name === "Chrysanthemum (Sake Cup)" ||
+                    cards[i].Name === "Pine (Crane)" ||
+                    cards[i].Name === "Plum Blossom (Bush Warbler)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (curtainCheck === true && moonCheck === true && sakeCheck === true && butterflyCheck === true && deerCheck === true) {
+                group = {Value: "yaku1yaku5", Rank: 100, Num: 5, Yaku: 2};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Cherry Blossom (Curtain)" ||
+                    cards[i].Name === "Susuki Grass (Full Moon)" ||
+                    cards[i].Name === "Chrysanthemum (Sake Cup)" ||
+                    cards[i].Name === "Peony (Butterfly)" ||
+                    cards[i].Name === "Maple (Deer)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (sakeCheck === true && butterflyCheck === true && deerCheck === true && boarCheck === true && geeseCheck === true) {
+                group = {Value: "yaku5yaku8", Rank: 100, Num: 5, Yaku: 2};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Chrysanthemum (Sake Cup)" ||
+                    cards[i].Name === "Peony (Butterfly)" ||
+                    cards[i].Name === "Maple (Deer)" ||
+                    cards[i].Name === "Bush Clover (Boar)" ||
+                    cards[i].Name === "Susuki Grass (Geese)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (cuckooCheck === true && bridgeCheck === true && deerCheck === true && boarCheck === true && geeseCheck === true) {
+                group = {Value: "yaku7yaku8", Rank: 100, Num: 5, Yaku: 2};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Wisteria (Cuckoo)" ||
+                    cards[i].Name === "Iris (Bridge)" ||
+                    cards[i].Name === "Maple (Deer)" ||
+                    cards[i].Name === "Bush Clover (Boar)" ||
+                    cards[i].Name === "Susuki Grass (Geese)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (curtainCheck === true && moonCheck === true && sakeCheck === true) {
+                group = {Value: "yaku1", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Cherry Blossom (Curtain)" ||
+                    cards[i].Name === "Susuki Grass (Full Moon)" ||
+                    cards[i].Name === "Chrysanthemum (Sake Cup)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (curtainCheck === true && craneCheck === true && warblerCheck === true) {
+                group = {Value: "yaku2", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Cherry Blossom (Curtain)" ||
+                    cards[i].Name === "Pine (Crane)" ||
+                    cards[i].Name === "Plum Blossom (Bush Warbler)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (poetry1Check === true && poetry2Check === true && poetry3Check === true) {
+                group = {Value: "yaku3", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Pine (Poetry Ribbon)" ||
+                    cards[i].Name === "Plum Blossom (Poetry Ribbon)" ||
+                    cards[i].Name === "Cherry Blossom (Poetry Ribbon)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (blue1Check === true && blue2Check === true && blue3Check === true) {
+                group = {Value: "yaku4", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Peony (Blue Ribbon)" ||
+                    cards[i].Name === "Chrysanthemum (Blue Ribbon)" ||
+                    cards[i].Name === "Maple (Blue Ribbon)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (butterflyCheck === true && sakeCheck === true && deerCheck === true) {
+                group = {Value: "yaku5", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Peony (Butterfly)" ||
+                    cards[i].Name === "Chrysanthemum (Sake Cup)" ||
+                    cards[i].Name === "Maple (Deer)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (red1Check === true && red2Check === true && red3Check === true) {
+                group = {Value: "yaku6", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Wisteria (Red Ribbon)" ||
+                    cards[i].Name === "Bush Clover (Red Ribbon)" ||
+                    cards[i].Name === "Willow (Red Ribbon)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (cuckooCheck === true && bridgeCheck === true && boarCheck === true) {
+                group = {Value: "yaku7", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Wisteria (Cuckoo)" ||
+                    cards[i].Name === "Iris (Bridge)" ||
+                    cards[i].Name === "Bush Clover (Boar)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (geeseCheck === true && deerCheck === true && boarCheck === true) {
+                group = {Value: "yaku8", Rank: 50, Num: 3, Yaku: 1};
+                groupsArray.push(group);
+                for (i = 0; i < cards.length; i++) {
+                    if (cards[i].Name === "Susuki Grass (Geese)" ||
+                    cards[i].Name === "Maple (Deer)" ||
+                    cards[i].Name === "Bush Clover (Boar)") {
+                        cards.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            console.log(JSON.stringify(groupsArray));
 
             //Adds all pair rank values to array
             for (i = 0; i < cards.length; i++) {
@@ -5166,7 +5515,7 @@
                     let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
                     groupsArray.push(group);
                     */
-                    let group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter};
+                    group = {Value: valArray[y], Rank: sortedRanks[i], Num: valCounter, Yaku: 0};
                     groupsArray.push(group);
                 }
             }
@@ -5201,12 +5550,13 @@
                     groupsArray[i].Num = combCounter;
                     for (x = 0; x < cards.length; x++) {
                         if (cards[x].PairValue === groupsArray[i].Value || cards[x].PairAlt === groupsArray[i].Value) {
-                            console.log("Removing...");
-                            console.log(cards[x]);
                             cards.splice(x,1);
                             x = -1;
                         }
                     }
+                }
+                else if (groupsArray[i].Yaku > 0) {
+                    console.log("Yaku detected");
                 }
                 else {
                     groupsArray[i].Num = 1;
@@ -5428,6 +5778,31 @@
             return flushesArray;
         }
 
+        function doubleYaku() {
+            for (i = 0; i < groups.length; i++) {
+                if (groups[i].Yaku === 2) {
+                    best = groups[i];
+                }
+            }
+            if (testLog === true) {
+                console.log("Top group:");
+                console.log(best);
+            }
+            if (best.Value === "yaku1yaku2") {
+                bestHand.push(...yaku1yaku2);
+            }
+            else if (best.Value === "yaku1yaku5") {
+                bestHand.push(...yaku1yaku5);
+            }
+            else if (best.Value === "yaku5yaku8") {
+                bestHand.push(...yaku5yaku8);
+            }
+            else if (best.Value === "yaku7yaku8") {
+                bestHand.push(...yaku7yaku8);
+            }
+            bestHand.unshift(12);
+        }
+        
         function fiveKind() {
             for (i = 0; i < groups.length; i++) {
                 if (groups[i].Num > 4) {
@@ -5487,7 +5862,7 @@
                     x++;
                 }
             }
-            bestHand.unshift(10);
+            bestHand.unshift(11);
         }
         
         function straightFlush() {
@@ -5594,7 +5969,7 @@
                     }
                 }
             }
-            bestHand.unshift(9);
+            bestHand.unshift(10);
         }
 
         function fourKind() {
@@ -5693,251 +6068,597 @@
                 }
             }
             bestHand.push(best);
-            bestHand.unshift(8);
+            bestHand.unshift(9);
         }
 
         function fullHouse() {
             if (threeCounter === 2) {
                 let compare = [];
-                for (i = 0; i < groups.length; i++) {
-                    if (groups[i].Num === 3) {
-                        compare.push(groups[i].Rank);
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Compare:");
-                    console.log(compare);
-                }
-                let topValue = Math.max(...compare);
-                if (testLog === true) {
-                    console.log("Top: " + topValue);
-                }
 
-                let threeValue;
-                let twoValue;
-                for (i = 0; i < groups.length; i++) {
-                    if (groups[i].Rank === topValue) {
-                        threeValue = groups[i].Value;
-                    }
-                    else if (groups[i].Num === 3) {
-                        twoValue = groups[i].Value;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Three: " + threeValue);
-                    console.log("Pair: " + twoValue);
-                }
-                let pairCounter = 0;
-                let altCounter = 0;
-                for (i = 0; i < cardPool.length; i++) {
-                    if (cardPool[i].PairValue === threeValue) {
-                        pairCounter++;
-                    }
-                    else if (cardPool[i].PairAlt === threeValue) {
-                        altCounter++;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Regular cards: " + pairCounter);
-                    console.log("Alt cards: " + altCounter);
-                }
-                if (pairCounter === 3) {
-                    let x = 0;
-                    let y = 0;
-                    while (y < 3) {
-                        if (cardPool[x].PairValue === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                if (groups[0].Yaku < 1) {
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Num === 3) {
+                            compare.push(groups[i].Rank);
                         }
-                        x++;
+                    }
+                    if (testLog === true) {
+                        console.log("Compare:");
+                        console.log(compare);
+                    }
+                    let topValue = Math.max(...compare);
+                    if (testLog === true) {
+                        console.log("Top: " + topValue);
+                    }
+
+                    let threeValue;
+                    let twoValue;
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Rank === topValue) {
+                            threeValue = groups[i].Value;
+                        }
+                        else if (groups[i].Num === 3) {
+                            twoValue = groups[i].Value;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Three: " + threeValue);
+                        console.log("Pair: " + twoValue);
+                    }
+                    let pairCounter = 0;
+                    let altCounter = 0;
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === threeValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === threeValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Regular cards: " + pairCounter);
+                        console.log("Alt cards: " + altCounter);
+                    }
+                    if (pairCounter === 3) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 3) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (3 - pairCounter)) {
+                            if (cardPool[x].PairAlt === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    pairCounter = 0;
+                    altCounter = 0;
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === twoValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === twoValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Regular cards: " + pairCounter);
+                        console.log("Alt cards: " + altCounter);
+                    }
+                    if (pairCounter > 1) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 2) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (2 - pairCounter)) {
+                            if (cardPool[x].PairAlt === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
                     }
                 }
                 else {
-                    let x = 0;
-                    let y = 0;
-                    while (y < pairCounter) {
-                        if (cardPool[x].PairValue === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    if (groups[0].Value === "yaku1") {
+                        bestHand.push(...yaku1);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                            cardPool[i].Name === "Susuki Grass (Full Moon)" ||
+                            cardPool[i].Name === "Chrysanthemum (Sake Cup)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                    x = 0;
-                    y = 0;
-                    while (y < (3 - pairCounter)) {
-                        if (cardPool[x].PairAlt === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku2") {
+                        bestHand.push(...yaku2);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                            cardPool[i].Name === "Pine (Crane)" ||
+                            cardPool[i].Name === "Plum Blossom (Bush Warbler)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                }
-                pairCounter = 0;
-                altCounter = 0;
-                for (i = 0; i < cardPool.length; i++) {
-                    if (cardPool[i].PairValue === twoValue) {
-                        pairCounter++;
-                    }
-                    else if (cardPool[i].PairAlt === twoValue) {
-                        altCounter++;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Regular cards: " + pairCounter);
-                    console.log("Alt cards: " + altCounter);
-                }
-                if (pairCounter > 1) {
-                    let x = 0;
-                    let y = 0;
-                    while (y < 2) {
-                        if (cardPool[x].PairValue === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku3") {
+                        bestHand.push(...yaku3);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Pine (Poetry Ribbon)" ||
+                            cardPool[i].Name === "Plum Blossom (Poetry Ribbon)" ||
+                            cardPool[i].Name === "Cherry Blossom (Poetry Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                }
-                else {
-                    let x = 0;
-                    let y = 0;
-                    while (y < pairCounter) {
-                        if (cardPool[x].PairValue === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku4") {
+                        bestHand.push(...yaku4);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Peony (Blue Ribbon)" ||
+                            cardPool[i].Name === "Chrysanthemum (Blue Ribbon)" ||
+                            cardPool[i].Name === "Maple (Blue Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                    x = 0;
-                    y = 0;
-                    while (y < (2 - pairCounter)) {
-                        if (cardPool[x].PairAlt === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku5") {
+                        bestHand.push(...yaku5);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Peony (Butterfly)" ||
+                            cardPool[i].Name === "Chrysanthemum (Sake Cup)" ||
+                            cardPool[i].Name === "Maple (Deer)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
+                    }
+                    else if (groups[0].Value === "yaku6") {
+                        bestHand.push(...yaku6);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Wisteria (Red Ribbon)" ||
+                            cardPool[i].Name === "Bush Clover (Red Ribbon)" ||
+                            cardPool[i].Name === "Willow (Red Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    else if (groups[0].Value === "yaku7") {
+                        bestHand.push(...yaku7);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Wisteria (Cuckoo)" ||
+                            cardPool[i].Name === "Iris (Bridge)" ||
+                            cardPool[i].Name === "Bush Clover (Boar)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    else if (groups[0].Value === "yaku8") {
+                        bestHand.push(...yaku8);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Susuki Grass (Geese)" ||
+                            cardPool[i].Name === "Maple (Deer)" ||
+                            cardPool[i].Name === "Bush Clover (Boar)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    let threeValue;
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Num === 3) {
+                            threeValue = groups[i].Value;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Three: " + threeValue);
+                    }
+                    let pairCounter = 0;
+                    let altCounter = 0;
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === threeValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === threeValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Regular cards: " + pairCounter);
+                        console.log("Alt cards: " + altCounter);
+                    }
+                    if (pairCounter === 3) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 2) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (2 - pairCounter)) {
+                            if (cardPool[x].PairAlt === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
                     }
                 }
             }
             else {
-                let threeValue;
-                let twoValue;
+                if (groups[0].Yaku < 1) {
+                    let threeValue;
+                    let twoValue;
+                    let twoValueArray = [];
 
-                for (i = 0; i < groups.length; i++) {
-                    if (groups[i].Num === 3) {
-                        threeValue = groups[i].Value;
-                    }
-                    else if (groups[i].Num === 2) {
-                        twoValue = groups[i].Value;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Three: " + threeValue);
-                    console.log("Pair: " + twoValue);
-                }
-                let pairCounter = 0;
-                let altCounter = 0;
-                for (i = 0; i < cardPool.length; i++) {
-                    if (cardPool[i].PairValue === threeValue) {
-                        pairCounter++;
-                    }
-                    else if (cardPool[i].PairAlt === threeValue) {
-                        altCounter++;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Regular cards: " + pairCounter);
-                    console.log("Alt cards: " + altCounter);
-                }
-                if (pairCounter === 3) {
-                    let x = 0;
-                    let y = 0;
-                    while (y < 3) {
-                        if (cardPool[x].PairValue === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Num === 3) {
+                            threeValue = groups[i].Value;
                         }
-                        x++;
+                        else if (groups[i].Num === 2) {
+                            twoValueArray.push(groups[i].Rank);
+                        }
+                    }
+
+                    if (testLog === true) {
+                        console.log("twoValueArray:");
+                        console.log(twoValueArray);
+                    }
+
+                    let topRank = Math.max(...twoValueArray);
+
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Rank === topRank) {
+                            twoValue = groups[i].Value;
+                        }
+                    }
+
+                    if (testLog === true) {
+                        console.log("Three: " + threeValue);
+                        console.log("Pair: " + twoValue);
+                    }
+                    let pairCounter = 0;
+                    let altCounter = 0;
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === threeValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === threeValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Three Regular cards: " + pairCounter);
+                        console.log("Three Alt cards: " + altCounter);
+                    }
+                    if (pairCounter === 3) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 3) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (3 - pairCounter)) {
+                            if (cardPool[x].PairAlt === threeValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    pairCounter = 0;
+                    altCounter = 0;
+
+                    if (testLog === true) {
+                        console.log("TEST CARD POOL:");
+                        console.log(JSON.stringify(cardPool));
+                        console.log("twoValue:");
+                        console.log(twoValue);
+                    }
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === twoValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === twoValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Pair Regular cards: " + pairCounter);
+                        console.log("Pair Alt cards: " + altCounter);
+                    }
+                    if (pairCounter > 1) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 2) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (2 - pairCounter)) {
+                            if (cardPool[x].PairAlt === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
                     }
                 }
                 else {
-                    let x = 0;
-                    let y = 0;
-                    while (y < pairCounter) {
-                        if (cardPool[x].PairValue === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    console.log("YAKU:");
+                    console.log(groups[0]);
+                    if (groups[0].Value === "yaku1") {
+                        bestHand.push(...yaku1);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                            cardPool[i].Name === "Susuki Grass (Full Moon)" ||
+                            cardPool[i].Name === "Chrysanthemum (Sake Cup)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                    x = 0;
-                    y = 0;
-                    while (y < (3 - pairCounter)) {
-                        if (cardPool[x].PairAlt === threeValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku2") {
+                        bestHand.push(...yaku2);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                            cardPool[i].Name === "Pine (Crane)" ||
+                            cardPool[i].Name === "Plum Blossom (Bush Warbler)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                }
-                pairCounter = 0;
-                altCounter = 0;
-                for (i = 0; i < cardPool.length; i++) {
-                    if (cardPool[i].PairValue === twoValue) {
-                        pairCounter++;
-                    }
-                    else if (cardPool[i].PairAlt === twoValue) {
-                        altCounter++;
-                    }
-                }
-                if (testLog === true) {
-                    console.log("Regular cards: " + pairCounter);
-                    console.log("Alt cards: " + altCounter);
-                }
-                if (pairCounter > 1) {
-                    let x = 0;
-                    let y = 0;
-                    while (y < 2) {
-                        if (cardPool[x].PairValue === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku3") {
+                        bestHand.push(...yaku3);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Pine (Poetry Ribbon)" ||
+                            cardPool[i].Name === "Plum Blossom (Poetry Ribbon)" ||
+                            cardPool[i].Name === "Cherry Blossom (Poetry Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                }
-                else {
-                    let x = 0;
-                    let y = 0;
-                    while (y < pairCounter) {
-                        if (cardPool[x].PairValue === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku4") {
+                        bestHand.push(...yaku4);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Peony (Blue Ribbon)" ||
+                            cardPool[i].Name === "Chrysanthemum (Blue Ribbon)" ||
+                            cardPool[i].Name === "Maple (Blue Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
                     }
-                    x = 0;
-                    y = 0;
-                    while (y < (2 - pairCounter)) {
-                        if (cardPool[x].PairAlt === twoValue) {
-                            y++;
-                            let card = cardPool[x];
-                            bestHand.push(card);
+                    else if (groups[0].Value === "yaku5") {
+                        bestHand.push(...yaku5);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Peony (Butterfly)" ||
+                            cardPool[i].Name === "Chrysanthemum (Sake Cup)" ||
+                            cardPool[i].Name === "Maple (Deer)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
                         }
-                        x++;
+                    }
+                    else if (groups[0].Value === "yaku6") {
+                        bestHand.push(...yaku6);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Wisteria (Red Ribbon)" ||
+                            cardPool[i].Name === "Bush Clover (Red Ribbon)" ||
+                            cardPool[i].Name === "Willow (Red Ribbon)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    else if (groups[0].Value === "yaku7") {
+                        bestHand.push(...yaku7);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Wisteria (Cuckoo)" ||
+                            cardPool[i].Name === "Iris (Bridge)" ||
+                            cardPool[i].Name === "Bush Clover (Boar)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    else if (groups[0].Value === "yaku8") {
+                        bestHand.push(...yaku8);
+                        for (i = 0; i < cardPool.length; i++) {
+                            if (cardPool[i].Name === "Susuki Grass (Geese)" ||
+                            cardPool[i].Name === "Maple (Deer)" ||
+                            cardPool[i].Name === "Bush Clover (Boar)") {
+                                cardPool.splice(i,1);
+                                i = -1;
+                            }
+                        }
+                    }
+                    let twoValue;
+                    let twoValueArray = [];
+
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Num === 2) {
+                            twoValueArray.push(groups[i].Rank);
+                        }
+                    }
+
+                    if (testLog === true) {
+                        console.log("twoValueArray:");
+                        console.log(twoValueArray);
+                    }
+
+                    let topRank = Math.max(...twoValueArray);
+
+                    for (i = 0; i < groups.length; i++) {
+                        if (groups[i].Rank === topRank) {
+                            twoValue = groups[i].Value;
+                        }
+                    }
+
+                    if (testLog === true) {
+                        console.log("Pair: " + twoValue);
+                    }
+                    let pairCounter = 0;
+                    let altCounter = 0;
+
+                    if (testLog === true) {
+                        console.log("TEST CARD POOL:");
+                        console.log(JSON.stringify(cardPool));
+                        console.log("twoValue:");
+                        console.log(twoValue);
+                    }
+                    for (i = 0; i < cardPool.length; i++) {
+                        if (cardPool[i].PairValue === twoValue) {
+                            pairCounter++;
+                        }
+                        else if (cardPool[i].PairAlt === twoValue) {
+                            altCounter++;
+                        }
+                    }
+                    if (testLog === true) {
+                        console.log("Pair Regular cards: " + pairCounter);
+                        console.log("Pair Alt cards: " + altCounter);
+                    }
+                    if (pairCounter > 1) {
+                        let x = 0;
+                        let y = 0;
+                        while (y < 2) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                    }
+                    else {
+                        let x = 0;
+                        let y = 0;
+                        while (y < pairCounter) {
+                            if (cardPool[x].PairValue === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
+                        x = 0;
+                        y = 0;
+                        while (y < (2 - pairCounter)) {
+                            if (cardPool[x].PairAlt === twoValue) {
+                                y++;
+                                let card = cardPool[x];
+                                bestHand.push(card);
+                            }
+                            x++;
+                        }
                     }
                 }
             }
-            bestHand.unshift(7);
+            bestHand.unshift(8);
         }
 
         function flush() {
@@ -6021,7 +6742,7 @@
                     }
                 }
             }
-            bestHand.unshift(6);
+            bestHand.unshift(7);
         }
 
         function straight() {
@@ -6123,9 +6844,169 @@
                     }
                 }
             }
-            bestHand.unshift(5);
+            bestHand.unshift(6);
         }
 
+        function yaku() {
+            for (i = 0; i < groups.length; i++) {
+                if (groups[i].Num === 3) {
+                    best = groups[i];
+                }
+            }
+            if (testLog === true) {
+                console.log(best);
+            }
+            
+            if (best.Value === "yaku1") {
+                bestHand.push(...yaku1);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                    cardPool[i].Name === "Susuki Grass (Full Moon)" ||
+                    cardPool[i].Name === "Chrysanthemum (Sake Cup)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku2") {
+                bestHand.push(...yaku2);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Cherry Blossom (Curtain)" ||
+                    cardPool[i].Name === "Pine (Crane)" ||
+                    cardPool[i].Name === "Plum Blossom (Bush Warbler)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku3") {
+                bestHand.push(...yaku3);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Pine (Poetry Ribbon)" ||
+                    cardPool[i].Name === "Plum Blossom (Poetry Ribbon)" ||
+                    cardPool[i].Name === "Cherry Blossom (Poetry Ribbon)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku4") {
+                bestHand.push(...yaku4);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Peony (Blue Ribbon)" ||
+                    cardPool[i].Name === "Chrysanthemum (Blue Ribbon)" ||
+                    cardPool[i].Name === "Maple (Blue Ribbon)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku5") {
+                bestHand.push(...yaku5);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Peony (Butterfly)" ||
+                    cardPool[i].Name === "Chrysanthemum (Sake Cup)" ||
+                    cardPool[i].Name === "Maple (Deer)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku6") {
+                bestHand.push(...yaku6);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Wisteria (Red Ribbon)" ||
+                    cardPool[i].Name === "Bush Clover (Red Ribbon)" ||
+                    cardPool[i].Name === "Willow (Red Ribbon)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku7") {
+                bestHand.push(...yaku7);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Wisteria (Cuckoo)" ||
+                    cardPool[i].Name === "Iris (Bridge)" ||
+                    cardPool[i].Name === "Bush Clover (Boar)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+            else if (best.Value === "yaku8") {
+                bestHand.push(...yaku8);
+                for (i = 0; i < cardPool.length; i++) {
+                    if (cardPool[i].Name === "Susuki Grass (Geese)" ||
+                    cardPool[i].Name === "Maple (Deer)" ||
+                    cardPool[i].Name === "Bush Clover (Boar)") {
+                        cardPool.splice(i,1);
+                        i = -1;
+                    }
+                }
+            }
+
+            let compare = [];
+            for (i = 0; i < cardPool.length; i++) {
+                if (cardPool[i].RankValue !== "Wild") {
+                    compare.push(cardPool[i].RankValue);
+                }
+            }
+            if (testLog === true) {
+                console.log("Compare:");
+                console.log(compare);
+            }
+            let topValue;
+            if (compare.length > 0) {
+                topValue = Math.max(...compare);
+            }
+            else {
+                topValue = "Wild";
+            }
+            if (testLog === true) {
+                console.log("Top: " + topValue);
+            }
+            let index;
+            for (i = 0; i < cardPool.length; i++) {
+                if (cardPool[i].RankValue === topValue) {
+                    index = i;
+                }
+            }
+            let topCard = cardPool[index];
+            bestHand.push(topCard);
+            cardPool.splice(index,1);
+
+            compare = [];
+            for (i = 0; i < cardPool.length; i++) {
+                if (cardPool[i].RankValue !== "Wild") {
+                    compare.push(cardPool[i].RankValue);
+                }
+            }
+            if (testLog === true) {
+                console.log("Compare:");
+                console.log(compare);
+            }
+            if (compare.length > 0) {
+                topValue = Math.max(...compare);
+            }
+            else {
+                topValue = "Wild";
+            }
+            if (testLog === true) {
+                console.log("Top: " + topValue);
+            }
+            index = 0;
+            for (i = 0; i < cardPool.length; i++) {
+                if (cardPool[i].RankValue === topValue) {
+                    index = i;
+                }
+            }
+            topCard = cardPool[index];
+            bestHand.push(topCard);
+            cardPool.splice(index,1);
+            bestHand.unshift(5);
+        }
+        
         function threeKind() {
             for (i = 0; i < groups.length; i++) {
                 if (groups[i].Num === 3) {
@@ -7339,7 +8220,7 @@
         */
 
         //###Enable this for auto-compare hands###
-        //compareHands();
+        compareHands();
         //drawFiveHand();
 
         //###############################################
