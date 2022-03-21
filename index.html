@@ -868,12 +868,12 @@
 
         //Costants for turn at which new cards are introduced
         
-        const extraTurn = 4;
-        const unoTurn = 11;
-        const tarotTurn = 21;
-        const pokemonTurn = 31
-        const hanafudaTurn = 41;
-        const wildTurn = 51;
+        const extraTurn = 4; //4
+        const unoTurn = 9; //11
+        const tarotTurn = 14; //21
+        const pokemonTurn = 19 //31
+        const hanafudaTurn = 23; //41
+        const wildTurn = 28; //51
 
         //Variables for updating dialogue
         
@@ -1133,7 +1133,7 @@
                     let card = extra[i];
                     deck.push(card);
                 }
-                for (i = 0; i < 20; i++) {
+                for (i = 0; i < 30; i++) {
                 let card = uno[i];
                 deck.push(card);
                 }
@@ -1196,19 +1196,19 @@
                     let card = extra[i];
                     deck.push(card);
                 }
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < 5; i++) {
                 let card = uno[i];
                 deck.push(card);
                 }
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < 5; i++) {
                 let card = tarot[i];
                 deck.push(card);
                 }
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < 5; i++) {
                 let card = pokemon1[i];
                 deck.push(card);
                 }
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < 15; i++) {
                 let card = hanafuda[i];
                 deck.push(card);
                 }
@@ -7711,7 +7711,7 @@
         main {
             max-width: 100%;
             width: 600px;
-            margin: 5% auto 0;
+            margin: 0 auto 0;
             box-sizing: border-box;
         }
         .dialogue {
@@ -7723,6 +7723,7 @@
             padding: 5px;
             font-family: 'Courier New', Courier, monospace;
             box-sizing: border-box;
+            margin-top: 10%;
         }
         .dialogue_icon_container {
             float: left;
@@ -7795,8 +7796,13 @@
             font-family: Helvetica, Arial, sans-serif;
             margin-left: 5px;
         }
+        .option_space span {
+            color: white;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            margin-left: 5px;
+        }
         .clear_button {
-            float: right;
             margin: 5px;
         }
         .turn_counter {
@@ -8088,8 +8094,8 @@
             bottom:0;
             width:94%;
             height:30px;
-            text-align: end;
-            color: #636363;
+            text-align: justify;
+            color: #555555;
             z-index: -1;
             font-family: Helvetica, Arial, sans-serif;
         }
@@ -8127,7 +8133,6 @@
         <h1>TotallyNormalPoker</h1>
     </header>
     <main>
-        <div class="clear_container"><button id="clear_button" class="clear_button" type="button" onclick="clearStorage();">Clear Saved Data</button></div>
         <div class="dialogue">
             <div class="dialogue_icon_container"><div class="dialogue_icon"></div></div><div class="dialogue_text_container"></div><div id="dialogue_text" class="dialogue_text"></div></div>
         </div>
@@ -8160,16 +8165,19 @@
         <div id="report_space" class="report"></div>
         <div id="win_cards1" class="win_container" style="visibility: hidden;"><div id="win_space" class="river_space"></div></div>
         <div id="win_cards2" class="win_container" style="visibility: hidden;"><div id="tie_space" class="river_space"></div></div>
-        <div id="render_container" class="render_container">
-            <label for="render_radio">Render Mode:</label>
-            <input type="radio" name="render_radio" value="image" id="image_render" onclick="saveValues(); renderAllCards();" checked>
-            <label for="image_render">Image</label>
-            <input type="radio" name="render_radio" value="text" id="text_render" onclick="saveValues(); renderAllCards();">
-            <label for="text_render">Text</label>
+        <div id="option_space" class="option_space"><span>Options</span>
+            <div id="render_container" class="render_container">
+                <label for="render_radio">Render Mode:</label>
+                <input type="radio" name="render_radio" value="image" id="image_render" onclick="saveValues(); renderAllCards();" checked>
+                <label for="image_render">Image</label>
+                <input type="radio" name="render_radio" value="text" id="text_render" onclick="saveValues(); renderAllCards();">
+                <label for="text_render">Text</label>
+            </div>
+            <div class="clear_container"><button id="clear_button" class="clear_button" type="button" onclick="clearStorage();">Clear Saved Data</button></div>
         </div>
     </main>
     <footer>
-        <p>© Callum West 2022</p> 
+        <p>© Callum West 2022 | UNO&trade; Mattel, Inc. | Pokémon TCG&trade; Nintendo, Game Freak, Creaturs Inc.</p> 
     </footer>
     <script>
         //Internet Explorer detection
@@ -8253,8 +8261,6 @@
         else if (winDeck.length === 0) {
             reportSpace.innerHTML = `Pick a Poker type to start playing`;
         }
-
-        
 
     </script>
 </body>
