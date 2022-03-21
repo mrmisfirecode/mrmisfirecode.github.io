@@ -40,8 +40,8 @@
         ];
 
         const testOpp = [
-        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"},
-        {Name:"Green 2",PairValue:"2",PairAlt:null,PairRank:2,RankValue:2,RankAlt:null,Suit:"Green",Colour:"Green",Type:"uno"}
+        {Name: "Pine (Crane)", PairValue: "Pine", PairAlt: null, PairRank: 15, RankValue: 20, RankAlt: null, Suit: "January", Colour: "Hanafuda", Type: "hanafuda", Img: "pine1"},
+        {Name: "Plum Blossom (Bush Warbler)", PairValue: "Plum Blossom", PairAlt: null, PairRank: 16, RankValue: 5, RankAlt: null, Suit: "February", Colour: "Hanafuda", Type: "hanafuda", Img: "plum1"}
         ];
 
         const testDeck = [
@@ -1434,11 +1434,11 @@
         }
         
         function renderMoney() {
-            document.getElementById("inventory_space").innerHTML = `$ ${(playerMoney * 500).toLocaleString('en', {useGrouping:true})}`;
-            document.getElementById("bet_space").innerHTML = `Bet: $ ${(betMoney * 500).toLocaleString('en', {useGrouping:true})}`;
-            document.getElementById("pot_space").innerHTML = `Pot: $ ${(potMoney * 500).toLocaleString('en', {useGrouping:true})}`;
+            document.getElementById("inventory_space").innerHTML = `$${(playerMoney * 500).toLocaleString('en', {useGrouping:true})}`;
+            document.getElementById("bet_space").innerHTML = `Bet: $${(betMoney * 500).toLocaleString('en', {useGrouping:true})}`;
+            document.getElementById("pot_space").innerHTML = `Pot: $${(potMoney * 500).toLocaleString('en', {useGrouping:true})}`;
 
-            document.getElementById("opp_bet_space").innerHTML = `Bet: $ ${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}`;
+            document.getElementById("opp_bet_space").innerHTML = `Bet: $${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}`;
         }
 
         function renderCards(deckType) {
@@ -1704,7 +1704,7 @@
                         card.innerHTML = `<div class="hana_icon">☀️</div><div class="hana_icon">🧧</div><div class="hana_icon">${plant}${plant}</div>`;
                         card.classList.add("hanafuda");
                     }
-                    else if (suit === "March" && value === 5) {
+                    else if (suit === "March" && value === 10) {
                         card.innerHTML = `<div class="hana_empty"></div><div class="hana_icon">🈴</div><div class="hana_icon">${plant}${plant}</div>`;
                         card.classList.add("hanafuda");
                     }
@@ -3205,7 +3205,7 @@
                 document.getElementById("fold_button").style.visibility = "visible";
 
                 reportSpace.innerHTML = ``;
-                reportSpace.innerHTML += `Opponent raises their bet to $ ${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
+                reportSpace.innerHTML += `Opponent raises their bet to $${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
                 if (handDeck.length !== 0) {
                     reportSpace.innerHTML += `Current Hand: `;
                     for (i = 0; i < handDeck.length; i++) {
@@ -3251,7 +3251,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 2;
@@ -3335,7 +3335,7 @@
                 document.getElementById("fold_button").style.visibility = "visible";
 
                 reportSpace.innerHTML = ``;
-                reportSpace.innerHTML += `Opponent raises their bet to $ ${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
+                reportSpace.innerHTML += `Opponent raises their bet to $${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
                 if (handDeck.length !== 0) {
                     reportSpace.innerHTML += `Current Hand: `;
                     for (i = 0; i < handDeck.length; i++) {
@@ -3389,7 +3389,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 4;
@@ -3736,7 +3736,7 @@
                 document.getElementById("fold_button").style.visibility = "visible";
 
                 reportSpace.innerHTML = ``;
-                reportSpace.innerHTML += `Opponent raises their bet to $ ${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
+                reportSpace.innerHTML += `Opponent raises their bet to $${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
                 if (handDeck.length !== 0) {
                     reportSpace.innerHTML += `Current Hand: `;
                     for (i = 0; i < handDeck.length; i++) {
@@ -3782,7 +3782,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 2;
@@ -4184,7 +4184,7 @@
                 document.getElementById("fold_button").style.visibility = "visible";
 
                 reportSpace.innerHTML = ``;
-                reportSpace.innerHTML += `Opponent raises their bet to $ ${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
+                reportSpace.innerHTML += `Opponent raises their bet to $${(oppBetMoney * 500).toLocaleString('en', {useGrouping:true})}<br><br>`;
                 if (handDeck.length !== 0) {
                     reportSpace.innerHTML += `Current Hand: `;
                     for (i = 0; i < handDeck.length; i++) {
@@ -4230,7 +4230,7 @@
 
                     renderAll();
 
-                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+                    reportSpace.innerHTML = `Opponent folds!<br><br>You take the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
                 }
                 else {
                     stage = 4;
@@ -4592,7 +4592,7 @@
 
             renderAll();
 
-            reportSpace.innerHTML = `You fold!<br><br>Your opponent takes the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
+            reportSpace.innerHTML = `You fold!<br><br>Your opponent takes the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>`;
         }
         
         function flipOpp() {
@@ -5030,13 +5030,13 @@
             reportSpace.innerHTML = ``;
 
             if (winner === "Player") {
-                reportSpace.innerHTML = `You win!<br><br>You take the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
+                reportSpace.innerHTML = `You win!<br><br>You take the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
             }
             else if (winner === "Tie") {
                 reportSpace.innerHTML = `Tie!<br><br>The pot is split and returned to both players</span>!<br><br>Both players hands:<br>${handType}`;
             }
             else {
-                reportSpace.innerHTML = `You lose!<br><br>Your opponent takes the pot of <span class="money">$ ${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
+                reportSpace.innerHTML = `You lose!<br><br>Your opponent takes the pot of <span class="money">$${(reportPot * 500).toLocaleString('en', {useGrouping:true})}</span>!<br><br>Winning Hand:<br>${handType}`;
             }
 
             document.getElementById("newtexhand_button").style.visibility = "visible";
@@ -7864,6 +7864,10 @@
             font-family: Helvetica, Arial, sans-serif;
             margin-left: 5px;
         }
+        .option_space {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
         .option_space span {
             color: white;
             font-family: Helvetica, Arial, sans-serif;
@@ -8158,12 +8162,13 @@
             color: white;
         }
         footer {
+            font-size: 0.8em;
             position:fixed;
             bottom:0;
             width:94%;
-            height:30px;
+            height:60px;
             text-align: justify;
-            color: #555555;
+            color: #4e4e4e;
             z-index: -1;
             font-family: Helvetica, Arial, sans-serif;
         }
