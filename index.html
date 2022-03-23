@@ -609,7 +609,6 @@
             "This hand is pure garbage",
             "I'm not even gonna look at my cards...",
             "Wake me up when this guy places a bet... ZZzzzzZZzzz...",
-            "What a boring game",
             "What a rubbish game",
             "This casino smells funny",
             "I've forgotten how Poker works",
@@ -621,7 +620,8 @@
             "At this rate I'm gonna be betting my kids' college money...",
             "Do they sell sandwiches here?",
             "This is like a Bond movie",
-            "For another dumb web toy, try dayattherac.es"
+            "For another dumb web toy, try dayattherac.es",
+            "Send your feedback to @Mr_Misfire on Twitter or email at totallynormalpoker@gmail.com"
         ];
         
         let dialogueStage1 = [
@@ -651,7 +651,6 @@
             "This is trash",
             "This is pure garbage",
             "Wake me up when this guy places a bet... ZZzzzzZZzzz...",
-            "What a boring game",
             "What a rubbish game",
             "This casino smells funny",
             "I've forgotten how Poker works",
@@ -670,7 +669,8 @@
             "This hand was a mistake",
             "I've won this hand for sure",
             "This is like a Bond movie",
-            "For another dumb web toy, try dayattherac.es"
+            "For another dumb web toy, try dayattherac.es",
+            "Send your feedback to @Mr_Misfire on Twitter or email at totallynormalpoker@gmail.com"
         ];
         
         const dialogueFold = [
@@ -857,8 +857,8 @@
 
         //Enable for console log reporting
         
-        const testLog = true;
-        //const testLog = false;
+        //const testLog = true;
+        const testLog = false;
 
         //Variable for card generation
 
@@ -2995,7 +2995,7 @@
 
             document.getElementById("option_space").style.visibility = "hidden";
 
-            document.getElementById("makebet_button").innerText = "Check";
+            document.getElementById("makebet_button").innerText = "Call";
         }
 
         function drawPairs() {
@@ -3060,7 +3060,7 @@
                 card = hiddenCard;
                 riverDeck.push(card);
                 cardCounter++;
-                document.getElementById("makebet_button").innerText = "Check";
+                document.getElementById("makebet_button").innerText = "Call";
                 document.getElementById("betup_button").style.visibility = "visible";
                 document.getElementById("betdown_button").style.visibility = "visible";
                 document.getElementById("makebet_button").style.visibility = "visible";
@@ -3144,7 +3144,7 @@
                 card = mainDeck.shift();
                 riverDeck.push(card);
                 cardCounter++;
-                document.getElementById("makebet_button").innerText = "Check";
+                document.getElementById("makebet_button").innerText = "Call";
                 document.getElementById("betup_button").style.visibility = "visible";
                 document.getElementById("betdown_button").style.visibility = "visible";
                 document.getElementById("makebet_button").style.visibility = "visible";
@@ -3224,9 +3224,9 @@
                     console.log("Opp Eval - Bet");
                 }
 
-                let multi = Math.random() * ((confCheck / 17) * 0.5);
+                let multi = Math.random() * ((confCheck / 18) * 0.5);
                 if (testLog === true) {
-                    console.log("((confCheck / 17) * 0.5): " + ((confCheck / 17) * 0.5));
+                    console.log("((confCheck / 18) * 0.5): " + ((confCheck / 18) * 0.5));
                     console.log("Multiplier: " + multi);
                 }
 
@@ -3382,9 +3382,9 @@
                     console.log("Opp Eval - Bet");
                 }
 
-                let multi = Math.random() * (confCheck / 17);
+                let multi = Math.random() * (confCheck / 18);
                 if (testLog === true) {
-                    console.log("confCheck / 17: " + (confCheck / 17));
+                    console.log("confCheck / 18: " + (confCheck / 18));
                     console.log("Multiplier: " + multi);
                 }
 
@@ -3599,7 +3599,7 @@
 
             document.getElementById("option_space").style.visibility = "hidden";
 
-            document.getElementById("makebet_button").innerText = "Check";
+            document.getElementById("makebet_button").innerText = "Call";
         }
         
         function drawFiveHand() {
@@ -3671,7 +3671,7 @@
                 card = hiddenCard;
                 oppShowDeck.push(card);
                 cardCounter++;
-                document.getElementById("makebet_button").innerText = "Check";
+                document.getElementById("makebet_button").innerText = "Call";
                 document.getElementById("betup_button").style.visibility = "visible";
                 document.getElementById("betdown_button").style.visibility = "visible";
                 document.getElementById("makebet_button").style.visibility = "visible";
@@ -3822,9 +3822,9 @@
                     console.log("Opp Eval - Bet");
                 }
 
-                let multi = Math.random() * ((confCheck / 17) * 0.5);
+                let multi = Math.random() * ((confCheck / 18) * 0.5);
                 if (testLog === true) {
-                    console.log("((confCheck / 17) * 0.5): " + ((confCheck / 17) * 0.5));
+                    console.log("((confCheck / 18) * 0.5): " + ((confCheck / 18) * 0.5));
                     console.log("Multiplier: " + multi);
                 }
 
@@ -4241,7 +4241,7 @@
                 document.getElementById("buttons2").style.display = "block";
                 document.getElementById("buttons3").style.display = "none";
 
-                document.getElementById("makebet_button").innerText = "Check";
+                document.getElementById("makebet_button").innerText = "Call";
                 document.getElementById("betup_button").style.visibility = "visible";
                 document.getElementById("betdown_button").style.visibility = "visible";
                 document.getElementById("makebet_button").style.visibility = "visible";
@@ -4300,9 +4300,9 @@
                     console.log("Opp Eval - Bet");
                 }
 
-                let multi = Math.random() * (confCheck / 17);
+                let multi = Math.random() * (confCheck / 18);
                 if (testLog === true) {
-                    console.log("confCheck / 17: " + (confCheck / 17));
+                    console.log("confCheck / 18: " + (confCheck / 18));
                     console.log("Multiplier: " + multi);
                 }
 
@@ -4835,12 +4835,24 @@
                 playerMoney += -1;
                 betMoney += 1;
             }
-            if (betMoney > oppBetMoney) {
+            
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
+            
             renderMoney();
         }
 
@@ -4849,11 +4861,21 @@
                 playerMoney += -2;
                 betMoney += 2;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
@@ -4863,11 +4885,21 @@
                 playerMoney += -20;
                 betMoney += 20;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
@@ -4877,11 +4909,21 @@
                 betMoney += playerMoney;
                 playerMoney = 0;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
@@ -4891,64 +4933,116 @@
                 playerMoney += 1;
                 betMoney += -1;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
         
         function decreaseBet2() {
             if (betMoney > 1 && betMoney !== oppBetMoney) {
-                playerMoney += 2;
-                betMoney += -2;
+                if (betMoney - oppBetMoney > 1) {
+                    playerMoney += 2;
+                    betMoney += -2;
+                }
+                else {
+                    playerMoney += 1;
+                    betMoney += -1;
+                }
             }
-            else if (betMoney > 0 && betMoney !== oppBetMoney) {
-                let betVal = betMoney;
-                betMoney = 0;
-                playerMoney += betVal;
+            else if (betMoney > 0 && betMoney !== oppBetMoney && oppBetMoney < 2) {
+                playerMoney += 1;
+                betMoney += -1;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
 
         function decreaseBet3() {
             if (betMoney > 19 && betMoney !== oppBetMoney) {
-                playerMoney += 20;
-                betMoney += -20;
+                if (betMoney - oppBetMoney > 19) {
+                    playerMoney += 20;
+                    betMoney += -20;
+                }
+                else {
+                    let val = 20 - oppBetMoney;
+                    playerMoney += val;
+                    betMoney += 0 - val;
+                }
             }
             else if (betMoney > 0 && betMoney !== oppBetMoney) {
-                let betVal = betMoney;
-                betMoney = 0;
-                playerMoney += betVal;
+                let val = betMoney - oppBetMoney;
+                playerMoney += val;
+                betMoney += 0 - val;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
 
         function clearBet() {
             if (betMoney > 0 && betMoney !== oppBetMoney) {
-                let betVal = betMoney;
-                betMoney = 0;
+                let betVal = betMoney - oppBetMoney;
+                betMoney = oppBetMoney;
                 playerMoney += betVal;
             }
-            if (betMoney > oppBetMoney) {
+            if (stage === 1 || stage === 3) {
+                if (betMoney > oppBetMoney) {
                 document.getElementById("makebet_button").innerText = "Raise";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Check";
+                }
             }
             else {
-                document.getElementById("makebet_button").innerText = "Check";
+                if (betMoney > oppBetMoney) {
+                document.getElementById("makebet_button").innerText = "Bet";
+                }
+                else {
+                    document.getElementById("makebet_button").innerText = "Call";
+                }
             }
             renderMoney();
         }
@@ -5735,13 +5829,13 @@
                 return bestHand;
                 }
             catch {
-                console.error("#-Error detected in hand calculation!-#");
                 let cards = JSON.parse(errorPool);
                 console.log(cards);
                 let message = "Error detected in hand calculation! Sorry!\n\nIf you can, please report the card pool below to @Mr_Misfire on Twitter or email at totallynormalpoker@gmail.com\n\nCard Pool:\n"
                 for (i = 0; i < cards.length; i++) {
                     message += cards[i].Name + "\n";
                 }
+                console.error(message);
                 alert(message);
             }
         }
@@ -8702,6 +8796,7 @@
         }
         .betval_button {
             width: 60px;
+            margin-bottom: 3px;
         }
         .betall_button {
             width: 80px;
@@ -8710,7 +8805,7 @@
             margin: 0 0 0 0;
         }
         .hold_button {
-            margin: 0 0 0 5px;
+            margin: 0 0 3px 5px;
         }
         .holddeal_button {
             margin: 0 0 0 0;
@@ -9148,7 +9243,7 @@
             <button id="betdown3_button" class="betval_button" type="button" onclick="decreaseBet3();" style="visibility: hidden;">-$10K</button>
             <button id="clearbet_button" class="betall_button" type="button" onclick="clearBet();" style="visibility: hidden;">Clear Bet</button>
             <br>
-            <button id="makebet_button" class="bet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Check</button>
+            <button id="makebet_button" class="bet_button" type="button" onclick="checkRaise();" style="visibility: hidden;">Call</button>
             <button id="fold_button" class="bet_button" type="button" onclick="foldHand();" style="visibility: hidden;">Fold</button>
         </div>
         <div id="buttons3" class="buttons" style="display: none">
