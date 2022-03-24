@@ -30,6 +30,8 @@
         //~Switched names and text rendering of Justice and Strength tarot cards to reflect image rendering
         //~Tweaked increase bet buttons
         //~Tweaked issue with folding after making a bet
+        //~Added scroll to winning hand after reveal
+        //~Tweaked formatting for report space
         
         //I went into this project with a very dumb idea and absolutely no clue how to write code for evaluating poker hands. I've come out with a very dumb game and code that can kinda evaluate poker hands most of the time. It's actually been very fun to write and test, even if it was a pain to debug at times due to my lack of annotation. Hope you enjoy!
 
@@ -5675,7 +5677,7 @@
                 dialogueSpace.innerText = dialogueBroke[randDialoge];
             }
 
-            document.getElementById("win_window").scrollIntoView({behavior: "smooth"});
+            document.getElementById("win_window").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         }
         
         //Hand Calculation
