@@ -5075,7 +5075,7 @@
             for (i = lastHand; i < currentHand; i++) {
                 let card = handDeck[i];
                 if ((document.getElementById("ult1_select").value === "desperado" || document.getElementById("ult2_select").value === "desperado") && card.Value === "Q" && card.Suit === "diamonds") {
-                    report.innerHTML += `<span class="report_ult">Desperado: Your luck's run out! Queen of Hearts counts as a Joker and grants no successes</span><br>`;
+                    report.innerHTML += `<span class="report_ult">Desperado: Your luck's run out! Queen of Diamonds counts as a Joker and grants no successes</span><br>`;
                 }
                 else if ((document.getElementById("ult1_select").value === "desperado" || document.getElementById("ult2_select").value === "desperado") && card.Value === "A" && card.Suit === "spades") {
                     report.innerHTML += `<span class="report_ult">Desperado: Lucky you! Ace of Spades counts as a Crit</span><br>`;
