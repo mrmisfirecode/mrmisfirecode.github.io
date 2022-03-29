@@ -2086,7 +2086,7 @@
         //Edits the text for the Spend Drive button when a piloting flip is made and the Floor It ultimate is enabled
         function driveButton() {
             let button = document.getElementById("drive_button");
-            if ((document.getElementById("flip1_select").value === "piloting" || document.getElementById("flip2_select").value === "piloting") && (document.getElementById("ult1_select").value === "floorit" || document.getElementById("floorit").value === "piloting")) {
+            if ((document.getElementById("flip1_select").value === "piloting" || document.getElementById("flip2_select").value === "piloting") && (document.getElementById("ult1_select").value === "floorit" || document.getElementById("ult2_select").value === "floorit")) {
                 button.innerText = "Floor It: Spend Drive (+2)"
             }
             else {
