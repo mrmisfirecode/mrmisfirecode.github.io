@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Story Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="JavaScript">
+        function showInput() {
+            if (document.getElementById("name_input").value != 0){
+            let nameinputorig = document.getElementById("name_input").value
+
+            function capitalizeFirstLetter(string) {
+             return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+            
+            let nameinputupper = capitalizeFirstLetter(nameinputorig)
+
+            const namereplace = document.querySelector("p.span");
+
+            const namereplaceneutral = document.querySelectorAll(".name_display");
+            const namereplacesweetie = document.querySelectorAll(".name_display_sweetie");
+            const namereplacehoney = document.querySelectorAll(".name_display_honey");
+            const namereplacebaby = document.querySelectorAll(".name_display_baby");
+            const namereplacebabythat = document.querySelectorAll(".name_display_baby_that");
+            const namereplacebabyellipsis = document.querySelectorAll(".name_display_baby_ellipsis");
+            const namereplacefor = document.querySelectorAll(".name_display_for");
+            const namereplaceprobably = document.querySelectorAll(".name_display_probably");
+            const namereplacecomma = document.querySelectorAll(".name_display_comma");
+
+            namereplaceneutral.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper;
+            })
+            namereplacesweetie.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper + ", Sweetie";
+            })
+            namereplacehoney.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper + ", Honey";
+            })
+            namereplacebaby.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper + ", Baby";
+            })
+            namereplacebabythat.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper + "! Baby that";
+            })
+            namereplacebabyellipsis.forEach(namereplace => {
+                
+                namereplace.innerText = nameinputupper + "... Baby...";
+            })
+            namereplacefor.forEach(namereplace => {
+                
+                namereplace.innerText = " for " + nameinputupper;
+            })
+            namereplaceprobably.forEach(namereplace => {
+                
+                namereplace.innerText = "Probably " + nameinputupper;
+            })
+            namereplacecomma.forEach(namereplace => {
+                
+                namereplace.innerText = ", " + nameinputupper;
+            })
+            }
+            else {
+                
+            }
+        }
+    </script>
+    <script>
+        window.onload = function fn(){
+        var def = document.getElementById("default");
+        var s1 = document.getElementById("story1");
+        var s2 = document.getElementById("story2");
+        var s3 = document.getElementById("story3");
+        var s4 = document.getElementById("story4");
+        var s5 = document.getElementById("story5");
+        var s6 = document.getElementById("story6");
+        var s7 = document.getElementById("story7");
+        var s8 = document.getElementById("story8");
+        var s9 = document.getElementById("story9");
+        var s10 = document.getElementById("story10");
+        var a = document.getElementById("story_select");
+    
+        def.style.display = "block";
+        s1.style.display = "none";
+        s2.style.display = "none";
+        s3.style.display = "none";
+        s4.style.display = "none";
+        s5.style.display = "none";
+        s6.style.display = "none";
+        s7.style.display = "none";
+        s8.style.display = "none";
+        s9.style.display = "none";
+        s10.style.display = "none";
+    
+        a.addEventListener('change', function(){
+            if (a.value == 1){
+                def.style.display = "none";
+                s1.style.display = "block";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 2){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "block";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 3){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "block";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 4){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "block";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 5){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "block";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 6){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "block";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 7){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "block";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 8){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "block";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+            else if (a.value == 9){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "block";
+                s10.style.display = "none";
+            }
+            else if (a.value == 10){
+                def.style.display = "none";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "block";
+            }
+            else{
+                def.style.display = "block";
+                s1.style.display = "none";
+                s2.style.display = "none";
+                s3.style.display = "none";
+                s4.style.display = "none";
+                s5.style.display = "none";
+                s6.style.display = "none";
+                s7.style.display = "none";
+                s8.style.display = "none";
+                s9.style.display = "none";
+                s10.style.display = "none";
+            }
+    
+          });
+    
+        }
+    </script>
+    <style>
+        body {
+            background-color:#202020;
+            color: white;
+            font-family: Verdana;
+        }
+        p {
+            text-align: justify;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            max-height: 600px;
+        }
+        header{
+            max-width: 100%;
+            width: 800px;
+            margin: 10px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        section.nameinput{
+            max-width: 100%;
+            width: 800px;
+            margin: 10px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        main {
+            max-width: 100%;
+            width: 800px;
+            margin: 40px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        footer {
+            max-width: 100%;
+            width: 800px;
+            margin: 80px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+            font-size: 0.8em;
+        }
+        span.subtitle {
+            font-size: 0.4em;
+        }
+        h2 {
+            font-size: 2.5em;
+        }
+        label.namelabel {
+            font-size: 0.8em;
+        }
+        a:link {
+            color: lightskyblue;
+        }
+        a:visited {
+            color: plum;
+        }
+        a:hover {
+            color: lavender;
+        }
+        p.dm1 {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            background-color: #585858;
+            max-width: 300px;
+            padding: 10px;
+            border-radius: 4px;
+            width: max-content;
+        }
+        p.dm2 {
+            margin-left: auto; 
+            margin-right: 0;
+            text-align: right;
+            font-family: Helvetica, sans-serif;
+            background-color: #3559af;
+            max-width: 300px;
+            padding: 10px;
+            border-radius: 4px;
+            width: max-content;
+        }
+        @media screen and (max-width: 600px){
+        header{
+            margin: 10px auto;
+            padding: 0 5px;
+        }
+        #story_select{
+            width:300px;   
+        }
+        section.nameinput{
+            margin: 10px auto;
+            padding: 0 5px;
+        }
+        main {
+            padding: 0 5px;
+        }
+        footer {
+            padding: 0 5px;
+        }
+        img {
+            max-height: 400px;
+        }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Story Archive</h1>
+    <form>
+        <label for="story_select">Story:</label>
+        <br>
+        <select name="story_select" id="story_select">
+            <option value="empty">-Select-</option>
+            <option value="1">Test 1</option>
+            <option value="2">Test 2</option>
+            <option value="3">Test 3</option>
+            <option value="4">Test 4</option>
+            <option value="5">Test 5</option>
+            <option value="6">Test 6</option>
+            <option value="7">Test 7</option>
+            <option value="8">Test 8</option>
+            <option value="9">Test 9</option>
+            <option value="10">Test 10</option>
+        </select>
+        <br>
+        <br>
+    </form>
+</header>
+<section class=nameinput>
+    <div>
+        
+        <label class=namelabel for="name_input">Optional - Insert yourself into the story by inputting your name and clicking 'Apply':</label>
+        <br>
+        <input type="text" id="name_input" name="name_input" placeholder="First name...">
+        <br>
+        <br>
+        
+        <button type="button" onclick="showInput();">Apply</button>
+        <br>
+        <br>
+        <hr>
+    </div>
+</section>
+<main>
+    <div id="default">
+        <p><i>##LATEST STORY## (February 2022)<br>~Placeholder~</i></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget egestas ante, a ullamcorper arcu. Sed consequat quis nisl et tincidunt. Curabitur efficitur auctor elementum. Aliquam ac blandit diam, a posuere erat. Ut enim quam, gravida luctus ullamcorper aliquam, semper vitae massa. In quis nulla fringilla, suscipit lorem sit amet, ultricies lorem. Praesent eu mi eget sem faucibus interdum. Nulla ut sagittis lectus.</p>
+        <p>I hope you enjoy!</p>
+        <p>If you want to message me directly you can find me on Reddit <a href="https://www.google.com/">here</a>.</p>
+        <br>
+        <img src="" alt="">
+        <br>
+        <p><i>Placeholder</i></p>
+    </div>
+    <div id="story1">
+        <p><i>Originally published: July 2018</i></p>
+        <p>The following is a testing page for formatting HTML.</p>
+        <p>Enjoy!</p>
+        <br>
+        <h2><span class=subtitle>Testing</span><br>Format</h2>
+        <br>
+        <p><b>*Bzzzzz* *Bzzzzz*</b></p>
+        <p>You hear the familiar sound of a new message as you step out the shower, amplified by your phone vibrating against the bathroom counter. Taking a moment to dry your hand first, you swat at your phone's screen to wake it up. The lock screen presents a single message from your girlfriend:</p>
+        <p class=dm1>getting ready now, should be there in an hour 😉</p>
+        <p class=dm2>Perfect</p>
+        <p>you text back, grinning in anticipation for the night ahead. Due to the both of you living with your parents, finding some alone time with your girlfriend was a luxury you weren't often afforded.</p>
+        <p class=dm2>Might run to the store to get snacks, you want anything?</p>
+        <p>You wipe the condensation from the foggy bathroom mirror and comb the damp hair from your face as you start making yourself presentable. A little later, you hear your phone buzz again:</p>
+        <p class=dm1>popcorn for the movie pls!</p>
+        <p class=dm1>not that we'll be paying too much attention 👅</p>
+    </div>
+    <div id="story2">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story3">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story4">
+        <p>I hope you enjoy and have a happy holiday!</p>
+    </div>
+    <div id="story5">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story6">
+        <p>Enjoy! And happy Mother's Day!</p>
+    </div>
+    <div id="story7">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story8">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story9">
+        <p>Enjoy!</p>
+    </div>
+    <div id="story10">
+        <p>Enjoy!</p>
+    </div>
+</main>
+<footer>
+    <p>All stories are written by me. Find me on Reddit <a href="https://www.google.com/">here</a>!</p>
+</footer>
+</body>
+</html>
