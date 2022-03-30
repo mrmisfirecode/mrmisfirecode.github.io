@@ -220,8 +220,8 @@
             ["Stoic", "Ex-Cop"],
             ["Slick", "Gambler"],
             ["Dutiful", "Test Subject"],
-            ["Dense", "Moron"],
-            ["Hard-Boiled", "Revolutionary"],
+            ["Dense", "Artist"],
+            ["Hard-boiled", "Revolutionary"],
             ["Sweet", "Gangster"],
             ["Adorable", "Tourist"],
             ["Hot-Blooded", "Smuggler"],
@@ -350,6 +350,36 @@
             ["Prison", " Asteroid"],
             ["Clown", " Asteroid"],
             ["Werewolf", " Dimension"]
+        ]
+
+        const planetsBook = [
+            "Baccus 12",
+            "Bear Planet",
+            "Cotillion 2007",
+            "Double Tokyo",
+            "Earth (Deceased)",
+            "ESG Battlemoon IV",
+            "Mongo 3",
+            "Neo New Boston",
+            "Planet Corp",
+            "Planetopia",
+            "Puppulon",
+            "Radical Jupiter",
+            "Real Actual Heaven",
+            "Slurpury",
+            "Space America",
+            "Space Piratopia",
+            "Space Canada",
+            "The First Deathmension",
+            "The Hive 'Burbs",
+            "The Infinite Soup",
+            "The Party Realm",
+            "The Robosphere",
+            "The Void",
+            "The Wizard Dimension",
+            "Weedulon 420",
+            "Whogivesacrap XII",
+            "WizU"
         ]
 
         const species = [
@@ -2140,20 +2170,42 @@
 
         function randomHome() {
             let array;
-            if (Math.random() > 0.5) {
+            let num1;
+            let num2;
+            let section1;
+            let section2;
+            let planet1;
+            let planet2;
+            let randHome = Math.floor((Math.random() * 3));
+            if (randHome === 0) {
                 array = planetsTrad;
+                num1 = Math.floor(Math.random() * array.length);
+                num2 = Math.floor(Math.random() * array.length);
+
+                section1 = array[num1];
+                section2 = array[num2];
+
+                planet1 = section1[0];
+                planet2 = section2[1];
+            }
+            else if (randHome === 2) {
+                array = planetsFun;
+                num1 = Math.floor(Math.random() * array.length);
+                num2 = Math.floor(Math.random() * array.length);
+
+                section1 = array[num1];
+                section2 = array[num2];
+
+                planet1 = section1[0];
+                planet2 = section2[1];
             }
             else {
-                array = planetsFun;
+                array = planetsBook;
+                num1 = Math.floor(Math.random() * array.length);
+                planet1 = array[num1];
+                planet2 = "";
             }
-            let num1 = Math.floor(Math.random() * array.length);
-            let num2 = Math.floor(Math.random() * array.length);
-
-            let section1 = array[num1];
-            let section2 = array[num2];
-
-            let planet1 = section1[0];
-            let planet2 = section2[1];
+            
 
             document.getElementById("home_input").value = planet1 + planet2;
             saveInput();
