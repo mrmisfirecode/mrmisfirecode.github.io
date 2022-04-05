@@ -408,6 +408,26 @@
             document.getElementById("enc12_input").value = saveData.Encounter12Input;
         }
 
+        function importSheet() {
+            try {
+                let saveData = document.getElementById("import_box").value;
+                localStorage.setItem("data", saveData);
+                loadInput();
+            }
+            catch(err) {
+                document.getElementById("import_box").value = "Invalid import!";
+            }
+        }
+
+        function exportSheet() {
+            if (localStorage.getItem("data")) {
+                document.getElementById("import_box").value = localStorage.getItem("data");
+            }
+            else {
+                document.getElementById("import_box").value = "Sheet empty!";
+            }
+        }
+
     </script>
     <style>
         body {
@@ -723,6 +743,18 @@
                 <input class="stat" type="number" id="enc12_input" name="enc12_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
         </div>
+        <br>
+        <br>
+        <div class="inventory_container">
+            <div class="inventory">
+                <button type="button" onclick="exportSheet();">Export Character Sheet</button>
+                <button type="button" onclick="importSheet();">Import Character Sheet</button>
+                <br>
+                <textarea class="inventory_input" id="import_box" name="import_box" style="resize: none;" rows="8" cols="38"></textarea>
+            </div>
+        </div>
+        <br>
+        <br>
     </main>
     <footer>
         <p>© Callum West 2022</p> 
