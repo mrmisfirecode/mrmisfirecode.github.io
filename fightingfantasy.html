@@ -23,6 +23,66 @@
 
         let encounterCount = 1;
 
+        function validateValues() {
+            
+        }
+
+        function clearAll() {
+            localStorage.clear();
+            location.reload();
+        }
+
+        function clearEncounter() {
+            document.getElementById("enc1_skill_input").value = 0;
+            document.getElementById("enc1_stamina_input").value = 0;
+            document.getElementById("enc1_input").value = 0;
+
+            document.getElementById("enc2_skill_input").value = 0;
+            document.getElementById("enc2_stamina_input").value = 0;
+            document.getElementById("enc2_input").value = 0;
+
+            document.getElementById("enc3_skill_input").value = 0;
+            document.getElementById("enc3_stamina_input").value = 0;
+            document.getElementById("enc3_input").value = 0;
+
+            document.getElementById("enc4_skill_input").value = 0;
+            document.getElementById("enc4_stamina_input").value = 0;
+            document.getElementById("enc4_input").value = 0;
+
+            document.getElementById("enc5_skill_input").value = 0;
+            document.getElementById("enc5_stamina_input").value = 0;
+            document.getElementById("enc5_input").value = 0;
+
+            document.getElementById("enc6_skill_input").value = 0;
+            document.getElementById("enc6_stamina_input").value = 0;
+            document.getElementById("enc6_input").value = 0;
+
+            document.getElementById("enc7_skill_input").value = 0;
+            document.getElementById("enc7_stamina_input").value = 0;
+            document.getElementById("enc7_input").value = 0;
+
+            document.getElementById("enc8_skill_input").value = 0;
+            document.getElementById("enc8_stamina_input").value = 0;
+            document.getElementById("enc8_input").value = 0;
+
+            document.getElementById("enc9_skill_input").value = 0;
+            document.getElementById("enc9_stamina_input").value = 0;
+            document.getElementById("enc9_input").value = 0;
+
+            document.getElementById("enc10_skill_input").value = 0;
+            document.getElementById("enc10_stamina_input").value = 0;
+            document.getElementById("enc10_input").value = 0;
+
+            document.getElementById("enc11_skill_input").value = 0;
+            document.getElementById("enc11_stamina_input").value = 0;
+            document.getElementById("enc11_input").value = 0;
+
+            document.getElementById("enc12_skill_input").value = 0;
+            document.getElementById("enc12_stamina_input").value = 0;
+            document.getElementById("enc12_input").value = 0;
+            saveInput();
+        }
+
         function playerOneDice() {
             let dice = Math.floor(Math.random() * 6) + 1;
             let symbol = diceSymbol[dice];
@@ -70,6 +130,7 @@
         }
 
         function saveInput() {
+            validateValues();
             let sheetObj = {
                 Name: document.getElementById("name_input").value,
                 InitSkill: document.getElementById("init_skill_input").value,
@@ -84,17 +145,138 @@
                 Potions: document.getElementById("potions_input").value,
                 Equipment: document.getElementById("equipment_input").value,
                 Notes: document.getElementById("notes_input").value,
-                Encounters: encounterArray
+
+                Encounter1Skill: document.getElementById("enc1_skill_input").value,
+                Encounter1Stamina: document.getElementById("enc1_stamina_input").value,
+                Encounter1Input: document.getElementById("enc1_input").value,
+
+                Encounter2Skill: document.getElementById("enc2_skill_input").value,
+                Encounter2Stamina: document.getElementById("enc2_stamina_input").value,
+                Encounter2Input: document.getElementById("enc2_input").value,
+
+                Encounter3Skill: document.getElementById("enc3_skill_input").value,
+                Encounter3Stamina: document.getElementById("enc3_stamina_input").value,
+                Encounter3Input: document.getElementById("enc3_input").value,
+
+                Encounter4Skill: document.getElementById("enc4_skill_input").value,
+                Encounter4Stamina: document.getElementById("enc4_stamina_input").value,
+                Encounter4Input: document.getElementById("enc4_input").value,
+
+                Encounter5Skill: document.getElementById("enc5_skill_input").value,
+                Encounter5Stamina: document.getElementById("enc5_stamina_input").value,
+                Encounter5Input: document.getElementById("enc5_input").value,
+
+                Encounter6Skill: document.getElementById("enc6_skill_input").value,
+                Encounter6Stamina: document.getElementById("enc6_stamina_input").value,
+                Encounter6Input: document.getElementById("enc6_input").value,
+
+                Encounter7Skill: document.getElementById("enc7_skill_input").value,
+                Encounter7Stamina: document.getElementById("enc7_stamina_input").value,
+                Encounter7Input: document.getElementById("enc7_input").value,
+
+                Encounter8Skill: document.getElementById("enc8_skill_input").value,
+                Encounter8Stamina: document.getElementById("enc8_stamina_input").value,
+                Encounter8Input: document.getElementById("enc8_input").value,
+
+                Encounter9Skill: document.getElementById("enc9_skill_input").value,
+                Encounter9Stamina: document.getElementById("enc9_stamina_input").value,
+                Encounter9Input: document.getElementById("enc9_input").value,
+
+                Encounter10Skill: document.getElementById("enc10_skill_input").value,
+                Encounter10Stamina: document.getElementById("enc10_stamina_input").value,
+                Encounter10Input: document.getElementById("enc10_input").value,
+
+                Encounter11Skill: document.getElementById("enc11_skill_input").value,
+                Encounter11Stamina: document.getElementById("enc11_stamina_input").value,
+                Encounter11Input: document.getElementById("enc11_input").value,
+
+                Encounter12Skill: document.getElementById("enc12_skill_input").value,
+                Encounter12Stamina: document.getElementById("enc12_stamina_input").value,
+                Encounter12Input: document.getElementById("enc12_input").value
             }
-            //let exportSpace = document.getElementById("import_box");
-            //exportSpace.value = JSON.stringify(sheetObj);
+            let saveData = JSON.stringify(sheetObj);
+            localStorage.setItem("data", saveData);
+            //console.log(localStorage.getItem("data"));
         }
+
+        function loadInput() {
+            let saveData = JSON.parse(localStorage.getItem("data"));
+            console.log(saveData);
+
+            document.getElementById("name_input").value = saveData.Name;
+            document.getElementById("init_skill_input").value = saveData.InitSkill;
+            document.getElementById("skill_input").value = saveData.Skill;
+            document.getElementById("init_stamina_input").value = saveData.InitStamina;
+            document.getElementById("stamina_input").value = saveData.Stamina;
+            document.getElementById("init_luck_input").checked = saveData.InitLuck;
+            document.getElementById("luck_input").value = saveData.Luck;
+            document.getElementById("provisions_input").value = saveData.Provisions;
+            document.getElementById("gold_input").value = saveData.Gold;
+            document.getElementById("jewels_input").value = saveData.Jewels;
+            document.getElementById("potions_input").value = saveData.Potions;
+            document.getElementById("equipment_input").value = saveData.Equipment;
+            document.getElementById("notes_input").value = saveData.Notes;
+
+            document.getElementById("enc1_skill_input").value = saveData.Encounter1Skill;
+            document.getElementById("enc1_stamina_input").value = saveData.Encounter1Stamina;
+            document.getElementById("enc1_input").value = saveData.Encounter1Input;
+
+            document.getElementById("enc2_skill_input").value = saveData.Encounter2Skill;
+            document.getElementById("enc2_stamina_input").value = saveData.Encounter2Stamina;
+            document.getElementById("enc2_input").value = saveData.Encounter2Input;
+
+            document.getElementById("enc3_skill_input").value = saveData.Encounter3Skill;
+            document.getElementById("enc3_stamina_input").value = saveData.Encounter3Stamina;
+            document.getElementById("enc3_input").value = saveData.Encounter3Input;
+
+            document.getElementById("enc4_skill_input").value = saveData.Encounter4Skill;
+            document.getElementById("enc4_stamina_input").value = saveData.Encounter4Stamina;
+            document.getElementById("enc4_input").value = saveData.Encounter4Input;
+
+            document.getElementById("enc5_skill_input").value = saveData.Encounter5Skill;
+            document.getElementById("enc5_stamina_input").value = saveData.Encounter5Stamina;
+            document.getElementById("enc5_input").value = saveData.Encounter5Input;
+
+            document.getElementById("enc6_skill_input").value = saveData.Encounter6Skill;
+            document.getElementById("enc6_stamina_input").value = saveData.Encounter6Stamina;
+            document.getElementById("enc6_input").value = saveData.Encounter6Input;
+
+            document.getElementById("enc7_skill_input").value = saveData.Encounter7Skill;
+            document.getElementById("enc7_stamina_input").value = saveData.Encounter7Stamina;
+            document.getElementById("enc7_input").value = saveData.Encounter7Input;
+
+            document.getElementById("enc8_skill_input").value = saveData.Encounter8Skill;
+            document.getElementById("enc8_stamina_input").value = saveData.Encounter8Stamina;
+            document.getElementById("enc8_input").value = saveData.Encounter8Input;
+
+            document.getElementById("enc9_skill_input").value = saveData.Encounter9Skill;
+            document.getElementById("enc9_stamina_input").value = saveData.Encounter9Stamina;
+            document.getElementById("enc9_input").value = saveData.Encounter9Input;
+
+            document.getElementById("enc10_skill_input").value = saveData.Encounter10Skill;
+            document.getElementById("enc10_stamina_input").value = saveData.Encounter10Stamina;
+            document.getElementById("enc10_input").value = saveData.Encounter10Input;
+
+            document.getElementById("enc11_skill_input").value = saveData.Encounter11Skill;
+            document.getElementById("enc11_stamina_input").value = saveData.Encounter11Stamina;
+            document.getElementById("enc11_input").value = saveData.Encounter11Input;
+
+            document.getElementById("enc12_skill_input").value = saveData.Encounter12Skill;
+            document.getElementById("enc12_stamina_input").value = saveData.Encounter12Stamina;
+            document.getElementById("enc12_input").value = saveData.Encounter12Input;
+        }
+
     </script>
     <style>
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color:#202020;
             color: white;
+            max-width: 100%;
+            width: 550px;
+            margin: 40px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
         }
         .text_input {
             background-color: lightgray;
@@ -109,6 +291,9 @@
         .num_stat {
             float: left;
             margin: 10px;
+            background-color:#3d3d3d;
+            padding: 5px;
+            border-radius: 4px;
         }
         .stat_label {
             font-size: 1.2em;
@@ -151,6 +336,9 @@
         .inventory {
             float: left;
             margin: 10px;
+            background-color:#3d3d3d;
+            padding: 5px;
+            border-radius: 4px;
         }
         .inventory_input {
             background-color: lightgray;
@@ -163,6 +351,9 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 2em;
             font-weight: bold;
+            height: 50px;
+            line-height: 50px;
+            margin-left: 30px;
         }
         .report_dice {
             font-weight: normal;
@@ -173,6 +364,11 @@
         .report_result_monster {
             color: red;
         }
+        .dice_space {
+            background-color:#3d3d3d;
+            padding: 5px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -180,6 +376,9 @@
         <h1>Title</h1>
     </header>
     <main>
+        <button type="button" onclick="clearAll();">Clear All</button>
+        <br>
+        <br>
         <label class="name_label" for="name_input">Adventurer's Name:</label>
         <br>
         <input class="text_input" type="text" id="name_input" maxlength="40" onblur="saveInput();">
@@ -245,21 +444,25 @@
                 <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
             </div>
         </div>
-        <label class="stat_label">Player Dice</label>
+        <div class="dice_space">
+            <label class="stat_label">Player Dice</label>
+            <br>
+            <button type="button" onclick="playerOneDice();">🎲</button>
+            <button type="button" onclick="playerTwoDice();">🎲🎲</button>
+            <button type="button" onclick="playerCombat();">Combat</button>
+            <div class="report" id="player_report_space"></div>
+        </div>
         <br>
-        <button type="button" onclick="playerOneDice();">🎲</button>
-        <button type="button" onclick="playerTwoDice();">🎲🎲</button>
-        <button type="button" onclick="playerCombat();">Combat</button>
-        <div class="report" id="player_report_space"></div>
-        <br>
-        <label class="stat_label">Monster Dice</label>
-        <br>
-        <button type="button" onclick="monsterOneDice();">🎲</button>
-        <button type="button" onclick="monsterTwoDice();">🎲🎲</button>
-        <button type="button" onclick="monsterCombat();">Combat</button>
-        <label class="init_label" for="monster_skill_input">Monster Skill: </label>
-        <input class="init_stat" type="number" id="monster_skill_input" name="monster_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-        <div class="report" id="monster_report_space"></div>
+        <div class="dice_space">
+            <label class="stat_label">Monster Dice</label>
+            <br>
+            <button type="button" onclick="monsterOneDice();">🎲</button>
+            <button type="button" onclick="monsterTwoDice();">🎲🎲</button>
+            <button type="button" onclick="monsterCombat();">Combat</button>
+            <label class="init_label" for="monster_skill_input">Monster Skill: </label>
+            <input class="init_stat" type="number" id="monster_skill_input" name="monster_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            <div class="report" id="monster_report_space"></div>
+        </div>
         <br>
         <label class="stat_label">Encounters</label>
         <button type="button" onclick="clearEncounter();">Clear Encounters</button>
@@ -385,6 +588,10 @@
         }
         else {
             console.log("Compatible browser detected");
+        }
+
+        if (localStorage.getItem("data")) {
+            loadInput();
         }
     </script>
 </body>
