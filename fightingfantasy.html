@@ -16,7 +16,7 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>Document</title>
+    <title>Fighting Fantasy Adventure Sheet</title>
     <script language="JavaScript">
 
         const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
@@ -24,70 +24,138 @@
         let encounterCount = 1;
 
         function validateValues() {
-            //Name: document.getElementById("name_input").value
+            let initSkill = document.getElementById("init_skill_input");
+            if (initSkill.value === "") {
+                initSkill.value = 0;
+            }
+            else if (initSkill.value < 0) {
+                initSkill.value = 0;
+            }
+            else if (initSkill.value > 99) {
+                initSkill.value = 99;
+            }
 
-            /*
-            InitSkill: document.getElementById("init_skill_input").value,
-            Skill: document.getElementById("skill_input").value,
-            InitStamina: document.getElementById("init_stamina_input").value,
-            Stamina: document.getElementById("stamina_input").value,
-            InitLuck: document.getElementById("init_luck_input").checked,
-            Luck: document.getElementById("luck_input").value,
-            Provisions: document.getElementById("provisions_input").value,
-            Gold: document.getElementById("gold_input").value,
-            Jewels: document.getElementById("jewels_input").value,
-            Potions: document.getElementById("potions_input").value,
-            Equipment: document.getElementById("equipment_input").value,
-            Notes: document.getElementById("notes_input").value,
+            let skill = document.getElementById("skill_input");
+            if (skill.value === "") {
+                skill.value = 0;
+            }
+            else if (skill.value < 0) {
+                skill.value = 0;
+            }
+            else if (skill.value > 99) {
+                skill.value = 99;
+            }
 
-            Encounter1Skill: document.getElementById("enc1_skill_input").value,
-            Encounter1Stamina: document.getElementById("enc1_stamina_input").value,
-            Encounter1Input: document.getElementById("enc1_input").value,
+            let initStamina = document.getElementById("init_stamina_input");
+            if (initStamina.value === "") {
+                initStamina.value = 0;
+            }
+            else if (initStamina.value < 0) {
+                initStamina.value = 0;
+            }
+            else if (initStamina.value > 99) {
+                initStamina.value = 99;
+            }
 
-            Encounter2Skill: document.getElementById("enc2_skill_input").value,
-            Encounter2Stamina: document.getElementById("enc2_stamina_input").value,
-            Encounter2Input: document.getElementById("enc2_input").value,
+            let stamina = document.getElementById("stamina_input");
+            if (stamina.value === "") {
+                stamina.value = 0;
+            }
+            else if (stamina.value < 0) {
+                stamina.value = 0;
+            }
+            else if (stamina.value > 99) {
+                stamina.value = 99;
+            }
 
-            Encounter3Skill: document.getElementById("enc3_skill_input").value,
-            Encounter3Stamina: document.getElementById("enc3_stamina_input").value,
-            Encounter3Input: document.getElementById("enc3_input").value,
+            let initLuck = document.getElementById("init_luck_input");
+            if (initLuck.value === "") {
+                initLuck.value = 0;
+            }
+            else if (initLuck.value < 0) {
+                initLuck.value = 0;
+            }
+            else if (initLuck.value > 99) {
+                initLuck.value = 99;
+            }
 
-            Encounter4Skill: document.getElementById("enc4_skill_input").value,
-            Encounter4Stamina: document.getElementById("enc4_stamina_input").value,
-            Encounter4Input: document.getElementById("enc4_input").value,
+            let luck = document.getElementById("luck_input");
+            if (luck.value === "") {
+                luck.value = 0;
+            }
+            else if (luck.value < 0) {
+                luck.value = 0;
+            }
+            else if (luck.value > 99) {
+                luck.value = 99;
+            }
 
-            Encounter5Skill: document.getElementById("enc5_skill_input").value,
-            Encounter5Stamina: document.getElementById("enc5_stamina_input").value,
-            Encounter5Input: document.getElementById("enc5_input").value,
+            let provisions = document.getElementById("provisions_input");
+            if (provisions.value === "") {
+                provisions.value = 0;
+            }
+            else if (provisions.value < 0) {
+                provisions.value = 0;
+            }
+            else if (provisions.value > 99) {
+                provisions.value = 99;
+            }
 
-            Encounter6Skill: document.getElementById("enc6_skill_input").value,
-            Encounter6Stamina: document.getElementById("enc6_stamina_input").value,
-            Encounter6Input: document.getElementById("enc6_input").value,
+            let gold = document.getElementById("gold_input");
+            if (gold.value === "") {
+                gold.value = 0;
+            }
+            else if (gold.value < 0) {
+                gold.value = 0;
+            }
+            else if (gold.value > 999) {
+                gold.value = 999;
+            }
 
-            Encounter7Skill: document.getElementById("enc7_skill_input").value,
-            Encounter7Stamina: document.getElementById("enc7_stamina_input").value,
-            Encounter7Input: document.getElementById("enc7_input").value,
+            for (i = 0; i < 12; i++) {
 
-            Encounter8Skill: document.getElementById("enc8_skill_input").value,
-            Encounter8Stamina: document.getElementById("enc8_stamina_input").value,
-            Encounter8Input: document.getElementById("enc8_input").value,
+                let num = i + 1;
 
-            Encounter9Skill: document.getElementById("enc9_skill_input").value,
-            Encounter9Stamina: document.getElementById("enc9_stamina_input").value,
-            Encounter9Input: document.getElementById("enc9_input").value,
+                let input = "enc" + num + "_skill_input";
 
-            Encounter10Skill: document.getElementById("enc10_skill_input").value,
-            Encounter10Stamina: document.getElementById("enc10_stamina_input").value,
-            Encounter10Input: document.getElementById("enc10_input").value,
+                let encounterSkill = document.getElementById(input);
+                if (encounterSkill.value === "") {
+                    encounterSkill.value = 0;
+                }
+                else if (encounterSkill.value < 0) {
+                    encounterSkill.value = 0;
+                }
+                else if (encounterSkill.value > 99) {
+                    encounterSkill.value = 99;
+                }
 
-            Encounter11Skill: document.getElementById("enc11_skill_input").value,
-            Encounter11Stamina: document.getElementById("enc11_stamina_input").value,
-            Encounter11Input: document.getElementById("enc11_input").value,
+                input = "enc" + num + "_stamina_input";
 
-            Encounter12Skill: document.getElementById("enc12_skill_input").value,
-            Encounter12Stamina: document.getElementById("enc12_stamina_input").value,
-            Encounter12Input: document.getElementById("enc12_input").value
-            */
+                let encounterStamina = document.getElementById(input);
+                if (encounterStamina.value === "") {
+                    encounterStamina.value = 0;
+                }
+                else if (encounterStamina.value < 0) {
+                    encounterStamina.value = 0;
+                }
+                else if (encounterStamina.value > 99) {
+                    encounterStamina.value = 99;
+                }
+
+                input = "enc" + num + "_input";
+
+                let encounterInput = document.getElementById(input);
+                if (encounterInput.value === "") {
+                    encounterInput.value = 0;
+                }
+                else if (encounterInput.value < 0) {
+                    encounterInput.value = 0;
+                }
+                else if (encounterInput.value > 99) {
+                    encounterInput.value = 99;
+                }
+
+            }
             
         }
 
