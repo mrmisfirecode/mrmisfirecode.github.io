@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Callum West">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:url" content=""/>
+    <title>Document</title>
+    <script language="JavaScript">
+
+        const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
+
+        let encounterCount = 1;
+
+        function playerOneDice() {
+            let dice = Math.floor(Math.random() * 6) + 1;
+            let symbol = diceSymbol[dice];
+            document.getElementById("player_report_space").innerHTML = `<span class="report_dice">${symbol}</span><span> = </span><span class="report_result_player">${dice}</span>`;
+        }
+
+        function playerTwoDice() {
+            let dice1 = Math.floor(Math.random() * 6) + 1;
+            let dice2 = Math.floor(Math.random() * 6) + 1;
+            let symbol1 = diceSymbol[dice1];
+            let symbol2 = diceSymbol[dice2];
+            document.getElementById("player_report_space").innerHTML = `<span class="report_dice">${symbol1}</span><span> + </span><span class="report_dice">${symbol2}</span><span> = </span><span class="report_result_player">${dice1 + dice2}</span>`;
+        }
+
+        function playerCombat() {
+            let dice1 = Math.floor(Math.random() * 6) + 1;
+            let dice2 = Math.floor(Math.random() * 6) + 1;
+            let symbol1 = diceSymbol[dice1];
+            let symbol2 = diceSymbol[dice2];
+            let skill = Number(document.getElementById("skill_input").value);
+            document.getElementById("player_report_space").innerHTML = `<span class="report_dice">${symbol1}</span><span> + </span><span class="report_dice">${symbol2}</span><span> + </span><span class="report_mod">${skill}</span><span> = </span><span class="report_result_player">${dice1 + dice2 + skill}</span>`;
+        }
+
+        function monsterOneDice() {
+            let dice = Math.floor(Math.random() * 6) + 1;
+            let symbol = diceSymbol[dice];
+            document.getElementById("monster_report_space").innerHTML = `<span class="report_dice">${symbol}</span><span> = </span><span class="report_result_monster">${dice}</span>`;
+        }
+
+        function monsterTwoDice() {
+            let dice1 = Math.floor(Math.random() * 6) + 1;
+            let dice2 = Math.floor(Math.random() * 6) + 1;
+            let symbol1 = diceSymbol[dice1];
+            let symbol2 = diceSymbol[dice2];
+            document.getElementById("monster_report_space").innerHTML = `<span class="report_dice">${symbol1}</span><span> + </span><span class="report_dice">${symbol2}</span><span> = </span><span class="report_result_monster">${dice1 + dice2}</span>`;
+        }
+
+        function monsterCombat() {
+            let dice1 = Math.floor(Math.random() * 6) + 1;
+            let dice2 = Math.floor(Math.random() * 6) + 1;
+            let symbol1 = diceSymbol[dice1];
+            let symbol2 = diceSymbol[dice2];
+            let skill = Number(document.getElementById("monster_skill_input").value);
+            document.getElementById("monster_report_space").innerHTML = `<span class="report_dice">${symbol1}</span><span> + </span><span class="report_dice">${symbol2}</span><span> + </span><span class="report_mod">${skill}</span><span> = </span><span class="report_result_monster">${dice1 + dice2 + skill}</span>`;
+        }
+
+        function saveInput() {
+            let sheetObj = {
+                Name: document.getElementById("name_input").value,
+                InitSkill: document.getElementById("init_skill_input").value,
+                Skill: document.getElementById("skill_input").value,
+                InitStamina: document.getElementById("init_stamina_input").value,
+                Stamina: document.getElementById("stamina_input").value,
+                InitLuck: document.getElementById("init_luck_input").checked,
+                Luck: document.getElementById("luck_input").value,
+                Provisions: document.getElementById("provisions_input").value,
+                Gold: document.getElementById("gold_input").value,
+                Jewels: document.getElementById("jewels_input").value,
+                Potions: document.getElementById("potions_input").value,
+                Equipment: document.getElementById("equipment_input").value,
+                Notes: document.getElementById("notes_input").value,
+                Encounters: encounterArray
+            }
+            //let exportSpace = document.getElementById("import_box");
+            //exportSpace.value = JSON.stringify(sheetObj);
+        }
+    </script>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color:#202020;
+            color: white;
+        }
+        .text_input {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+        }
+        .num_stats_container {
+            overflow: auto;
+        }
+        .num_stat {
+            float: left;
+            margin: 10px;
+        }
+        .stat_label {
+            font-size: 1.2em;
+        }
+        .init_stat {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            width: 40px;
+        }
+        .stat {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            width: 60px;
+            margin: 5px 0;
+        }
+        .big_stat {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            width: 80px;
+            margin: 5px 0;
+        }
+        .inventory_container {
+            overflow: auto;
+        }
+        .inventory {
+            float: left;
+            margin: 10px;
+        }
+        .inventory_input {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+        }
+        .report {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .report_dice {
+            font-weight: normal;
+        }
+        .report_result_player {
+            color: limegreen;
+        }
+        .report_result_monster {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Title</h1>
+    </header>
+    <main>
+        <label class="name_label" for="name_input">Adventurer's Name:</label>
+        <br>
+        <input class="text_input" type="text" id="name_input" maxlength="40" onblur="saveInput();">
+        <div class="num_stats_container">
+            <div class="num_stat">
+                <label class="stat_label" for="skill_input">Skill</label>
+                <br>
+                <label class="init_label" for="init_skill_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_skill_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="skill_input" name="skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="stat_label" for="stamina_input">Stamina</label>
+                <br>
+                <label class="init_label" for="init_stamina_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_stamina_input" name="init_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="stamina_input" name="stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="stat_label" for="luck_input">Luck</label>
+                <br>
+                <label class="init_label" for="init_luck_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_luck_input" name="init_luck_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="luck_input" name="luck_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+        </div>
+        <div class="num_stats_container">
+            <div class="num_stat">
+                <label class="stat_label" for="provisions_input">Provisions</label>
+                <br>
+                <input class="stat" type="number" id="provisions_input" name="provisions_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="stat_label" for="gold_input">Gold</label>
+                <br>
+                <input class="big_stat" type="number" id="gold_input" name="gold_input" min="0" max="999" onchange="saveInput();" value="0">
+            </div>
+        </div>
+        <div class="inventory_container">
+            <div class="inventory">
+                <label class="stat_label" for="jewels_input">Jewels</label>
+                <br>
+                <textarea class="inventory_input" id="jewels_input" name="jewels_input" rows="4" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+            <div class="inventory">
+                <label class="stat_label" for="potions_input">Potions</label>
+                <br>
+                <textarea class="inventory_input" id="potions_input" name="potions_input" rows="4" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <div class="inventory_container">
+            <div class="inventory">
+                <label class="stat_label" for="equipment_input">Equipment</label>
+                <br>
+                <textarea class="inventory_input" id="equipment_input" name="equipment_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+            <div class="inventory">
+                <label class="stat_label" for="notes_input">Notes</label>
+                <br>
+                <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <label class="stat_label">Player Dice</label>
+        <br>
+        <button type="button" onclick="playerOneDice();">🎲</button>
+        <button type="button" onclick="playerTwoDice();">🎲🎲</button>
+        <button type="button" onclick="playerCombat();">Combat</button>
+        <div class="report" id="player_report_space"></div>
+        <br>
+        <label class="stat_label">Monster Dice</label>
+        <br>
+        <button type="button" onclick="monsterOneDice();">🎲</button>
+        <button type="button" onclick="monsterTwoDice();">🎲🎲</button>
+        <button type="button" onclick="monsterCombat();">Combat</button>
+        <label class="init_label" for="monster_skill_input">Monster Skill: </label>
+        <input class="init_stat" type="number" id="monster_skill_input" name="monster_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+        <div class="report" id="monster_report_space"></div>
+        <br>
+        <label class="stat_label">Encounters</label>
+        <button type="button" onclick="clearEncounter();">Clear Encounters</button>
+        <div class="num_stats_container" id="encounter_space">
+            <div class="num_stat">
+                <label class="init_label" for="enc1_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc1_skill_input" name="enc1_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc1_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc1_stamina_input" name="enc1_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc1_input" name="enc1_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc2_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc2_skill_input" name="enc2_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc2_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc2_stamina_input" name="enc2_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc2_input" name="enc2_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc3_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc3_skill_input" name="enc3_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc3_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc3_stamina_input" name="enc3_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc3_input" name="enc3_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc4_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc4_skill_input" name="enc4_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc4_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc4_stamina_input" name="enc4_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc4_input" name="enc4_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc5_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc5_skill_input" name="enc5_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc5_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc5_stamina_input" name="enc5_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc5_input" name="enc5_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc6_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc6_skill_input" name="enc6_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc6_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc6_stamina_input" name="enc6_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc6_input" name="enc6_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc7_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc7_skill_input" name="enc7_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc7_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc7_stamina_input" name="enc7_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc7_input" name="enc7_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc8_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc8_skill_input" name="enc8_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc8_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc8_stamina_input" name="enc8_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc8_input" name="enc8_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc9_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc9_skill_input" name="enc9_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc9_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc9_stamina_input" name="enc9_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc9_input" name="enc9_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc10_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc10_skill_input" name="enc10_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc10_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc10_stamina_input" name="enc10_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc10_input" name="enc10_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc11_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc11_skill_input" name="enc11_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc11_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc11_stamina_input" name="enc11_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc11_input" name="enc11_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="init_label" for="enc12_skill_input">Monster Skill: </label>
+                <input class="init_stat" type="number" id="enc12_skill_input" name="enc12_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="enc12_stamina_input">Monster Stamina: </label>
+                <input class="init_stat" type="number" id="enc12_stamina_input" name="enc12_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="enc12_input" name="enc12_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© Callum West 2022</p> 
+    </footer>
+    <script>
+        //Internet Explorer detection
+        if (window.document.documentMode) {
+            console.log("Incompatible browser detected");
+            alert("Sorry! This browser is not supported.");
+        }
+        else {
+            console.log("Compatible browser detected");
+        }
+    </script>
+</body>
+</html>
