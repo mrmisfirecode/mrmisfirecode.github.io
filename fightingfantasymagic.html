@@ -16,7 +16,7 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>Fighting Fantasy Adventure Sheet</title>
+    <title>Fighting Fantasy Adventure Sheet - Magic</title>
     <script language="JavaScript">
 
         const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
@@ -90,15 +90,26 @@
                 luck.value = 99;
             }
 
-            let provisions = document.getElementById("provisions_input");
-            if (provisions.value === "") {
-                provisions.value = 0;
+            let initMagic = document.getElementById("init_magic_input");
+            if (initMagic.value === "") {
+                initMagic.value = 0;
             }
-            else if (provisions.value < 0) {
-                provisions.value = 0;
+            else if (initMagic.value < 0) {
+                initMagic.value = 0;
             }
-            else if (provisions.value > 99) {
-                provisions.value = 99;
+            else if (initMagic.value > 99) {
+                initMagic.value = 99;
+            }
+
+            let magic = document.getElementById("magic_input");
+            if (magic.value === "") {
+                magic.value = 0;
+            }
+            else if (magic.value < 0) {
+                magic.value = 0;
+            }
+            else if (magic.value > 99) {
+                magic.value = 99;
             }
 
             let gold = document.getElementById("gold_input");
@@ -271,11 +282,11 @@
                 Stamina: document.getElementById("stamina_input").value,
                 InitLuck: document.getElementById("init_luck_input").checked,
                 Luck: document.getElementById("luck_input").value,
-                Provisions: document.getElementById("provisions_input").value,
+                InitMagic: document.getElementById("init_magic_input").checked,
+                Magic: document.getElementById("magic_input").value,
                 Gold: document.getElementById("gold_input").value,
-                Jewels: document.getElementById("jewels_input").value,
-                Potions: document.getElementById("potions_input").value,
                 Equipment: document.getElementById("equipment_input").value,
+                Spells: document.getElementById("spells_input").value,
                 Notes: document.getElementById("notes_input").value,
 
                 Encounter1Skill: document.getElementById("enc1_skill_input").value,
@@ -341,11 +352,11 @@
             document.getElementById("stamina_input").value = saveData.Stamina;
             document.getElementById("init_luck_input").checked = saveData.InitLuck;
             document.getElementById("luck_input").value = saveData.Luck;
-            document.getElementById("provisions_input").value = saveData.Provisions;
+            document.getElementById("init_magic_input").checked = saveData.InitMagic;
+            document.getElementById("magic_input").value = saveData.Magic;
             document.getElementById("gold_input").value = saveData.Gold;
-            document.getElementById("jewels_input").value = saveData.Jewels;
-            document.getElementById("potions_input").value = saveData.Potions;
             document.getElementById("equipment_input").value = saveData.Equipment;
+            document.getElementById("spells_input").value = saveData.Spells;
             document.getElementById("notes_input").value = saveData.Notes;
 
             document.getElementById("enc1_skill_input").value = saveData.Encounter1Skill;
@@ -511,7 +522,7 @@
 </head>
 <body>
     <header>
-        <h1>Fighting Fantasy Adventure Sheet</h1>
+        <h1>Fighting Fantasy Adventure Sheet - Magic</h1>
     </header>
     <main>
         <button type="button" onclick="clearAll();">Clear All</button>
@@ -548,9 +559,12 @@
         </div>
         <div class="num_stats_container">
             <div class="num_stat">
-                <label class="stat_label" for="provisions_input">Provisions</label>
+                <label class="stat_label" for="magic_input">Magic</label>
                 <br>
-                <input class="stat" type="number" id="provisions_input" name="provisions_input" min="0" max="99" onchange="saveInput();" value="0">
+                <label class="init_label" for="init_magic_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_magic_input" name="init_magic_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="magic_input" name="magic_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
                 <label class="stat_label" for="gold_input">Gold</label>
@@ -560,26 +574,21 @@
         </div>
         <div class="inventory_container">
             <div class="inventory">
-                <label class="stat_label" for="jewels_input">Jewels</label>
-                <br>
-                <textarea class="inventory_input" id="jewels_input" name="jewels_input" rows="4" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
-            </div>
-            <div class="inventory">
-                <label class="stat_label" for="potions_input">Potions</label>
-                <br>
-                <textarea class="inventory_input" id="potions_input" name="potions_input" rows="4" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
-            </div>
-        </div>
-        <div class="inventory_container">
-            <div class="inventory">
                 <label class="stat_label" for="equipment_input">Equipment</label>
                 <br>
                 <textarea class="inventory_input" id="equipment_input" name="equipment_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
             </div>
             <div class="inventory">
+                <label class="stat_label" for="notes_input">Magic Spells</label>
+                <br>
+                <textarea class="inventory_input" id="spells_input" name="spells_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <div class="inventory_container">
+            <div class="inventory">
                 <label class="stat_label" for="notes_input">Notes</label>
                 <br>
-                <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+                <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="38" onblur="saveInput();" style="resize: none;"></textarea>
             </div>
         </div>
         <div class="dice_space">
