@@ -16,7 +16,7 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>Fighting Fantasy Adventure Sheet - Magic</title>
+    <title>Fighting Fantasy Adventure Sheet</title>
     <script language="JavaScript">
 
         const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
@@ -90,15 +90,15 @@
                 luck.value = 99;
             }
 
-            let magic = document.getElementById("magic_input");
-            if (magic.value === "") {
-                magic.value = 0;
+            let provisions = document.getElementById("provisions_input");
+            if (provisions.value === "") {
+                provisions.value = 0;
             }
-            else if (magic.value < 0) {
-                magic.value = 0;
+            else if (provisions.value < 0) {
+                provisions.value = 0;
             }
-            else if (magic.value > 99) {
-                magic.value = 99;
+            else if (provisions.value > 99) {
+                provisions.value = 99;
             }
 
             let gold = document.getElementById("gold_input");
@@ -271,10 +271,11 @@
                 Stamina: document.getElementById("stamina_input").value,
                 InitLuck: document.getElementById("init_luck_input").checked,
                 Luck: document.getElementById("luck_input").value,
-                Magic: document.getElementById("magic_input").value,
+                Provisions: document.getElementById("provisions_input").value,
                 Gold: document.getElementById("gold_input").value,
+                Jewels: document.getElementById("jewels_input").value,
+                Potions: document.getElementById("potions_input").value,
                 Equipment: document.getElementById("equipment_input").value,
-                Spells: document.getElementById("spells_input").value,
                 Notes: document.getElementById("notes_input").value,
 
                 Encounter1Skill: document.getElementById("enc1_skill_input").value,
@@ -340,10 +341,11 @@
             document.getElementById("stamina_input").value = saveData.Stamina;
             document.getElementById("init_luck_input").checked = saveData.InitLuck;
             document.getElementById("luck_input").value = saveData.Luck;
-            document.getElementById("magic_input").value = saveData.Magic;
+            document.getElementById("provisions_input").value = saveData.Provisions;
             document.getElementById("gold_input").value = saveData.Gold;
+            document.getElementById("jewels_input").value = saveData.Jewels;
+            document.getElementById("potions_input").value = saveData.Potions;
             document.getElementById("equipment_input").value = saveData.Equipment;
-            document.getElementById("spells_input").value = saveData.Spells;
             document.getElementById("notes_input").value = saveData.Notes;
 
             document.getElementById("enc1_skill_input").value = saveData.Encounter1Skill;
@@ -457,6 +459,16 @@
             text-align: center;
             width: 40px;
         }
+        .crew_stat {
+            background-color: lightgray;
+            border: none;
+            border-radius: 4px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            width: 50px;
+        }
         .stat {
             background-color: lightgray;
             border: none;
@@ -529,63 +541,99 @@
 </head>
 <body>
     <header>
-        <h1>Fighting Fantasy Adventure Sheet - Magic</h1>
+        <h1>Fighting Fantasy Adventure Sheet - Starship</h1>
     </header>
     <main>
         <button type="button" onclick="clearAll();">Clear All</button>
         <br>
         <br>
-        <label class="name_label" for="name_input">Adventurer's Name:</label>
-        <br>
-        <input class="text_input" type="text" id="name_input" maxlength="40" onblur="saveInput();">
         <div class="num_stats_container">
             <div class="num_stat">
-                <label class="stat_label" for="skill_input">Skill</label>
+                <label class="stat_label" for="weapons_input">Weapons</label>
                 <br>
-                <label class="init_label" for="init_skill_input">Initial: </label>
-                <input class="init_stat" type="number" id="init_skill_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <input class="stat" type="number" id="skill_input" name="skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <input class="stat" type="number" id="weapons_input" name="weapons_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="stat_label" for="stamina_input">Stamina</label>
+                <label class="stat_label" for="shields_input">Shields</label>
                 <br>
-                <label class="init_label" for="init_stamina_input">Initial: </label>
-                <input class="init_stat" type="number" id="init_stamina_input" name="init_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <input class="stat" type="number" id="stamina_input" name="stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <input class="stat" type="number" id="shields_input" name="shields_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
                 <label class="stat_label" for="luck_input">Luck</label>
-                <br>
-                <label class="init_label" for="init_luck_input">Initial: </label>
-                <input class="init_stat" type="number" id="init_luck_input" name="init_luck_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="luck_input" name="luck_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
         </div>
         <div class="num_stats_container">
             <div class="num_stat">
-                <label class="stat_label" for="magic_input">Magic</label>
+                <label class="stat_label">Captain</label>
                 <br>
-                <input class="stat" type="number" id="magic_input" name="magic_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-            <div class="num_stat">
-                <label class="stat_label" for="gold_input">Gold</label>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <input class="big_stat" type="number" id="gold_input" name="gold_input" min="0" max="999" onchange="saveInput();" value="0">
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
         </div>
-        <div class="inventory_container">
-            <div class="inventory">
-                <label class="stat_label" for="equipment_input">Equipment</label>
+        <div class="num_stats_container">
+            <div class="num_stat">
+                <label class="stat_label">Science Officer*</label>
                 <br>
-                <textarea class="inventory_input" id="equipment_input" name="equipment_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="inventory">
-                <label class="stat_label" for="notes_input">Magic Spells</label>
+            <div class="num_stat">
+                <label class="stat_label">Medical Officer*</label>
                 <br>
-                <textarea class="inventory_input" id="spells_input" name="spells_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+        </div>
+        <div class="num_stats_container">
+            <div class="num_stat">
+                <label class="stat_label">Engineering Officer*</label>
+                <br>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="stat_label">Security Officer</label>
+                <br>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+        </div>
+        <div>*Takes a -3 skill penalty when in combat</div>
+        <div class="num_stats_container">
+            <div class="num_stat">
+                <label class="stat_label">Security Guard 1</label>
+                <br>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+            </div>
+            <div class="num_stat">
+                <label class="stat_label">Security Guard 2</label>
+                <br>
+                <label class="init_label" for="captain_skill_input">Skill: </label>
+                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <label class="init_label" for="captain_stamina_input">Stamina: </label>
+                <input class="crew_stat" type="number" id="captain_stamina_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
         </div>
         <div class="inventory_container">
@@ -754,6 +802,7 @@
         }
 
         if (localStorage.getItem("data")) {
+            console.log("Hope");
             loadInput();
         }
     </script>
