@@ -16,7 +16,7 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>Fighting Fantasy Adventure Sheet - Starship</title>
+    <title>Fighting Fantasy Adventure Sheet - Fear</title>
     <script language="JavaScript">
 
         const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
@@ -24,26 +24,81 @@
         let encounterCount = 1;
 
         function validateValues() {
-            let weapons = document.getElementById("weapons_input");
-            if (weapons.value === "") {
-                weapons.value = 0;
+            let initSkill = document.getElementById("init_skill_input");
+            if (initSkill.value === "") {
+                initSkill.value = 0;
             }
-            else if (weapons.value < 0) {
-                weapons.value = 0;
+            else if (initSkill.value < 0) {
+                initSkill.value = 0;
             }
-            else if (weapons.value > 99) {
-                weapons.value = 99;
+            else if (initSkill.value > 99) {
+                initSkill.value = 99;
             }
 
-            let shields = document.getElementById("shields_input");
-            if (shields.value === "") {
-                shields.value = 0;
+            let skill = document.getElementById("skill_input");
+            if (skill.value === "") {
+                skill.value = 0;
             }
-            else if (shields.value < 0) {
-                shields.value = 0;
+            else if (skill.value < 0) {
+                skill.value = 0;
             }
-            else if (shields.value > 99) {
-                shields.value = 99;
+            else if (skill.value > 99) {
+                skill.value = 99;
+            }
+
+            let maxFear = document.getElementById("max_fear_input");
+            if (maxFear.value === "") {
+                maxFear.value = 0;
+            }
+            else if (maxFear.value < 0) {
+                maxFear.value = 0;
+            }
+            else if (maxFear.value > 99) {
+                maxFear.value = 99;
+            }
+
+            let fear = document.getElementById("fear_input");
+            if (fear.value === "") {
+                fear.value = 0;
+            }
+            else if (fear.value < 0) {
+                fear.value = 0;
+            }
+            else if (fear.value > 99) {
+                fear.value = 99;
+            }
+
+            let initStamina = document.getElementById("init_stamina_input");
+            if (initStamina.value === "") {
+                initStamina.value = 0;
+            }
+            else if (initStamina.value < 0) {
+                initStamina.value = 0;
+            }
+            else if (initStamina.value > 99) {
+                initStamina.value = 99;
+            }
+
+            let stamina = document.getElementById("stamina_input");
+            if (stamina.value === "") {
+                stamina.value = 0;
+            }
+            else if (stamina.value < 0) {
+                stamina.value = 0;
+            }
+            else if (stamina.value > 99) {
+                stamina.value = 99;
+            }
+
+            let initLuck = document.getElementById("init_luck_input");
+            if (initLuck.value === "") {
+                initLuck.value = 0;
+            }
+            else if (initLuck.value < 0) {
+                initLuck.value = 0;
+            }
+            else if (initLuck.value > 99) {
+                initLuck.value = 99;
             }
 
             let luck = document.getElementById("luck_input");
@@ -55,160 +110,6 @@
             }
             else if (luck.value > 99) {
                 luck.value = 99;
-            }
-
-            let captainSkill = document.getElementById("captain_skill_input");
-            if (captainSkill.value === "") {
-                captainSkill.value = 0;
-            }
-            else if (captainSkill.value < 0) {
-                captainSkill.value = 0;
-            }
-            else if (captainSkill.value > 99) {
-                captainSkill.value = 99;
-            }
-
-            let captainStamina = document.getElementById("captain_stamina_input");
-            if (captainStamina.value === "") {
-                captainStamina.value = 0;
-            }
-            else if (captainStamina.value < 0) {
-                captainStamina.value = 0;
-            }
-            else if (captainStamina.value > 99) {
-                captainStamina.value = 99;
-            }
-
-            let scienceSkill = document.getElementById("science_skill_input");
-            if (scienceSkill.value === "") {
-                scienceSkill.value = 0;
-            }
-            else if (scienceSkill.value < 0) {
-                scienceSkill.value = 0;
-            }
-            else if (scienceSkill.value > 99) {
-                scienceSkill.value = 99;
-            }
-
-            let scienceStamina = document.getElementById("science_stamina_input");
-            if (scienceStamina.value === "") {
-                scienceStamina.value = 0;
-            }
-            else if (scienceStamina.value < 0) {
-                scienceStamina.value = 0;
-            }
-            else if (scienceStamina.value > 99) {
-                scienceStamina.value = 99;
-            }
-
-            let medicalSkill = document.getElementById("medical_skill_input");
-            if (medicalSkill.value === "") {
-                medicalSkill.value = 0;
-            }
-            else if (medicalSkill.value < 0) {
-                medicalSkill.value = 0;
-            }
-            else if (medicalSkill.value > 99) {
-                medicalSkill.value = 99;
-            }
-
-            let medicalStamina = document.getElementById("medical_stamina_input");
-            if (medicalStamina.value === "") {
-                medicalStamina.value = 0;
-            }
-            else if (medicalStamina.value < 0) {
-                medicalStamina.value = 0;
-            }
-            else if (medicalStamina.value > 99) {
-                medicalStamina.value = 99;
-            }
-
-            let engineeringSkill = document.getElementById("engineering_skill_input");
-            if (engineeringSkill.value === "") {
-                engineeringSkill.value = 0;
-            }
-            else if (engineeringSkill.value < 0) {
-                engineeringSkill.value = 0;
-            }
-            else if (engineeringSkill.value > 99) {
-                engineeringSkill.value = 99;
-            }
-
-            let engineeringStamina = document.getElementById("engineering_stamina_input");
-            if (engineeringStamina.value === "") {
-                engineeringStamina.value = 0;
-            }
-            else if (engineeringStamina.value < 0) {
-                engineeringStamina.value = 0;
-            }
-            else if (engineeringStamina.value > 99) {
-                engineeringStamina.value = 99;
-            }
-
-            let securitySkill = document.getElementById("security_skill_input");
-            if (securitySkill.value === "") {
-                securitySkill.value = 0;
-            }
-            else if (securitySkill.value < 0) {
-                securitySkill.value = 0;
-            }
-            else if (securitySkill.value > 99) {
-                securitySkill.value = 99;
-            }
-
-            let securityStamina = document.getElementById("security_stamina_input");
-            if (securityStamina.value === "") {
-                securityStamina.value = 0;
-            }
-            else if (securityStamina.value < 0) {
-                securityStamina.value = 0;
-            }
-            else if (securityStamina.value > 99) {
-                securityStamina.value = 99;
-            }
-
-            let guard1Skill = document.getElementById("guard1_skill_input");
-            if (guard1Skill.value === "") {
-                guard1Skill.value = 0;
-            }
-            else if (guard1Skill.value < 0) {
-                guard1Skill.value = 0;
-            }
-            else if (guard1Skill.value > 99) {
-                guard1Skill.value = 99;
-            }
-
-            let guard1Stamina = document.getElementById("guard1_stamina_input");
-            if (guard1Stamina.value === "") {
-                guard1Stamina.value = 0;
-            }
-            else if (guard1Stamina.value < 0) {
-                guard1Stamina.value = 0;
-            }
-            else if (guard1Stamina.value > 99) {
-                guard1Stamina.value = 99;
-            }
-
-            let guard2Skill = document.getElementById("guard2_skill_input");
-            if (guard2Skill.value === "") {
-                guard2Skill.value = 0;
-            }
-            else if (guard2Skill.value < 0) {
-                guard2Skill.value = 0;
-            }
-            else if (guard2Skill.value > 99) {
-                guard2Skill.value = 99;
-            }
-
-            let guard2Stamina = document.getElementById("guard2_stamina_input");
-            if (guard2Stamina.value === "") {
-                guard2Stamina.value = 0;
-            }
-            else if (guard2Stamina.value < 0) {
-                guard2Stamina.value = 0;
-            }
-            else if (guard2Stamina.value > 99) {
-                guard2Stamina.value = 99;
             }
 
             for (i = 0; i < 12; i++) {
@@ -333,36 +234,7 @@
             let dice2 = Math.floor(Math.random() * 6) + 1;
             let symbol1 = diceSymbol[dice1];
             let symbol2 = diceSymbol[dice2];
-            let skill;
-            let selector = document.getElementById("crew_select_input")
-            if (selector.value === "captain") {
-                skill = Number(document.getElementById("captain_skill_input").value);
-                console.log("Captain!");
-            }
-            else if (selector.value === "science") {
-                skill = Number(document.getElementById("science_skill_input").value) - 3;
-                console.log("Science!");
-            }
-            else if (selector.value === "medical") {
-                skill = Number(document.getElementById("medical_skill_input").value) - 3;
-                console.log("Medical!");
-            }
-            else if (selector.value === "engineering") {
-                skill = Number(document.getElementById("engineering_skill_input").value) - 3;
-                console.log("Engineering!");
-            }
-            else if (selector.value === "security") {
-                skill = Number(document.getElementById("security_skill_input").value);
-                console.log("Security!");
-            }
-            else if (selector.value === "guard1") {
-                skill = Number(document.getElementById("guard1_skill_input").value);
-                console.log("Guard 1!");
-            }
-            else if (selector.value === "guard2") {
-                skill = Number(document.getElementById("guard2_skill_input").value);
-                console.log("Guard 2!");
-            }
+            let skill = Number(document.getElementById("skill_input").value);
             document.getElementById("player_report_space").innerHTML = `<span class="report_dice">${symbol1}</span><span> + </span><span class="report_dice">${symbol2}</span><span> + </span><span class="report_mod">${skill}</span><span> = </span><span class="report_result_player">${dice1 + dice2 + skill}</span>`;
         }
 
@@ -392,23 +264,15 @@
         function saveInput() {
             validateValues();
             let sheetObj = {
-                Weapons: document.getElementById("weapons_input").value,
-                Shields: document.getElementById("shields_input").value,
+                InitSkill: document.getElementById("init_skill_input").value,
+                Skill: document.getElementById("skill_input").value,
+                MaxFear: document.getElementById("max_fear_input").value,
+                Fear: document.getElementById("fear_input").value,
+                InitStamina: document.getElementById("init_stamina_input").value,
+                Stamina: document.getElementById("stamina_input").value,
+                InitLuck: document.getElementById("init_luck_input").checked,
                 Luck: document.getElementById("luck_input").value,
-                CaptainSkill: document.getElementById("captain_skill_input").value,
-                CaptainStamina: document.getElementById("captain_stamina_input").value,
-                ScienceSkill: document.getElementById("science_skill_input").value,
-                ScienceStamina: document.getElementById("science_stamina_input").value,
-                MedicalSkill: document.getElementById("medical_skill_input").value,
-                MedicalStamina: document.getElementById("medical_stamina_input").value,
-                EngineeringSkill: document.getElementById("engineering_skill_input").value,
-                EngineeringStamina: document.getElementById("engineering_stamina_input").value,
-                SecuritySkill: document.getElementById("security_skill_input").value,
-                SecurityStamina: document.getElementById("security_stamina_input").value,
-                Guard1Skill: document.getElementById("guard1_skill_input").value,
-                Guard1Stamina: document.getElementById("guard1_stamina_input").value,
-                Guard2Skill: document.getElementById("guard2_skill_input").value,
-                Guard2Stamina: document.getElementById("guard2_stamina_input").value,
+                Equipment: document.getElementById("equipment_input").value,
                 Notes: document.getElementById("notes_input").value,
 
                 Encounter1Skill: document.getElementById("enc1_skill_input").value,
@@ -467,23 +331,15 @@
         function loadInput() {
             let saveData = JSON.parse(localStorage.getItem("data"));
 
-            document.getElementById("weapons_input").value = Weapons;
-            document.getElementById("shields_input").value = Shields;
-            document.getElementById("luck_input").value = Luck;
-            document.getElementById("captain_skill_input").value = CaptainSkill;
-            document.getElementById("captain_stamina_input").value = CaptainStamina;
-            document.getElementById("science_skill_input").value = ScienceSkill;
-            document.getElementById("science_stamina_input").value = ScienceStamina;
-            document.getElementById("medical_skill_input").value = MedicalSkill;
-            document.getElementById("medical_stamina_input").value = MedicalStamina;
-            document.getElementById("engineering_skill_input").value = EngineeringSkill;
-            document.getElementById("engineering_stamina_input").value = EngineeringStamina;
-            document.getElementById("security_skill_input").value = SecuritySkill;
-            document.getElementById("security_stamina_input").value = SecurityStamina;
-            document.getElementById("guard1_skill_input").value = Guard1Skill;
-            document.getElementById("guard1_stamina_input").value = Guard1Stamina;
-            document.getElementById("guard2_skill_input").value = Guard2Skill;
-            document.getElementById("guard2_stamina_input").value = Guard2Stamina;
+            document.getElementById("init_skill_input").value = saveData.InitSkill;
+            document.getElementById("skill_input").value = saveData.Skill;
+            document.getElementById("max_fear_input").value = saveData.MaxFear;
+            document.getElementById("fear_input").value = saveData.Fear;
+            document.getElementById("init_stamina_input").value = saveData.InitStamina;
+            document.getElementById("stamina_input").value = saveData.Stamina;
+            document.getElementById("init_luck_input").checked = saveData.InitLuck;
+            document.getElementById("luck_input").value = saveData.Luck;
+            document.getElementById("equipment_input").value = saveData.Equipment;
             document.getElementById("notes_input").value = saveData.Notes;
 
             document.getElementById("enc1_skill_input").value = saveData.Encounter1Skill;
@@ -584,9 +440,6 @@
             padding: 5px;
             border-radius: 4px;
         }
-        .ship {
-            background-color:#3a415a;
-        }
         .stat_label {
             font-size: 1.2em;
         }
@@ -599,16 +452,6 @@
             font-weight: bold;
             text-align: center;
             width: 40px;
-        }
-        .crew_stat {
-            background-color: lightgray;
-            border: none;
-            border-radius: 4px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 1.4em;
-            font-weight: bold;
-            text-align: center;
-            width: 50px;
         }
         .stat {
             background-color: lightgray;
@@ -682,7 +525,7 @@
 </head>
 <body>
     <header>
-        <h1>Fighting Fantasy Adventure Sheet - Starship</h1>
+        <h1>Fighting Fantasy Adventure Sheet - Fear</h1>
     </header>
     <main>
         <button type="button" onclick="clearAll();">Clear All</button>
@@ -690,98 +533,52 @@
         <br>
         <div class="num_stats_container">
             <div class="num_stat">
-                <label class="stat_label" for="weapons_input">Weapons</label>
+                <label class="stat_label" for="skill_input">Skill</label>
                 <br>
-                <input class="stat" type="number" id="weapons_input" name="weapons_input" min="0" max="99" onchange="saveInput();" value="0">
+                <label class="init_label" for="init_skill_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_skill_input" name="init_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="skill_input" name="skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <div>*Starts at Initial -3</div>
             </div>
             <div class="num_stat">
-                <label class="stat_label" for="shields_input">Shields</label>
+                <label class="stat_label" for="luck_input">Fear</label>
                 <br>
-                <input class="stat" type="number" id="shields_input" name="shields_input" min="0" max="99" onchange="saveInput();" value="0">
+                <label class="init_label" for="max_fear_input">Maximum: </label>
+                <input class="init_stat" type="number" id="max_fear_input" name="max_fear_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
+                <input class="stat" type="number" id="fear_input" name="fear_input" min="0" max="99" onchange="saveInput();" value="0">
+                <div>*Starts at 0</div>
             </div>
+        </div>
+        <div class="num_stats_container">
             <div class="num_stat">
                 <label class="stat_label" for="luck_input">Luck</label>
                 <br>
+                <label class="init_label" for="init_luck_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_luck_input" name="init_luck_input" min="0" max="99" onchange="saveInput();" value="0">
+                <br>
                 <input class="stat" type="number" id="luck_input" name="luck_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-        </div>
-        <div class="num_stats_container">
             <div class="num_stat">
-                <label class="stat_label">Captain</label>
+                <label class="stat_label" for="stamina_input">Stamina</label>
                 <br>
-                <label class="init_label" for="captain_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="captain_skill_input" name="captain_skill_input" min="0" max="99" onchange="saveInput();" value="0">
+                <label class="init_label" for="init_stamina_input">Initial: </label>
+                <input class="init_stat" type="number" id="init_stamina_input" name="init_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="captain_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="captain_stamina_input" name="captain_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-        </div>
-        <div class="num_stats_container">
-            <div class="num_stat">
-                <label class="stat_label">Science Officer*</label>
-                <br>
-                <label class="init_label" for="science_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="science_skill_input" name="science_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="science_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="science_stamina_input" name="science_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-            <div class="num_stat">
-                <label class="stat_label">Medical Officer*</label>
-                <br>
-                <label class="init_label" for="medical_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="medical_skill_input" name="medical_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="medical_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="medical_stamina_input" name="medical_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-        </div>
-        <div class="num_stats_container">
-            <div class="num_stat">
-                <label class="stat_label">Engineering Officer*</label>
-                <br>
-                <label class="init_label" for="engineering_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="engineering_skill_input" name="engineering_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="engineering_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="engineering_stamina_input" name="engineering_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-            <div class="num_stat">
-                <label class="stat_label">Security Officer</label>
-                <br>
-                <label class="init_label" for="security_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="security_skill_input" name="security_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="security_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="security_stamina_input" name="security_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-        </div>
-        <div>*Takes a -3 skill penalty when in combat</div>
-        <div class="num_stats_container">
-            <div class="num_stat">
-                <label class="stat_label">Security Guard 1</label>
-                <br>
-                <label class="init_label" for="guard1_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="guard1_skill_input" name="guard1_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="guard1_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="guard1_stamina_input" name="guard1_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
-            </div>
-            <div class="num_stat">
-                <label class="stat_label">Security Guard 2</label>
-                <br>
-                <label class="init_label" for="guard2_skill_input">Skill: </label>
-                <input class="crew_stat" type="number" id="guard2_skill_input" name="guard2_skill_input" min="0" max="99" onchange="saveInput();" value="0">
-                <br>
-                <label class="init_label" for="guard2_stamina_input">Stamina: </label>
-                <input class="crew_stat" type="number" id="guard2_stamina_input" name="guard2_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
+                <input class="stat" type="number" id="stamina_input" name="stamina_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
         </div>
         <div class="inventory_container">
             <div class="inventory">
+                <label class="stat_label" for="equipment_input">Equipment</label>
+                <br>
+                <textarea class="inventory_input" id="equipment_input" name="equipment_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
+            </div>
+            <div class="inventory">
                 <label class="stat_label" for="notes_input">Notes</label>
                 <br>
-                <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="38" onblur="saveInput();" style="resize: none;"></textarea>
+                <textarea class="inventory_input" id="notes_input" name="notes_input" rows="8" cols="16" onblur="saveInput();" style="resize: none;"></textarea>
             </div>
         </div>
         <div class="dice_space">
@@ -789,17 +586,7 @@
             <br>
             <button type="button" onclick="playerOneDice();">🎲</button>
             <button type="button" onclick="playerTwoDice();">🎲🎲</button>
-            <button type="button" onclick="playerCombat();">Unarmed Combat</button>
-            <label class="init_label" for="crew_select_input">Crew Member: </label>
-            <select class="select_input" name="crew_select_input" id="crew_select_input" onchange="saveInput();">
-                <option id="captain_select" value="captain">Captain</option>
-                <option id="science_select" value="science">Science Officer</option>
-                <option id="medical_select" value="medical">Medical Officer</option>
-                <option id="engineering_select" value="engineering">Engineering Officer</option>
-                <option id="security_select" value="security">Security Officer</option>
-                <option id="guard1_select" value="guard1">Security Guard 1</option>
-                <option id="guard2_select" value="guard2">Security Guard 2</option>
-            </select>
+            <button type="button" onclick="playerCombat();">Combat</button>
             <div class="report" id="player_report_space"></div>
         </div>
         <br>
@@ -808,8 +595,8 @@
             <br>
             <button type="button" onclick="monsterOneDice();">🎲</button>
             <button type="button" onclick="monsterTwoDice();">🎲🎲</button>
-            <button type="button" onclick="monsterCombat();">Unarmed Combat</button>
-            <label class="init_label" for="monster_skill_input">Alien Skill: </label>
+            <button type="button" onclick="monsterCombat();">Combat</button>
+            <label class="init_label" for="monster_skill_input">Monster Skill: </label>
             <input class="init_stat" type="number" id="monster_skill_input" name="monster_skill_input" min="0" max="99" onchange="saveInput();" value="0">
             <div class="report" id="monster_report_space"></div>
         </div>
@@ -817,110 +604,110 @@
         <label class="stat_label">Encounters</label>
         <button type="button" onclick="clearEncounter();">Clear Encounters</button>
         <div class="num_stats_container" id="encounter_space">
-            <div class="num_stat ship">
-                <label class="init_label" for="enc1_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc1_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc1_skill_input" name="enc1_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc1_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc1_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc1_stamina_input" name="enc1_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc1_input" name="enc1_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="num_stat ship">
-                <label class="init_label" for="enc2_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc2_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc2_skill_input" name="enc2_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc2_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc2_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc2_stamina_input" name="enc2_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc2_input" name="enc2_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="num_stat ship">
-                <label class="init_label" for="enc3_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc3_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc3_skill_input" name="enc3_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc3_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc3_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc3_stamina_input" name="enc3_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc3_input" name="enc3_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="num_stat ship">
-                <label class="init_label" for="enc4_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc4_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc4_skill_input" name="enc4_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc4_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc4_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc4_stamina_input" name="enc4_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc4_input" name="enc4_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="num_stat ship">
-                <label class="init_label" for="enc5_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc5_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc5_skill_input" name="enc5_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc5_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc5_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc5_stamina_input" name="enc5_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc5_input" name="enc5_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
-            <div class="num_stat ship">
-                <label class="init_label" for="enc6_skill_input">Alien Weapons: </label>
+            <div class="num_stat">
+                <label class="init_label" for="enc6_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc6_skill_input" name="enc6_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc6_stamina_input">Alien Shields: </label>
+                <label class="init_label" for="enc6_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc6_stamina_input" name="enc6_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc6_input" name="enc6_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc7_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc7_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc7_skill_input" name="enc7_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc7_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc7_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc7_stamina_input" name="enc7_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc7_input" name="enc7_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc8_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc8_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc8_skill_input" name="enc8_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc8_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc8_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc8_stamina_input" name="enc8_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc8_input" name="enc8_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc9_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc9_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc9_skill_input" name="enc9_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc9_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc9_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc9_stamina_input" name="enc9_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc9_input" name="enc9_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc10_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc10_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc10_skill_input" name="enc10_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc10_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc10_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc10_stamina_input" name="enc10_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc10_input" name="enc10_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc11_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc11_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc11_skill_input" name="enc11_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc11_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc11_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc11_stamina_input" name="enc11_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc11_input" name="enc11_input" min="0" max="99" onchange="saveInput();" value="0">
             </div>
             <div class="num_stat">
-                <label class="init_label" for="enc12_skill_input">Alien Skill: </label>
+                <label class="init_label" for="enc12_skill_input">Monster Skill: </label>
                 <input class="init_stat" type="number" id="enc12_skill_input" name="enc12_skill_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
-                <label class="init_label" for="enc12_stamina_input">Alien Stamina: </label>
+                <label class="init_label" for="enc12_stamina_input">Monster Stamina: </label>
                 <input class="init_stat" type="number" id="enc12_stamina_input" name="enc12_stamina_input" min="0" max="99" onchange="saveInput();" value="0">
                 <br>
                 <input class="stat" type="number" id="enc12_input" name="enc12_input" min="0" max="99" onchange="saveInput();" value="0">
@@ -953,7 +740,6 @@
         }
 
         if (localStorage.getItem("data")) {
-            console.log("Hope");
             loadInput();
         }
     </script>
