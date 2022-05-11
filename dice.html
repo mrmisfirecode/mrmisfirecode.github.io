@@ -16,12 +16,13 @@
     <meta name="twitter:title" content=""/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content=""/>
-    <title>DiceDevil</title>
+    <title>Dice Buddy</title>
     <script language="JavaScript">
 
         const diceSymbol = ["","⚀","⚁","⚂","⚃","⚄","⚅"];
 
         let encounterCount = 1;
+        let extraCount = 0;
 
         function validateValues() {
             let diceCount = document.getElementById("dice_count");
@@ -81,6 +82,11 @@
             reportSpace.innerHTML += `<span class="report_mod">${modVal}</span>`;
             reportSpace.innerHTML += " = ";
             reportSpace.innerHTML += `<span class="report_total">${totalVal}</span>`;
+        }
+
+        function addDice() {
+            let extraSpace = document.getElementById("extra_space");
+            extraSpace.innerHTML += `<input class="input" type="number" id="extra_count" name="dice_count" min="1" max="999" onchange="validateValues();" value="1">d<input class="input face" type="number" id="face_count" name="face_count" min="2" max="999" onchange="validateValues();" value="6">`
         }
 
     </script>
@@ -150,14 +156,16 @@
 </head>
 <body>
     <header>
-        <h1>DiceDevil</h1>
+        <h1>Dice Buddy</h1>
     </header>
     <main>
         <button type="button" onclick="rollDice();">Roll 🎲</button>
+        <button type="button" onclick="addDice();">Add 🎲</button>
         <br>
         <br>
         <input class="input" type="number" id="dice_count" name="dice_count" min="1" max="999" onchange="validateValues();" value="1">d<input class="input face" type="number" id="face_count" name="face_count" min="2" max="999" onchange="validateValues();" value="6">
-         + 
+        +
+        <span id="extra_space"></span>
         <input class="input mod" type="number" id="modifier" name="modifier" onchange="validateValues();" value="0" min="-999" max="999">
         <br>
         <br>

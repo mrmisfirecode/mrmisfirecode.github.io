@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Callum West">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:url" content=""/>
+    <title>List Buddy</title>
+    <script language="JavaScript">
+        let list = [
+            {Title:"New List",Items:[{Item:"",Checked:false},{Item:"",Checked:false},{Item:"",Checked:false}]}
+        ];
+
+        function renderList() {
+            saveValues();
+            let listSpace = document.getElementById("list_container");
+            let listNum = list.length;
+            listSpace.innerHTML = ``;
+            for (i = 0; i < listNum; i++) {
+                listSpace.innerHTML += `<div id="list${i}" class="list_group">
+
+                    <span id="list${i}_remove" onclick="removeList(${i});">🗑️</span>
+                    
+                    <input class="list_title" type="text" id="list${i}_title" name="list${i}_title" maxlength="40" value="${list[i].Title}" onblur="updateTitle(${i});">
+                    
+                    </div>`;
+                    
+                let itemNum = list[i].Items.length;
+                //console.log(itemNum);
+                let listId = "list" + i;
+                let itemSpace = document.getElementById(listId);
+                for (x = 0; x < itemNum; x++) {
+                    //console.log(list[i].Items[x].Checked);
+                    itemSpace.innerHTML += `<div id="list${i}item${x}">
+
+                        <span id="list${i}item${x}_remove" onclick="removeItem(${i},${x});">🗑️</span>
+                        
+                        ${x+1}.
+
+                        <input class="item_text" type="text" id="list${i}item${x}_text" name="list${i}item${x}_text" maxlength="40" value="${list[i].Items[x].Item}" onblur="updateItemText(${i},${x});">
+
+                        <input class="list_check" type="checkbox" id="list${i}item${x}_check" name="list${i}item${x}_check" onchange="updateItemCheck(${i},${x});">
+                        
+                        </div>`;
+                    
+                }
+                itemSpace.innerHTML += `<div id="list${i}_additem" class="add_plus" onclick="addItem(${i});">➕</div>`;
+            }
+
+            for (i = 0; i < listNum; i++) {
+                let itemNum = list[i].Items.length;
+                for (x = 0; x < itemNum; x++) {
+                    let itemId = "list" + i + "item" + x + "_text";
+                    let checkId = "list" + i + "item" + x + "_check";
+                    //console.log(checkId);
+                    if (list[i].Items[x].Checked === true) {
+                        document.getElementById(itemId).classList.add("strike");
+                        document.getElementById(checkId).checked = true;
+                    }
+                    else {
+                        document.getElementById(checkId).checked = false;
+                    }
+                }
+            }
+        }
+
+        function newList() {
+            let array = {Title:"New List",Items:[{Item:"",Checked:false}]};
+            list.push(array);
+            //console.log(list);
+            renderList();
+        }
+
+        function removeList(listNum) {
+            //console.log(listNum);
+            //console.log(list[listNum]);
+            list.splice(listNum,1);
+            //console.log(list);
+            renderList();
+        }
+
+        function addItem(listNum) {
+            let item = {Item:"",Checked:false};
+            console.log()
+            list[listNum].Items.push(item);
+            //console.log(list);
+            renderList();
+        }
+
+        function updateTitle(listNum) {
+            let listId = "list" + listNum + "_title";
+            let newTitle = document.getElementById(listId).value;
+            list[listNum].Title = newTitle;
+            //console.log(list);
+            renderList();
+        }
+
+        function removeItem(listNum,itemNum) {
+            list[listNum].Items.splice(itemNum,1);
+            renderList();
+        }
+
+        function updateItemText(listNum,itemNum) {
+            let itemId = "list" + listNum + "item" + itemNum + "_text";
+            let newItem = document.getElementById(itemId).value;
+            list[listNum].Items[itemNum].Item = newItem;
+            //console.log(list);
+            renderList();
+        }
+
+        function updateItemCheck(listNum,itemNum) {
+            let itemId = "list" + listNum + "item" + itemNum + "_check";
+            if (document.getElementById(itemId).checked === true) {
+                list[listNum].Items[itemNum].Checked = true;
+                console.log("True");
+            }
+            else {
+                list[listNum].Items[itemNum].Checked = false;
+                console.log("False");
+            }
+            console.log(list);
+            renderList();
+        }
+
+        function saveValues() {
+            localStorage.setItem("list", JSON.stringify(list));
+            console.log("Saved Data!");
+        }
+
+        function loadValues() {
+            if(localStorage.getItem("list")) {
+                console.log("Data loaded from storage");
+                list = JSON.parse(localStorage.getItem("list"));
+                console.log(list);
+            }
+        } 
+
+        function clearData () {
+            localStorage.clear();
+            location.reload();
+        }
+    </script>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            max-width: 100%;
+            width: 550px;
+            margin: 40px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color:lightgray;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 4px;
+            text-align: center;
+            width: 80px;
+            border: none;
+            margin: 10px;
+        }
+        .list_container {
+            margin: 0 0 60px 0;
+        }
+        .list_group {
+            background-color: bisque;
+            margin: 10px;
+            padding: 5px;
+        }
+        .list_title {
+            font-family: inherit;
+            font-size: 1.2em;
+            background-color: #faf1e5;
+            border: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .item_text {
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #faf1e5;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .strike {
+            text-decoration: line-through;
+        }
+        .list_check {
+            width: 18px;
+        }
+        .add_plus {
+            margin: 10px;
+        }
+        footer {
+            position:fixed;
+            bottom:0;
+            width:98%;
+            height:60px;
+            text-align: end;
+            z-index: -1;
+        }
+        @media screen and (max-width: 600px){
+        body {
+            width: auto;
+            margin: 0;
+            padding: 0 5px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>List Buddy</h2>
+    </header>
+    <main>
+        <button type="button" id="new_list_button" onclick="newList();">New List</button>
+        <button type="button" id="new_list_button" onclick="clearData();">Clear Data</button>
+        <div id="list_container" class="list_container"></div>
+    </main>
+    <footer>
+        <p>© Callum West 2022</p> 
+    </footer>
+    <script>
+        //Internet Explorer detection
+        if (window.document.documentMode) {
+            console.log("Incompatible browser detected");
+            alert("Sorry! This browser is not supported.");
+        }
+        else {
+            console.log("Compatible browser detected");
+        }
+        
+        loadValues();
+        renderList();
+    </script>
+</body>
+</html>
