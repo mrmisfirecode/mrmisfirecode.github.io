@@ -413,6 +413,14 @@
 
     </script>
     <style>
+        @keyframes player_roll {
+            from {color: white;}
+            to {color: limegreen;}
+        }
+        @keyframes monster_roll {
+            from {color: white;}
+            to {color: red;}
+        }
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color:#202020;
@@ -505,9 +513,13 @@
         }
         .report_result_player {
             color: limegreen;
+            animation-name: player_roll;
+            animation-duration: 1s;
         }
         .report_result_monster {
             color: red;
+            animation-name: monster_roll;
+            animation-duration: 1s;
         }
         .dice_space {
             background-color:#3d3d3d;
