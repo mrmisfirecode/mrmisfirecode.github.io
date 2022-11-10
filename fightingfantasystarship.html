@@ -460,12 +460,12 @@
                 Encounter12Input: document.getElementById("enc12_input").value
             }
             let saveData = JSON.stringify(sheetObj);
-            localStorage.setItem("data", saveData);
-            //console.log(localStorage.getItem("data"));
+            localStorage.setItem("data-star", saveData);
+            //console.log(localStorage.getItem("data-star"));
         }
 
         function loadInput() {
-            let saveData = JSON.parse(localStorage.getItem("data"));
+            let saveData = JSON.parse(localStorage.getItem("data-star"));
 
             document.getElementById("weapons_input").value = Weapons;
             document.getElementById("shields_input").value = Shields;
@@ -538,7 +538,7 @@
         function importSheet() {
             try {
                 let saveData = document.getElementById("import_box").value;
-                localStorage.setItem("data", saveData);
+                localStorage.setItem("data-star", saveData);
                 loadInput();
             }
             catch(err) {
@@ -547,8 +547,8 @@
         }
 
         function exportSheet() {
-            if (localStorage.getItem("data")) {
-                document.getElementById("import_box").value = localStorage.getItem("data");
+            if (localStorage.getItem("data-star")) {
+                document.getElementById("import_box").value = localStorage.getItem("data-star");
             }
             else {
                 document.getElementById("import_box").value = "Sheet empty!";
