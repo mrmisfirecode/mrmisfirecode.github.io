@@ -324,12 +324,12 @@
                 Encounter12Input: document.getElementById("enc12_input").value
             }
             let saveData = JSON.stringify(sheetObj);
-            localStorage.setItem("data", saveData);
-            //console.log(localStorage.getItem("data"));
+            localStorage.setItem("data-fear", saveData);
+            //console.log(localStorage.getItem("data-fear"));
         }
 
         function loadInput() {
-            let saveData = JSON.parse(localStorage.getItem("data"));
+            let saveData = JSON.parse(localStorage.getItem("data-fear"));
 
             document.getElementById("init_skill_input").value = saveData.InitSkill;
             document.getElementById("skill_input").value = saveData.Skill;
@@ -394,7 +394,7 @@
         function importSheet() {
             try {
                 let saveData = document.getElementById("import_box").value;
-                localStorage.setItem("data", saveData);
+                localStorage.setItem("data-fear", saveData);
                 loadInput();
             }
             catch(err) {
@@ -403,8 +403,8 @@
         }
 
         function exportSheet() {
-            if (localStorage.getItem("data")) {
-                document.getElementById("import_box").value = localStorage.getItem("data");
+            if (localStorage.getItem("data-fear")) {
+                document.getElementById("import_box").value = localStorage.getItem("data-fear");
             }
             else {
                 document.getElementById("import_box").value = "Sheet empty!";
