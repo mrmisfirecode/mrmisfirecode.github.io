@@ -326,12 +326,12 @@
                 Encounter12Input: document.getElementById("enc12_input").value
             }
             let saveData = JSON.stringify(sheetObj);
-            localStorage.setItem("data", saveData);
-            //console.log(localStorage.getItem("data"));
+            localStorage.setItem("data-magic", saveData);
+            //console.log(localStorage.getItem("data-magic"));
         }
 
         function loadInput() {
-            let saveData = JSON.parse(localStorage.getItem("data"));
+            let saveData = JSON.parse(localStorage.getItem("data-magic"));
 
             document.getElementById("name_input").value = saveData.Name;
             document.getElementById("init_skill_input").value = saveData.InitSkill;
@@ -398,7 +398,7 @@
         function importSheet() {
             try {
                 let saveData = document.getElementById("import_box").value;
-                localStorage.setItem("data", saveData);
+                localStorage.setItem("data-magic", saveData);
                 loadInput();
             }
             catch(err) {
@@ -407,8 +407,8 @@
         }
 
         function exportSheet() {
-            if (localStorage.getItem("data")) {
-                document.getElementById("import_box").value = localStorage.getItem("data");
+            if (localStorage.getItem("data-magic")) {
+                document.getElementById("import_box").value = localStorage.getItem("data-magic");
             }
             else {
                 document.getElementById("import_box").value = "Sheet empty!";
