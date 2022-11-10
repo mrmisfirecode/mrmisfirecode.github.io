@@ -461,29 +461,29 @@
             }
             let saveData = JSON.stringify(sheetObj);
             localStorage.setItem("data-star", saveData);
-            console.log(localStorage.getItem("data-star"));
+            //console.log(localStorage.getItem("data-star"));
         }
 
         function loadInput() {
             let saveData = JSON.parse(localStorage.getItem("data-star"));
 
-            document.getElementById("weapons_input").value = Weapons;
-            document.getElementById("shields_input").value = Shields;
-            document.getElementById("luck_input").value = Luck;
-            document.getElementById("captain_skill_input").value = CaptainSkill;
-            document.getElementById("captain_stamina_input").value = CaptainStamina;
-            document.getElementById("science_skill_input").value = ScienceSkill;
-            document.getElementById("science_stamina_input").value = ScienceStamina;
-            document.getElementById("medical_skill_input").value = MedicalSkill;
-            document.getElementById("medical_stamina_input").value = MedicalStamina;
-            document.getElementById("engineering_skill_input").value = EngineeringSkill;
-            document.getElementById("engineering_stamina_input").value = EngineeringStamina;
-            document.getElementById("security_skill_input").value = SecuritySkill;
-            document.getElementById("security_stamina_input").value = SecurityStamina;
-            document.getElementById("guard1_skill_input").value = Guard1Skill;
-            document.getElementById("guard1_stamina_input").value = Guard1Stamina;
-            document.getElementById("guard2_skill_input").value = Guard2Skill;
-            document.getElementById("guard2_stamina_input").value = Guard2Stamina;
+            document.getElementById("weapons_input").value = saveData.Weapons;
+            document.getElementById("shields_input").value = saveData.Shields;
+            document.getElementById("luck_input").value = saveData.Luck;
+            document.getElementById("captain_skill_input").value = saveData.CaptainSkill;
+            document.getElementById("captain_stamina_input").value = saveData.CaptainStamina;
+            document.getElementById("science_skill_input").value = saveData.ScienceSkill;
+            document.getElementById("science_stamina_input").value = saveData.ScienceStamina;
+            document.getElementById("medical_skill_input").value = saveData.MedicalSkill;
+            document.getElementById("medical_stamina_input").value = saveData.MedicalStamina;
+            document.getElementById("engineering_skill_input").value = saveData.EngineeringSkill;
+            document.getElementById("engineering_stamina_input").value = saveData.EngineeringStamina;
+            document.getElementById("security_skill_input").value = saveData.SecuritySkill;
+            document.getElementById("security_stamina_input").value = saveData.SecurityStamina;
+            document.getElementById("guard1_skill_input").value = saveData.Guard1Skill;
+            document.getElementById("guard1_stamina_input").value = saveData.Guard1Stamina;
+            document.getElementById("guard2_skill_input").value = saveData.Guard2Skill;
+            document.getElementById("guard2_stamina_input").value = saveData.Guard2Stamina;
             document.getElementById("notes_input").value = saveData.Notes;
 
             document.getElementById("enc1_skill_input").value = saveData.Encounter1Skill;
@@ -965,7 +965,6 @@
         }
 
         if (localStorage.getItem("data-star")) {
-            console.log("Hope");
             loadInput();
         }
     </script>
